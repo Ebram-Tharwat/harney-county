@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarneyCounty.Utilities", "HarneyCounty.Utilities\HarneyCounty.Utilities.csproj", "{88246D11-CC00-4F99-BA04-21E4EB37DF42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarneyCounty.Infrastructure.Core", "HarneyCounty.Infrastructure.Core\HarneyCounty.Infrastructure.Core.csproj", "{6E9E22C5-E3DA-4B73-B6AA-23B2AC1D90A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarneyCounty.Domain.Core", "HarneyCounty.Domain.Core\HarneyCounty.Domain.Core.csproj", "{C2327950-83C8-423D-A017-62B18E3B7C59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarneyCounty.Common", "HarneyCounty.Common\HarneyCounty.Common.csproj", "{22AB17C8-A178-4053-BD59-D6ECEA480F9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarneyCounty.Application.Core", "HarneyCounty.Application.Core\HarneyCounty.Application.Core.csproj", "{9D410BCF-142C-4B09-851C-905AE9F85641}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88246D11-CC00-4F99-BA04-21E4EB37DF42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88246D11-CC00-4F99-BA04-21E4EB37DF42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88246D11-CC00-4F99-BA04-21E4EB37DF42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88246D11-CC00-4F99-BA04-21E4EB37DF42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E9E22C5-E3DA-4B73-B6AA-23B2AC1D90A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E9E22C5-E3DA-4B73-B6AA-23B2AC1D90A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E9E22C5-E3DA-4B73-B6AA-23B2AC1D90A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E9E22C5-E3DA-4B73-B6AA-23B2AC1D90A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2327950-83C8-423D-A017-62B18E3B7C59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2327950-83C8-423D-A017-62B18E3B7C59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2327950-83C8-423D-A017-62B18E3B7C59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2327950-83C8-423D-A017-62B18E3B7C59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22AB17C8-A178-4053-BD59-D6ECEA480F9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22AB17C8-A178-4053-BD59-D6ECEA480F9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22AB17C8-A178-4053-BD59-D6ECEA480F9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22AB17C8-A178-4053-BD59-D6ECEA480F9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D410BCF-142C-4B09-851C-905AE9F85641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D410BCF-142C-4B09-851C-905AE9F85641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D410BCF-142C-4B09-851C-905AE9F85641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D410BCF-142C-4B09-851C-905AE9F85641}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

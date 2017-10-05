@@ -1,0 +1,5 @@
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\HarneyCounty.Application.Core.dll
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\HarneyCounty.Application.Core.pdb
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\obj\Debug\HarneyCounty.Application.Core.csprojResolveAssemblyReference.cache
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\obj\Debug\HarneyCounty.Application.Core.dll
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\obj\Debug\HarneyCounty.Application.Core.pdb
