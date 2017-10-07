@@ -3,3 +3,9 @@ D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastruct
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\obj\Debug\HarneyCounty.Infrastructure.Core.csprojResolveAssemblyReference.cache
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\obj\Debug\HarneyCounty.Infrastructure.Core.dll
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\obj\Debug\HarneyCounty.Infrastructure.Core.pdb
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\bin\Debug\HarneyCounty.Infrastructure.Core.dll.config
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\bin\Debug\EntityFramework.dll
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\bin\Debug\EntityFramework.SqlServer.dll
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\bin\Debug\EntityFramework.xml
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\bin\Debug\EntityFramework.SqlServer.xml
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\bin\Debug\Z.EntityFramework.Plus.EF6.dll
