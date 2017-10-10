@@ -37,6 +37,7 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,14 +51,84 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\HarneyCountyDbContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HarneyCountyDbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Mappings\AccountLegalCommentConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\AccountMasterConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\AccountMasterWithAccountSummaryViewConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\AccountSummaryConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\ChangeFileConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\CodeAreaConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\HarneyCountyDbMappings.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\ImprovementConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\LandAprsPropCharItemConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\MobileHomeConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\PropertyClassConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\SearchFileConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\ZipCodeFileConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EFRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="DAL\EF.Reverse.POCO.Core.ttinclude" />
+    <None Include="DAL\EF.Reverse.POCO.ttinclude" />
+    <None Include="Mappings\EF.Reverse.POCO.Core.ttinclude" />
+    <None Include="Mappings\EF.Reverse.POCO.ttinclude" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DAL\HarneyCountyDbContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HarneyCountyDbContext.cs</LastGenOutput>
+    </Content>
+    <Content Include="Mappings\HarneyCountyDbMappings.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HarneyCountyDbMappings.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HarneyCounty.Domain.Core\HarneyCounty.Domain.Core.csproj">
+      <Project>{c2327950-83c8-423d-a017-62b18e3b7c59}</Project>
+      <Name>HarneyCounty.Domain.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

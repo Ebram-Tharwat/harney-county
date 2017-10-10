@@ -37,6 +37,7 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,11 +48,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\AccountLegalComment.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountMaster.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountMasterWithAccountSummaryView.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountSummary.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChangeFile.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CodeArea.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HarneyCountyDbModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Improvement.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LandAprsPropCharItem.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MobileHome.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PropertyClass.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SearchFile.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ZipCodeFile.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Models\EF.Reverse.POCO.Core.ttinclude" />
+    <None Include="Models\EF.Reverse.POCO.ttinclude" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Models\HarneyCountyDbModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HarneyCountyDbModels.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
