@@ -35,7 +35,7 @@ namespace HarneyCounty.Infrastructure.Core.DAL
     {
         public System.Data.Entity.DbSet<AccountLegalComment> AccountLegalComments { get; set; }
         public System.Data.Entity.DbSet<AccountMaster> AccountMasters { get; set; }
-        public System.Data.Entity.DbSet<AccountMasterWithAccountSummaryView> AccountMasterWithAccountSummaryViews { get; set; }
+        public System.Data.Entity.DbSet<AccountMasterFullDetail> AccountMasterFullDetails { get; set; }
         public System.Data.Entity.DbSet<AccountSummary> AccountSummaries { get; set; }
         public System.Data.Entity.DbSet<ChangeFile> ChangeFiles { get; set; }
         public System.Data.Entity.DbSet<CodeArea> CodeAreas { get; set; }
@@ -96,7 +96,7 @@ namespace HarneyCounty.Infrastructure.Core.DAL
 
             modelBuilder.Configurations.Add(new AccountLegalCommentConfiguration());
             modelBuilder.Configurations.Add(new AccountMasterConfiguration());
-            modelBuilder.Configurations.Add(new AccountMasterWithAccountSummaryViewConfiguration());
+            modelBuilder.Configurations.Add(new AccountMasterFullDetailConfiguration());
             modelBuilder.Configurations.Add(new AccountSummaryConfiguration());
             modelBuilder.Configurations.Add(new ChangeFileConfiguration());
             modelBuilder.Configurations.Add(new CodeAreaConfiguration());
@@ -112,7 +112,7 @@ namespace HarneyCounty.Infrastructure.Core.DAL
         {
             modelBuilder.Configurations.Add(new AccountLegalCommentConfiguration(schema));
             modelBuilder.Configurations.Add(new AccountMasterConfiguration(schema));
-            modelBuilder.Configurations.Add(new AccountMasterWithAccountSummaryViewConfiguration(schema));
+            modelBuilder.Configurations.Add(new AccountMasterFullDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new AccountSummaryConfiguration(schema));
             modelBuilder.Configurations.Add(new ChangeFileConfiguration(schema));
             modelBuilder.Configurations.Add(new CodeAreaConfiguration(schema));

@@ -11,3 +11,4 @@ D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastruct
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\bin\Debug\Z.EntityFramework.Plus.EF6.dll
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\bin\Debug\HarneyCounty.Domain.Core.dll
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\bin\Debug\HarneyCounty.Domain.Core.pdb
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\bin\Debug\HarneyCounty.Domain.Core.dll.config

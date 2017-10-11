@@ -16,8 +16,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HarneyCounty.Domain.Core.Models
 {
 
-    [Table("AccountMasterWithAccountSummaryView", Schema = "dbo")]
-    public class AccountMasterWithAccountSummaryView
+    [Table("AccountMasterFullDetails", Schema = "dbo")]
+    public class AccountMasterFullDetail
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"AccountMasterId", Order = 1, TypeName = "int")]
@@ -442,6 +442,35 @@ namespace HarneyCounty.Domain.Core.Models
         [Column(@"MsavBaseMkt", Order = 86, TypeName = "numeric")]
         [Display(Name = "Msav base mkt")]
         public decimal? MsavBaseMkt { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Column(@"MobileHome_Id", Order = 87, TypeName = "int")]
+        [Required]
+        [Key]
+        [Display(Name = "Mobile home ID")]
+        public int MobileHomeId1 { get; set; }
+
+        [Column(@"MobileHomeId", Order = 88, TypeName = "decimal")]
+        [Display(Name = "Mobile home ID")]
+        public decimal? MobileHomeId { get; set; }
+
+        [Column(@"MhSerial", Order = 89, TypeName = "char")]
+        [MaxLength(15)]
+        [StringLength(15)]
+        [Display(Name = "Mh serial")]
+        public string MhSerial { get; set; }
+
+        [Column(@"MobHomeMnfr", Order = 90, TypeName = "char")]
+        [MaxLength(15)]
+        [StringLength(15)]
+        [Display(Name = "Mob home mnfr")]
+        public string MobHomeMnfr { get; set; }
+
+        [Column(@"XNmbr", Order = 91, TypeName = "char")]
+        [MaxLength(8)]
+        [StringLength(8)]
+        [Display(Name = "Xn mbr")]
+        public string XNmbr { get; set; }
     }
 
 }

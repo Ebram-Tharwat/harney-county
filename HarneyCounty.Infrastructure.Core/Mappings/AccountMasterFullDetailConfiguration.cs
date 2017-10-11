@@ -15,14 +15,14 @@ namespace HarneyCounty.Infrastructure.Core.Mappings
 {
     using HarneyCounty.Domain.Core.Models;
 
-    public class AccountMasterWithAccountSummaryViewConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<AccountMasterWithAccountSummaryView>
+    public class AccountMasterFullDetailConfiguration : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<AccountMasterFullDetail>
     {
-        public AccountMasterWithAccountSummaryViewConfiguration()
+        public AccountMasterFullDetailConfiguration()
             : this("dbo")
         {
         }
 
-        public AccountMasterWithAccountSummaryViewConfiguration(string schema)
+        public AccountMasterFullDetailConfiguration(string schema)
         {
             Property(x => x.AsmtYear).HasPrecision(4,0);
             Property(x => x.AcctNmbr).IsFixedLength().IsUnicode(false);
@@ -108,6 +108,9 @@ namespace HarneyCounty.Infrastructure.Core.Mappings
             Property(x => x.MsavBaseImprovements).IsOptional().HasPrecision(9,0);
             Property(x => x.MsavBaseManuStructure).IsOptional().HasPrecision(7,0);
             Property(x => x.MsavBaseMkt).IsOptional().HasPrecision(9,0);
+            Property(x => x.MobileHomeId).IsOptional().HasPrecision(6,0);
+            Property(x => x.MhSerial).IsOptional().IsFixedLength().IsUnicode(false);
+            Property(x => x.MobHomeMnfr).IsOptional().IsFixedLength().IsUnicode(false);
         }
     }
 

@@ -1,4 +1,5 @@
-﻿using HarneyCounty.Infrastructure.Core.Interfaces;
+﻿using HarneyCounty.Infrastructure.Core.DAL;
+using HarneyCounty.Infrastructure.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -13,7 +14,7 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
 {
     public class EFRepository<T> : IRepository<T>, IDisposable where T : class
     {
-        public EFRepository(DbContext dbContext)
+        public EFRepository(HarneyCountyDbContext dbContext)
         {
             if (dbContext == null)
                 throw new ArgumentNullException("dbContext");
@@ -23,7 +24,7 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
 
         #region Properties
 
-        protected DbContext _dbContext;
+        protected HarneyCountyDbContext _dbContext;
 
         protected DbSet<T> _dbSet;
 
