@@ -7,3 +7,8 @@ D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\EPPlus.xml
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\AutoMapper.dll
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\AutoMapper.xml
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\HarneyCounty.Domain.Core.dll
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\EntityFramework.dll
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\HarneyCounty.Domain.Core.pdb
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\HarneyCounty.Domain.Core.dll.config
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\EntityFramework.xml

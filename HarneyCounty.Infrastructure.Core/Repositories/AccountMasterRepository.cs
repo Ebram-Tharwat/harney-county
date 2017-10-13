@@ -12,12 +12,14 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
         {
         }
 
-        public List<AccountMasterFullDetail> SearchForAccounts(string accountNumber, decimal asmtYear, string ownerName = null
+        public List<AccountMasterFullDetail> SearchForAccounts(string accountNumber, decimal asmtYear, out int resultCount
+            , string ownerName = null
             , decimal? situsNumber = null, string situsSufx = null, string situsDir = null, string situsName = null, string situsZip = null
             , string subDivCode = null, decimal? lotNumber = null, decimal? blockNumber = null
             , string specAlph = null, decimal? specNumber = null
             , string xNumber = null, decimal? mobileHomeId = null, string mobHomeMnfr = null, string mhSerial = null
-            , string propCode = null, string codeArea = null)
+            , string propCode = null, string codeArea = null
+            , int pageNumber = 1, int pageSize = 50)
         {
             IQueryable<AccountMasterFullDetail> query = _dbContext.AccountMasterFullDetails;
             if (!string.IsNullOrWhiteSpace(accountNumber))
@@ -77,7 +79,18 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
             if (!string.IsNullOrWhiteSpace(codeArea))
                 query = query.Where(t => t.CodeAreaCode == codeArea);
 
-            return query.ToList();
+            if (pageNumber > 0)
+            {
+                var result = query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+                resultCount = query.Count();
+                return result;
+            }
+            else
+            {
+                var result = query.ToList();
+                resultCount = result.Count;
+                return result;
+            }
         }
     }
 }
