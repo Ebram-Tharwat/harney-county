@@ -12,3 +12,7 @@ D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\HarneyCounty.Domain.Core.pdb
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\HarneyCounty.Domain.Core.dll.config
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\EntityFramework.xml
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\HarneyCounty.Infrastructure.Core.dll
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\Z.EntityFramework.Plus.EF6.dll
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\HarneyCounty.Infrastructure.Core.pdb
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\HarneyCounty.Infrastructure.Core.dll.config

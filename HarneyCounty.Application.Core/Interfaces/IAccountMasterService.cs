@@ -9,6 +9,6 @@ namespace HarneyCounty.Application.Core.Interfaces
 {
     public interface IAccountMasterService
     {
-        List<AccountMasterFullDetail> SearchForAccounts(out int resultCount, int pageNumber, int? pageSize = null);
+        List<AccountMasterFullDetail> SearchForAccounts(int pageNumber = 1, int? pageSize = null);
     }
 }

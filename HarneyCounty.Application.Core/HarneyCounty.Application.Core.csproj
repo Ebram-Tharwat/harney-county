@@ -51,17 +51,21 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Interfaces\IAccountMasterService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AccountMasterService.cs" />
+    <Compile Include="ViewModels\Paging\PagingInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\HarneyCounty.Domain.Core\HarneyCounty.Domain.Core.csproj">
       <Project>{C2327950-83C8-423D-A017-62B18E3B7C59}</Project>
       <Name>HarneyCounty.Domain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HarneyCounty.Infrastructure.Core\HarneyCounty.Infrastructure.Core.csproj">
+      <Project>{6E9E22C5-E3DA-4B73-B6AA-23B2AC1D90A2}</Project>
+      <Name>HarneyCounty.Infrastructure.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
