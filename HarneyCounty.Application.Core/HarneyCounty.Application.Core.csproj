@@ -55,7 +55,6 @@
     <Compile Include="Interfaces\IAccountMasterService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountMasterService.cs" />
-    <Compile Include="ViewModels\Paging\PagingInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

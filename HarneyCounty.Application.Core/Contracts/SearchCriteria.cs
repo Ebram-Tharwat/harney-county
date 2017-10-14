@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace HarneyCounty.Application.Core.Contracts
 {
     public class SearchCriteria
     {
-        //ToDo ask spud about Map # / Spec name of the columns in the database
-
         [Display(Name = "Account Number")]
-        public int? AccountNumber { get; set; }
+        public string AccountNumber { get; set; }
 
-        [Range(1900, 2030)]
+        [Range(1900, 2050)]
         public int Year { get; set; }
 
         public string OwnerName { get; set; }

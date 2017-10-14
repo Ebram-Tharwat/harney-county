@@ -14,7 +14,7 @@ namespace HarneyCounty.Web.App_Start
         {
             Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<AccountMasterFullDetail, Data>()
+                cfg.CreateMap<AccountMasterFullDetail, AccountMasterViewModel>()
                 .ForMember(dest => dest.OwnerName, opt => opt.MapFrom(src => src.OwnerName))
                 .ForMember(dest => dest.AccountNumber, opt => opt.MapFrom(src => src.AcctNmbr))
                 .ForMember(dest => dest.Flg , opt => opt.MapFrom(src => src.CareOfFlag))

@@ -1,20 +1,16 @@
 ﻿using HarneyCounty.Application.Core.Contracts;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace HarneyCounty.Web.ViewModel
 {
     public class HomePageViewModel
     {
         public SearchCriteria SearchCriteria { get; set; }
-        public List<Data> Data { get; set; }
-        
+        public List<AccountMasterViewModel> Data { get; set; }
     }
 
-    public class Data
+    public class AccountMasterViewModel
     {
         [Display(Name = "Account Number")]
         public int AccountNumber { get; set; }
@@ -32,6 +28,4 @@ namespace HarneyCounty.Web.ViewModel
 
         public string Rl { get; set; }
     }
-
-   
 }

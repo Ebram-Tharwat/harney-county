@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HarneyCounty.Application.Core.Contracts.Paging
+﻿namespace HarneyCounty.Application.Core.Contracts.Paging
 {
     public class PagingInfo
     {
@@ -13,9 +7,5 @@ namespace HarneyCounty.Application.Core.Contracts.Paging
         public int PageNumber { get; set; }
 
         public int Total { get; set; }
-
-        public string SearchOption { get; set; }
-
-        public string SearchValue { get; set; }
     }
 }

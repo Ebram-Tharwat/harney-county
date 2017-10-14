@@ -1,215 +1,227 @@
 ﻿@using X.PagedList
 @using X.PagedList.Mvc
-@using HarneyCounty.Web.ViewModel;
 @using HarneyCounty.Application.Core.Contracts;
-@model IEnumerable<HarneyCounty.Web.ViewModel.Data>
+@model IEnumerable<HarneyCounty.Web.ViewModel.AccountMasterViewModel>
 
 @{
     ViewBag.Title = "Search";
     var filterViewModel = ViewBag.FilterViewModel as SearchCriteria;
+    var displayResults = (bool)ViewBag.DisplayResults;
 }
 
 <h2>Search</h2>
 
-<div>
-    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
-    {
-        <div class="form-horizontal">
-            <hr />
-            @Html.ValidationSummary(true)
-            <div class="form-group">
-                @Html.LabelFor(model => filterViewModel.AccountNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => filterViewModel.AccountNumber)
-                    @Html.ValidationMessageFor(model =>filterViewModel.AccountNumber, "", new { @class = "text-danger" })
+<div class="row">
+    <div class="col-xs-12">
+        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+        {
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true)
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.AccountNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.AccountNumber, null, "accountnumber", new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => filterViewModel.AccountNumber, "", new { @class = "text-danger", data_valmsg_for = "accountnumber" })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => filterViewModel.Year, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => filterViewModel.Year)
-                    @Html.ValidationMessageFor(model => filterViewModel.AccountNumber, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.Year, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.Year, null, "year", new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => filterViewModel.AccountNumber, "", new { @class = "text-danger", data_valmsg_for = "year" })
+                    </div>
                 </div>
-            </div>
 
 
-            <div class="form-group">
-                @Html.LabelFor(model => filterViewModel.OwnerName, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => filterViewModel.OwnerName)
-                    @Html.ValidationMessageFor(model=>filterViewModel.OwnerName, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.OwnerName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.OwnerName, null, "ownername", new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => filterViewModel.OwnerName, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => filterViewModel.SitusNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => filterViewModel.SitusNumber)
-                    @Html.ValidationMessageFor(model => filterViewModel.SitusNumber, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.SitusNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.SitusNumber, null, "situsnumber", new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => filterViewModel.SitusNumber, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => filterViewModel.SitusNumberSuffix, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => filterViewModel.SitusNumberSuffix)
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.SitusNumberSuffix, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.SitusNumberSuffix, null, "situsnumbersuffix", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => filterViewModel.SitusDirectory, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => filterViewModel.SitusDirectory)
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.SitusDirectory, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.SitusDirectory, null, "situsdirectory", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => filterViewModel.SitusZipCode, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => filterViewModel.SitusZipCode)
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.SitusZipCode, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.SitusZipCode, null, "situszipcode", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => filterViewModel.SubDivCode, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => filterViewModel.SubDivCode)
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.SubDivCode, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.SubDivCode, null, "subdivcode", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => filterViewModel.LotNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => filterViewModel.LotNumber)
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.LotNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.LotNumber, null, "lotnumber", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => filterViewModel.BlockNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => filterViewModel.BlockNumber)
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.BlockNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.BlockNumber, null, "blocknumber", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => filterViewModel.XNmbr, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => filterViewModel.XNmbr)
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.XNmbr, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.XNmbr, null, "xnmbr", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => filterViewModel.MobileHomeId, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => filterViewModel.MobileHomeId)
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.MobileHomeId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.MobileHomeId, null, "mobilehomeid", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => filterViewModel.MobHomeMnfr, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => filterViewModel.MobHomeMnfr)
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.MobHomeMnfr, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.MobHomeMnfr, null, "mobhomemnfr", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => filterViewModel.MHSerial, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => filterViewModel.MHSerial)
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.MHSerial, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.MHSerial, null, "mhserial", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => filterViewModel.CodeArea, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => filterViewModel.CodeArea)
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.CodeArea, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.CodeArea, null, "codearea", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => filterViewModel.PropertyClass, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => filterViewModel.PropertyClass)
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.PropertyClass, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.PropertyClass, null, "propertyclass", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Filter" class="btn btn-default" />
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Filter" class="btn btn-default" />
+                    </div>
                 </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 </div>
+@if (displayResults)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OwnerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prop)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rl)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.AccountNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OwnerName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Flg)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Prop)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Code)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rl)
-        </th>
-        <th></th>
-    </tr>
-
-    @if (Model != null && Model.Any())
-    {
-        foreach (var item in Model)
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OwnerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Flg)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prop)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rl)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.AccountNumber })
+                    </td>
+                </tr>
+            }
+        }
+        else
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AccountNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OwnerName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Flg)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Prop)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Code)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Rl)
-                </td>
-                <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.AccountNumber }) |
+                <td colspan="7">
+                    <h4>
+                        <span class="label label-info">No data match the search criteria!</span>
+                    </h4>
                 </td>
             </tr>
         }
-    }
-    else
-    {
-        <tr>
-            <td colspan="5">
-                <h4>
-                    <span class="label label-info">No data match the search criteria!</span>
-                </h4>
-            </td>
-        </tr>
-    }
-</table>
-@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new
-{
-    page,
-    option = Request.QueryString["option"],
-    search = Request.QueryString["search"]
+    </table>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page, accountnumber = filterViewModel.AccountNumber,
+    year = filterViewModel.Year,
+    ownername = filterViewModel.OwnerName,
+    situsnumber = filterViewModel.SitusNumber,
+    situsnumbersuffix = filterViewModel.SitusNumberSuffix,
+    situsdirectory = filterViewModel.SitusDirectory,
+    situszipcode = filterViewModel.SitusZipCode,
+    subdivcode = filterViewModel.SubDivCode,
+    lotnumber = filterViewModel.LotNumber,
+    blocknumber = filterViewModel.BlockNumber,
+    xnmbr = filterViewModel.XNmbr,
+    mobilehomeid = filterViewModel.MobileHomeId,
+    mobhomemnfr = filterViewModel.MobHomeMnfr,
+    mhserial= filterViewModel.MHSerial,
+    codearea = filterViewModel.CodeArea,
+    propertyclass = filterViewModel.PropertyClass
 }))
+}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
