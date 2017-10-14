@@ -29,3 +29,32 @@ D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Utilities\b
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Infrastructure.Core.dll.config
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Domain.Core.pdb
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Domain.Core.dll.config
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Utilities.dll.config
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Utilities.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Utilities.pdb
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\EntityFramework.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\EntityFramework.SqlServer.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Application.Core.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Infrastructure.Core.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\Ninject.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\Ninject.Web.Common.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\Ninject.Web.Mvc.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\WebActivatorEx.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Domain.Core.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\Z.EntityFramework.Plus.EF6.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Application.Core.pdb
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Infrastructure.Core.pdb
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\EntityFramework.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\EntityFramework.SqlServer.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\Ninject.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\Ninject.Web.Common.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\Ninject.Web.Mvc.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Domain.Core.pdb
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\obj\Debug\HarneyCounty.Utilities.csprojResolveAssemblyReference.cache
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\obj\Debug\HarneyCounty.Utilities.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\obj\Debug\HarneyCounty.Utilities.pdb

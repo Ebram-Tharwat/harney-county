@@ -1,4 +1,7 @@
-﻿@using HarneyCounty.Web.ViewModel;
+﻿@using X.PagedList
+@using X.PagedList.Mvc
+@using HarneyCounty.Web.ViewModel;
+@using HarneyCounty.Application.Core.Contracts;
 @model IEnumerable<HarneyCounty.Web.ViewModel.Data>
 
 @{
@@ -140,23 +143,74 @@
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prop)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rl)
+        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @item.Id
-        </td>
-        <td>
-            @item.Name
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
-
+    @if (Model != null && Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OwnerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Flg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prop)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rl)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.AccountNumber }) |
+                </td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td colspan="5">
+                <h4>
+                    <span class="label label-info">No data match the search criteria!</span>
+                </h4>
+            </td>
+        </tr>
+    }
 </table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new
+{
+    page,
+    option = Request.QueryString["option"],
+    search = Request.QueryString["search"]
+}))
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

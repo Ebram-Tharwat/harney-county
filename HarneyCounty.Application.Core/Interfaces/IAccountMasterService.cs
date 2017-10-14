@@ -1,4 +1,5 @@
-﻿using HarneyCounty.Domain.Core.Models;
+﻿using HarneyCounty.Application.Core.Contracts;
+using HarneyCounty.Domain.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace HarneyCounty.Application.Core.Interfaces
 {
     public interface IAccountMasterService
     {
-        List<AccountMasterFullDetail> SearchForAccounts(int pageNumber = 1, int? pageSize = null);
+        List<AccountMasterFullDetail> SearchForAccounts(SearchCriteria searchCriteria, int pageNumber = 1, int? pageSize = null);
     }
 }

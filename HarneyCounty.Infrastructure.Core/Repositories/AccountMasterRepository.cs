@@ -23,10 +23,10 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
         {
             IQueryable<AccountMasterFullDetail> query = _dbContext.AccountMasterFullDetails;
             if (!string.IsNullOrWhiteSpace(accountNumber))
-                query = query.Where(t => t.AcctNmbr == accountNumber);
+                query = query.Where(t => t.AcctNmbr.Trim() == accountNumber.Trim());
 
             if (asmtYear > 0)
-                query = query.Where(t => t.AsmtYear == asmtYear);
+                query = query.Where(t => t.AsmtYear.ToString() == asmtYear.ToString());
 
             if (!string.IsNullOrWhiteSpace(ownerName))
                 query = query.Where(t => t.OwnerName == ownerName);
@@ -81,7 +81,7 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
 
             if (pageNumber > 0)
             {
-                var result = query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+                var result = query.OrderBy(x=>x.AcctNmbr).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
                 resultCount = query.Count();
                 return result;
             }
