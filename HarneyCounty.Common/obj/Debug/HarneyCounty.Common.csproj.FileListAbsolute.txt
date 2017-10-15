@@ -7,3 +7,12 @@ D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Common\bin\
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Common\bin\Debug\EPPlus.xml
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Common\bin\Debug\Newtonsoft.Json.dll
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Common\bin\Debug\Newtonsoft.Json.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Common\bin\Debug\HarneyCounty.Common.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Common\bin\Debug\HarneyCounty.Common.pdb
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Common\bin\Debug\EPPlus.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Common\bin\Debug\Newtonsoft.Json.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Common\bin\Debug\EPPlus.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Common\bin\Debug\Newtonsoft.Json.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Common\obj\Debug\HarneyCounty.Common.csprojResolveAssemblyReference.cache
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Common\obj\Debug\HarneyCounty.Common.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Common\obj\Debug\HarneyCounty.Common.pdb

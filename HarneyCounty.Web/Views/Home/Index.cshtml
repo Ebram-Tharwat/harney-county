@@ -87,6 +87,60 @@
                         @Html.EditorFor(model => filterViewModel.BlockNumber, null, "blocknumber", new { htmlAttributes = new { @class = "form-control" } })
                     </div>
                 </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.Twnshp, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.Twnshp, null, "twnshp", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.TwnshpDir, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.TwnshpDir, null, "twnshpdir", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.Range, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.Range, null, "range", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.RangDir, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.RangDir, null, "rangdir", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.Sctn, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.Sctn, null, "sctn", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.QtrSctn, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.QtrSctn, null, "qtrsctn", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.Prcl, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.Prcl, null, "prcl", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.SpecIntAlph, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.SpecIntAlph, null, "specintalph", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => filterViewModel.SpecIntNmbr, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => filterViewModel.SpecIntNmbr, null, "specintnmbr", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
 
                 <div class="form-group">
                     @Html.LabelFor(model => filterViewModel.XNmbr, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -153,6 +207,9 @@
                 @Html.DisplayNameFor(model => model.Flg)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.MapId)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Prop)
             </th>
             <th>
@@ -177,6 +234,9 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Flg)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MapId)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Prop)
@@ -214,6 +274,15 @@
     subdivcode = filterViewModel.SubDivCode,
     lotnumber = filterViewModel.LotNumber,
     blocknumber = filterViewModel.BlockNumber,
+    twnshp = filterViewModel.Twnshp,
+    twnshpdir = filterViewModel.TwnshpDir,
+    range = filterViewModel.Range,
+    rangdir = filterViewModel.RangDir,
+    sctn =filterViewModel.Sctn,
+    qtrsctn = filterViewModel.QtrSctn,
+    prcl = filterViewModel.Prcl,
+    specintalph = filterViewModel.SpecIntAlph,
+    specintnmbr = filterViewModel.SpecIntNmbr,
     xnmbr = filterViewModel.XNmbr,
     mobilehomeid = filterViewModel.MobileHomeId,
     mobhomemnfr = filterViewModel.MobHomeMnfr,

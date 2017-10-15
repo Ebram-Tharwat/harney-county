@@ -8,3 +8,12 @@ D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Domain.Core
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Domain.Core\bin\Debug\EntityFramework.SqlServer.dll
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Domain.Core\bin\Debug\EntityFramework.xml
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Domain.Core\bin\Debug\EntityFramework.SqlServer.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\bin\Debug\HarneyCounty.Domain.Core.dll.config
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\bin\Debug\HarneyCounty.Domain.Core.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\bin\Debug\HarneyCounty.Domain.Core.pdb
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\bin\Debug\EntityFramework.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\bin\Debug\EntityFramework.SqlServer.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\bin\Debug\EntityFramework.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\bin\Debug\EntityFramework.SqlServer.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\obj\Debug\HarneyCounty.Domain.Core.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\obj\Debug\HarneyCounty.Domain.Core.pdb

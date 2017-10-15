@@ -12,3 +12,16 @@ D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastruct
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\bin\Debug\HarneyCounty.Domain.Core.dll
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\bin\Debug\HarneyCounty.Domain.Core.pdb
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\bin\Debug\HarneyCounty.Domain.Core.dll.config
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\bin\Debug\HarneyCounty.Infrastructure.Core.dll.config
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\bin\Debug\HarneyCounty.Infrastructure.Core.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\bin\Debug\HarneyCounty.Infrastructure.Core.pdb
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\bin\Debug\EntityFramework.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\bin\Debug\EntityFramework.SqlServer.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\bin\Debug\HarneyCounty.Domain.Core.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\bin\Debug\Z.EntityFramework.Plus.EF6.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\bin\Debug\HarneyCounty.Domain.Core.pdb
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\bin\Debug\EntityFramework.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\bin\Debug\EntityFramework.SqlServer.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\obj\Debug\HarneyCounty.Infrastructure.Core.csprojResolveAssemblyReference.cache
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\obj\Debug\HarneyCounty.Infrastructure.Core.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\obj\Debug\HarneyCounty.Infrastructure.Core.pdb

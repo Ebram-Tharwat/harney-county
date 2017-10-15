@@ -15,7 +15,8 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
         public List<AccountMasterFullDetail> SearchForAccounts(string accountNumber, decimal asmtYear, out int resultCount
             , string ownerName = null
             , decimal? situsNumber = null, string situsSufx = null, string situsDir = null, string situsName = null, string situsZip = null
-            , string subDivCode = null, decimal? lotNumber = null, decimal? blockNumber = null
+            , string subDivCode = null, decimal? lotNumber = null, decimal? blockNumber = null, int? townShip = null, string townshipDirection = null
+            , string range = null, string rangeDirection = null, int? section = 0, string quarterSection = null, int? parcel = null, string specialInterestAlpha = null, int? specialInterestNumber = 0
             , string specAlph = null, decimal? specNumber = null
             , string xNumber = null, decimal? mobileHomeId = null, string mobHomeMnfr = null, string mhSerial = null
             , string propCode = null, string codeArea = null
@@ -49,6 +50,33 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
             if (!string.IsNullOrWhiteSpace(subDivCode))
                 query = query.Where(t => t.SbdvnCode == subDivCode);
 
+            if (townShip.HasValue)
+                query = query.Where(t => t.Twnshp == townShip.Value);
+
+            if (!string.IsNullOrWhiteSpace(townshipDirection))
+                query = query.Where(t => t.TwnshpDir == townshipDirection);
+
+            if (!string.IsNullOrWhiteSpace(range))
+                query = query.Where(t => t.Range == range);
+
+            if (!string.IsNullOrWhiteSpace(rangeDirection))
+                query = query.Where(t => t.RangDir == range);
+
+            if (section.HasValue)
+                query = query.Where(t => t.Sctn == section.Value);
+
+            if (!string.IsNullOrWhiteSpace(quarterSection))
+                query = query.Where(t => t.QtrSctn == quarterSection);
+
+            if (parcel.HasValue)
+                query = query.Where(t => t.Prcl == parcel.Value);
+
+            if (!string.IsNullOrWhiteSpace(specialInterestAlpha))
+                query = query.Where(t => t.SpecIntAlph == specialInterestAlpha);
+
+            if (specialInterestNumber.HasValue)
+                query = query.Where(t => t.SpecIntNmbr == specialInterestNumber);
+
             if (lotNumber.HasValue)
                 query = query.Where(t => t.LotNmbr == lotNumber);
 
@@ -81,7 +109,7 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
 
             if (pageNumber > 0)
             {
-                var result = query.OrderBy(x=>x.AcctNmbr).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+                var result = query.OrderBy(x => x.AcctNmbr).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
                 resultCount = query.Count();
                 return result;
             }
