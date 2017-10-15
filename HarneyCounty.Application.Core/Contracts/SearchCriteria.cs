@@ -10,6 +10,7 @@ namespace HarneyCounty.Application.Core.Contracts
         [Range(1900, 2050)]
         public int Year { get; set; }
 
+        [Display(Name = "Owner Name")]
         public string OwnerName { get; set; }
 
         [Display(Name = "Township")]
