@@ -16,8 +16,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HarneyCounty.Domain.Core.Models
 {
 
-    [Table("ZipCodeFile", Schema = "dbo")]
-    public class ZipCodeFile
+    [Table("LandClass", Schema = "dbo")]
+    public class LandClass
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
@@ -27,31 +27,31 @@ namespace HarneyCounty.Domain.Core.Models
         public int Id { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"ZipCode", Order = 2, TypeName = "char")]
+        [Column(@"LandClassCode", Order = 2, TypeName = "char")]
         [Required]
-        [MaxLength(10)]
-        [StringLength(10)]
+        [MaxLength(6)]
+        [StringLength(6)]
         [Key]
-        [Display(Name = "Zip code")]
-        public string ZipCode { get; set; }
+        [Display(Name = "Land class code")]
+        public string LandClassCode { get; set; }
 
-        [Column(@"City", Order = 3, TypeName = "char")]
-        [MaxLength(25)]
-        [StringLength(25)]
-        [Display(Name = "City")]
-        public string City { get; set; }
+        [Column(@"LandClassDescription", Order = 3, TypeName = "char")]
+        [MaxLength(30)]
+        [StringLength(30)]
+        [Display(Name = "Land class description")]
+        public string LandClassDescription { get; set; }
 
-        [Column(@"State", Order = 4, TypeName = "char")]
-        [MaxLength(2)]
-        [StringLength(2)]
-        [Display(Name = "State")]
-        public string State { get; set; }
+        [Column(@"TrendingTableToUse", Order = 4, TypeName = "char")]
+        [MaxLength(1)]
+        [StringLength(1)]
+        [Display(Name = "Trending table to use")]
+        public string TrendingTableToUse { get; set; }
 
-        [Column(@"Country", Order = 5, TypeName = "char")]
-        [MaxLength(25)]
-        [StringLength(25)]
-        [Display(Name = "Country")]
-        public string Country { get; set; }
+        [Column(@"MsavTablesStatus", Order = 5, TypeName = "char")]
+        [MaxLength(1)]
+        [StringLength(1)]
+        [Display(Name = "Msav tables status")]
+        public string MsavTablesStatus { get; set; }
     }
 
 }

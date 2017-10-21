@@ -16,8 +16,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HarneyCounty.Domain.Core.Models
 {
 
-    [Table("AccountLegalComments", Schema = "dbo")]
-    public class AccountLegalComment
+    [Table("EtAlNames", Schema = "dbo")]
+    public class EtAlName
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
@@ -43,36 +43,21 @@ namespace HarneyCounty.Domain.Core.Models
         public string AcctNmbr { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"CommentLegalFlag", Order = 4, TypeName = "char")]
-        [Required]
-        [MaxLength(1)]
-        [StringLength(1)]
-        [Key]
-        [Display(Name = "Comment legal flag")]
-        public string CommentLegalFlag { get; set; }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"Sequence5", Order = 5, TypeName = "decimal")]
+        [Column(@"EtAlSequence", Order = 4, TypeName = "decimal")]
         [Required]
         [Key]
-        [Display(Name = "Sequence 5")]
-        public decimal Sequence5 { get; set; }
+        [Display(Name = "Et al sequence")]
+        public decimal EtAlSequence { get; set; }
 
-        [Column(@"AcctCommDate", Order = 6, TypeName = "date")]
-        [Display(Name = "Acct comm date")]
-        public System.DateTime? AcctCommDate { get; set; }
+        [Column(@"EtAlName", Order = 5, TypeName = "char")]
+        [MaxLength(35)]
+        [StringLength(35)]
+        [Display(Name = "Et al name")]
+        public string EtAlName_ { get; set; }
 
-        [Column(@"CommLegalText", Order = 7, TypeName = "char")]
-        [MaxLength(70)]
-        [StringLength(70)]
-        [Display(Name = "Comm legal text")]
-        public string CommLegalText { get; set; }
-
-        [Column(@"NonDsplyFlag", Order = 8, TypeName = "char")]
-        [MaxLength(1)]
-        [StringLength(1)]
-        [Display(Name = "Non dsply flag")]
-        public string NonDsplyFlag { get; set; }
+        [Column(@"EtAlPercentage", Order = 6, TypeName = "decimal")]
+        [Display(Name = "Et al percentage")]
+        public decimal? EtAlPercentage { get; set; }
     }
 
 }

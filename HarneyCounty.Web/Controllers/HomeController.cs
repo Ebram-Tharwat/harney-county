@@ -35,6 +35,13 @@ namespace HarneyCounty.Web.Controllers
 
             ViewBag.FilterViewModel = filter;
             var viewmodel = entities.ToMappedPagedList<AccountMasterFullDetail, AccountMasterViewModel>(pagingInfo);
+            if(viewmodel!= null && viewmodel.Any() && string.IsNullOrWhiteSpace(filter.AccountNumber) || string.IsNullOrWhiteSpace(filter.OwnerName))
+            {
+                foreach (var item in viewmodel)
+                {
+                    item.OwnerName = item.CareOfFlag == "%" ? item.CareOfName : item.OwnerName;
+                }
+            }
             return View(viewmodel);
         }
     }

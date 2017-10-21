@@ -16,8 +16,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HarneyCounty.Domain.Core.Models
 {
 
-    [Table("AccountLegalComments", Schema = "dbo")]
-    public class AccountLegalComment
+    [Table("FlaggingDetail", Schema = "dbo")]
+    public class FlaggingDetail
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
@@ -43,36 +43,39 @@ namespace HarneyCounty.Domain.Core.Models
         public string AcctNmbr { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"CommentLegalFlag", Order = 4, TypeName = "char")]
-        [Required]
-        [MaxLength(1)]
-        [StringLength(1)]
-        [Key]
-        [Display(Name = "Comment legal flag")]
-        public string CommentLegalFlag { get; set; }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"Sequence5", Order = 5, TypeName = "decimal")]
+        [Column(@"Sequence", Order = 4, TypeName = "decimal")]
         [Required]
         [Key]
-        [Display(Name = "Sequence 5")]
-        public decimal Sequence5 { get; set; }
+        [Display(Name = "Sequence")]
+        public decimal Sequence { get; set; }
 
-        [Column(@"AcctCommDate", Order = 6, TypeName = "date")]
-        [Display(Name = "Acct comm date")]
-        public System.DateTime? AcctCommDate { get; set; }
+        [Column(@"FlaggingDetailYear", Order = 5, TypeName = "decimal")]
+        [Display(Name = "Flagging detail year")]
+        public decimal? FlaggingDetailYear { get; set; }
 
-        [Column(@"CommLegalText", Order = 7, TypeName = "char")]
-        [MaxLength(70)]
-        [StringLength(70)]
-        [Display(Name = "Comm legal text")]
-        public string CommLegalText { get; set; }
+        [Column(@"FlagComment", Order = 6, TypeName = "char")]
+        [MaxLength(60)]
+        [StringLength(60)]
+        [Display(Name = "Flag comment")]
+        public string FlagComment { get; set; }
 
-        [Column(@"NonDsplyFlag", Order = 8, TypeName = "char")]
-        [MaxLength(1)]
-        [StringLength(1)]
-        [Display(Name = "Non dsply flag")]
-        public string NonDsplyFlag { get; set; }
+        [Column(@"FlagStartDate", Order = 7, TypeName = "date")]
+        [Display(Name = "Flag start date")]
+        public System.DateTime? FlagStartDate { get; set; }
+
+        [Column(@"FlagEndDate", Order = 8, TypeName = "date")]
+        [Display(Name = "Flag end date")]
+        public System.DateTime? FlagEndDate { get; set; }
+
+        [Column(@"FlagPotentialTaxLiab", Order = 9, TypeName = "decimal")]
+        [Display(Name = "Flag potential tax liab")]
+        public decimal? FlagPotentialTaxLiab { get; set; }
+
+        [Column(@"FlaggingCode", Order = 10, TypeName = "char")]
+        [MaxLength(4)]
+        [StringLength(4)]
+        [Display(Name = "Flagging code")]
+        public string FlaggingCode { get; set; }
     }
 
 }

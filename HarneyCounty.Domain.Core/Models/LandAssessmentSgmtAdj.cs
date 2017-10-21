@@ -16,8 +16,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HarneyCounty.Domain.Core.Models
 {
 
-    [Table("AccountLegalComments", Schema = "dbo")]
-    public class AccountLegalComment
+    [Table("LandAssessmentSgmtAdjs", Schema = "dbo")]
+    public class LandAssessmentSgmtAdj
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
@@ -43,36 +43,41 @@ namespace HarneyCounty.Domain.Core.Models
         public string AcctNmbr { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"CommentLegalFlag", Order = 4, TypeName = "char")]
+        [Column(@"LandTypeMS", Order = 4, TypeName = "char")]
         [Required]
         [MaxLength(1)]
         [StringLength(1)]
         [Key]
-        [Display(Name = "Comment legal flag")]
-        public string CommentLegalFlag { get; set; }
+        [Display(Name = "Land type ms")]
+        public string LandTypeMs { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"Sequence5", Order = 5, TypeName = "decimal")]
+        [Column(@"LandApprSeq", Order = 5, TypeName = "decimal")]
         [Required]
         [Key]
-        [Display(Name = "Sequence 5")]
-        public decimal Sequence5 { get; set; }
+        [Display(Name = "Land appr seq")]
+        public decimal LandApprSeq { get; set; }
 
-        [Column(@"AcctCommDate", Order = 6, TypeName = "date")]
-        [Display(Name = "Acct comm date")]
-        public System.DateTime? AcctCommDate { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Column(@"Sequence", Order = 6, TypeName = "decimal")]
+        [Required]
+        [Key]
+        [Display(Name = "Sequence")]
+        public decimal Sequence { get; set; }
 
-        [Column(@"CommLegalText", Order = 7, TypeName = "char")]
-        [MaxLength(70)]
-        [StringLength(70)]
-        [Display(Name = "Comm legal text")]
-        public string CommLegalText { get; set; }
+        [Column(@"LandSgmtAdjst", Order = 7, TypeName = "numeric")]
+        [Display(Name = "Land sgmt adjst")]
+        public decimal? LandSgmtAdjst { get; set; }
 
-        [Column(@"NonDsplyFlag", Order = 8, TypeName = "char")]
-        [MaxLength(1)]
-        [StringLength(1)]
-        [Display(Name = "Non dsply flag")]
-        public string NonDsplyFlag { get; set; }
+        [Column(@"LandSgmtAdjstPct", Order = 8, TypeName = "decimal")]
+        [Display(Name = "Land sgmt adjst pct")]
+        public decimal? LandSgmtAdjstPct { get; set; }
+
+        [Column(@"PropCharCode", Order = 9, TypeName = "char")]
+        [MaxLength(5)]
+        [StringLength(5)]
+        [Display(Name = "Prop char code")]
+        public string PropCharCode { get; set; }
     }
 
 }

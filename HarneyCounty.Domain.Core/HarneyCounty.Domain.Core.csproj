@@ -66,6 +66,21 @@
     <Compile Include="Models\CodeArea.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EtAlName.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ExemptionDetail.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ExemptionMaster.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FlaggingDetail.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FlaggingMaster.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\HarneyCountyDbModels.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -74,19 +89,112 @@
     <Compile Include="Models\Improvement.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\JoinAccountMasterWithAccountSummary.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LandAprsPropCharItem.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LandAssessment.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LandAssessmentMsav.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LandAssessmentSgmtAdj.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LandClass.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LandType.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MaintenanceArea.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MasterException.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MobileHome.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OwnershipHistory.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PersonalPropComment.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PersonalPropDetail.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PersonalPropFloating.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PersonalPropLibrary.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PersonalPropNonInvent.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PersonalPropOther.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PersonalPropOtherTool.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PersonalPropRentDetail.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PersonalPropValue.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PropertyClass.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SalesComment.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SearchFile.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SpecialAssessDetail.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SpecialAssessment.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TaxFeeFile.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TaxLenderFile.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TaxLienholder.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TaxMasterMaintFile.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TaxReceiptHistory.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TaxRoll.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UtilityDetail.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UtilitySummary.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ValueArea.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ZipCodeFile.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ZoneMaster.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

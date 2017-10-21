@@ -52,5 +52,33 @@ namespace HarneyCounty.Web.ViewModel
         public string Code { get; set; }
 
         public string Rl { get; set; }
+
+        public string SitusStrtNmbr { get; set; }
+
+        public string SitusStrtNmbrSufx { get; set; }
+
+        public string SitusStrtDir { get; set; }
+
+        public string SitusStrtName { get; set; }
+
+        public string SitusStrtNameSufx { get; set; }
+
+        public string SitusZipCode { get; set; }
+
+        public string CareOfFlag { get; set; }
+
+        public string CareOfName { get; set; }
+
+        public string PropClassCode { get; set; }
+
+        public string CodeAreaCode { get; set; }
+
+        public string SbdvnCode { get; set; }
+
+        public int? BlckNmbr { get; set; }
+
+        public int? LotNmbr { get; set; }
     }
+
+   
 }

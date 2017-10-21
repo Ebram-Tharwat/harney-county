@@ -16,8 +16,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HarneyCounty.Domain.Core.Models
 {
 
-    [Table("AccountLegalComments", Schema = "dbo")]
-    public class AccountLegalComment
+    [Table("PersonalPropValues", Schema = "dbo")]
+    public class PersonalPropValue
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
@@ -42,37 +42,35 @@ namespace HarneyCounty.Domain.Core.Models
         [Display(Name = "Acct nmbr")]
         public string AcctNmbr { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"CommentLegalFlag", Order = 4, TypeName = "char")]
-        [Required]
-        [MaxLength(1)]
-        [StringLength(1)]
-        [Key]
-        [Display(Name = "Comment legal flag")]
-        public string CommentLegalFlag { get; set; }
+        [Column(@"PpLine1Total", Order = 4, TypeName = "decimal")]
+        [Display(Name = "Pp line 1 total")]
+        public decimal? PpLine1Total { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"Sequence5", Order = 5, TypeName = "decimal")]
-        [Required]
-        [Key]
-        [Display(Name = "Sequence 5")]
-        public decimal Sequence5 { get; set; }
+        [Column(@"PpLine2Total", Order = 5, TypeName = "decimal")]
+        [Display(Name = "Pp line 2 total")]
+        public decimal? PpLine2Total { get; set; }
 
-        [Column(@"AcctCommDate", Order = 6, TypeName = "date")]
-        [Display(Name = "Acct comm date")]
-        public System.DateTime? AcctCommDate { get; set; }
+        [Column(@"PpLine3Total", Order = 6, TypeName = "decimal")]
+        [Display(Name = "Pp line 3 total")]
+        public decimal? PpLine3Total { get; set; }
 
-        [Column(@"CommLegalText", Order = 7, TypeName = "char")]
-        [MaxLength(70)]
-        [StringLength(70)]
-        [Display(Name = "Comm legal text")]
-        public string CommLegalText { get; set; }
+        [Column(@"PpLine4Total", Order = 7, TypeName = "decimal")]
+        [Display(Name = "Pp line 4 total")]
+        public decimal? PpLine4Total { get; set; }
 
-        [Column(@"NonDsplyFlag", Order = 8, TypeName = "char")]
-        [MaxLength(1)]
-        [StringLength(1)]
-        [Display(Name = "Non dsply flag")]
-        public string NonDsplyFlag { get; set; }
+        [Column(@"PpLine5Total", Order = 8, TypeName = "decimal")]
+        [Display(Name = "Pp line 5 total")]
+        public decimal? PpLine5Total { get; set; }
+
+        [Column(@"PpLine6Total", Order = 9, TypeName = "decimal")]
+        [Display(Name = "Pp line 6 total")]
+        public decimal? PpLine6Total { get; set; }
+
+        [Column(@"RealXRefAccountAcctN", Order = 10, TypeName = "char")]
+        [MaxLength(9)]
+        [StringLength(9)]
+        [Display(Name = "Real xr ef account acct n")]
+        public string RealXRefAccountAcctN { get; set; }
     }
 
 }

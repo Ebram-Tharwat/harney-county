@@ -16,8 +16,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HarneyCounty.Domain.Core.Models
 {
 
-    [Table("AccountLegalComments", Schema = "dbo")]
-    public class AccountLegalComment
+    [Table("ExemptionDetail", Schema = "dbo")]
+    public class ExemptionDetail
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
@@ -43,36 +43,21 @@ namespace HarneyCounty.Domain.Core.Models
         public string AcctNmbr { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"CommentLegalFlag", Order = 4, TypeName = "char")]
-        [Required]
-        [MaxLength(1)]
-        [StringLength(1)]
-        [Key]
-        [Display(Name = "Comment legal flag")]
-        public string CommentLegalFlag { get; set; }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"Sequence5", Order = 5, TypeName = "decimal")]
+        [Column(@"Sequence", Order = 4, TypeName = "decimal")]
         [Required]
         [Key]
-        [Display(Name = "Sequence 5")]
-        public decimal Sequence5 { get; set; }
+        [Display(Name = "Sequence")]
+        public decimal Sequence { get; set; }
 
-        [Column(@"AcctCommDate", Order = 6, TypeName = "date")]
-        [Display(Name = "Acct comm date")]
-        public System.DateTime? AcctCommDate { get; set; }
+        [Column(@"ExmpAmnt", Order = 5, TypeName = "decimal")]
+        [Display(Name = "Exmp amnt")]
+        public decimal? ExmpAmnt { get; set; }
 
-        [Column(@"CommLegalText", Order = 7, TypeName = "char")]
-        [MaxLength(70)]
-        [StringLength(70)]
-        [Display(Name = "Comm legal text")]
-        public string CommLegalText { get; set; }
-
-        [Column(@"NonDsplyFlag", Order = 8, TypeName = "char")]
-        [MaxLength(1)]
-        [StringLength(1)]
-        [Display(Name = "Non dsply flag")]
-        public string NonDsplyFlag { get; set; }
+        [Column(@"ExemptCode", Order = 6, TypeName = "char")]
+        [MaxLength(3)]
+        [StringLength(3)]
+        [Display(Name = "Exempt code")]
+        public string ExemptCode { get; set; }
     }
 
 }

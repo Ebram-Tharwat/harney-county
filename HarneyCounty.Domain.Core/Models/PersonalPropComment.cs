@@ -16,8 +16,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HarneyCounty.Domain.Core.Models
 {
 
-    [Table("ZipCodeFile", Schema = "dbo")]
-    public class ZipCodeFile
+    [Table("PersonalPropComments", Schema = "dbo")]
+    public class PersonalPropComment
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
@@ -27,31 +27,33 @@ namespace HarneyCounty.Domain.Core.Models
         public int Id { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"ZipCode", Order = 2, TypeName = "char")]
+        [Column(@"AsmtYear", Order = 2, TypeName = "decimal")]
         [Required]
-        [MaxLength(10)]
-        [StringLength(10)]
         [Key]
-        [Display(Name = "Zip code")]
-        public string ZipCode { get; set; }
+        [Display(Name = "Asmt year")]
+        public decimal AsmtYear { get; set; }
 
-        [Column(@"City", Order = 3, TypeName = "char")]
-        [MaxLength(25)]
-        [StringLength(25)]
-        [Display(Name = "City")]
-        public string City { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Column(@"AcctNmbr", Order = 3, TypeName = "char")]
+        [Required]
+        [MaxLength(9)]
+        [StringLength(9)]
+        [Key]
+        [Display(Name = "Acct nmbr")]
+        public string AcctNmbr { get; set; }
 
-        [Column(@"State", Order = 4, TypeName = "char")]
-        [MaxLength(2)]
-        [StringLength(2)]
-        [Display(Name = "State")]
-        public string State { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Column(@"PpCommentsSequence", Order = 4, TypeName = "decimal")]
+        [Required]
+        [Key]
+        [Display(Name = "Pp comments sequence")]
+        public decimal PpCommentsSequence { get; set; }
 
-        [Column(@"Country", Order = 5, TypeName = "char")]
-        [MaxLength(25)]
-        [StringLength(25)]
-        [Display(Name = "Country")]
-        public string Country { get; set; }
+        [Column(@"PpComment", Order = 5, TypeName = "char")]
+        [MaxLength(70)]
+        [StringLength(70)]
+        [Display(Name = "Pp comment")]
+        public string PpComment { get; set; }
     }
 
 }

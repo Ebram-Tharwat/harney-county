@@ -16,8 +16,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HarneyCounty.Domain.Core.Models
 {
 
-    [Table("AccountLegalComments", Schema = "dbo")]
-    public class AccountLegalComment
+    [Table("PersonalPropNonInvent", Schema = "dbo")]
+    public class PersonalPropNonInvent
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
@@ -43,36 +43,39 @@ namespace HarneyCounty.Domain.Core.Models
         public string AcctNmbr { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"CommentLegalFlag", Order = 4, TypeName = "char")]
-        [Required]
-        [MaxLength(1)]
-        [StringLength(1)]
-        [Key]
-        [Display(Name = "Comment legal flag")]
-        public string CommentLegalFlag { get; set; }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"Sequence5", Order = 5, TypeName = "decimal")]
+        [Column(@"Sequence4", Order = 4, TypeName = "decimal")]
         [Required]
         [Key]
-        [Display(Name = "Sequence 5")]
-        public decimal Sequence5 { get; set; }
+        [Display(Name = "Sequence 4")]
+        public decimal Sequence4 { get; set; }
 
-        [Column(@"AcctCommDate", Order = 6, TypeName = "date")]
-        [Display(Name = "Acct comm date")]
-        public System.DateTime? AcctCommDate { get; set; }
+        [Column(@"PpNonGenlOffcSupp", Order = 5, TypeName = "decimal")]
+        [Display(Name = "Pp non genl offc supp")]
+        public decimal? PpNonGenlOffcSupp { get; set; }
 
-        [Column(@"CommLegalText", Order = 7, TypeName = "char")]
-        [MaxLength(70)]
-        [StringLength(70)]
-        [Display(Name = "Comm legal text")]
-        public string CommLegalText { get; set; }
+        [Column(@"PpNonMntSppl", Order = 6, TypeName = "decimal")]
+        [Display(Name = "Pp non mnt sppl")]
+        public decimal? PpNonMntSppl { get; set; }
 
-        [Column(@"NonDsplyFlag", Order = 8, TypeName = "char")]
-        [MaxLength(1)]
-        [StringLength(1)]
-        [Display(Name = "Non dsply flag")]
-        public string NonDsplyFlag { get; set; }
+        [Column(@"PpNonOprtgSppl", Order = 7, TypeName = "decimal")]
+        [Display(Name = "Pp non oprtg sppl")]
+        public decimal? PpNonOprtgSppl { get; set; }
+
+        [Column(@"PpNonSparPrts", Order = 8, TypeName = "decimal")]
+        [Display(Name = "Pp non spar prts")]
+        public decimal? PpNonSparPrts { get; set; }
+
+        [Column(@"PpNonOthrNonInvn", Order = 9, TypeName = "decimal")]
+        [Display(Name = "Pp non othr non invn")]
+        public decimal? PpNonOthrNonInvn { get; set; }
+
+        [Column(@"PpNonOwnrMrktVal", Order = 10, TypeName = "decimal")]
+        [Display(Name = "Pp non ownr mrkt val")]
+        public decimal? PpNonOwnrMrktVal { get; set; }
+
+        [Column(@"PpNonPurcDate", Order = 11, TypeName = "date")]
+        [Display(Name = "Pp non purc date")]
+        public System.DateTime? PpNonPurcDate { get; set; }
     }
 
 }

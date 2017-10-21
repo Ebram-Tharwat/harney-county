@@ -16,8 +16,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HarneyCounty.Domain.Core.Models
 {
 
-    [Table("ZipCodeFile", Schema = "dbo")]
-    public class ZipCodeFile
+    [Table("SalesComments", Schema = "dbo")]
+    public class SalesComment
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
@@ -27,31 +27,25 @@ namespace HarneyCounty.Domain.Core.Models
         public int Id { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"ZipCode", Order = 2, TypeName = "char")]
+        [Column(@"SaleIdentification", Order = 2, TypeName = "char")]
         [Required]
-        [MaxLength(10)]
-        [StringLength(10)]
+        [MaxLength(9)]
+        [StringLength(9)]
         [Key]
-        [Display(Name = "Zip code")]
-        public string ZipCode { get; set; }
+        [Display(Name = "Sale identification")]
+        public string SaleIdentification { get; set; }
 
-        [Column(@"City", Order = 3, TypeName = "char")]
-        [MaxLength(25)]
-        [StringLength(25)]
-        [Display(Name = "City")]
-        public string City { get; set; }
+        [Column(@"SalesComment1", Order = 3, TypeName = "char")]
+        [MaxLength(70)]
+        [StringLength(70)]
+        [Display(Name = "Sales comment 1")]
+        public string SalesComment1 { get; set; }
 
-        [Column(@"State", Order = 4, TypeName = "char")]
-        [MaxLength(2)]
-        [StringLength(2)]
-        [Display(Name = "State")]
-        public string State { get; set; }
-
-        [Column(@"Country", Order = 5, TypeName = "char")]
-        [MaxLength(25)]
-        [StringLength(25)]
-        [Display(Name = "Country")]
-        public string Country { get; set; }
+        [Column(@"SalesComment2", Order = 4, TypeName = "char")]
+        [MaxLength(70)]
+        [StringLength(70)]
+        [Display(Name = "Sales comment 2")]
+        public string SalesComment2 { get; set; }
     }
 
 }

@@ -1,6 +1,7 @@
 ﻿@using X.PagedList
 @using X.PagedList.Mvc
 @using HarneyCounty.Application.Core.Contracts;
+@using HarneyCounty.Web.ViewModel;
 @model IEnumerable<HarneyCounty.Web.ViewModel.AccountMasterViewModel>
 
 @{
@@ -52,6 +53,15 @@
                             <div class="col-md-10">
                                 @Html.EditorFor(model => filterViewModel.SitusNumber, null, "situsnumber", new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => filterViewModel.SitusNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            @Html.LabelFor(model => filterViewModel.SitusStreetName, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => filterViewModel.SitusStreetName, null, "situsStreetName", new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => filterViewModel.SitusStreetName, "", new { @class = "text-danger" })
                             </div>
                         </div>
                     </td>
@@ -261,104 +271,21 @@
 </div>
 @if (displayResults)
 {
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.AccountNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OwnerName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Flg)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MapId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prop)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Code)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rl)
-            </th>
-            <th></th>
-        </tr>
-
-        @if (Model != null && Model.Any())
-        {
-            foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AccountNumber)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.OwnerName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Flg)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.MapId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Prop)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Code)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Rl)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Details", "Details", new { id = item.AccountNumber })
-                    </td>
-                </tr>
-            }
-        }
-        else
-        {
-            <tr>
-                <td colspan="7">
-                    <h4>
-                        <span class="label label-info">No data match the search criteria!</span>
-                    </h4>
-                </td>
-            </tr>
-        }
-    </table>
-    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new
-{
-    page,
-    accountnumber = filterViewModel.AccountNumber,
-    year = filterViewModel.Year,
-    ownername = filterViewModel.OwnerName,
-    situsnumber = filterViewModel.SitusNumber,
-    situsnumbersuffix = filterViewModel.SitusNumberSuffix,
-    situsdirectory = filterViewModel.SitusDirectory,
-    situszipcode = filterViewModel.SitusZipCode,
-    subdivcode = filterViewModel.SubDivCode,
-    lotnumber = filterViewModel.LotNumber,
-    blocknumber = filterViewModel.BlockNumber,
-    twnshp = filterViewModel.Twnshp,
-    twnshpdir = filterViewModel.TwnshpDir,
-    range = filterViewModel.Range,
-    rangdir = filterViewModel.RangDir,
-    sctn = filterViewModel.Sctn,
-    qtrsctn = filterViewModel.QtrSctn,
-    prcl = filterViewModel.Prcl,
-    specintalph = filterViewModel.SpecIntAlph,
-    specintnmbr = filterViewModel.SpecIntNmbr,
-    xnmbr = filterViewModel.XNmbr,
-    mobilehomeid = filterViewModel.MobileHomeId,
-    mobhomemnfr = filterViewModel.MobHomeMnfr,
-    mhserial = filterViewModel.MHSerial,
-    codearea = filterViewModel.CodeArea,
-    propertyclass = filterViewModel.PropertyClass
-}))
+    var searchByOwnerName = new HomePageViewModel { SearchCriteria  = filterViewModel, Data  = Model.ToList()};
+    if (!string.IsNullOrWhiteSpace(filterViewModel.OwnerName) || !string.IsNullOrWhiteSpace(filterViewModel.AccountNumber))
+    {
+        Html.RenderPartial("~/Views/Shared/_SearchByOwnerName.cshtml", searchByOwnerName);
+    }
+    else if (!string.IsNullOrWhiteSpace(filterViewModel.SitusNumber) || !string.IsNullOrWhiteSpace(filterViewModel.SitusNumberSuffix)
+        || !string.IsNullOrWhiteSpace(filterViewModel.SitusDirectory) || !string.IsNullOrWhiteSpace(filterViewModel.SitusStreetName)
+        || !string.IsNullOrWhiteSpace(filterViewModel.SitusZipCode))
+    {
+        Html.RenderPartial("~/Views/Shared/_SearchBySitus.cshtml", searchByOwnerName);
+    }
+    else if (!string.IsNullOrWhiteSpace(filterViewModel.SubDivCode) || filterViewModel.BlockNumber.HasValue || filterViewModel.LotNumber.HasValue)
+    {
+        Html.RenderPartial("~/Views/Shared/_SearchBySubBlockLot.cshtml", searchByOwnerName);
+    }
 }
 
 @section Scripts {

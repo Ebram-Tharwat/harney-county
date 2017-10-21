@@ -16,8 +16,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HarneyCounty.Domain.Core.Models
 {
 
-    [Table("CodeArea", Schema = "dbo")]
-    public class CodeArea
+    [Table("ValueArea", Schema = "dbo")]
+    public class ValueArea
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
@@ -27,44 +27,36 @@ namespace HarneyCounty.Domain.Core.Models
         public int Id { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"CodeArea", Order = 2, TypeName = "char")]
+        [Column(@"ValAreaCode", Order = 2, TypeName = "char")]
         [Required]
-        [MaxLength(6)]
-        [StringLength(6)]
+        [MaxLength(3)]
+        [StringLength(3)]
         [Key]
-        [Display(Name = "Code area")]
-        public string CodeArea_ { get; set; }
+        [Display(Name = "Val area code")]
+        public string ValAreaCode { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"CodeAreaDescription", Order = 3, TypeName = "char")]
+        [Column(@"ValAreaDesc", Order = 3, TypeName = "char")]
         [Required]
         [MaxLength(30)]
         [StringLength(30)]
         [Key]
-        [Display(Name = "Code area description")]
-        public string CodeAreaDescription { get; set; }
+        [Display(Name = "Val area desc")]
+        public string ValAreaDesc { get; set; }
 
-        [Column(@"CountyNumber", Order = 4, TypeName = "decimal")]
+        [Column(@"FrmNonFrmFlag", Order = 4, TypeName = "char")]
+        [MaxLength(1)]
+        [StringLength(1)]
+        [Display(Name = "Frm non frm flag")]
+        public string FrmNonFrmFlag { get; set; }
+
+        [Column(@"CountyNumber", Order = 5, TypeName = "numeric")]
         [Display(Name = "County number")]
         public decimal? CountyNumber { get; set; }
 
-        [Column(@"AsmtYear", Order = 5, TypeName = "decimal")]
-        [Display(Name = "Asmt year")]
-        public decimal? AsmtYear { get; set; }
-
-        [Column(@"MaintAreaCode", Order = 6, TypeName = "decimal")]
-        [Display(Name = "Maint area code")]
-        public decimal? MaintAreaCode { get; set; }
-
-        [Column(@"CodeAreaNumeric", Order = 7, TypeName = "decimal")]
-        [Display(Name = "Code area numeric")]
-        public decimal? CodeAreaNumeric { get; set; }
-
-        [Column(@"StateCodeArea", Order = 8, TypeName = "char")]
-        [MaxLength(6)]
-        [StringLength(6)]
-        [Display(Name = "State code area")]
-        public string StateCodeArea { get; set; }
+        [Column(@"LocCostMdfr", Order = 6, TypeName = "decimal")]
+        [Display(Name = "Loc cost mdfr")]
+        public decimal? LocCostMdfr { get; set; }
     }
 
 }

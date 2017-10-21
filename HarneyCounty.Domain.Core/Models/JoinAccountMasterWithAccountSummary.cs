@@ -16,15 +16,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HarneyCounty.Domain.Core.Models
 {
 
-    [Table("AccountMasterFullDetails", Schema = "dbo")]
-    public class AccountMasterFullDetail
+    [Table("JoinAccountMasterWithAccountSummary", Schema = "dbo")]
+    public class JoinAccountMasterWithAccountSummary
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"AccountMasterId", Order = 1, TypeName = "int")]
+        [Column(@"ID", Order = 1, TypeName = "int")]
         [Required]
         [Key]
-        [Display(Name = "Account master ID")]
-        public int AccountMasterId { get; set; }
+        [Display(Name = "Id")]
+        public int Id { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"AsmtYear", Order = 2, TypeName = "decimal")]
@@ -305,265 +305,153 @@ namespace HarneyCounty.Domain.Core.Models
         public decimal? BlckNmbr { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"AccountSummaryId", Order = 53, TypeName = "int")]
+        [Column(@"Expr1", Order = 53, TypeName = "int")]
         [Required]
         [Key]
-        [Display(Name = "Account summary ID")]
-        public int AccountSummaryId { get; set; }
+        [Display(Name = "Expr 1")]
+        public int Expr1 { get; set; }
 
-        [Column(@"AcctLandAssessTotl", Order = 54, TypeName = "decimal")]
+        [Column(@"Expr2", Order = 54, TypeName = "decimal")]
+        [Display(Name = "Expr 2")]
+        public decimal? Expr2 { get; set; }
+
+        [Column(@"Expr3", Order = 55, TypeName = "char")]
+        [MaxLength(9)]
+        [StringLength(9)]
+        [Display(Name = "Expr 3")]
+        public string Expr3 { get; set; }
+
+        [Column(@"AcctLandAssessTotl", Order = 56, TypeName = "decimal")]
         [Display(Name = "Acct land assess totl")]
         public decimal? AcctLandAssessTotl { get; set; }
 
-        [Column(@"AcctImprTotl", Order = 55, TypeName = "decimal")]
+        [Column(@"AcctImprTotl", Order = 57, TypeName = "decimal")]
         [Display(Name = "Acct impr totl")]
         public decimal? AcctImprTotl { get; set; }
 
-        [Column(@"AcctSpecAses", Order = 56, TypeName = "decimal")]
+        [Column(@"AcctSpecAses", Order = 58, TypeName = "decimal")]
         [Display(Name = "Acct spec ases")]
         public decimal? AcctSpecAses { get; set; }
 
-        [Column(@"AcctExmpTotal", Order = 57, TypeName = "decimal")]
+        [Column(@"AcctExmpTotal", Order = 59, TypeName = "decimal")]
         [Display(Name = "Acct exmp total")]
         public decimal? AcctExmpTotal { get; set; }
 
-        [Column(@"AcctAcresMkt", Order = 58, TypeName = "decimal")]
+        [Column(@"AcctAcresMkt", Order = 60, TypeName = "decimal")]
         [Display(Name = "Acct acres mkt")]
         public decimal? AcctAcresMkt { get; set; }
 
-        [Column(@"AcctAcresSpc", Order = 59, TypeName = "decimal")]
+        [Column(@"AcctAcresSpc", Order = 61, TypeName = "decimal")]
         [Display(Name = "Acct acres spc")]
         public decimal? AcctAcresSpc { get; set; }
 
-        [Column(@"AcctMobHomeTotl", Order = 60, TypeName = "decimal")]
+        [Column(@"AcctMobHomeTotl", Order = 62, TypeName = "decimal")]
         [Display(Name = "Acct mob home totl")]
         public decimal? AcctMobHomeTotl { get; set; }
 
-        [Column(@"AcctMrktLandTotl", Order = 61, TypeName = "decimal")]
+        [Column(@"AcctMrktLandTotl", Order = 63, TypeName = "decimal")]
         [Display(Name = "Acct mrkt land totl")]
         public decimal? AcctMrktLandTotl { get; set; }
 
-        [Column(@"AcctImprMrktValTotl", Order = 62, TypeName = "decimal")]
+        [Column(@"AcctImprMrktValTotl", Order = 64, TypeName = "decimal")]
         [Display(Name = "Acct impr mrkt val totl")]
         public decimal? AcctImprMrktValTotl { get; set; }
 
-        [Column(@"AcctExmpMktTotal", Order = 63, TypeName = "decimal")]
+        [Column(@"AcctExmpMktTotal", Order = 65, TypeName = "decimal")]
         [Display(Name = "Acct exmp mkt total")]
         public decimal? AcctExmpMktTotal { get; set; }
 
-        [Column(@"UtilUnitAssessVal", Order = 64, TypeName = "decimal")]
+        [Column(@"UtilUnitAssessVal", Order = 66, TypeName = "decimal")]
         [Display(Name = "Util unit assess val")]
         public decimal? UtilUnitAssessVal { get; set; }
 
-        [Column(@"PpLine1Total", Order = 65, TypeName = "decimal")]
+        [Column(@"PpLine1Total", Order = 67, TypeName = "decimal")]
         [Display(Name = "Pp line 1 total")]
         public decimal? PpLine1Total { get; set; }
 
-        [Column(@"UtilOtherAssessVal", Order = 66, TypeName = "decimal")]
+        [Column(@"UtilOtherAssessVal", Order = 68, TypeName = "decimal")]
         [Display(Name = "Util other assess val")]
         public decimal? UtilOtherAssessVal { get; set; }
 
-        [Column(@"PpLine2Total", Order = 67, TypeName = "decimal")]
+        [Column(@"PpLine2Total", Order = 69, TypeName = "decimal")]
         [Display(Name = "Pp line 2 total")]
         public decimal? PpLine2Total { get; set; }
 
-        [Column(@"PpLine3Total", Order = 68, TypeName = "decimal")]
+        [Column(@"PpLine3Total", Order = 70, TypeName = "decimal")]
         [Display(Name = "Pp line 3 total")]
         public decimal? PpLine3Total { get; set; }
 
-        [Column(@"PpLine4Total", Order = 69, TypeName = "decimal")]
+        [Column(@"PpLine4Total", Order = 71, TypeName = "decimal")]
         [Display(Name = "Pp line 4 total")]
         public decimal? PpLine4Total { get; set; }
 
-        [Column(@"PpLine5Total", Order = 70, TypeName = "decimal")]
+        [Column(@"PpLine5Total", Order = 72, TypeName = "decimal")]
         [Display(Name = "Pp line 5 total")]
         public decimal? PpLine5Total { get; set; }
 
-        [Column(@"PpLine6Total", Order = 71, TypeName = "decimal")]
+        [Column(@"PpLine6Total", Order = 73, TypeName = "decimal")]
         [Display(Name = "Pp line 6 total")]
         public decimal? PpLine6Total { get; set; }
 
-        [Column(@"MaximumAssessedValue", Order = 72, TypeName = "numeric")]
+        [Column(@"MaximumAssessedValue", Order = 74, TypeName = "numeric")]
         [Display(Name = "Maximum assessed value")]
         public decimal? MaximumAssessedValue { get; set; }
 
-        [Column(@"TaxableAssessedValue", Order = 73, TypeName = "numeric")]
+        [Column(@"TaxableAssessedValue", Order = 75, TypeName = "numeric")]
         [Display(Name = "Taxable assessed value")]
         public decimal? TaxableAssessedValue { get; set; }
 
-        [Column(@"MaxSpecAssessedValue", Order = 74, TypeName = "numeric")]
+        [Column(@"MaxSpecAssessedValue", Order = 76, TypeName = "numeric")]
         [Display(Name = "Max spec assessed value")]
         public decimal? MaxSpecAssessedValue { get; set; }
 
-        [Column(@"TotalExceptions", Order = 75, TypeName = "numeric")]
+        [Column(@"TotalExceptions", Order = 77, TypeName = "numeric")]
         [Display(Name = "Total exceptions")]
         public decimal? TotalExceptions { get; set; }
 
-        [Column(@"Rmv", Order = 76, TypeName = "numeric")]
+        [Column(@"Rmv", Order = 78, TypeName = "numeric")]
         [Display(Name = "Rmv")]
         public decimal? Rmv { get; set; }
 
-        [Column(@"Sav", Order = 77, TypeName = "numeric")]
+        [Column(@"Sav", Order = 79, TypeName = "numeric")]
         [Display(Name = "Sav")]
         public decimal? Sav { get; set; }
 
-        [Column(@"MsavLand", Order = 78, TypeName = "numeric")]
+        [Column(@"MsavLand", Order = 80, TypeName = "numeric")]
         [Display(Name = "Msav land")]
         public decimal? MsavLand { get; set; }
 
-        [Column(@"ExceptionsMav", Order = 79, TypeName = "numeric")]
+        [Column(@"ExceptionsMav", Order = 81, TypeName = "numeric")]
         [Display(Name = "Exceptions mav")]
         public decimal? ExceptionsMav { get; set; }
 
-        [Column(@"ExceptionsMsav", Order = 80, TypeName = "numeric")]
+        [Column(@"ExceptionsMsav", Order = 82, TypeName = "numeric")]
         [Display(Name = "Exceptions msav")]
         public decimal? ExceptionsMsav { get; set; }
 
-        [Column(@"ExemptionsMav", Order = 81, TypeName = "numeric")]
+        [Column(@"ExemptionsMav", Order = 83, TypeName = "numeric")]
         [Display(Name = "Exemptions mav")]
         public decimal? ExemptionsMav { get; set; }
 
-        [Column(@"ExemptionsMsav", Order = 82, TypeName = "numeric")]
+        [Column(@"ExemptionsMsav", Order = 84, TypeName = "numeric")]
         [Display(Name = "Exemptions msav")]
         public decimal? ExemptionsMsav { get; set; }
 
-        [Column(@"MsavBaseNsaLand", Order = 83, TypeName = "decimal")]
+        [Column(@"MsavBaseNsaLand", Order = 85, TypeName = "decimal")]
         [Display(Name = "Msav base nsa land")]
         public decimal? MsavBaseNsaLand { get; set; }
 
-        [Column(@"MsavBaseImprovements", Order = 84, TypeName = "decimal")]
+        [Column(@"MsavBaseImprovements", Order = 86, TypeName = "decimal")]
         [Display(Name = "Msav base improvements")]
         public decimal? MsavBaseImprovements { get; set; }
 
-        [Column(@"MsavBaseManuStructure", Order = 85, TypeName = "decimal")]
+        [Column(@"MsavBaseManuStructure", Order = 87, TypeName = "decimal")]
         [Display(Name = "Msav base manu structure")]
         public decimal? MsavBaseManuStructure { get; set; }
 
-        [Column(@"MsavBaseMkt", Order = 86, TypeName = "numeric")]
+        [Column(@"MsavBaseMkt", Order = 88, TypeName = "numeric")]
         [Display(Name = "Msav base mkt")]
         public decimal? MsavBaseMkt { get; set; }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"MobileHome_Id", Order = 87, TypeName = "int")]
-        [Required]
-        [Key]
-        [Display(Name = "Mobile home ID")]
-        public int MobileHomeId1 { get; set; }
-
-        [Column(@"MobileHomeId", Order = 88, TypeName = "decimal")]
-        [Display(Name = "Mobile home ID")]
-        public decimal? MobileHomeId { get; set; }
-
-        [Column(@"MhSerial", Order = 89, TypeName = "char")]
-        [MaxLength(15)]
-        [StringLength(15)]
-        [Display(Name = "Mh serial")]
-        public string MhSerial { get; set; }
-
-        [Column(@"MobHomeMnfr", Order = 90, TypeName = "char")]
-        [MaxLength(15)]
-        [StringLength(15)]
-        [Display(Name = "Mob home mnfr")]
-        public string MobHomeMnfr { get; set; }
-
-        [Column(@"XNmbr", Order = 91, TypeName = "char")]
-        [MaxLength(8)]
-        [StringLength(8)]
-        [Display(Name = "Xn mbr")]
-        public string XNmbr { get; set; }
-
-        [Column(@"SearchName", Order = 92, TypeName = "char")]
-        [MaxLength(35)]
-        [StringLength(35)]
-        [Display(Name = "Search name")]
-        public string SearchName { get; set; }
-
-        [Column(@"SearchNameFlag", Order = 93, TypeName = "char")]
-        [MaxLength(1)]
-        [StringLength(1)]
-        [Display(Name = "Search name flag")]
-        public string SearchNameFlag { get; set; }
-
-        [Column(@"SearchRoll", Order = 94, TypeName = "char")]
-        [MaxLength(1)]
-        [StringLength(1)]
-        [Display(Name = "Search roll")]
-        public string SearchRoll { get; set; }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"ID", Order = 95, TypeName = "int")]
-        [Required]
-        [Key]
-        [Display(Name = "Id")]
-        public int Id { get; set; }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"SearchAsmtYear", Order = 96, TypeName = "decimal")]
-        [Required]
-        [Key]
-        [Display(Name = "Search asmt year")]
-        public decimal SearchAsmtYear { get; set; }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"SearchAccountNumber", Order = 97, TypeName = "char")]
-        [Required]
-        [MaxLength(9)]
-        [StringLength(9)]
-        [Key]
-        [Display(Name = "Search account number")]
-        public string SearchAccountNumber { get; set; }
-
-        [Column(@"SearchFileTwnshp", Order = 98, TypeName = "numeric")]
-        [Display(Name = "Search file twnshp")]
-        public decimal? SearchFileTwnshp { get; set; }
-
-        [Column(@"SearchFileTwnShpDir", Order = 99, TypeName = "char")]
-        [MaxLength(1)]
-        [StringLength(1)]
-        [Display(Name = "Search file twn shp dir")]
-        public string SearchFileTwnShpDir { get; set; }
-
-        [Column(@"SearchFileRange", Order = 100, TypeName = "char")]
-        [MaxLength(3)]
-        [StringLength(3)]
-        [Display(Name = "Search file range")]
-        public string SearchFileRange { get; set; }
-
-        [Column(@"SearchFileDir", Order = 101, TypeName = "char")]
-        [MaxLength(1)]
-        [StringLength(1)]
-        [Display(Name = "Search file dir")]
-        public string SearchFileDir { get; set; }
-
-        [Column(@"SearchFileSctn", Order = 102, TypeName = "decimal")]
-        [Display(Name = "Search file sctn")]
-        public decimal? SearchFileSctn { get; set; }
-
-        [Column(@"SearchFileQtrSctn", Order = 103, TypeName = "char")]
-        [MaxLength(2)]
-        [StringLength(2)]
-        [Display(Name = "Search file qtr sctn")]
-        public string SearchFileQtrSctn { get; set; }
-
-        [Column(@"SearchFilePrcl", Order = 104, TypeName = "numeric")]
-        [Display(Name = "Search file prcl")]
-        public decimal? SearchFilePrcl { get; set; }
-
-        [Column(@"SearchFileSpecIntAlph", Order = 105, TypeName = "char")]
-        [MaxLength(1)]
-        [StringLength(1)]
-        [Display(Name = "Search file spec int alph")]
-        public string SearchFileSpecIntAlph { get; set; }
-
-        [Column(@"SearchFileSpecIntNmbr", Order = 106, TypeName = "numeric")]
-        [Display(Name = "Search file spec int nmbr")]
-        public decimal? SearchFileSpecIntNmbr { get; set; }
-
-        [Column(@"SearchFilePropClassCode", Order = 107, TypeName = "char")]
-        [MaxLength(4)]
-        [StringLength(4)]
-        [Display(Name = "Search file prop class code")]
-        public string SearchFilePropClassCode { get; set; }
     }
 
 }

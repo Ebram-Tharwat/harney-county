@@ -21,36 +21,45 @@ namespace HarneyCounty.Domain.Core.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
-        [Index(@"PK__ChangeFi__3214EC27117F9D94", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
         public int Id { get; set; }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"AsmtYear", Order = 2, TypeName = "decimal")]
         [Required]
+        [Key]
         [Display(Name = "Asmt year")]
         public decimal AsmtYear { get; set; }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"AcctNmbr", Order = 3, TypeName = "char")]
         [Required]
         [MaxLength(9)]
         [StringLength(9)]
+        [Key]
         [Display(Name = "Acct nmbr")]
         public string AcctNmbr { get; set; }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"ChngDate", Order = 4, TypeName = "date")]
         [Required]
+        [Key]
         [Display(Name = "Chng date")]
         public System.DateTime ChngDate { get; set; }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"ChngTime", Order = 5, TypeName = "decimal")]
         [Required]
+        [Key]
         [Display(Name = "Chng time")]
         public decimal ChngTime { get; set; }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"ChngSeq", Order = 6, TypeName = "decimal")]
         [Required]
+        [Key]
         [Display(Name = "Chng seq")]
         public decimal ChngSeq { get; set; }
 

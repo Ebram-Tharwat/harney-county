@@ -17,3 +17,4 @@ E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\bin\Debug
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\bin\Debug\EntityFramework.SqlServer.xml
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\obj\Debug\HarneyCounty.Domain.Core.dll
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\obj\Debug\HarneyCounty.Domain.Core.pdb
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\obj\Debug\HarneyCounty.Domain.Core.csprojResolveAssemblyReference.cache

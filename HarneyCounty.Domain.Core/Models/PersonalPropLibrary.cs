@@ -16,8 +16,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HarneyCounty.Domain.Core.Models
 {
 
-    [Table("AccountLegalComments", Schema = "dbo")]
-    public class AccountLegalComment
+    [Table("PersonalPropLibrary", Schema = "dbo")]
+    public class PersonalPropLibrary
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
@@ -43,36 +43,45 @@ namespace HarneyCounty.Domain.Core.Models
         public string AcctNmbr { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"CommentLegalFlag", Order = 4, TypeName = "char")]
-        [Required]
-        [MaxLength(1)]
-        [StringLength(1)]
-        [Key]
-        [Display(Name = "Comment legal flag")]
-        public string CommentLegalFlag { get; set; }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"Sequence5", Order = 5, TypeName = "decimal")]
+        [Column(@"Sequence4", Order = 4, TypeName = "decimal")]
         [Required]
         [Key]
-        [Display(Name = "Sequence 5")]
-        public decimal Sequence5 { get; set; }
+        [Display(Name = "Sequence 4")]
+        public decimal Sequence4 { get; set; }
 
-        [Column(@"AcctCommDate", Order = 6, TypeName = "date")]
-        [Display(Name = "Acct comm date")]
-        public System.DateTime? AcctCommDate { get; set; }
+        [Column(@"PpLibrType", Order = 5, TypeName = "char")]
+        [MaxLength(15)]
+        [StringLength(15)]
+        [Display(Name = "Pp libr type")]
+        public string PpLibrType { get; set; }
 
-        [Column(@"CommLegalText", Order = 7, TypeName = "char")]
-        [MaxLength(70)]
-        [StringLength(70)]
-        [Display(Name = "Comm legal text")]
-        public string CommLegalText { get; set; }
+        [Column(@"PpLibrSetTtle", Order = 6, TypeName = "char")]
+        [MaxLength(20)]
+        [StringLength(20)]
+        [Display(Name = "Pp libr set ttle")]
+        public string PpLibrSetTtle { get; set; }
 
-        [Column(@"NonDsplyFlag", Order = 8, TypeName = "char")]
+        [Column(@"PpLibrCmpltSts", Order = 7, TypeName = "char")]
         [MaxLength(1)]
         [StringLength(1)]
-        [Display(Name = "Non dsply flag")]
-        public string NonDsplyFlag { get; set; }
+        [Display(Name = "Pp libr cmplt sts")]
+        public string PpLibrCmpltSts { get; set; }
+
+        [Column(@"PpLibrOfVlms", Order = 8, TypeName = "decimal")]
+        [Display(Name = "Pp libr of vlms")]
+        public decimal? PpLibrOfVlms { get; set; }
+
+        [Column(@"PpLibrPrchPrc", Order = 9, TypeName = "decimal")]
+        [Display(Name = "Pp libr prch prc")]
+        public decimal? PpLibrPrchPrc { get; set; }
+
+        [Column(@"PpLibrMrktVal", Order = 10, TypeName = "decimal")]
+        [Display(Name = "Pp libr mrkt val")]
+        public decimal? PpLibrMrktVal { get; set; }
+
+        [Column(@"PpLibrPurcDate", Order = 11, TypeName = "date")]
+        [Display(Name = "Pp libr purc date")]
+        public System.DateTime? PpLibrPurcDate { get; set; }
     }
 
 }

@@ -53,6 +53,9 @@ namespace HarneyCounty.Application.Core.Contracts
         [Display(Name = "Situs Street Direction")]
         public string SitusDirectory { get; set; }
 
+        [Display(Name = "Situs Street Name")]
+        public string SitusStreetName { get; set; }
+
         [StringLength(10)]
         [Display(Name = "Situs Zip Code")]
         public string SitusZipCode { get; set; }
