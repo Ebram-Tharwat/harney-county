@@ -286,6 +286,22 @@
     {
         Html.RenderPartial("~/Views/Shared/_SearchBySubBlockLot.cshtml", searchByOwnerName);
     }
+    else if (!string.IsNullOrWhiteSpace(filterViewModel.XNmbr) || filterViewModel.MobileHomeId.HasValue)
+    {
+        Html.RenderPartial("~/Views/Shared/_SearchByXNumberOrMobileHomeId.cshtml", searchByOwnerName);
+    }
+    else if (!string.IsNullOrWhiteSpace(filterViewModel.MobHomeMnfr) || !string.IsNullOrWhiteSpace(filterViewModel.MHSerial))
+    {
+        Html.RenderPartial("~/Views/Shared/_SearchByMobileHomeManufacturerOrMobileSerial.cshtml", searchByOwnerName);
+    }
+    else if (!string.IsNullOrWhiteSpace(filterViewModel.PropertyClass))
+    {
+        Html.RenderPartial("~/Views/Shared/_SearchByPropertyClass.cshtml", searchByOwnerName);
+    }
+    else if (!string.IsNullOrWhiteSpace(filterViewModel.CodeArea))
+    {
+        Html.RenderPartial("~/Views/Shared/_SearchByCodeArea.cshtml", searchByOwnerName);
+    }
 }
 
 @section Scripts {

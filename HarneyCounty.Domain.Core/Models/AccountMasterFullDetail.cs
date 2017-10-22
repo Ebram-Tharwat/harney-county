@@ -450,62 +450,86 @@ namespace HarneyCounty.Domain.Core.Models
         [Display(Name = "Mobile home ID")]
         public int MobileHomeId1 { get; set; }
 
-        [Column(@"MobileHomeId", Order = 88, TypeName = "decimal")]
+        [Column(@"MobileHomeRollType", Order = 88, TypeName = "char")]
+        [MaxLength(1)]
+        [StringLength(1)]
+        [Display(Name = "Mobile home roll type")]
+        public string MobileHomeRollType { get; set; }
+
+        [Column(@"MobileHomeId", Order = 89, TypeName = "decimal")]
         [Display(Name = "Mobile home ID")]
         public decimal? MobileHomeId { get; set; }
 
-        [Column(@"MhSerial", Order = 89, TypeName = "char")]
+        [Column(@"YearBuilt", Order = 90, TypeName = "decimal")]
+        [Display(Name = "Year built")]
+        public decimal? YearBuilt { get; set; }
+
+        [Column(@"MobHomeWdth", Order = 91, TypeName = "decimal")]
+        [Display(Name = "Mob home wdth")]
+        public decimal? MobHomeWdth { get; set; }
+
+        [Column(@"MobHomeLngth", Order = 92, TypeName = "decimal")]
+        [Display(Name = "Mob home lngth")]
+        public decimal? MobHomeLngth { get; set; }
+
+        [Column(@"MhSerial", Order = 93, TypeName = "char")]
         [MaxLength(15)]
         [StringLength(15)]
         [Display(Name = "Mh serial")]
         public string MhSerial { get; set; }
 
-        [Column(@"MobHomeMnfr", Order = 90, TypeName = "char")]
+        [Column(@"AcctNmbr01431", Order = 94, TypeName = "char")]
+        [MaxLength(9)]
+        [StringLength(9)]
+        [Display(Name = "Acct nmbr 01431")]
+        public string AcctNmbr01431 { get; set; }
+
+        [Column(@"MobHomeMnfr", Order = 95, TypeName = "char")]
         [MaxLength(15)]
         [StringLength(15)]
         [Display(Name = "Mob home mnfr")]
         public string MobHomeMnfr { get; set; }
 
-        [Column(@"XNmbr", Order = 91, TypeName = "char")]
+        [Column(@"XNmbr", Order = 96, TypeName = "char")]
         [MaxLength(8)]
         [StringLength(8)]
         [Display(Name = "Xn mbr")]
         public string XNmbr { get; set; }
 
-        [Column(@"SearchName", Order = 92, TypeName = "char")]
+        [Column(@"SearchName", Order = 97, TypeName = "char")]
         [MaxLength(35)]
         [StringLength(35)]
         [Display(Name = "Search name")]
         public string SearchName { get; set; }
 
-        [Column(@"SearchNameFlag", Order = 93, TypeName = "char")]
+        [Column(@"SearchNameFlag", Order = 98, TypeName = "char")]
         [MaxLength(1)]
         [StringLength(1)]
         [Display(Name = "Search name flag")]
         public string SearchNameFlag { get; set; }
 
-        [Column(@"SearchRoll", Order = 94, TypeName = "char")]
+        [Column(@"SearchRoll", Order = 99, TypeName = "char")]
         [MaxLength(1)]
         [StringLength(1)]
         [Display(Name = "Search roll")]
         public string SearchRoll { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"ID", Order = 95, TypeName = "int")]
+        [Column(@"ID", Order = 100, TypeName = "int")]
         [Required]
         [Key]
         [Display(Name = "Id")]
         public int Id { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"SearchAsmtYear", Order = 96, TypeName = "decimal")]
+        [Column(@"SearchAsmtYear", Order = 101, TypeName = "decimal")]
         [Required]
         [Key]
         [Display(Name = "Search asmt year")]
         public decimal SearchAsmtYear { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"SearchAccountNumber", Order = 97, TypeName = "char")]
+        [Column(@"SearchAccountNumber", Order = 102, TypeName = "char")]
         [Required]
         [MaxLength(9)]
         [StringLength(9)]
@@ -513,53 +537,53 @@ namespace HarneyCounty.Domain.Core.Models
         [Display(Name = "Search account number")]
         public string SearchAccountNumber { get; set; }
 
-        [Column(@"SearchFileTwnshp", Order = 98, TypeName = "numeric")]
+        [Column(@"SearchFileTwnshp", Order = 103, TypeName = "numeric")]
         [Display(Name = "Search file twnshp")]
         public decimal? SearchFileTwnshp { get; set; }
 
-        [Column(@"SearchFileTwnShpDir", Order = 99, TypeName = "char")]
+        [Column(@"SearchFileTwnShpDir", Order = 104, TypeName = "char")]
         [MaxLength(1)]
         [StringLength(1)]
         [Display(Name = "Search file twn shp dir")]
         public string SearchFileTwnShpDir { get; set; }
 
-        [Column(@"SearchFileRange", Order = 100, TypeName = "char")]
+        [Column(@"SearchFileRange", Order = 105, TypeName = "char")]
         [MaxLength(3)]
         [StringLength(3)]
         [Display(Name = "Search file range")]
         public string SearchFileRange { get; set; }
 
-        [Column(@"SearchFileDir", Order = 101, TypeName = "char")]
+        [Column(@"SearchFileDir", Order = 106, TypeName = "char")]
         [MaxLength(1)]
         [StringLength(1)]
         [Display(Name = "Search file dir")]
         public string SearchFileDir { get; set; }
 
-        [Column(@"SearchFileSctn", Order = 102, TypeName = "decimal")]
+        [Column(@"SearchFileSctn", Order = 107, TypeName = "decimal")]
         [Display(Name = "Search file sctn")]
         public decimal? SearchFileSctn { get; set; }
 
-        [Column(@"SearchFileQtrSctn", Order = 103, TypeName = "char")]
+        [Column(@"SearchFileQtrSctn", Order = 108, TypeName = "char")]
         [MaxLength(2)]
         [StringLength(2)]
         [Display(Name = "Search file qtr sctn")]
         public string SearchFileQtrSctn { get; set; }
 
-        [Column(@"SearchFilePrcl", Order = 104, TypeName = "numeric")]
+        [Column(@"SearchFilePrcl", Order = 109, TypeName = "numeric")]
         [Display(Name = "Search file prcl")]
         public decimal? SearchFilePrcl { get; set; }
 
-        [Column(@"SearchFileSpecIntAlph", Order = 105, TypeName = "char")]
+        [Column(@"SearchFileSpecIntAlph", Order = 110, TypeName = "char")]
         [MaxLength(1)]
         [StringLength(1)]
         [Display(Name = "Search file spec int alph")]
         public string SearchFileSpecIntAlph { get; set; }
 
-        [Column(@"SearchFileSpecIntNmbr", Order = 106, TypeName = "numeric")]
+        [Column(@"SearchFileSpecIntNmbr", Order = 111, TypeName = "numeric")]
         [Display(Name = "Search file spec int nmbr")]
         public decimal? SearchFileSpecIntNmbr { get; set; }
 
-        [Column(@"SearchFilePropClassCode", Order = 107, TypeName = "char")]
+        [Column(@"SearchFilePropClassCode", Order = 112, TypeName = "char")]
         [MaxLength(4)]
         [StringLength(4)]
         [Display(Name = "Search file prop class code")]

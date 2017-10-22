@@ -38,6 +38,31 @@ namespace HarneyCounty.Web.ViewModel
 
         public int SpecIntNmbr { get; set; }
 
+        public decimal MntnAreaCode { get; set; }
+
+        public string ValAreaCode { get; set; }
+
+        public string MobileHomeRollType { get; set; }
+
+        public string MobHomeSizeFlag { get; set; }
+
+        public string MobHomeMnfr { get; set; }
+
+        public string MHSerial { get; set; }
+
+        public int? MobileHomeId { get; set; }
+
+        public decimal YearBuilt { get; set; }
+
+        public decimal MobHomeWdth { get; set; }
+
+        public decimal MobHomeLngth { get; set; }
+
+        public string AcctNmbr01431 { get; set; }
+
+
+        public string XNmbr { get; set; }
+
         public string MapId
         {
             get
