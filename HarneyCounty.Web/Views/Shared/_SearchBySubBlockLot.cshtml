@@ -86,6 +86,7 @@
 @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new
 {
     page,
+    searchby = (int)filterViewModel.SearchBy,
     year = filterViewModel.Year,
     accountnumber = filterViewModel.AccountNumber,
     subdivcode = filterViewModel.SubDivCode,
