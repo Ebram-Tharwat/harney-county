@@ -40,13 +40,12 @@ namespace HarneyCounty.Application.Core.Contracts
         [Display(Name = "Special Interest Numeric")]
         public int? SpecIntNmbr { get; set; }
 
-
         [StringLength(6)]
         [Display(Name = "Situs Street Number")]
         public string SitusNumber { get; set; }
 
         [StringLength(3)]
-        [Display(Name = "Situs Street Number Suffix")]
+        [Display(Name = "Situs Number Suffix")]
         public string SitusNumberSuffix { get; set; }
 
         [MaxLength(2)]
@@ -94,5 +93,7 @@ namespace HarneyCounty.Application.Core.Contracts
 
         [MaxLength(4)]
         public string PropertyClass { get; set; }
+
+        public SearchByType SearchBy { get; set; }
     }
 }

@@ -13,25 +13,19 @@
             @Html.DisplayNameFor(model => model.AccountNumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PropClassCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MntnAreaCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ValAreaCode)
+            @Html.DisplayNameFor(model => model.MapId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.OwnerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PropClassCode)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CodeAreaCode)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Rl)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MobileHomeRollType)
         </th>
         <th></th>
     </tr>
@@ -45,25 +39,19 @@
                     @Html.DisplayFor(modelItem => item.AccountNumber)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.PropClassCode)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MntnAreaCode)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ValAreaCode)
+                    @Html.DisplayFor(modelItem => item.MapId)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.OwnerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PropClassCode)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.CodeAreaCode)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Rl)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MobileHomeRollType)
                 </td>
                 <td>
                     @Html.ActionLink("Details", "Details", new { id = item.AccountNumber })
@@ -74,7 +62,7 @@
     else
     {
         <tr>
-            <td colspan="7">
+            <td colspan="8">
                 <h4>
                     <span class="label label-info">No data match the search criteria!</span>
                 </h4>
@@ -88,5 +76,13 @@
     page,
     year = filterViewModel.Year,
     accountnumber = filterViewModel.AccountNumber,
-    propertyclass = filterViewModel.PropertyClass
+    twnshp = filterViewModel.Twnshp,
+    twnshpdir = filterViewModel.TwnshpDir,
+    range = filterViewModel.Range,
+    rangdir = filterViewModel.RangDir,
+    sctn = filterViewModel.Sctn,
+    qtrsctn = filterViewModel.QtrSctn,
+    prcl = filterViewModel.Prcl,
+    specintalph = filterViewModel.SpecIntAlph,
+    specintnmbr = filterViewModel.SpecIntNmbr
 }))

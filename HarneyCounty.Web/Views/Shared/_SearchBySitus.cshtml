@@ -1,51 +1,41 @@
 ﻿@using X.PagedList
 @using X.PagedList.Mvc
 @using HarneyCounty.Application.Core.Contracts;
-@using HarneyCounty.Web.Extensions;
-@using HarneyCounty.Application.Core.Contracts;
-@using HarneyCounty.Web.ViewModel;
-@using HarneyCounty.Application.Core.Contracts.Paging;
-@using System.Linq;
-@using X.PagedList
-@using X.PagedList.Mvc
-@using HarneyCounty.Application.Core.Contracts;
-@using HarneyCounty.Web.ViewModel;
-@model HarneyCounty.Web.ViewModel.HomePageViewModel
+@model IEnumerable<HarneyCounty.Web.ViewModel.AccountMasterViewModel>
 
 @{
     var filterViewModel = ViewBag.FilterViewModel as SearchCriteria;
 }
 
-
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.SearchCriteria.SitusNumber)
+            @Html.DisplayNameFor(model => model.SitusStrtNmbr)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SearchCriteria.SitusNumberSuffix)
+            @Html.DisplayNameFor(model => model.SitusStrtNmbrSufx)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SearchCriteria.SitusDirectory)
+            @Html.DisplayNameFor(model => model.SitusStrtDir)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SearchCriteria.SitusStreetName)
+            @Html.DisplayNameFor(model => model.SitusStrtName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Data[0].SitusStrtNameSufx)
+            @Html.DisplayNameFor(model => model.SitusStrtNameSufx)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Data[0].SitusZipCode)
+            @Html.DisplayNameFor(model => model.SitusZipCode)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SearchCriteria.OwnerName)
+            @Html.DisplayNameFor(model => model.OwnerName)
         </th>
         <th></th>
     </tr>
 
-    @if (Model != null && Model.Data != null && Model.Data.Any())
+    @if (Model != null && Model.Any())
     {
-        foreach (var item in Model.Data)
+        foreach (var item in Model)
         {
             <tr>
                 <td>
@@ -78,7 +68,7 @@
     else
     {
         <tr>
-            <td colspan="7">
+            <td colspan="8">
                 <h4>
                     <span class="label label-info">No data match the search criteria!</span>
                 </h4>
@@ -86,47 +76,15 @@
         </tr>
     }
 </table>
-@if (Model != null && Model.Data != null)
-{
 
-    var viewmodel = Model.Data.ToMappedPagedList<AccountMasterViewModel, AccountMasterViewModel>(new PagingInfo { PageNumber = 1 });
-
-    @Html.PagedListPager((IPagedList)viewmodel, page => Url.Action("Index", new
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new
 {
     page,
-    accountnumber = Model.SearchCriteria.AccountNumber,
     year = filterViewModel.Year,
+    accountnumber = filterViewModel.AccountNumber,
     situsNumber = filterViewModel.SitusNumber,
     situsNumberSuffix = filterViewModel.SitusNumberSuffix,
     situsDirectory = filterViewModel.SitusDirectory,
-    ownername = filterViewModel.OwnerName,
     situsStrtName = filterViewModel.SitusStreetName,
     situsZipCode = filterViewModel.SitusZipCode
-    //situsnumber = filterViewModel.SitusNumber,
-    //situsnumbersuffix = filterViewModel.SitusNumberSuffix,
-    //situsdirectory = filterViewModel.SitusDirectory,
-    //situszipcode = filterViewModel.SitusZipCode,
-    //subdivcode = filterViewModel.SubDivCode,
-    //lotnumber = filterViewModel.LotNumber,
-    //blocknumber = filterViewModel.BlockNumber,
-    //twnshp = filterViewModel.Twnshp,
-    //twnshpdir = filterViewModel.TwnshpDir,
-    //range = filterViewModel.Range,
-    //rangdir = filterViewModel.RangDir,
-    //sctn = filterViewModel.Sctn,
-    //qtrsctn = filterViewModel.QtrSctn,
-    //prcl = filterViewModel.Prcl,
-    //specintalph = filterViewModel.SpecIntAlph,
-    //specintnmbr = filterViewModel.SpecIntNmbr,
-    //xnmbr = filterViewModel.XNmbr,
-    //mobilehomeid = filterViewModel.MobileHomeId,
-    //mobhomemnfr = filterViewModel.MobHomeMnfr,
-    //mhserial = filterViewModel.MHSerial,
-    //codearea = filterViewModel.CodeArea,
-    //propertyclass = filterViewModel.PropertyClass
 }))
-}
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

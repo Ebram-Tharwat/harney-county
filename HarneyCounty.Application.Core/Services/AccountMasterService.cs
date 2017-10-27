@@ -25,8 +25,8 @@ namespace HarneyCounty.Application.Core.Services
                 , out resultCount, searchCriteria.OwnerName
                 , string.IsNullOrWhiteSpace(searchCriteria.SitusNumber) ? default(decimal?) : Convert.ToDecimal(searchCriteria.SitusNumber)
                 , searchCriteria.SitusNumberSuffix, searchCriteria.SitusDirectory, null, searchCriteria.SitusZipCode, searchCriteria.SubDivCode
-                , searchCriteria.LotNumber, searchCriteria.BlockNumber,searchCriteria.Twnshp,searchCriteria.TwnshpDir,searchCriteria.Range
-                ,searchCriteria.Range,searchCriteria.Sctn,searchCriteria.QtrSctn,searchCriteria.Prcl,searchCriteria.SpecIntAlph,searchCriteria.SpecIntNmbr
+                , searchCriteria.LotNumber, searchCriteria.BlockNumber, searchCriteria.Twnshp, searchCriteria.TwnshpDir, searchCriteria.Range
+                , searchCriteria.Range, searchCriteria.Sctn, searchCriteria.QtrSctn, searchCriteria.Prcl, searchCriteria.SpecIntAlph, searchCriteria.SpecIntNmbr
                 , null, null, searchCriteria.XNmbr, searchCriteria.MobileHomeId
                 , searchCriteria.MobHomeMnfr, searchCriteria.MHSerial, searchCriteria.PropertyClass, searchCriteria.CodeArea
                 , pagingInfo.PageNumber, AppSettings.PageSize);

@@ -57,6 +57,7 @@
     <Compile Include="AppSettings.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Contracts\Paging\PagingInfo.cs" />
+    <Compile Include="Contracts\SearchByType.cs" />
     <Compile Include="Contracts\SearchCriteria.cs" />
     <Compile Include="Interfaces\IAccountMasterService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

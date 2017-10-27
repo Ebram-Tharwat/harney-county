@@ -1,54 +1,44 @@
 ﻿@using X.PagedList
 @using X.PagedList.Mvc
 @using HarneyCounty.Application.Core.Contracts;
-@using HarneyCounty.Web.Extensions;
-@using HarneyCounty.Application.Core.Contracts;
-@using HarneyCounty.Web.ViewModel;
-@using HarneyCounty.Application.Core.Contracts.Paging;
-@using System.Linq;
-@using X.PagedList
-@using X.PagedList.Mvc
-@using HarneyCounty.Application.Core.Contracts;
-@using HarneyCounty.Web.ViewModel;
-@model HarneyCounty.Web.ViewModel.HomePageViewModel
+@model IEnumerable<HarneyCounty.Web.ViewModel.AccountMasterViewModel>
 
 @{
     var filterViewModel = ViewBag.FilterViewModel as SearchCriteria;
 }
 
-
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.SearchCriteria.AccountNumber)
+            @Html.DisplayNameFor(model => model.AccountNumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SearchCriteria.SubDivCode)
+            @Html.DisplayNameFor(model => model.SbdvnCode)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SearchCriteria.BlockNumber)
+            @Html.DisplayNameFor(model => model.BlckNmbr)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SearchCriteria.LotNumber)
+            @Html.DisplayNameFor(model => model.LotNmbr)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SearchCriteria.OwnerName)
+            @Html.DisplayNameFor(model => model.OwnerName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Data[0].PropClassCode)
+            @Html.DisplayNameFor(model => model.PropClassCode)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Data[0].CodeAreaCode)
+            @Html.DisplayNameFor(model => model.CodeAreaCode)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Data[0].Rl)
+            @Html.DisplayNameFor(model => model.Rl)
         </th>
         <th></th>
     </tr>
 
-    @if (Model != null && Model.Data != null && Model.Data.Any())
+    @if (Model != null && Model.Any())
     {
-        foreach (var item in Model.Data)
+        foreach (var item in Model)
         {
             <tr>
                 <td>
@@ -92,44 +82,13 @@
         </tr>
     }
 </table>
-@if (Model != null && Model.Data != null)
-{
 
-    var viewmodel = Model.Data.ToMappedPagedList<AccountMasterViewModel, AccountMasterViewModel>(new PagingInfo { PageNumber = 1 });
-
-    @Html.PagedListPager((IPagedList)viewmodel, page => Url.Action("Index", new
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new
 {
     page,
-    accountnumber = Model.SearchCriteria.AccountNumber,
-    //year = filterViewModel.Year,
-    //ownername = filterViewModel.OwnerName,
-    //situsnumber = filterViewModel.SitusNumber,
-    //situsnumbersuffix = filterViewModel.SitusNumberSuffix,
-    //situsdirectory = filterViewModel.SitusDirectory,
-    //situszipcode = filterViewModel.SitusZipCode,
-    //subdivcode = filterViewModel.SubDivCode,
-    //lotnumber = filterViewModel.LotNumber,
-    //blocknumber = filterViewModel.BlockNumber,
-    //twnshp = filterViewModel.Twnshp,
-    //twnshpdir = filterViewModel.TwnshpDir,
-    //range = filterViewModel.Range,
-    //rangdir = filterViewModel.RangDir,
-    //sctn = filterViewModel.Sctn,
-    //qtrsctn = filterViewModel.QtrSctn,
-    //prcl = filterViewModel.Prcl,
-    //specintalph = filterViewModel.SpecIntAlph,
-    //specintnmbr = filterViewModel.SpecIntNmbr,
-    //xnmbr = filterViewModel.XNmbr,
-    //mobilehomeid = filterViewModel.MobileHomeId,
-    //mobhomemnfr = filterViewModel.MobHomeMnfr,
-    //mhserial = filterViewModel.MHSerial,
-    //codearea = filterViewModel.CodeArea,
-    //propertyclass = filterViewModel.PropertyClass
+    year = filterViewModel.Year,
+    accountnumber = filterViewModel.AccountNumber,
+    subdivcode = filterViewModel.SubDivCode,
+    lotnumber = filterViewModel.LotNumber,
+    blocknumber = filterViewModel.BlockNumber,
 }))
-}
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
-
-

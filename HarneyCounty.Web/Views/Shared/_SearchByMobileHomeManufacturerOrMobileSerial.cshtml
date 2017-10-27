@@ -1,55 +1,45 @@
 ﻿@using X.PagedList
 @using X.PagedList.Mvc
 @using HarneyCounty.Application.Core.Contracts;
-@using HarneyCounty.Web.Extensions;
-@using HarneyCounty.Application.Core.Contracts;
-@using HarneyCounty.Web.ViewModel;
-@using HarneyCounty.Application.Core.Contracts.Paging;
-@using System.Linq;
-@using X.PagedList
-@using X.PagedList.Mvc
-@using HarneyCounty.Application.Core.Contracts;
-@using HarneyCounty.Web.ViewModel;
-@model HarneyCounty.Web.ViewModel.HomePageViewModel
+@model IEnumerable<HarneyCounty.Web.ViewModel.AccountMasterViewModel>
 
 @{
     var filterViewModel = ViewBag.FilterViewModel as SearchCriteria;
 }
 
-
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.SearchCriteria.MobHomeMnfr)
+            @Html.DisplayNameFor(model => model.MobHomeMnfr)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SearchCriteria.MHSerial)
+            @Html.DisplayNameFor(model => model.MHSerial)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SearchCriteria.XNmbr)
+            @Html.DisplayNameFor(model => model.XNmbr)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Data[0].YearBuilt)
+            @Html.DisplayNameFor(model => model.YearBuilt)
         </th>
         <th>
             @Html.DisplayName("Dimension")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Data[0].AcctNmbr01431)
+            @Html.DisplayNameFor(model => model.AcctNmbr01431)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Data[0].MobileHomeRollType)
+            @Html.DisplayNameFor(model => model.MobileHomeRollType)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Data[0].MobHomeSizeFlag)
+            @Html.DisplayNameFor(model => model.MobHomeSizeFlag)
         </th>
-        
+
         <th></th>
     </tr>
 
-    @if (Model != null && Model.Data != null && Model.Data.Any())
+    @if (Model != null && Model.Any())
     {
-        foreach (var item in Model.Data)
+        foreach (var item in Model)
         {
             <tr>
                 <td>
@@ -65,7 +55,7 @@
                     @Html.DisplayFor(modelItem => item.YearBuilt)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.MobHomeWdth) X @Html.DisplayFor(modelItem => item.MobHomeLngth)
+                    @Html.DisplayFor(modelItem => item.Dimension)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.AcctNmbr01431)
@@ -93,42 +83,12 @@
         </tr>
     }
 </table>
-@if (Model != null && Model.Data != null)
-{
 
-    var viewmodel = Model.Data.ToMappedPagedList<AccountMasterViewModel, AccountMasterViewModel>(new PagingInfo { PageNumber = 1 });
-
-    @Html.PagedListPager((IPagedList)viewmodel, page => Url.Action("Index", new
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new
 {
     page,
-    accountnumber = Model.SearchCriteria.AccountNumber,
-    //year = filterViewModel.Year,
-    //ownername = filterViewModel.OwnerName,
-    //situsnumber = filterViewModel.SitusNumber,
-    //situsnumbersuffix = filterViewModel.SitusNumberSuffix,
-    //situsdirectory = filterViewModel.SitusDirectory,
-    //situszipcode = filterViewModel.SitusZipCode,
-    //subdivcode = filterViewModel.SubDivCode,
-    //lotnumber = filterViewModel.LotNumber,
-    //blocknumber = filterViewModel.BlockNumber,
-    //twnshp = filterViewModel.Twnshp,
-    //twnshpdir = filterViewModel.TwnshpDir,
-    //range = filterViewModel.Range,
-    //rangdir = filterViewModel.RangDir,
-    //sctn = filterViewModel.Sctn,
-    //qtrsctn = filterViewModel.QtrSctn,
-    //prcl = filterViewModel.Prcl,
-    //specintalph = filterViewModel.SpecIntAlph,
-    //specintnmbr = filterViewModel.SpecIntNmbr,
-    //xnmbr = filterViewModel.XNmbr,
-    //mobilehomeid = filterViewModel.MobileHomeId,
-    //mobhomemnfr = filterViewModel.MobHomeMnfr,
-    //mhserial = filterViewModel.MHSerial,
-    //codearea = filterViewModel.CodeArea,
-    //propertyclass = filterViewModel.PropertyClass
+    year = filterViewModel.Year,
+    accountnumber = filterViewModel.AccountNumber,
+    mobhomemnfr = filterViewModel.MobHomeMnfr,
+    mhserial = filterViewModel.MHSerial,
 }))
-}
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

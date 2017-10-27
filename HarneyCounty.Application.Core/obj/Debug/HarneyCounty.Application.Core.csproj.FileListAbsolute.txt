@@ -34,3 +34,5 @@ E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Application.Core\obj\
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Application.Core\obj\Debug\HarneyCounty.Application.Core.csprojResolveAssemblyReference.cache
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Application.Core\bin\Debug\EntityFramework.SqlServer.dll
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Application.Core\bin\Debug\EntityFramework.SqlServer.xml
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\EntityFramework.SqlServer.dll
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\EntityFramework.SqlServer.xml

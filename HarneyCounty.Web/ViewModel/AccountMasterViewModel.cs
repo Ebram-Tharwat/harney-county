@@ -1,15 +1,7 @@
-﻿using HarneyCounty.Application.Core.Contracts;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace HarneyCounty.Web.ViewModel
 {
-    public class HomePageViewModel
-    {
-        public SearchCriteria SearchCriteria { get; set; }
-        public List<AccountMasterViewModel> Data { get; set; }
-    }
-
     public class AccountMasterViewModel
     {
         [Display(Name = "Account Number")]
@@ -19,6 +11,7 @@ namespace HarneyCounty.Web.ViewModel
         public string OwnerName { get; set; }
 
         public string Flg { get; set; }
+
         //Twnshp/TwnshpDir/Range/RangDir/Sctn/QtrSctn/Prcl/SpecIntAlph/SpecIntNmbr
         public int Twnshp { get; set; }
 
@@ -59,7 +52,6 @@ namespace HarneyCounty.Web.ViewModel
         public decimal MobHomeLngth { get; set; }
 
         public string AcctNmbr01431 { get; set; }
-
 
         public string XNmbr { get; set; }
 
@@ -103,7 +95,10 @@ namespace HarneyCounty.Web.ViewModel
         public int? BlckNmbr { get; set; }
 
         public int? LotNmbr { get; set; }
-    }
 
-   
+        public string Dimension
+        {
+            get { return $"{this.MobHomeWdth} X {MobHomeLngth}"; }
+        }
+    }
 }
