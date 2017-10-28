@@ -10,10 +10,10 @@ namespace HarneyCounty.Application.Core.Contracts
         [Display(Name = "Situs")]
         Situs,
 
-        [Display(Name = "Subdivision, block or lot")]
+        [Display(Name = "Subdivision, Block or Lot")]
         SubBlockLot,
 
-        [Display(Name = "Block")]
+        [Display(Name = "Map")]
         Map,
 
         [Display(Name = "Manu Structure X-Num or Mobile Home ID")]
