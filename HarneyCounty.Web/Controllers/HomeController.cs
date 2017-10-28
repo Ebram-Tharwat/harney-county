@@ -5,7 +5,6 @@ using HarneyCounty.Common.Extensions;
 using HarneyCounty.Domain.Core.Models;
 using HarneyCounty.Web.Extensions;
 using HarneyCounty.Web.ViewModel;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -60,7 +59,7 @@ namespace HarneyCounty.Web.Controllers
                    DistinctBy(c => c.Prcl).DistinctBy(c => c.SpecIntAlph).DistinctBy(c => c.SpecIntNmbr).DistinctBy(c => c.PropClassCode).
                    DistinctBy(c => c.CodeAreaCode);
             }
-            else if(filter.SearchBy == SearchByType.Situs)
+            else if (filter.SearchBy == SearchByType.Situs)
             {
                 entities = entities.ToList().DistinctBy(c => new
                 {
@@ -70,10 +69,10 @@ namespace HarneyCounty.Web.Controllers
                     SitusStrtName = c.SitusStrtName,
                     SitusStrtNameSufx = c.SitusStrtNameSufx,
                     SitusZipCode = c.SitusZipCode,
-                    OwnerName = c.CareOfFlag == "%" ? c.CareOfFlag : c.OwnerName
+                    OwnerName = c.OwnerName
                 });
             }
-            else if(filter.SearchBy == SearchByType.SubBlockLot)
+            else if (filter.SearchBy == SearchByType.SubBlockLot)
             {
                 entities = entities.ToList().DistinctBy(c => new
                 {
@@ -83,10 +82,10 @@ namespace HarneyCounty.Web.Controllers
                     LotNmbr = c.LotNmbr,
                     PropClassCode = c.PropClassCode,
                     CodeAreaCode = c.CodeAreaCode,
-                    OwnerName = c.CareOfFlag == "%" ? c.CareOfFlag : c.OwnerName
+                    OwnerName = c.OwnerName
                 });
             }
-            else if(filter.SearchBy == SearchByType.Map)
+            else if (filter.SearchBy == SearchByType.Map)
             {
                 entities = entities.ToList().DistinctBy(c => new
                 {
@@ -103,10 +102,10 @@ namespace HarneyCounty.Web.Controllers
                     PropClassCode = c.PropClassCode,
                     CodeAreaCode = c.CodeAreaCode,
                     RollType = c.RollType,
-                    OwnerName = c.CareOfFlag == "%" ? c.CareOfFlag : c.OwnerName
+                    OwnerName = c.OwnerName
                 });
             }
-            else if(filter.SearchBy == SearchByType.XNumberOrMobileHomeId)
+            else if (filter.SearchBy == SearchByType.XNumberOrMobileHomeId)
             {
                 entities = entities.ToList().DistinctBy(c => new
                 {
@@ -123,10 +122,10 @@ namespace HarneyCounty.Web.Controllers
                     SpecIntAlph = c.SpecIntAlph,
                     SpecIntNmbr = c.SpecIntNmbr,
                     MobHomeRollType = c.MobileHomeRollType,
-                    OwnerName = c.CareOfFlag == "%" ? c.CareOfFlag : c.OwnerName
+                    OwnerName = c.OwnerName
                 });
             }
-            else if(filter.SearchBy == SearchByType.MobileHomeManufacturerOrMobileSerial)
+            else if (filter.SearchBy == SearchByType.MobileHomeManufacturerOrMobileSerial)
             {
                 entities = entities.ToList().DistinctBy(c => new
                 {
@@ -141,7 +140,7 @@ namespace HarneyCounty.Web.Controllers
                     MobHomeSizeFlag = c.MobHomeSizeFlag,
                 });
             }
-            else if(filter.SearchBy == SearchByType.PropertyClass)
+            else if (filter.SearchBy == SearchByType.PropertyClass)
             {
                 entities = entities.ToList().DistinctBy(c => new
                 {
@@ -151,10 +150,10 @@ namespace HarneyCounty.Web.Controllers
                     ValAreaCode = c.ValAreaCode,
                     CodeAreCode = c.CodeAreaCode,
                     RollType = c.RollType,
-                    OwnerName = c.CareOfFlag == "%" ? c.CareOfFlag : c.OwnerName
+                    OwnerName = c.OwnerName
                 });
             }
-            else if(filter.SearchBy == SearchByType.CodeArea)
+            else if (filter.SearchBy == SearchByType.CodeArea)
             {
                 entities = entities.ToList().DistinctBy(c => new
                 {
@@ -164,27 +163,14 @@ namespace HarneyCounty.Web.Controllers
                     MntnAreaCode = c.MntnAreaCode,
                     ValAreaCode = c.ValAreaCode,
                     RollType = c.RollType,
-                    OwnerName = c.CareOfFlag == "%" ? c.CareOfFlag : c.OwnerName
+                    OwnerName = c.OwnerName
                 });
             }
             var viewmodel = entities.ToMappedPagedList<AccountMasterFullDetail, AccountMasterViewModel>(pagingInfo);
-            if (viewmodel != null && viewmodel.Any() && string.IsNullOrWhiteSpace(filter.AccountNumber) && string.IsNullOrWhiteSpace(filter.OwnerName))
-            {
-
-                foreach (var item in viewmodel)
-                {
-                    item.OwnerName = item.CareOfFlag == "%" ? item.CareOfName : item.OwnerName;
-                }
-            }
-            else
-            {
-                viewmodel = entities.ToMappedPagedList<AccountMasterFullDetail, AccountMasterViewModel>(pagingInfo);
-            }
 
             ViewBag.SearchBy = filter.SearchBy;
 
             return View(viewmodel);
         }
     }
-
 }
