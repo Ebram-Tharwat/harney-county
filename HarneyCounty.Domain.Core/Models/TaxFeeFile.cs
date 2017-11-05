@@ -21,40 +21,33 @@ namespace HarneyCounty.Domain.Core.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
+        [Index(@"PK__TaxFeeFi__3214EC27403A8C7D", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
         public int Id { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"AcctNmbr", Order = 2, TypeName = "char")]
         [Required]
         [MaxLength(9)]
         [StringLength(9)]
-        [Key]
         [Display(Name = "Acct nmbr")]
         public string AcctNmbr { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"TaxRollYear", Order = 3, TypeName = "numeric")]
         [Required]
-        [Key]
         [Display(Name = "Tax roll year")]
         public decimal TaxRollYear { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"PayFeeType", Order = 4, TypeName = "char")]
         [Required]
         [MaxLength(2)]
         [StringLength(2)]
-        [Key]
         [Display(Name = "Pay fee type")]
         public string PayFeeType { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"TaxFeeSeq", Order = 5, TypeName = "decimal")]
         [Required]
-        [Key]
         [Display(Name = "Tax fee seq")]
         public decimal TaxFeeSeq { get; set; }
 

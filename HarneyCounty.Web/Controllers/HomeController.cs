@@ -6,6 +6,7 @@ using HarneyCounty.Domain.Core.Models;
 using HarneyCounty.Web.Extensions;
 using HarneyCounty.Web.ViewModel;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 
 namespace HarneyCounty.Web.Controllers
@@ -39,6 +40,7 @@ namespace HarneyCounty.Web.Controllers
             {
                 entities = entities.Select(x => new AccountMasterFullDetail
                 {
+                    AccountMasterId = x.AccountMasterId,
                     AcctNmbr = x.AcctNmbr,
                     OwnerName = x.OwnerName,
                     SearchNameFlag = x.SearchNameFlag,
@@ -171,6 +173,23 @@ namespace HarneyCounty.Web.Controllers
             ViewBag.SearchBy = filter.SearchBy;
 
             return View(viewmodel);
+        }
+
+        [HttpGet]
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var entity = new AccountMaster();
+            if (entity == null)
+            {
+                return HttpNotFound();
+            }
+            //var viewmodel = Mapper.Map<Server, ServerDetailsViewModel>(entity);
+
+            return View(entity);
         }
     }
 }

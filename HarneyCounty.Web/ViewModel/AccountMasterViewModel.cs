@@ -4,6 +4,8 @@ namespace HarneyCounty.Web.ViewModel
 {
     public class AccountMasterViewModel
     {
+        public int AccountMasterId { get; set; }
+
         [Display(Name = "Account Number")]
         public int AccountNumber { get; set; }
 

@@ -21,17 +21,16 @@ namespace HarneyCounty.Domain.Core.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
+        [Index(@"PK__SalesCom__3214EC2734C8D9D1", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
         public int Id { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"SaleIdentification", Order = 2, TypeName = "char")]
         [Required]
         [MaxLength(9)]
         [StringLength(9)]
-        [Key]
         [Display(Name = "Sale identification")]
         public string SaleIdentification { get; set; }
 

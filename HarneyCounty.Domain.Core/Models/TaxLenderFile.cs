@@ -21,33 +21,28 @@ namespace HarneyCounty.Domain.Core.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
+        [Index(@"PK__TaxLende__3214EC27440B1D61", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
         public int Id { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"LenderNumber", Order = 2, TypeName = "char")]
         [Required]
         [MaxLength(4)]
         [StringLength(4)]
-        [Key]
         [Display(Name = "Lender number")]
         public string LenderNumber { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"LenderSeqNumber", Order = 3, TypeName = "decimal")]
         [Required]
-        [Key]
         [Display(Name = "Lender seq number")]
         public decimal LenderSeqNumber { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"LenderDescription", Order = 4, TypeName = "char")]
         [Required]
         [MaxLength(25)]
         [StringLength(25)]
-        [Key]
         [Display(Name = "Lender description")]
         public string LenderDescription { get; set; }
 

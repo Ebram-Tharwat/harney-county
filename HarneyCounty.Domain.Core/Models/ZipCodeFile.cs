@@ -21,17 +21,16 @@ namespace HarneyCounty.Domain.Core.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
+        [Index(@"PK__ZipCodeF__3214EC272C3393D0", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
         public int Id { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"ZipCode", Order = 2, TypeName = "char")]
         [Required]
         [MaxLength(10)]
         [StringLength(10)]
-        [Key]
         [Display(Name = "Zip code")]
         public string ZipCode { get; set; }
 

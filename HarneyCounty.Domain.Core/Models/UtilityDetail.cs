@@ -21,38 +21,31 @@ namespace HarneyCounty.Domain.Core.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
+        [Index(@"PK__UtilityD__3214EC275812160E", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
         public int Id { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"AsmtYear", Order = 2, TypeName = "decimal")]
         [Required]
-        [Key]
         [Display(Name = "Asmt year")]
         public decimal AsmtYear { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"AcctNmbr", Order = 3, TypeName = "char")]
         [Required]
         [MaxLength(9)]
         [StringLength(9)]
-        [Key]
         [Display(Name = "Acct nmbr")]
         public string AcctNmbr { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"Sequence4", Order = 4, TypeName = "decimal")]
         [Required]
-        [Key]
         [Display(Name = "Sequence 4")]
         public decimal Sequence4 { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"Sequence3", Order = 5, TypeName = "decimal")]
         [Required]
-        [Key]
         [Display(Name = "Sequence 3")]
         public decimal Sequence3 { get; set; }
 

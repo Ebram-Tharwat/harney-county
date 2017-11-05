@@ -21,17 +21,16 @@ namespace HarneyCounty.Domain.Core.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
+        [Index(@"PK__LandClas__3214EC271DB06A4F", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
         public int Id { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"LandClassCode", Order = 2, TypeName = "char")]
         [Required]
         [MaxLength(6)]
         [StringLength(6)]
-        [Key]
         [Display(Name = "Land class code")]
         public string LandClassCode { get; set; }
 

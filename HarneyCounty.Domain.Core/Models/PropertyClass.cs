@@ -21,33 +21,28 @@ namespace HarneyCounty.Domain.Core.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
+        [Index(@"PK__Property__3214EC2724927208", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
         public int Id { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"AsmtYear", Order = 2, TypeName = "decimal")]
         [Required]
-        [Key]
         [Display(Name = "Asmt year")]
         public decimal AsmtYear { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"PropertyClass", Order = 3, TypeName = "char")]
         [Required]
         [MaxLength(4)]
         [StringLength(4)]
-        [Key]
         [Display(Name = "Property class")]
         public string PropertyClass_ { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"PropertyClassDescription", Order = 4, TypeName = "char")]
         [Required]
         [MaxLength(30)]
         [StringLength(30)]
-        [Key]
         [Display(Name = "Property class description")]
         public string PropertyClassDescription { get; set; }
 
@@ -87,21 +82,17 @@ namespace HarneyCounty.Domain.Core.Models
         [Display(Name = "Changed property grouper")]
         public string ChangedPropertyGrouper { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"PropertyClassGrouping", Order = 11, TypeName = "char")]
         [Required]
         [MaxLength(4)]
         [StringLength(4)]
-        [Key]
         [Display(Name = "Property class grouping")]
         public string PropertyClassGrouping { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"PropertyClassSalesPrint", Order = 12, TypeName = "char")]
         [Required]
         [MaxLength(4)]
         [StringLength(4)]
-        [Key]
         [Display(Name = "Property class sales print")]
         public string PropertyClassSalesPrint { get; set; }
 

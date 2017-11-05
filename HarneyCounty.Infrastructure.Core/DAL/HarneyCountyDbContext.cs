@@ -39,12 +39,47 @@ namespace HarneyCounty.Infrastructure.Core.DAL
         public System.Data.Entity.DbSet<AccountSummary> AccountSummaries { get; set; }
         public System.Data.Entity.DbSet<ChangeFile> ChangeFiles { get; set; }
         public System.Data.Entity.DbSet<CodeArea> CodeAreas { get; set; }
+        public System.Data.Entity.DbSet<EtAlName> EtAlNames { get; set; }
+        public System.Data.Entity.DbSet<ExemptionDetail> ExemptionDetails { get; set; }
+        public System.Data.Entity.DbSet<ExemptionMaster> ExemptionMasters { get; set; }
+        public System.Data.Entity.DbSet<FlaggingDetail> FlaggingDetails { get; set; }
+        public System.Data.Entity.DbSet<FlaggingMaster> FlaggingMasters { get; set; }
         public System.Data.Entity.DbSet<Improvement> Improvements { get; set; }
         public System.Data.Entity.DbSet<LandAprsPropCharItem> LandAprsPropCharItems { get; set; }
+        public System.Data.Entity.DbSet<LandAssessment> LandAssessments { get; set; }
+        public System.Data.Entity.DbSet<LandAssessmentMsav> LandAssessmentMsavs { get; set; }
+        public System.Data.Entity.DbSet<LandAssessmentSgmtAdj> LandAssessmentSgmtAdjs { get; set; }
+        public System.Data.Entity.DbSet<LandClass> LandClasses { get; set; }
+        public System.Data.Entity.DbSet<LandType> LandTypes { get; set; }
+        public System.Data.Entity.DbSet<MaintenanceArea> MaintenanceAreas { get; set; }
+        public System.Data.Entity.DbSet<MasterException> MasterExceptions { get; set; }
         public System.Data.Entity.DbSet<MobileHome> MobileHomes { get; set; }
+        public System.Data.Entity.DbSet<OwnershipHistory> OwnershipHistories { get; set; }
+        public System.Data.Entity.DbSet<PersonalPropComment> PersonalPropComments { get; set; }
+        public System.Data.Entity.DbSet<PersonalPropDetail> PersonalPropDetails { get; set; }
+        public System.Data.Entity.DbSet<PersonalPropFloating> PersonalPropFloatings { get; set; }
+        public System.Data.Entity.DbSet<PersonalPropLibrary> PersonalPropLibraries { get; set; }
+        public System.Data.Entity.DbSet<PersonalPropNonInvent> PersonalPropNonInvents { get; set; }
+        public System.Data.Entity.DbSet<PersonalPropOther> PersonalPropOthers { get; set; }
+        public System.Data.Entity.DbSet<PersonalPropOtherTool> PersonalPropOtherTools { get; set; }
+        public System.Data.Entity.DbSet<PersonalPropRentDetail> PersonalPropRentDetails { get; set; }
+        public System.Data.Entity.DbSet<PersonalPropValue> PersonalPropValues { get; set; }
         public System.Data.Entity.DbSet<PropertyClass> PropertyClasses { get; set; }
+        public System.Data.Entity.DbSet<SalesComment> SalesComments { get; set; }
         public System.Data.Entity.DbSet<SearchFile> SearchFiles { get; set; }
+        public System.Data.Entity.DbSet<SpecialAssessDetail> SpecialAssessDetails { get; set; }
+        public System.Data.Entity.DbSet<SpecialAssessment> SpecialAssessments { get; set; }
+        public System.Data.Entity.DbSet<TaxFeeFile> TaxFeeFiles { get; set; }
+        public System.Data.Entity.DbSet<TaxLenderFile> TaxLenderFiles { get; set; }
+        public System.Data.Entity.DbSet<TaxLienholder> TaxLienholders { get; set; }
+        public System.Data.Entity.DbSet<TaxMasterMaintFile> TaxMasterMaintFiles { get; set; }
+        public System.Data.Entity.DbSet<TaxReceiptHistory> TaxReceiptHistories { get; set; }
+        public System.Data.Entity.DbSet<TaxRoll> TaxRolls { get; set; }
+        public System.Data.Entity.DbSet<UtilityDetail> UtilityDetails { get; set; }
+        public System.Data.Entity.DbSet<UtilitySummary> UtilitySummaries { get; set; }
+        public System.Data.Entity.DbSet<ValueArea> ValueAreas { get; set; }
         public System.Data.Entity.DbSet<ZipCodeFile> ZipCodeFiles { get; set; }
+        public System.Data.Entity.DbSet<ZoneMaster> ZoneMasters { get; set; }
 
         static HarneyCountyDbContext()
         {
@@ -100,12 +135,47 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new AccountSummaryConfiguration());
             modelBuilder.Configurations.Add(new ChangeFileConfiguration());
             modelBuilder.Configurations.Add(new CodeAreaConfiguration());
+            modelBuilder.Configurations.Add(new EtAlNameConfiguration());
+            modelBuilder.Configurations.Add(new ExemptionDetailConfiguration());
+            modelBuilder.Configurations.Add(new ExemptionMasterConfiguration());
+            modelBuilder.Configurations.Add(new FlaggingDetailConfiguration());
+            modelBuilder.Configurations.Add(new FlaggingMasterConfiguration());
             modelBuilder.Configurations.Add(new ImprovementConfiguration());
             modelBuilder.Configurations.Add(new LandAprsPropCharItemConfiguration());
+            modelBuilder.Configurations.Add(new LandAssessmentConfiguration());
+            modelBuilder.Configurations.Add(new LandAssessmentMsavConfiguration());
+            modelBuilder.Configurations.Add(new LandAssessmentSgmtAdjConfiguration());
+            modelBuilder.Configurations.Add(new LandClassConfiguration());
+            modelBuilder.Configurations.Add(new LandTypeConfiguration());
+            modelBuilder.Configurations.Add(new MaintenanceAreaConfiguration());
+            modelBuilder.Configurations.Add(new MasterExceptionConfiguration());
             modelBuilder.Configurations.Add(new MobileHomeConfiguration());
+            modelBuilder.Configurations.Add(new OwnershipHistoryConfiguration());
+            modelBuilder.Configurations.Add(new PersonalPropCommentConfiguration());
+            modelBuilder.Configurations.Add(new PersonalPropDetailConfiguration());
+            modelBuilder.Configurations.Add(new PersonalPropFloatingConfiguration());
+            modelBuilder.Configurations.Add(new PersonalPropLibraryConfiguration());
+            modelBuilder.Configurations.Add(new PersonalPropNonInventConfiguration());
+            modelBuilder.Configurations.Add(new PersonalPropOtherConfiguration());
+            modelBuilder.Configurations.Add(new PersonalPropOtherToolConfiguration());
+            modelBuilder.Configurations.Add(new PersonalPropRentDetailConfiguration());
+            modelBuilder.Configurations.Add(new PersonalPropValueConfiguration());
             modelBuilder.Configurations.Add(new PropertyClassConfiguration());
+            modelBuilder.Configurations.Add(new SalesCommentConfiguration());
             modelBuilder.Configurations.Add(new SearchFileConfiguration());
+            modelBuilder.Configurations.Add(new SpecialAssessDetailConfiguration());
+            modelBuilder.Configurations.Add(new SpecialAssessmentConfiguration());
+            modelBuilder.Configurations.Add(new TaxFeeFileConfiguration());
+            modelBuilder.Configurations.Add(new TaxLenderFileConfiguration());
+            modelBuilder.Configurations.Add(new TaxLienholderConfiguration());
+            modelBuilder.Configurations.Add(new TaxMasterMaintFileConfiguration());
+            modelBuilder.Configurations.Add(new TaxReceiptHistoryConfiguration());
+            modelBuilder.Configurations.Add(new TaxRollConfiguration());
+            modelBuilder.Configurations.Add(new UtilityDetailConfiguration());
+            modelBuilder.Configurations.Add(new UtilitySummaryConfiguration());
+            modelBuilder.Configurations.Add(new ValueAreaConfiguration());
             modelBuilder.Configurations.Add(new ZipCodeFileConfiguration());
+            modelBuilder.Configurations.Add(new ZoneMasterConfiguration());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -116,12 +186,47 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new AccountSummaryConfiguration(schema));
             modelBuilder.Configurations.Add(new ChangeFileConfiguration(schema));
             modelBuilder.Configurations.Add(new CodeAreaConfiguration(schema));
+            modelBuilder.Configurations.Add(new EtAlNameConfiguration(schema));
+            modelBuilder.Configurations.Add(new ExemptionDetailConfiguration(schema));
+            modelBuilder.Configurations.Add(new ExemptionMasterConfiguration(schema));
+            modelBuilder.Configurations.Add(new FlaggingDetailConfiguration(schema));
+            modelBuilder.Configurations.Add(new FlaggingMasterConfiguration(schema));
             modelBuilder.Configurations.Add(new ImprovementConfiguration(schema));
             modelBuilder.Configurations.Add(new LandAprsPropCharItemConfiguration(schema));
+            modelBuilder.Configurations.Add(new LandAssessmentConfiguration(schema));
+            modelBuilder.Configurations.Add(new LandAssessmentMsavConfiguration(schema));
+            modelBuilder.Configurations.Add(new LandAssessmentSgmtAdjConfiguration(schema));
+            modelBuilder.Configurations.Add(new LandClassConfiguration(schema));
+            modelBuilder.Configurations.Add(new LandTypeConfiguration(schema));
+            modelBuilder.Configurations.Add(new MaintenanceAreaConfiguration(schema));
+            modelBuilder.Configurations.Add(new MasterExceptionConfiguration(schema));
             modelBuilder.Configurations.Add(new MobileHomeConfiguration(schema));
+            modelBuilder.Configurations.Add(new OwnershipHistoryConfiguration(schema));
+            modelBuilder.Configurations.Add(new PersonalPropCommentConfiguration(schema));
+            modelBuilder.Configurations.Add(new PersonalPropDetailConfiguration(schema));
+            modelBuilder.Configurations.Add(new PersonalPropFloatingConfiguration(schema));
+            modelBuilder.Configurations.Add(new PersonalPropLibraryConfiguration(schema));
+            modelBuilder.Configurations.Add(new PersonalPropNonInventConfiguration(schema));
+            modelBuilder.Configurations.Add(new PersonalPropOtherConfiguration(schema));
+            modelBuilder.Configurations.Add(new PersonalPropOtherToolConfiguration(schema));
+            modelBuilder.Configurations.Add(new PersonalPropRentDetailConfiguration(schema));
+            modelBuilder.Configurations.Add(new PersonalPropValueConfiguration(schema));
             modelBuilder.Configurations.Add(new PropertyClassConfiguration(schema));
+            modelBuilder.Configurations.Add(new SalesCommentConfiguration(schema));
             modelBuilder.Configurations.Add(new SearchFileConfiguration(schema));
+            modelBuilder.Configurations.Add(new SpecialAssessDetailConfiguration(schema));
+            modelBuilder.Configurations.Add(new SpecialAssessmentConfiguration(schema));
+            modelBuilder.Configurations.Add(new TaxFeeFileConfiguration(schema));
+            modelBuilder.Configurations.Add(new TaxLenderFileConfiguration(schema));
+            modelBuilder.Configurations.Add(new TaxLienholderConfiguration(schema));
+            modelBuilder.Configurations.Add(new TaxMasterMaintFileConfiguration(schema));
+            modelBuilder.Configurations.Add(new TaxReceiptHistoryConfiguration(schema));
+            modelBuilder.Configurations.Add(new TaxRollConfiguration(schema));
+            modelBuilder.Configurations.Add(new UtilityDetailConfiguration(schema));
+            modelBuilder.Configurations.Add(new UtilitySummaryConfiguration(schema));
+            modelBuilder.Configurations.Add(new ValueAreaConfiguration(schema));
             modelBuilder.Configurations.Add(new ZipCodeFileConfiguration(schema));
+            modelBuilder.Configurations.Add(new ZoneMasterConfiguration(schema));
             return modelBuilder;
         }
     }

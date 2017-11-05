@@ -21,31 +21,26 @@ namespace HarneyCounty.Domain.Core.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
+        [Index(@"PK__Maintena__3214EC2725518C17", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
         public int Id { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"AsmtYear", Order = 2, TypeName = "decimal")]
         [Required]
-        [Key]
         [Display(Name = "Asmt year")]
         public decimal AsmtYear { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"MntnAreaCode", Order = 3, TypeName = "decimal")]
         [Required]
-        [Key]
         [Display(Name = "Mntn area code")]
         public decimal MntnAreaCode { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"MntnAreaDesc", Order = 4, TypeName = "char")]
         [Required]
         [MaxLength(30)]
         [StringLength(30)]
-        [Key]
         [Display(Name = "Mntn area desc")]
         public string MntnAreaDesc { get; set; }
 

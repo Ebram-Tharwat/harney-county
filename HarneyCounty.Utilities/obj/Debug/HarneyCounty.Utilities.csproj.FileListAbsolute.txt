@@ -26,9 +26,7 @@ D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Utilities\b
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Utilities\bin\Debug\Z.EntityFramework.Plus.EF6.dll
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Application.Core.pdb
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Infrastructure.Core.pdb
-D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Infrastructure.Core.dll.config
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Domain.Core.pdb
-D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Domain.Core.dll.config
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Utilities.dll.config
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Utilities.dll
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Utilities.pdb

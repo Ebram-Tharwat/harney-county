@@ -21,17 +21,16 @@ namespace HarneyCounty.Domain.Core.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
+        [Index(@"PK__Flagging__3214EC273A4CA8FD", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
         public int Id { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"FlaggingCode", Order = 2, TypeName = "char")]
         [Required]
         [MaxLength(4)]
         [StringLength(4)]
-        [Key]
         [Display(Name = "Flagging code")]
         public string FlaggingCode { get; set; }
 

@@ -21,26 +21,23 @@ namespace HarneyCounty.Domain.Core.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
+        [Index(@"PK__SpecialA__3214EC273C69FB99", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
         public int Id { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"SpecAssessCode", Order = 2, TypeName = "char")]
         [Required]
         [MaxLength(3)]
         [StringLength(3)]
-        [Key]
         [Display(Name = "Spec assess code")]
         public string SpecAssessCode { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"SpecAssessDescr", Order = 3, TypeName = "char")]
         [Required]
         [MaxLength(30)]
         [StringLength(30)]
-        [Key]
         [Display(Name = "Spec assess descr")]
         public string SpecAssessDescr { get; set; }
 

@@ -21,7 +21,7 @@ namespace HarneyCounty.Domain.Core.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
-        [Index(@"PK_AccountSummary", 1, IsUnique = true, IsClustered = true)]
+        [Index(@"PK__AccountS__3214EC270BC6C43E", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]

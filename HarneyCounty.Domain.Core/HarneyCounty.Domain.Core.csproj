@@ -89,9 +89,6 @@
     <Compile Include="Models\Improvement.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\JoinAccountMasterWithAccountSummary.cs">
-      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\LandAprsPropCharItem.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>

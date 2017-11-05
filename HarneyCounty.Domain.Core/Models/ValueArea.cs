@@ -21,26 +21,23 @@ namespace HarneyCounty.Domain.Core.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(@"ID", Order = 1, TypeName = "int")]
+        [Index(@"PK__ValueAre__3214EC275FB337D6", 1, IsUnique = true, IsClustered = true)]
         [Required]
         [Key]
         [Display(Name = "Id")]
         public int Id { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"ValAreaCode", Order = 2, TypeName = "char")]
         [Required]
         [MaxLength(3)]
         [StringLength(3)]
-        [Key]
         [Display(Name = "Val area code")]
         public string ValAreaCode { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"ValAreaDesc", Order = 3, TypeName = "char")]
         [Required]
         [MaxLength(30)]
         [StringLength(30)]
-        [Key]
         [Display(Name = "Val area desc")]
         public string ValAreaDesc { get; set; }
 

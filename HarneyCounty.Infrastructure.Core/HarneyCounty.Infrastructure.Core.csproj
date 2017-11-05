@@ -78,6 +78,21 @@
     <Compile Include="Mappings\CodeAreaConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
+    <Compile Include="Mappings\EtAlNameConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\ExemptionDetailConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\ExemptionMasterConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\FlaggingDetailConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\FlaggingMasterConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
     <Compile Include="Mappings\HarneyCountyDbMappings.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,16 +104,106 @@
     <Compile Include="Mappings\LandAprsPropCharItemConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
+    <Compile Include="Mappings\LandAssessmentConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\LandAssessmentMsavConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\LandAssessmentSgmtAdjConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\LandClassConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\LandTypeConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\MaintenanceAreaConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\MasterExceptionConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
     <Compile Include="Mappings\MobileHomeConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\OwnershipHistoryConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\PersonalPropCommentConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\PersonalPropDetailConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\PersonalPropFloatingConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\PersonalPropLibraryConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\PersonalPropNonInventConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\PersonalPropOtherConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\PersonalPropOtherToolConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\PersonalPropRentDetailConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\PersonalPropValueConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
     <Compile Include="Mappings\PropertyClassConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
+    <Compile Include="Mappings\SalesCommentConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
     <Compile Include="Mappings\SearchFileConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
+    <Compile Include="Mappings\SpecialAssessDetailConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\SpecialAssessmentConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\TaxFeeFileConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\TaxLenderFileConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\TaxLienholderConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\TaxMasterMaintFileConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\TaxReceiptHistoryConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\TaxRollConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\UtilityDetailConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\UtilitySummaryConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\ValueAreaConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
     <Compile Include="Mappings\ZipCodeFileConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\ZoneMasterConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
