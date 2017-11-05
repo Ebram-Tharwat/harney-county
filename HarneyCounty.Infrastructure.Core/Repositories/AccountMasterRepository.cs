@@ -1,4 +1,6 @@
-﻿using HarneyCounty.Domain.Core.Models;
+﻿using HarneyCounty.Common.Extensions;
+using HarneyCounty.Domain.Core.Models;
+using HarneyCounty.Domain.Core.ViewModel;
 using HarneyCounty.Infrastructure.Core.DAL;
 using HarneyCounty.Infrastructure.Core.Interfaces;
 using System.Collections.Generic;
@@ -12,12 +14,21 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
         {
         }
 
-        public List<AccountMasterFullDetail> SearchForAccounts(string accountNumber, decimal asmtYear, out int resultCount
+        public AccountMasterFullDetail GetAccountFullDetailsByAccountMasterId(int accountMasterId)
+        {
+            return _dbContext.AccountMasterFullDetails.FirstOrDefault(t => t.AccountMasterId == accountMasterId);
+        }
+
+        public AccountMasterFullDetail GetAccountFullDetailsByYearAndAccountNumber(int year, string actNumber)
+        {
+            return _dbContext.AccountMasterFullDetails.FirstOrDefault(t => t.AsmtYear == year && t.AcctNmbr.Trim() == actNumber.Trim());
+        }
+
+        public List<AccountMasterAndSummeryData> SearchForAccounts(string accountNumber, decimal asmtYear, out int resultCount
             , string ownerName = null
-            , decimal? situsNumber = null, string situsSufx = null, string situsDir = null, string situsName = null, string situsZip = null
+            , decimal? situsNumber = null, string situsSufx = null, string situsDir = null, string situsZip = null
             , string subDivCode = null, decimal? lotNumber = null, decimal? blockNumber = null, int? townShip = null, string townshipDirection = null
             , string range = null, string rangeDirection = null, int? section = 0, string quarterSection = null, int? parcel = null, string specialInterestAlpha = null, int? specialInterestNumber = 0
-            , string specAlph = null, decimal? specNumber = null
             , string xNumber = null, decimal? mobileHomeId = null, string mobHomeMnfr = null, string mhSerial = null
             , string propCode = null, string codeArea = null
             , int pageNumber = 1, int pageSize = 50)
@@ -40,9 +51,6 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
 
             if (!string.IsNullOrWhiteSpace(situsDir))
                 query = query.Where(t => t.SitusStrtDir == situsDir);
-
-            if (!string.IsNullOrWhiteSpace(situsName))
-                query = query.Where(t => t.SitusStrtName == situsName);
 
             if (!string.IsNullOrWhiteSpace(situsZip))
                 query = query.Where(t => t.SitusZipCode == situsZip);
@@ -83,12 +91,6 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
             if (blockNumber.HasValue)
                 query = query.Where(t => t.BlckNmbr == blockNumber);
 
-            if (!string.IsNullOrWhiteSpace(specAlph))
-                query = query.Where(t => t.SpecIntAlph == specAlph);
-
-            if (specNumber.HasValue)
-                query = query.Where(t => t.SpecIntNmbr == specNumber);
-
             if (!string.IsNullOrWhiteSpace(xNumber))
                 query = query.Where(t => t.XNmbr == xNumber);
 
@@ -107,15 +109,33 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
             if (!string.IsNullOrWhiteSpace(codeArea))
                 query = query.Where(t => t.CodeAreaCode == codeArea);
 
+            var groupByYearAndAccountNumber = query.GroupBy(t => new { t.AsmtYear, t.AcctNmbr });
+
             if (pageNumber > 0)
             {
-                var result = query.OrderBy(x => x.AcctNmbr).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
-                resultCount = query.Count();
+                var result = groupByYearAndAccountNumber.OrderBy(t => t.Key).Skip((pageNumber - 1) * pageSize).Take(pageSize)
+                    .ToList()
+                    .Select(g =>
+                    {
+                        var record = new AccountMasterAndSummeryData(g.First());
+                        record.MobileHomeRecords = g.Where(t => t.MobileHome_Id.HasValue).AsNotNull()
+                        .Select(mob => new MobileHomeData(mob)).ToList();
+                        return record;
+                    }).ToList();
+                //var result = query.OrderBy(x => x.AcctNmbr).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+                //resultCount = query.Count();
+                resultCount = groupByYearAndAccountNumber.Count();
                 return result;
             }
             else
             {
-                var result = query.ToList();
+                var result = groupByYearAndAccountNumber.ToList().Select(g =>
+                {
+                    var record = new AccountMasterAndSummeryData(g.First());
+                    record.MobileHomeRecords = g.Where(t => t.MobileHome_Id.HasValue).AsNotNull()
+                    .Select(mob => new MobileHomeData(mob)).ToList();
+                    return record;
+                }).ToList();
                 resultCount = result.Count;
                 return result;
             }

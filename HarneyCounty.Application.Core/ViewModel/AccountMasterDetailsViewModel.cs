@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace HarneyCounty.Web.ViewModel
+namespace HarneyCounty.Application.Core.ViewModel
 {
-    public class AccountMasterViewModel
+    public class AccountMasterDetailsViewModel
     {
-        public AccountMasterViewModel()
+        public AccountMasterDetailsViewModel()
         {
             MobileHomeData = new List<MobileHomeViewModel>();
         }

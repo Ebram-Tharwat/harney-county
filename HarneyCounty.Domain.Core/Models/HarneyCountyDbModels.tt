@@ -232,6 +232,8 @@
     // eg. normalise names etc.
     UpdateColumn = (Column column, Table table) =>
     {
+        if (column.Name.Contains("_"))
+            column.NameHumanCase = column.Name;
         // Rename column
         //if (column.IsPrimaryKey && column.NameHumanCase == "PkId")
         //    column.NameHumanCase = "Id";

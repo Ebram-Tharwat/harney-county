@@ -34,3 +34,9 @@ E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Application.Core\bin\
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Application.Core\bin\Debug\EntityFramework.SqlServer.xml
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\EntityFramework.SqlServer.dll
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\EntityFramework.SqlServer.xml
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\HarneyCounty.Domain.Core.dll.config
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\HarneyCounty.Infrastructure.Core.dll.config
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\HarneyCounty.Common.dll
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\Newtonsoft.Json.dll
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\HarneyCounty.Common.pdb
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\Newtonsoft.Json.xml

@@ -108,7 +108,8 @@ namespace HarneyCounty.Infrastructure.Core.Mappings
             Property(x => x.MsavBaseImprovements).IsOptional().HasPrecision(9,0);
             Property(x => x.MsavBaseManuStructure).IsOptional().HasPrecision(7,0);
             Property(x => x.MsavBaseMkt).IsOptional().HasPrecision(9,0);
-            Property(x => x.MobileHomeRollType).IsOptional().IsFixedLength().IsUnicode(false);
+            Property(x => x.MobileHome_Id).IsOptional();
+            Property(x => x.MobHomeRollType).IsOptional().IsFixedLength().IsUnicode(false);
             Property(x => x.MobHomeSizeFlag).IsOptional().IsFixedLength().IsUnicode(false);
             Property(x => x.MobileHomeId).IsOptional().HasPrecision(6,0);
             Property(x => x.YearBuilt).IsOptional().HasPrecision(4,0);

@@ -1,7 +1,7 @@
 ﻿@using X.PagedList
 @using X.PagedList.Mvc
 @using HarneyCounty.Application.Core.Contracts;
-@model IEnumerable<HarneyCounty.Web.ViewModel.AccountMasterViewModel>
+@model IEnumerable<HarneyCounty.Application.Core.ViewModel.AccountMasterDetailsViewModel>
 
 @{
     var filterViewModel = ViewBag.FilterViewModel as SearchCriteria;
@@ -60,7 +60,7 @@
                     @Html.DisplayFor(modelItem => item.Rl)
                 </td>
                 <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.AccountMasterId })
+                    @Html.ActionLink("Details", "Details", new { year = item.AsmtYear, accountNumber = item.AccountNumber })
                 </td>
             </tr>
         }

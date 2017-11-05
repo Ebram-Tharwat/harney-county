@@ -443,18 +443,15 @@ namespace HarneyCounty.Domain.Core.Models
         [Display(Name = "Msav base mkt")]
         public decimal? MsavBaseMkt { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"MobileHome_Id", Order = 87, TypeName = "int")]
-        [Required]
-        [Key]
         [Display(Name = "Mobile home ID")]
-        public int MobileHomeId1 { get; set; }
+        public int? MobileHome_Id { get; set; }
 
-        [Column(@"MobileHomeRollType", Order = 88, TypeName = "char")]
+        [Column(@"MobHomeRollType", Order = 88, TypeName = "char")]
         [MaxLength(1)]
         [StringLength(1)]
-        [Display(Name = "Mobile home roll type")]
-        public string MobileHomeRollType { get; set; }
+        [Display(Name = "Mob home roll type")]
+        public string MobHomeRollType { get; set; }
 
         [Column(@"MobHomeSizeFlag", Order = 89, TypeName = "char")]
         [MaxLength(1)]
@@ -521,11 +518,11 @@ namespace HarneyCounty.Domain.Core.Models
         public string SearchRoll { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"ID", Order = 101, TypeName = "int")]
+        [Column(@"SearchFile_Id", Order = 101, TypeName = "int")]
         [Required]
         [Key]
-        [Display(Name = "Id")]
-        public int Id { get; set; }
+        [Display(Name = "Search file ID")]
+        public int SearchFile_Id { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"SearchAsmtYear", Order = 102, TypeName = "decimal")]
