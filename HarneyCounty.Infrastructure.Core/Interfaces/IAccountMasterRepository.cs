@@ -15,8 +15,6 @@ namespace HarneyCounty.Infrastructure.Core.Interfaces
             , string propCode = null, string codeArea = null
             , int pageNumber = 1, int pageSize = 50);
 
-        AccountMasterFullDetail GetAccountFullDetailsByAccountMasterId(int accountMasterId);
-
-        AccountMasterFullDetail GetAccountFullDetailsByYearAndAccountNumber(int year, string actNumber);
+        AccountMasterAndSummeryData GetAccountFullDetailsByYearAndAccountNumber(int year, string actNumber);
     }
 }

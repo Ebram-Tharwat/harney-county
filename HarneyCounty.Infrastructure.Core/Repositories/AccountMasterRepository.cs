@@ -14,14 +14,22 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
         {
         }
 
-        public AccountMasterFullDetail GetAccountFullDetailsByAccountMasterId(int accountMasterId)
+        public AccountMasterAndSummeryData GetAccountFullDetailsByYearAndAccountNumber(int year, string actNumber)
         {
-            return _dbContext.AccountMasterFullDetails.FirstOrDefault(t => t.AccountMasterId == accountMasterId);
-        }
+            var groupByYearAndAccountNumber = _dbContext.AccountMasterFullDetails
+                .Where(t => t.AsmtYear == year && t.AcctNmbr.Trim() == actNumber.Trim())
+                .GroupBy(t => new { t.AsmtYear, t.AcctNmbr })
+                .FirstOrDefault();
 
-        public AccountMasterFullDetail GetAccountFullDetailsByYearAndAccountNumber(int year, string actNumber)
-        {
-            return _dbContext.AccountMasterFullDetails.FirstOrDefault(t => t.AsmtYear == year && t.AcctNmbr.Trim() == actNumber.Trim());
+            if (groupByYearAndAccountNumber != null)
+            {
+                var result = new AccountMasterAndSummeryData(groupByYearAndAccountNumber.First());
+                result.MobileHomeRecords = groupByYearAndAccountNumber.Where(t => t.MobileHome_Id.HasValue).AsNotNull()
+                .Select(mob => new MobileHomeData(mob)).ToList();
+                return result;
+            }
+
+            return null;
         }
 
         public List<AccountMasterAndSummeryData> SearchForAccounts(string accountNumber, decimal asmtYear, out int resultCount
@@ -122,8 +130,6 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
                         .Select(mob => new MobileHomeData(mob)).ToList();
                         return record;
                     }).ToList();
-                //var result = query.OrderBy(x => x.AcctNmbr).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
-                //resultCount = query.Count();
                 resultCount = groupByYearAndAccountNumber.Count();
                 return result;
             }

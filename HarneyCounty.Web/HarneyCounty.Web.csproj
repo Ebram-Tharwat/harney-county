@@ -244,6 +244,7 @@
     <Content Include="Views\Shared\_SearchByPropertyClass.cshtml" />
     <Content Include="Views\Shared\_SearchByCodeArea.cshtml" />
     <Content Include="Views\Shared\_SearchByMap.cshtml" />
+    <Content Include="Views\Home\RealProperty.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

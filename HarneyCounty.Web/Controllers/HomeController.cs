@@ -42,26 +42,23 @@ namespace HarneyCounty.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Details(int? year, string accountNumber)
+        public ActionResult Details(int? year, string accountNumber, string rollType)
         {
             if (year == null || string.IsNullOrWhiteSpace(accountNumber))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var entity = _accountMasterService.GetAccountFullDetailsByYearAndAccountNumber(year.Value, accountNumber);
-            if (entity == null)
-            {
-                return HttpNotFound();
-            }
+            }            
 
-            switch (entity.RollType.ToUpper())
+            switch (rollType.ToUpper())
             {
                 case Constants.RollType.RealProperty:
-                    return View(entity.RollType.ToUpper(), entity);
+                    var realPropertyEntity = _accountMasterService.GetRealPropertyAccountData(year.Value, accountNumber);
+                    if (realPropertyEntity == null)
+                        return HttpNotFound();
+                    return View("RealProperty", realPropertyEntity);
             }
-            //var viewmodel = Mapper.Map<Server, ServerDetailsViewModel>(entity);
 
-            return View(entity);
+            return View();
         }
     }
 }

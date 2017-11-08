@@ -1,0 +1,93 @@
+﻿@model HarneyCounty.Application.Core.ViewModel.RealPropertyAccountViewModel
+@{
+    ViewBag.Title = "Display Real Accounts";
+}
+
+<h2>Display Real Accounts</h2>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <div>
+            @Html.LabelFor(model => model.AccountNumber, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.AccountNumber)
+            &nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.AsmtYear)
+        </div>
+        <div class="row">
+            &nbsp;
+        </div>
+        <div>
+            @Html.LabelFor(model => model.MapId, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.MapId)
+        </div>
+        <div class="row">
+            <div class="col-md-6 ">
+                @Html.LabelFor(model => model.CodeAreaCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.CodeAreaCode)
+            </div>
+            <div class="col-md-6 ">
+                @Html.LabelFor(model => model.ZoningCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.ZoningCode)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 ">
+                @Html.LabelFor(model => model.MntnAreaCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.MntnAreaCode)
+            </div>
+            <div class="col-md-4 ">
+                @Html.LabelFor(model => model.ValAreaCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.ValAreaCode)
+            </div>
+            <div class="col-md-4 ">
+                @Html.LabelFor(model => model.PropClassCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.PropClassCode)
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(model => model.SbdvnBlckLot, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.SbdvnBlckLot)            
+        </div>
+        <div>
+            @Html.LabelFor(model => model.SitusStrtNmbr, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.SitusStrtNmbr)
+            &nbsp;&nbsp;<b>#</b>&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.SitusStrtNmbrSufx)&nbsp;
+            @Html.DisplayFor(model => model.SitusStrtDir)&nbsp;
+            @Html.DisplayFor(model => model.SitusStrtName)&nbsp;
+            @Html.DisplayFor(model => model.SitusStrtNameSufx)
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div>
+            @Html.LabelFor(model => model.OwnerName, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.OwnerName)
+        </div>
+        <div>
+            <label class="control-label">C/O</label>
+            @Html.DisplayFor(model => model.CareOfFlag)
+            &nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.CareOfName)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.OwnerAdrsNameLine1, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.OwnerAdrsNameLine1)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.OwnerAdrsLine2, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.OwnerAdrsLine2)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.OwnerAdrsLine3, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.OwnerAdrsLine3)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.ZipCode)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.SitusZipCode, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.SitusZipCode)
+        </div>
+    </div>
+</div>

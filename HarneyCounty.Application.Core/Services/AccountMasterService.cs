@@ -2,21 +2,25 @@
 using HarneyCounty.Application.Core.Contracts.Paging;
 using HarneyCounty.Application.Core.Interfaces;
 using HarneyCounty.Application.Core.ViewModel;
+using HarneyCounty.Common.Extensions;
 using HarneyCounty.Domain.Core.Models;
 using HarneyCounty.Domain.Core.ViewModel;
 using HarneyCounty.Infrastructure.Core.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HarneyCounty.Application.Core.Services
 {
     public class AccountMasterService : IAccountMasterService
     {
         private readonly IAccountMasterRepository _accountMasterRepository;
+        private readonly IZipCodeFileRepository _zipCodeFileRepository;
 
-        public AccountMasterService(IAccountMasterRepository accountMasterRepository)
+        public AccountMasterService(IAccountMasterRepository accountMasterRepository, IZipCodeFileRepository zipCodeFileRepository)
         {
             this._accountMasterRepository = accountMasterRepository;
+            this._zipCodeFileRepository = zipCodeFileRepository;
         }
 
         public List<AccountMasterDetailsViewModel> SearchForAccounts(SearchCriteria searchCriteria, PagingInfo pagingInfo)
@@ -38,24 +42,44 @@ namespace HarneyCounty.Application.Core.Services
             return AutoMapper.Mapper.Map<List<AccountMasterAndSummeryData>, List<AccountMasterDetailsViewModel>>(result);
         }
 
-        public AccountMaster GetAccountMasterById(int id)
+        public AccountMasterDetailsViewModel GetAccountFullDetailsByYearAndAccountNumber(int year, string accountNumber)
         {
-            return _accountMasterRepository.OneOrDefault(t => t.Id == id);
+            var result = _accountMasterRepository.GetAccountFullDetailsByYearAndAccountNumber(year, accountNumber);
+            if (result != null)
+                return AutoMapper.Mapper.Map<AccountMasterAndSummeryData, AccountMasterDetailsViewModel>(result);
+            return null;
         }
 
-        public AccountMaster GetAccountMasterByYearAndAccountNumber(int year, string accountNumber)
+        public RealPropertyAccountViewModel GetRealPropertyAccountData(int year, string accountNumber)
         {
-            return _accountMasterRepository.OneOrDefault(t => t.AsmtYear == year && t.AcctNmbr == accountNumber);
+            var data = _accountMasterRepository.GetAccountFullDetailsByYearAndAccountNumber(year, accountNumber);
+            if (data != null)
+            {
+                var result = AutoMapper.Mapper.Map<AccountMasterAndSummeryData, RealPropertyAccountViewModel>(data);
+                result.ZipCode = this.GetAccountZipCodeMatch(result.ZipCode.Trim());
+                result.SitusZipCode = this.GetAccountZipCodeMatch(result.SitusZipCode.Trim());
+                return result;
+            }
+            return null;
         }
 
-        public AccountMasterFullDetail GetAccountFullDetailsByAccountMasterId(int accountMasterId)
+        public string GetAccountZipCodeMatch(string accountZipCode)
         {
-            return _accountMasterRepository.GetAccountFullDetailsByAccountMasterId(accountMasterId);
-        }
+            var zipCode10Bytes = accountZipCode.TruncateLongString(10);
+            var zipCode5Bytes = accountZipCode.TruncateLongString(5);
 
-        public AccountMasterFullDetail GetAccountFullDetailsByYearAndAccountNumber(int year, string accountNumber)
-        {
-            return _accountMasterRepository.GetAccountFullDetailsByYearAndAccountNumber(year, accountNumber);
+            var zipcodeMatches = _zipCodeFileRepository.GetZipCodes(new List<string> { zipCode10Bytes, zipCode5Bytes });
+            if (!zipcodeMatches.Any())
+                return accountZipCode;
+            else
+            {
+                ZipCodeFile matchedZipCode = null;
+                if (zipcodeMatches.Count == 1)
+                    matchedZipCode = zipcodeMatches.FirstOrDefault();
+                else
+                    matchedZipCode = zipcodeMatches.FirstOrDefault(z => z.ZipCode.Trim().Length == 10);
+                return $"{accountZipCode} {matchedZipCode.Country} {matchedZipCode.City}";
+            }
         }
     }
 }

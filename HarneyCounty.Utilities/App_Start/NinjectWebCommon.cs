@@ -70,6 +70,8 @@ namespace HarneyCounty.Utilities.App_Start
 
             kernel.Bind<IAccountMasterRepository>().To<AccountMasterRepository>();
             kernel.Bind<IAccountMasterService>().To<AccountMasterService>();
+
+            kernel.Bind<IZipCodeFileRepository>().To<ZipCodeFileRepository>();
         }
     }
 }

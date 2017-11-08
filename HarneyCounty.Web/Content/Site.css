@@ -22,3 +22,9 @@ select,
 textarea {
     _max-width: 280px;
 }
+
+/*Herlpers*/
+.no-pad-horizontal {
+    padding-left: 0;
+    padding-right: 0;
+}
