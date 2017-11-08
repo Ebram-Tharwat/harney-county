@@ -28,7 +28,7 @@
             @Html.DisplayNameFor(model => model.Code)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Rl)
+            @Html.DisplayNameFor(model => model.RollType)
         </th>
         <th></th>
     </tr>
@@ -57,10 +57,10 @@
                     @Html.DisplayFor(modelItem => item.Code)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Rl)
+                    @Html.DisplayFor(modelItem => item.RollType)
                 </td>
                 <td>
-                    @Html.ActionLink("Details", "Details", new { year = item.AsmtYear, accountNumber = item.AccountNumber })
+                    @Html.ActionLink("Details", "Details", new { year = item.AsmtYear, accountNumber = item.AccountNumber, rolltype = item.RollType })
                 </td>
             </tr>
         }

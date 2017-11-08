@@ -16,7 +16,7 @@ namespace HarneyCounty.Application.Core.ViewModel
         public int AccountNumber { get; set; }
 
         [Display(Name = "Year")]
-        public decimal AsmtYear { get; set; }
+        public int AsmtYear { get; set; }
 
         [Display(Name = "Owner Name")]
         public string OwnerName { get; set; }
@@ -46,21 +46,13 @@ namespace HarneyCounty.Application.Core.ViewModel
 
         public string ValAreaCode { get; set; }
 
-        public string MapId
-        {
-            get
-            {
-                return string.Format("{0} {1} {2} {3} {4} {5} {6} {7} {8}", Twnshp, TwnshpDir, Range, RangDir, Sctn, QtrSctn, Prcl, SpecIntAlph,
-                                                                                SpecIntNmbr);
-            }
-        }
-
         public string Prop { get; set; }
 
         public string Code { get; set; }
 
-        public string Rl { get; set; }
+        public string RollType { get; set; }
 
+        [Display(Name = "SITUS")]
         public string SitusStrtNmbr { get; set; }
 
         public string SitusStrtNmbrSufx { get; set; }
@@ -87,12 +79,25 @@ namespace HarneyCounty.Application.Core.ViewModel
 
         public int? LotNmbr { get; set; }
 
+        public List<MobileHomeViewModel> MobileHomeData { get; set; }        
+
+        #region Composite Props
+
         public string Dimension
         {
             //get { return $"{this.MobHomeWdth} X {MobHomeLngth}"; }
             get;
         }
 
-        public List<MobileHomeViewModel> MobileHomeData { get; set; }
+        public string MapId
+        {
+            get
+            {
+                return string.Format("{0} {1} {2} {3} {4} {5} {6} {7} {8}", Twnshp, TwnshpDir, Range, RangDir, Sctn, QtrSctn, Prcl, SpecIntAlph,
+                                                                                SpecIntNmbr);
+            }
+        }
+
+        #endregion Composite Props
     }
 }
