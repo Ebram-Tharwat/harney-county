@@ -64,12 +64,17 @@
     <Compile Include="Services\AccountMasterService.cs" />
     <Compile Include="ViewModel\AccountMasterDetailsViewModel.cs" />
     <Compile Include="ViewModel\MobileHomeViewModel.cs" />
+    <Compile Include="ViewModel\RealPropertyAccountViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\HarneyCounty.Common\HarneyCounty.Common.csproj">
+      <Project>{22AB17C8-A178-4053-BD59-D6ECEA480F9E}</Project>
+      <Name>HarneyCounty.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HarneyCounty.Domain.Core\HarneyCounty.Domain.Core.csproj">
       <Project>{C2327950-83C8-423D-A017-62B18E3B7C59}</Project>
       <Name>HarneyCounty.Domain.Core</Name>
