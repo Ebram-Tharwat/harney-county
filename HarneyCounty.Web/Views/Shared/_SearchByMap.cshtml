@@ -54,7 +54,7 @@
                     @Html.DisplayFor(modelItem => item.RollType)
                 </td>
                 <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.AccountNumber })
+                    @Html.ActionLink("Details", "Details", new { year = item.AsmtYear, accountNumber = item.AccountNumber, rolltype = item.RollType })
                 </td>
             </tr>
         }
