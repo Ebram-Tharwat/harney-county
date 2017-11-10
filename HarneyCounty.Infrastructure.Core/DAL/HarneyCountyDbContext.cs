@@ -42,9 +42,12 @@ namespace HarneyCounty.Infrastructure.Core.DAL
         public System.Data.Entity.DbSet<EtAlName> EtAlNames { get; set; }
         public System.Data.Entity.DbSet<ExemptionDetail> ExemptionDetails { get; set; }
         public System.Data.Entity.DbSet<ExemptionMaster> ExemptionMasters { get; set; }
+        public System.Data.Entity.DbSet<FactorBookMaster> FactorBookMasters { get; set; }
         public System.Data.Entity.DbSet<FlaggingDetail> FlaggingDetails { get; set; }
         public System.Data.Entity.DbSet<FlaggingMaster> FlaggingMasters { get; set; }
         public System.Data.Entity.DbSet<Improvement> Improvements { get; set; }
+        public System.Data.Entity.DbSet<JournalVoucher> JournalVouchers { get; set; }
+        public System.Data.Entity.DbSet<LandApprDetail> LandApprDetails { get; set; }
         public System.Data.Entity.DbSet<LandAprsPropCharItem> LandAprsPropCharItems { get; set; }
         public System.Data.Entity.DbSet<LandAssessment> LandAssessments { get; set; }
         public System.Data.Entity.DbSet<LandAssessmentMsav> LandAssessmentMsavs { get; set; }
@@ -138,9 +141,12 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new EtAlNameConfiguration());
             modelBuilder.Configurations.Add(new ExemptionDetailConfiguration());
             modelBuilder.Configurations.Add(new ExemptionMasterConfiguration());
+            modelBuilder.Configurations.Add(new FactorBookMasterConfiguration());
             modelBuilder.Configurations.Add(new FlaggingDetailConfiguration());
             modelBuilder.Configurations.Add(new FlaggingMasterConfiguration());
             modelBuilder.Configurations.Add(new ImprovementConfiguration());
+            modelBuilder.Configurations.Add(new JournalVoucherConfiguration());
+            modelBuilder.Configurations.Add(new LandApprDetailConfiguration());
             modelBuilder.Configurations.Add(new LandAprsPropCharItemConfiguration());
             modelBuilder.Configurations.Add(new LandAssessmentConfiguration());
             modelBuilder.Configurations.Add(new LandAssessmentMsavConfiguration());
@@ -189,9 +195,12 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new EtAlNameConfiguration(schema));
             modelBuilder.Configurations.Add(new ExemptionDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new ExemptionMasterConfiguration(schema));
+            modelBuilder.Configurations.Add(new FactorBookMasterConfiguration(schema));
             modelBuilder.Configurations.Add(new FlaggingDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new FlaggingMasterConfiguration(schema));
             modelBuilder.Configurations.Add(new ImprovementConfiguration(schema));
+            modelBuilder.Configurations.Add(new JournalVoucherConfiguration(schema));
+            modelBuilder.Configurations.Add(new LandApprDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new LandAprsPropCharItemConfiguration(schema));
             modelBuilder.Configurations.Add(new LandAssessmentConfiguration(schema));
             modelBuilder.Configurations.Add(new LandAssessmentMsavConfiguration(schema));
