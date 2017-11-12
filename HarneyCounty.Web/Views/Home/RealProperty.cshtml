@@ -1,6 +1,6 @@
 ﻿@model HarneyCounty.Application.Core.ViewModel.RealPropertyAccountViewModel
 @{
-    ViewBag.Title = "Display Real Accounts";
+    ViewBag.Title = "Display Real Accounts";    
 }
 
 <h2>Display Real Accounts</h2>
@@ -44,9 +44,25 @@
                 @Html.DisplayFor(model => model.PropClassCode)
             </div>
         </div>
-        <div>
-            @Html.LabelFor(model => model.SbdvnBlckLot, htmlAttributes: new { @class = "control-label" })
-            @Html.DisplayFor(model => model.SbdvnBlckLot)            
+        <div class="row">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.SbdvnBlckLot, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.SbdvnBlckLot)
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.Split, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.Split)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.SrCitizen, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.SrCitizen)
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.SegragatedFromAcctAcc, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.SegragatedFromAcctAcc)
+            </div>
         </div>
         <div>
             @Html.LabelFor(model => model.SitusStrtNmbr, htmlAttributes: new { @class = "control-label" })
@@ -56,6 +72,16 @@
             @Html.DisplayFor(model => model.SitusStrtDir)&nbsp;
             @Html.DisplayFor(model => model.SitusStrtName)&nbsp;
             @Html.DisplayFor(model => model.SitusStrtNameSufx)
+        </div>
+        <div class="row">
+            <div class="col-md-6 ">
+                @Html.LabelFor(model => model.Ref, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.Ref)
+            </div>
+            <div class="col-md-6 ">
+                @Html.LabelFor(model => model.AcctAcres, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.AcctAcres)
+            </div>
         </div>
     </div>
     <div class="col-md-6">
@@ -85,9 +111,119 @@
             @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label" })
             @Html.DisplayFor(model => model.ZipCode)
         </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.JournalVoucher, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.JournalVoucher.JournalVoucherNumber)
+            </div>
+            <div class="col-md-6 ">
+                @Html.LabelFor(model => model.AcctSpecAses, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.AcctSpecAses)
+            </div>
+        </div>
         <div>
             @Html.LabelFor(model => model.SitusZipCode, htmlAttributes: new { @class = "control-label" })
             @Html.DisplayFor(model => model.SitusZipCode)
         </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.FirePtrlAcres, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.FirePtrlAcres)
+            </div>
+            <div class="col-md-6 ">
+                @Html.LabelFor(model => model.SplitCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.SplitCode)
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayFor(model => model.CentroidNumber)</th>
+                    <th>RWV</th>
+                    <th>MAV</th>
+                    <th>SAV</th>
+                    <th>MSAV/M50</th>
+                    <th>TAXABLE AV</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="upper-case bold">Market Land</td>
+                    <td>@Html.DisplayFor(model => model.AcctMrktLandTotl)</td>
+                    <td></td>
+                    <td>@Html.DisplayFor(model => model.AcctLandAssessTotl)</td>
+                    <td>@Html.DisplayFor(model => model.MsavBaseNsaLand)</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="upper-case bold">Special Land</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="upper-case bold">Improvements</td>
+                    <td>@Html.DisplayFor(model => model.AcctImprMrktValTotl)</td>
+                    <td></td>
+                    <td>@Html.DisplayFor(model => model.AcctImprTotl)</td>
+                    <td>@Html.DisplayFor(model => model.MsavBaseImprovements)</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="upper-case bold">Mfg Structure</td>
+                    <td>@Html.DisplayFor(model => model.AcctMobHomeTotl)</td>
+                    <td></td>
+                    <td>@Html.DisplayFor(model => model.AcctMobHomeTotl)</td>
+                    <td>@Html.DisplayFor(model => model.MsavBaseManuStructure)</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="upper-case bold">&nbsp;&nbsp;Sub Total/Base</td>
+                    <td>@(Model.AcctMrktLandTotl + Model.AcctImprMrktValTotl + Model.AcctMobHomeTotl)</td>
+                    <td>@(Model.AcctLandAssessTotl + Model.AcctImprTotl + Model.AcctMobHomeTotl)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="upper-case bold">Exceptions</td>
+                    <td></td>
+                    <td>@Html.DisplayFor(model => model.ExceptionsMav)</td>
+                    <td></td>
+                    <td>@Html.DisplayFor(model => model.ExceptionsMsav)</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="upper-case bold">&nbsp;&nbsp;Sub Total/Base(new)</td>
+                    <td>@(Model.AcctMrktLandTotl + Model.AcctImprMrktValTotl + Model.AcctMobHomeTotl)</td>
+                    <td>@(Model.AcctLandAssessTotl + Model.AcctImprTotl + Model.AcctMobHomeTotl)</td>
+                    <td></td>
+                    <td></td>
+                    <td>@Html.DisplayFor(model => model.TaxableAssessedValue)</td>
+                </tr>
+                <tr>
+                    <td class="upper-case bold">Exemptions</td>
+                    <td>@Html.DisplayFor(model => model.ExemptionsMav)</td>
+                    <td></td>
+                    <td>@Html.DisplayFor(model => model.ExemptionsMsav)</td>
+                    <td>@Html.DisplayFor(model => model.AcctExmpTotal)</td>
+                    <td>@Html.DisplayFor(model => model.AcctExmpTotal)</td>
+                </tr>
+                <tr>
+                    <td class="upper-case bold">@ViewBag.Year Totals</td>
+                    <td>@(Model.AcctMrktLandTotl + Model.AcctImprMrktValTotl + Model.AcctMobHomeTotl)</td>
+                    <td>@Html.DisplayFor(model => model.MaximumAssessedValue)</td>
+                    <td>@(Model.AcctLandAssessTotl + Model.AcctImprTotl + Model.AcctMobHomeTotl)</td>
+                    <td>@Html.DisplayFor(model => model.MaxSpecAssessedValue)</td>
+                    <td>@Html.DisplayFor(model => model.TaxableAssessedValue)</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

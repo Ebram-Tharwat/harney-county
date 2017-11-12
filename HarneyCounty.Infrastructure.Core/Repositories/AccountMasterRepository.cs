@@ -49,7 +49,7 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
                 query = query.Where(t => t.AsmtYear.ToString() == asmtYear.ToString());
 
             if (!string.IsNullOrWhiteSpace(ownerName))
-                query = query.Where(t => t.SearchName.Contains(ownerName));
+                query = query.Where(t => t.OwnerName.Contains(ownerName) || t.OwnerAlphaName.Contains(ownerName));
 
             if (situsNumber.HasValue)
                 query = query.Where(t => t.SitusStrtNmbr == situsNumber);

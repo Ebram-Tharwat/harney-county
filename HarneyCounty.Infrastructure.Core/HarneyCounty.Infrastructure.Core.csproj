@@ -58,6 +58,8 @@
     </Compile>
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Interfaces\IAccountMasterRepository.cs" />
+    <Compile Include="Interfaces\IJournalVoucherRepository.cs" />
+    <Compile Include="Interfaces\IPropertyClassRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\IZipCodeFileRepository.cs" />
@@ -219,6 +221,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccountMasterRepository.cs" />
     <Compile Include="Repositories\EFRepository.cs" />
+    <Compile Include="Repositories\JournalVoucherRepository.cs" />
+    <Compile Include="Repositories\PropertyClassRepository.cs" />
     <Compile Include="Repositories\ZipCodeFileRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>

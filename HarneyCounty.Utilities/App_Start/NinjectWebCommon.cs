@@ -72,6 +72,8 @@ namespace HarneyCounty.Utilities.App_Start
             kernel.Bind<IAccountMasterService>().To<AccountMasterService>();
 
             kernel.Bind<IZipCodeFileRepository>().To<ZipCodeFileRepository>();
+            kernel.Bind<IPropertyClassRepository>().To<PropertyClassRepository>();
+            kernel.Bind<IJournalVoucherRepository>().To<JournalVoucherRepository>();
         }
     }
 }

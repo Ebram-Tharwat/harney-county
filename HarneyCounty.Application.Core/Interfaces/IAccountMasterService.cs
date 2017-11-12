@@ -14,5 +14,7 @@ namespace HarneyCounty.Application.Core.Interfaces
         RealPropertyAccountViewModel GetRealPropertyAccountData(int year, string accountNumber);
 
         string GetAccountZipCodeMatch(string accountZipCode);
+
+        bool IsAccountSpecillyAssessed(string propClassCode);
     }
 }

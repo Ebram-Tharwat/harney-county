@@ -6,6 +6,8 @@
 
         public const string ShortDateFormat = "MM-dd-yyyy";
 
+        public const string SpeciallyAssessedAccountFlag = "Y";
+
         public static class RollType
         {
             public const string RealProperty = "R";

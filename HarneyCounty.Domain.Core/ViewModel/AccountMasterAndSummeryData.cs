@@ -99,22 +99,22 @@ namespace HarneyCounty.Domain.Core.ViewModel
             MsavBaseImprovements = account.MsavBaseImprovements;
             MsavBaseManuStructure = account.MsavBaseManuStructure;
             MsavBaseMkt = account.MsavBaseMkt;
-            SearchName = account.SearchName;
-            SearchNameFlag = account.SearchNameFlag;
-            SearchRoll = account.SearchRoll;
-            SearchFile_Id = account.SearchFile_Id;
-            SearchAsmtYear = account.SearchAsmtYear;
-            SearchAccountNumber = account.SearchAccountNumber;
-            SearchFileTwnshp = account.SearchFileTwnshp;
-            SearchFileTwnShpDir = account.SearchFileTwnShpDir;
-            SearchFileRange = account.SearchFileRange;
-            SearchFileDir = account.SearchFileDir;
-            SearchFileSctn = account.SearchFileSctn;
-            SearchFileQtrSctn = account.SearchFileQtrSctn;
-            SearchFilePrcl = account.SearchFilePrcl;
-            SearchFileSpecIntAlph = account.SearchFileSpecIntAlph;
-            SearchFileSpecIntNmbr = account.SearchFileSpecIntNmbr;
-            SearchFilePropClassCode = account.SearchFilePropClassCode;
+            //SearchName = account.SearchName;
+            //SearchNameFlag = account.SearchNameFlag;
+            //SearchRoll = account.SearchRoll;
+            //SearchFile_Id = account.SearchFile_Id;
+            //SearchAsmtYear = account.SearchAsmtYear;
+            //SearchAccountNumber = account.SearchAccountNumber;
+            //SearchFileTwnshp = account.SearchFileTwnshp;
+            //SearchFileTwnShpDir = account.SearchFileTwnShpDir;
+            //SearchFileRange = account.SearchFileRange;
+            //SearchFileDir = account.SearchFileDir;
+            //SearchFileSctn = account.SearchFileSctn;
+            //SearchFileQtrSctn = account.SearchFileQtrSctn;
+            //SearchFilePrcl = account.SearchFilePrcl;
+            //SearchFileSpecIntAlph = account.SearchFileSpecIntAlph;
+            //SearchFileSpecIntNmbr = account.SearchFileSpecIntNmbr;
+            //SearchFilePropClassCode = account.SearchFilePropClassCode;
         }
 
         public int AccountMasterId { get; set; }

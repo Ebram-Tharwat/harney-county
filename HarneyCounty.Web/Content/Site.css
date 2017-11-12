@@ -28,3 +28,11 @@ textarea {
     padding-left: 0;
     padding-right: 0;
 }
+
+.upper-case {
+    text-transform: uppercase;
+}
+
+.bold {
+    font-weight: bold;
+}

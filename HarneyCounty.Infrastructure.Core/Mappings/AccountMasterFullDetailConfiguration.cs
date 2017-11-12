@@ -119,21 +119,6 @@ namespace HarneyCounty.Infrastructure.Core.Mappings
             Property(x => x.AcctNmbr01431).IsOptional().IsFixedLength().IsUnicode(false);
             Property(x => x.MobHomeMnfr).IsOptional().IsFixedLength().IsUnicode(false);
             Property(x => x.XNmbr).IsOptional().IsFixedLength().IsUnicode(false);
-            Property(x => x.SearchName).IsOptional().IsFixedLength().IsUnicode(false);
-            Property(x => x.SearchNameFlag).IsOptional().IsFixedLength().IsUnicode(false);
-            Property(x => x.SearchRoll).IsOptional().IsFixedLength().IsUnicode(false);
-            Property(x => x.SearchAsmtYear).HasPrecision(4,0);
-            Property(x => x.SearchAccountNumber).IsFixedLength().IsUnicode(false);
-            Property(x => x.SearchFileTwnshp).IsOptional().HasPrecision(2,0);
-            Property(x => x.SearchFileTwnShpDir).IsOptional().IsFixedLength().IsUnicode(false);
-            Property(x => x.SearchFileRange).IsOptional().IsFixedLength().IsUnicode(false);
-            Property(x => x.SearchFileDir).IsOptional().IsFixedLength().IsUnicode(false);
-            Property(x => x.SearchFileSctn).IsOptional().HasPrecision(2,0);
-            Property(x => x.SearchFileQtrSctn).IsOptional().IsFixedLength().IsUnicode(false);
-            Property(x => x.SearchFilePrcl).IsOptional().HasPrecision(5,0);
-            Property(x => x.SearchFileSpecIntAlph).IsOptional().IsFixedLength().IsUnicode(false);
-            Property(x => x.SearchFileSpecIntNmbr).IsOptional().HasPrecision(2,0);
-            Property(x => x.SearchFilePropClassCode).IsOptional().IsFixedLength().IsUnicode(false);
         }
     }
 

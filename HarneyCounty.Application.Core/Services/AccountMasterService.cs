@@ -16,11 +16,16 @@ namespace HarneyCounty.Application.Core.Services
     {
         private readonly IAccountMasterRepository _accountMasterRepository;
         private readonly IZipCodeFileRepository _zipCodeFileRepository;
+        private readonly IPropertyClassRepository _propertyClassRepository;
+        private readonly IJournalVoucherRepository _journalVoucherRepository;
 
-        public AccountMasterService(IAccountMasterRepository accountMasterRepository, IZipCodeFileRepository zipCodeFileRepository)
+        public AccountMasterService(IAccountMasterRepository accountMasterRepository, IZipCodeFileRepository zipCodeFileRepository, IPropertyClassRepository propertyClassRepository
+            , IJournalVoucherRepository journalVoucherRepository)
         {
             this._accountMasterRepository = accountMasterRepository;
             this._zipCodeFileRepository = zipCodeFileRepository;
+            this._propertyClassRepository = propertyClassRepository;
+            this._journalVoucherRepository = journalVoucherRepository;
         }
 
         public List<AccountMasterDetailsViewModel> SearchForAccounts(SearchCriteria searchCriteria, PagingInfo pagingInfo)
@@ -52,12 +57,14 @@ namespace HarneyCounty.Application.Core.Services
 
         public RealPropertyAccountViewModel GetRealPropertyAccountData(int year, string accountNumber)
         {
-            var data = _accountMasterRepository.GetAccountFullDetailsByYearAndAccountNumber(year, accountNumber);
-            if (data != null)
+            var account = _accountMasterRepository.GetAccountFullDetailsByYearAndAccountNumber(year, accountNumber);
+            if (account != null)
             {
-                var result = AutoMapper.Mapper.Map<AccountMasterAndSummeryData, RealPropertyAccountViewModel>(data);
+                var result = AutoMapper.Mapper.Map<AccountMasterAndSummeryData, RealPropertyAccountViewModel>(account);
                 result.ZipCode = this.GetAccountZipCodeMatch(result.ZipCode.Trim());
                 result.SitusZipCode = this.GetAccountZipCodeMatch(result.SitusZipCode.Trim());
+                result.AcctAcres = (IsAccountSpecillyAssessed(account.PropClassCode)) ? account.AcctAcresSpc : account.AcctAcresMkt;
+                result.JournalVoucher = _journalVoucherRepository.GetByYearAndAccountNumber(account.AsmtYear, account.AcctNmbr);
                 return result;
             }
             return null;
@@ -78,8 +85,14 @@ namespace HarneyCounty.Application.Core.Services
                     matchedZipCode = zipcodeMatches.FirstOrDefault();
                 else
                     matchedZipCode = zipcodeMatches.FirstOrDefault(z => z.ZipCode.Trim().Length == 10);
-                return $"{accountZipCode} {matchedZipCode.Country} {matchedZipCode.City}";
+                return $"{accountZipCode} {matchedZipCode.City} {matchedZipCode.State}";
             }
+        }
+
+        public bool IsAccountSpecillyAssessed(string propClassCode)
+        {
+            var propClassData = _propertyClassRepository.GetByPropertyClass(propClassCode.Trim());
+            return propClassData.SpecAssdFlag.Trim().ToUpper() == Constants.SpeciallyAssessedAccountFlag;
         }
     }
 }

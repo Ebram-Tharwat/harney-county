@@ -42,8 +42,10 @@ namespace HarneyCounty.Application.Core.ViewModel
 
         public int SpecIntNmbr { get; set; }
 
+        [Display(Name = "MA")]
         public decimal MntnAreaCode { get; set; }
 
+        [Display(Name = "VALUE AREA")]
         public string ValAreaCode { get; set; }
 
         public string Prop { get; set; }
@@ -69,8 +71,10 @@ namespace HarneyCounty.Application.Core.ViewModel
 
         public string CareOfName { get; set; }
 
+        [Display(Name ="CLASS")]
         public string PropClassCode { get; set; }
 
+        [Display(Name = "Code Area")]
         public string CodeAreaCode { get; set; }
 
         public string SbdvnCode { get; set; }
@@ -79,7 +83,7 @@ namespace HarneyCounty.Application.Core.ViewModel
 
         public int? LotNmbr { get; set; }
 
-        public List<MobileHomeViewModel> MobileHomeData { get; set; }        
+        public List<MobileHomeViewModel> MobileHomeData { get; set; }
 
         #region Composite Props
 
@@ -89,6 +93,7 @@ namespace HarneyCounty.Application.Core.ViewModel
             get;
         }
 
+        [Display(Name = "Map")]
         public string MapId
         {
             get

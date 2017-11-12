@@ -47,8 +47,9 @@ namespace HarneyCounty.Web.Controllers
             if (year == null || string.IsNullOrWhiteSpace(accountNumber))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }            
+            }
 
+            ViewBag.Year = year;
             switch (rollType.ToUpper())
             {
                 case Constants.RollType.RealProperty:
