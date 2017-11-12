@@ -4,7 +4,6 @@ using HarneyCounty.Application.Core.Interfaces;
 using HarneyCounty.Application.Core.ViewModel;
 using HarneyCounty.Common.Extensions;
 using HarneyCounty.Domain.Core.Models;
-using HarneyCounty.Domain.Core.ViewModel;
 using HarneyCounty.Infrastructure.Core.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -44,14 +43,14 @@ namespace HarneyCounty.Application.Core.Services
 
             pagingInfo.Total = resultCount;
 
-            return AutoMapper.Mapper.Map<List<AccountMasterAndSummeryData>, List<AccountMasterDetailsViewModel>>(result);
+            return AutoMapper.Mapper.Map<List<AccountMasterFullDetail>, List<AccountMasterDetailsViewModel>>(result);
         }
 
         public AccountMasterDetailsViewModel GetAccountFullDetailsByYearAndAccountNumber(int year, string accountNumber)
         {
             var result = _accountMasterRepository.GetAccountFullDetailsByYearAndAccountNumber(year, accountNumber);
             if (result != null)
-                return AutoMapper.Mapper.Map<AccountMasterAndSummeryData, AccountMasterDetailsViewModel>(result);
+                return AutoMapper.Mapper.Map<AccountMasterFullDetail, AccountMasterDetailsViewModel>(result);
             return null;
         }
 
@@ -60,7 +59,7 @@ namespace HarneyCounty.Application.Core.Services
             var account = _accountMasterRepository.GetAccountFullDetailsByYearAndAccountNumber(year, accountNumber);
             if (account != null)
             {
-                var result = AutoMapper.Mapper.Map<AccountMasterAndSummeryData, RealPropertyAccountViewModel>(account);
+                var result = AutoMapper.Mapper.Map<AccountMasterFullDetail, RealPropertyAccountViewModel>(account);
                 result.ZipCode = this.GetAccountZipCodeMatch(result.ZipCode.Trim());
                 result.SitusZipCode = this.GetAccountZipCodeMatch(result.SitusZipCode.Trim());
                 result.AcctAcres = (IsAccountSpecillyAssessed(account.PropClassCode)) ? account.AcctAcresSpc : account.AcctAcresMkt;

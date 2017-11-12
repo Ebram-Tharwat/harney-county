@@ -1,15 +1,9 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace HarneyCounty.Application.Core.ViewModel
 {
     public class AccountMasterDetailsViewModel
     {
-        public AccountMasterDetailsViewModel()
-        {
-            MobileHomeData = new List<MobileHomeViewModel>();
-        }
-
         public int AccountMasterId { get; set; }
 
         [Display(Name = "Account Number")]
@@ -71,7 +65,7 @@ namespace HarneyCounty.Application.Core.ViewModel
 
         public string CareOfName { get; set; }
 
-        [Display(Name ="CLASS")]
+        [Display(Name = "CLASS")]
         public string PropClassCode { get; set; }
 
         [Display(Name = "Code Area")]
@@ -83,7 +77,25 @@ namespace HarneyCounty.Application.Core.ViewModel
 
         public int? LotNmbr { get; set; }
 
-        public List<MobileHomeViewModel> MobileHomeData { get; set; }
+        public string MobHomeRollType { get; set; }
+
+        public string MobHomeSizeFlag { get; set; }
+
+        public decimal? MobileHomeId { get; set; }
+
+        public decimal? YearBuilt { get; set; }
+
+        public decimal? MobHomeWdth { get; set; }
+
+        public decimal? MobHomeLngth { get; set; }
+
+        public string MhSerial { get; set; }
+
+        public string AcctNmbr01431 { get; set; }
+
+        public string MobHomeMnfr { get; set; }
+
+        public string XNmbr { get; set; }
 
         #region Composite Props
 

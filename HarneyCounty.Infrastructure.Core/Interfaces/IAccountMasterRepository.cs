@@ -1,12 +1,11 @@
 ﻿using HarneyCounty.Domain.Core.Models;
-using HarneyCounty.Domain.Core.ViewModel;
 using System.Collections.Generic;
 
 namespace HarneyCounty.Infrastructure.Core.Interfaces
 {
     public interface IAccountMasterRepository : IRepository<AccountMaster>
     {
-        List<AccountMasterAndSummeryData> SearchForAccounts(string accountNumber, decimal asmtYear, out int resultCount
+        List<AccountMasterFullDetail> SearchForAccounts(string accountNumber, decimal asmtYear, out int resultCount
             , string ownerName = null
             , decimal? situsNumber = null, string situsSufx = null, string situsDir = null, string situsZip = null
             , string subDivCode = null, decimal? lotNumber = null, decimal? blockNumber = null, int? townShip = null, string townshipDirection = null
@@ -15,6 +14,6 @@ namespace HarneyCounty.Infrastructure.Core.Interfaces
             , string propCode = null, string codeArea = null
             , int pageNumber = 1, int pageSize = 50);
 
-        AccountMasterAndSummeryData GetAccountFullDetailsByYearAndAccountNumber(int year, string actNumber);
+        AccountMasterFullDetail GetAccountFullDetailsByYearAndAccountNumber(int year, string actNumber);
     }
 }

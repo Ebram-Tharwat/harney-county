@@ -204,8 +204,6 @@
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\AccountMasterAndSummeryData.cs" />
-    <Compile Include="ViewModel\MobileHomeData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -218,7 +216,9 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Models\HarneyCountyDbModels.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

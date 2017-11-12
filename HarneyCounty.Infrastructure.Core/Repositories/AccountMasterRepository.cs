@@ -1,6 +1,4 @@
-﻿using HarneyCounty.Common.Extensions;
-using HarneyCounty.Domain.Core.Models;
-using HarneyCounty.Domain.Core.ViewModel;
+﻿using HarneyCounty.Domain.Core.Models;
 using HarneyCounty.Infrastructure.Core.DAL;
 using HarneyCounty.Infrastructure.Core.Interfaces;
 using System.Collections.Generic;
@@ -14,25 +12,13 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
         {
         }
 
-        public AccountMasterAndSummeryData GetAccountFullDetailsByYearAndAccountNumber(int year, string actNumber)
+        public AccountMasterFullDetail GetAccountFullDetailsByYearAndAccountNumber(int year, string actNumber)
         {
-            var groupByYearAndAccountNumber = _dbContext.AccountMasterFullDetails
-                .Where(t => t.AsmtYear == year && t.AcctNmbr.Trim() == actNumber.Trim())
-                .GroupBy(t => new { t.AsmtYear, t.AcctNmbr })
-                .FirstOrDefault();
-
-            if (groupByYearAndAccountNumber != null)
-            {
-                var result = new AccountMasterAndSummeryData(groupByYearAndAccountNumber.First());
-                result.MobileHomeRecords = groupByYearAndAccountNumber.Where(t => t.MobileHome_Id.HasValue).AsNotNull()
-                .Select(mob => new MobileHomeData(mob)).ToList();
-                return result;
-            }
-
-            return null;
+            return _dbContext.AccountMasterFullDetails
+                .FirstOrDefault(t => t.AsmtYear == year && t.AcctNmbr.Trim() == actNumber.Trim());
         }
 
-        public List<AccountMasterAndSummeryData> SearchForAccounts(string accountNumber, decimal asmtYear, out int resultCount
+        public List<AccountMasterFullDetail> SearchForAccounts(string accountNumber, decimal asmtYear, out int resultCount
             , string ownerName = null
             , decimal? situsNumber = null, string situsSufx = null, string situsDir = null, string situsZip = null
             , string subDivCode = null, decimal? lotNumber = null, decimal? blockNumber = null, int? townShip = null, string townshipDirection = null
@@ -117,31 +103,15 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
             if (!string.IsNullOrWhiteSpace(codeArea))
                 query = query.Where(t => t.CodeAreaCode == codeArea);
 
-            var groupByYearAndAccountNumber = query.GroupBy(t => new { t.AsmtYear, t.AcctNmbr });
-
             if (pageNumber > 0)
             {
-                var result = groupByYearAndAccountNumber.OrderBy(t => t.Key).Skip((pageNumber - 1) * pageSize).Take(pageSize)
-                    .ToList()
-                    .Select(g =>
-                    {
-                        var record = new AccountMasterAndSummeryData(g.First());
-                        record.MobileHomeRecords = g.Where(t => t.MobileHome_Id.HasValue).AsNotNull()
-                        .Select(mob => new MobileHomeData(mob)).ToList();
-                        return record;
-                    }).ToList();
-                resultCount = groupByYearAndAccountNumber.Count();
+                var result = query.OrderBy(t => new { t.AsmtYear, t.AcctNmbr }).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+                resultCount = query.Count();
                 return result;
             }
             else
             {
-                var result = groupByYearAndAccountNumber.ToList().Select(g =>
-                {
-                    var record = new AccountMasterAndSummeryData(g.First());
-                    record.MobileHomeRecords = g.Where(t => t.MobileHome_Id.HasValue).AsNotNull()
-                    .Select(mob => new MobileHomeData(mob)).ToList();
-                    return record;
-                }).ToList();
+                var result = query.ToList();
                 resultCount = result.Count;
                 return result;
             }

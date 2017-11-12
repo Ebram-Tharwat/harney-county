@@ -94,6 +94,7 @@ namespace HarneyCounty.Application.Core.Contracts
         [MaxLength(4)]
         public string PropertyClass { get; set; }
 
-        public SearchByType SearchBy { get; set; }
+        [Required(ErrorMessage = "Please select search scope")]
+        public SearchByType? SearchBy { get; set; } = SearchByType.OwnerName;
     }
 }

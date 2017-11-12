@@ -20,6 +20,7 @@
                     <div class="form-group">
                         <label class="control-label" for="SearchBy">Search By</label>
                         @Html.EnumDropDownListFor(model => filterViewModel.SearchBy, "-- Search By --", htmlAttributes: new { Name="SearchBy", @class = "form-control search-filter" })
+                        @Html.ValidationMessageFor(model => filterViewModel.SearchBy, "", new { @class = "text-danger", data_valmsg_for = "SearchBy" })
                     </div>
                 </div>
             </div>
