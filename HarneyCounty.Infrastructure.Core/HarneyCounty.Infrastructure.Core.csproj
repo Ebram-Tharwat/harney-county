@@ -62,6 +62,7 @@
     <Compile Include="Interfaces\IPropertyClassRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\IUtilityDetailRepository.cs" />
     <Compile Include="Interfaces\IZipCodeFileRepository.cs" />
     <Compile Include="Mappings\AccountLegalCommentConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
@@ -223,6 +224,7 @@
     <Compile Include="Repositories\EFRepository.cs" />
     <Compile Include="Repositories\JournalVoucherRepository.cs" />
     <Compile Include="Repositories\PropertyClassRepository.cs" />
+    <Compile Include="Repositories\UtilityDetailRepository.cs" />
     <Compile Include="Repositories\ZipCodeFileRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
