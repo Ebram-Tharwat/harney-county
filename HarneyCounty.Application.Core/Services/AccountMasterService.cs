@@ -62,7 +62,7 @@ namespace HarneyCounty.Application.Core.Services
                 var result = AutoMapper.Mapper.Map<AccountMasterFullDetail, RealPropertyAccountViewModel>(account);
                 result.ZipCode = this.GetAccountZipCodeMatch(result.ZipCode.Trim());
                 result.SitusZipCode = this.GetAccountZipCodeMatch(result.SitusZipCode.Trim());
-                result.AcctAcres = (IsAccountSpecillyAssessed(account.PropClassCode)) ? account.AcctAcresSpc : account.AcctAcresMkt;
+                result.IsAccountSpecillyAssessed = IsAccountSpecillyAssessed(account.PropClassCode);                
                 result.JournalVoucher = _journalVoucherRepository.GetByYearAndAccountNumber(account.AsmtYear, account.AcctNmbr);
                 return result;
             }
