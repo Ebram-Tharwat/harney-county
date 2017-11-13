@@ -57,6 +57,11 @@ namespace HarneyCounty.Web.Controllers
                     if (realPropertyEntity == null)
                         return HttpNotFound();
                     return View("RealProperty", realPropertyEntity);
+                case Constants.RollType.Utilities:
+                    var utilityPropertyEntity = _accountMasterService.GetUtilityAccountData(year.Value, accountNumber);
+                    if (utilityPropertyEntity == null)
+                        return HttpNotFound();
+                    return View("UtilityProperty", utilityPropertyEntity);
             }
 
             return View();

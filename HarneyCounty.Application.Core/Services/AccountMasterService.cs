@@ -15,16 +15,18 @@ namespace HarneyCounty.Application.Core.Services
     {
         private readonly IAccountMasterRepository _accountMasterRepository;
         private readonly IZipCodeFileRepository _zipCodeFileRepository;
+        private readonly IUtilityDetailRepository _utilityDetailRepository;
         private readonly IPropertyClassRepository _propertyClassRepository;
         private readonly IJournalVoucherRepository _journalVoucherRepository;
 
         public AccountMasterService(IAccountMasterRepository accountMasterRepository, IZipCodeFileRepository zipCodeFileRepository, IPropertyClassRepository propertyClassRepository
-            , IJournalVoucherRepository journalVoucherRepository)
+            , IJournalVoucherRepository journalVoucherRepository,IUtilityDetailRepository utilityDetailRepository)
         {
             this._accountMasterRepository = accountMasterRepository;
             this._zipCodeFileRepository = zipCodeFileRepository;
             this._propertyClassRepository = propertyClassRepository;
             this._journalVoucherRepository = journalVoucherRepository;
+            this._utilityDetailRepository = utilityDetailRepository;
         }
 
         public List<AccountMasterDetailsViewModel> SearchForAccounts(SearchCriteria searchCriteria, PagingInfo pagingInfo)
@@ -51,6 +53,26 @@ namespace HarneyCounty.Application.Core.Services
             var result = _accountMasterRepository.GetAccountFullDetailsByYearAndAccountNumber(year, accountNumber);
             if (result != null)
                 return AutoMapper.Mapper.Map<AccountMasterFullDetail, AccountMasterDetailsViewModel>(result);
+            return null;
+        }
+
+        public UtilityPropertyAccountViewModel GetUtilityAccountData(int year,string accountNumber)
+        {
+            var result = _accountMasterRepository.GetAccountFullDetailsByYearAndAccountNumber(year, accountNumber);
+            if (result != null)
+            {
+
+                var utilityPropertyAccounts = AutoMapper.Mapper.Map<AccountMasterFullDetail, UtilityPropertyAccountViewModel>(result);
+                if(utilityPropertyAccounts != null)
+                {
+                    var unitDetail = _utilityDetailRepository.Get(ud => ud.AsmtYear == year && ud.AcctNmbrParent == accountNumber).FirstOrDefault();
+                    if (unitDetail != null)
+                    {
+                        utilityPropertyAccounts.Units = unitDetail.UnitsForAccount.HasValue ?
+                                                        unitDetail.UnitsForAccount.Value.ToString() : string.Empty;
+                    }
+                }
+            }
             return null;
         }
 

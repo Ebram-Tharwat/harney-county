@@ -65,6 +65,7 @@
     <Compile Include="ViewModel\AccountMasterDetailsViewModel.cs" />
     <Compile Include="ViewModel\MobileHomeViewModel.cs" />
     <Compile Include="ViewModel\RealPropertyAccountViewModel.cs" />
+    <Compile Include="ViewModel\UtilityPropertyAccountViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
