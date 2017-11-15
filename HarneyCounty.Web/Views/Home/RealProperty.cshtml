@@ -1,6 +1,6 @@
 ﻿@model HarneyCounty.Application.Core.ViewModel.RealPropertyAccountViewModel
 @{
-    ViewBag.Title = "Display Real Accounts";    
+    ViewBag.Title = "Display Real Accounts";
 }
 
 <h2>Display Real Accounts</h2>
@@ -138,7 +138,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-11">
         <table class="table table-hover table-bordered">
             <thead>
                 <tr>
@@ -155,8 +155,14 @@
                     <td class="upper-case bold">Market Land</td>
                     <td>@Html.DisplayFor(model => model.AcctMrktLandTotl)</td>
                     <td></td>
-                    <td>@Html.DisplayFor(model => model.AcctLandAssessTotl)</td>
-                    <td>@Html.DisplayFor(model => model.MsavBaseNsaLand)</td>
+                    <td>
+                        @if (Model.IsAccountSpecillyAssessed)
+                        { @Html.DisplayFor(model => model.AcctLandAssessTotl)}
+                    </td>
+                    <td>
+                        @if (Model.IsAccountSpecillyAssessed)
+                        {@Html.DisplayFor(model => model.MsavBaseNsaLand)}
+                    </td>
                     <td></td>
                 </tr>
                 <tr>
@@ -171,16 +177,28 @@
                     <td class="upper-case bold">Improvements</td>
                     <td>@Html.DisplayFor(model => model.AcctImprMrktValTotl)</td>
                     <td></td>
-                    <td>@Html.DisplayFor(model => model.AcctImprTotl)</td>
-                    <td>@Html.DisplayFor(model => model.MsavBaseImprovements)</td>
+                    <td>
+                        @if (Model.IsAccountSpecillyAssessed)
+                        {@Html.DisplayFor(model => model.AcctImprTotl)}
+                    </td>
+                    <td>
+                        @if (Model.IsAccountSpecillyAssessed)
+                        {@Html.DisplayFor(model => model.MsavBaseImprovements)}
+                    </td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="upper-case bold">Mfg Structure</td>
                     <td>@Html.DisplayFor(model => model.AcctMobHomeTotl)</td>
                     <td></td>
-                    <td>@Html.DisplayFor(model => model.AcctMobHomeTotl)</td>
-                    <td>@Html.DisplayFor(model => model.MsavBaseManuStructure)</td>
+                    <td>
+                        @if (Model.IsAccountSpecillyAssessed)
+                        {@Html.DisplayFor(model => model.AcctMobHomeTotl)}
+                    </td>
+                    <td>
+                        @if (Model.IsAccountSpecillyAssessed)
+                        {@Html.DisplayFor(model => model.MsavBaseManuStructure)}
+                    </td>
                     <td></td>
                 </tr>
                 <tr>
@@ -196,7 +214,10 @@
                     <td></td>
                     <td>@Html.DisplayFor(model => model.ExceptionsMav)</td>
                     <td></td>
-                    <td>@Html.DisplayFor(model => model.ExceptionsMsav)</td>
+                    <td>
+                        @if (Model.IsAccountSpecillyAssessed)
+                        {@Html.DisplayFor(model => model.ExceptionsMsav)}
+                    </td>
                     <td></td>
                 </tr>
                 <tr>
@@ -211,16 +232,28 @@
                     <td class="upper-case bold">Exemptions</td>
                     <td>@Html.DisplayFor(model => model.ExemptionsMav)</td>
                     <td></td>
-                    <td>@Html.DisplayFor(model => model.ExemptionsMsav)</td>
-                    <td>@Html.DisplayFor(model => model.AcctExmpTotal)</td>
+                    <td>
+                        @if (Model.IsAccountSpecillyAssessed)
+                        {@Html.DisplayFor(model => model.ExemptionsMsav)}
+                    </td>
+                    <td>
+                        @if (Model.IsAccountSpecillyAssessed)
+                        {@Html.DisplayFor(model => model.AcctExmpTotal)}
+                    </td>
                     <td>@Html.DisplayFor(model => model.AcctExmpTotal)</td>
                 </tr>
                 <tr>
                     <td class="upper-case bold">@ViewBag.Year Totals</td>
                     <td>@(Model.AcctMrktLandTotl + Model.AcctImprMrktValTotl + Model.AcctMobHomeTotl)</td>
                     <td>@Html.DisplayFor(model => model.MaximumAssessedValue)</td>
-                    <td>@(Model.AcctLandAssessTotl + Model.AcctImprTotl + Model.AcctMobHomeTotl)</td>
-                    <td>@Html.DisplayFor(model => model.MaxSpecAssessedValue)</td>
+                    <td>
+                        @if (Model.IsAccountSpecillyAssessed)
+                        {@(Model.AcctLandAssessTotl + Model.AcctImprTotl + Model.AcctMobHomeTotl)}
+                    </td>
+                    <td>
+                        @if (Model.IsAccountSpecillyAssessed)
+                        {@Html.DisplayFor(model => model.MaxSpecAssessedValue)}
+                    </td>
                     <td>@Html.DisplayFor(model => model.TaxableAssessedValue)</td>
                 </tr>
             </tbody>

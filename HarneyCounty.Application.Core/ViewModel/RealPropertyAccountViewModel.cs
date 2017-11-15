@@ -32,14 +32,15 @@ namespace HarneyCounty.Application.Core.ViewModel
         [Display(Name = "JV#")]
         public JournalVoucher JournalVoucher { get; set; }
 
-        [Display(Name ="SA")]
+        [Display(Name = "SA")]
         public decimal? AcctSpecAses { get; set; }
 
         [Display(Name = "Doc #")]
         public string Ref { get; set; }
 
-        [Display(Name = "ACRES")]
-        public decimal? AcctAcres { get; set; }
+        public decimal? AcctAcresMkt { get; set; }
+
+        public decimal? AcctAcresSpc { get; set; }
 
         [Display(Name = "Split Code")]
         public string SplitCode { get; set; }
@@ -81,12 +82,23 @@ namespace HarneyCounty.Application.Core.ViewModel
 
         public decimal? MaxSpecAssessedValue { get; set; }
 
+        public bool IsAccountSpecillyAssessed { get; set; }
+
         #region Composite Props
 
         [Display(Name = "SUB/BL/LT")]
         public string SbdvnBlckLot
         {
             get { return $"{SbdvnCode} {BlckNmbr} {LotNmbr}"; }
+        }
+
+        [Display(Name = "ACRES")]
+        public decimal? AcctAcres
+        {
+            get
+            {
+                return (this.IsAccountSpecillyAssessed) ? this.AcctAcresSpc : this.AcctAcresMkt;
+            }
         }
 
         #endregion Composite Props
