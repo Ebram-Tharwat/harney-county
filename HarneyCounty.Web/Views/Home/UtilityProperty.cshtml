@@ -156,75 +156,59 @@
             <tbody>
                 <tr>
                     <td class="upper-case bold">Utility (UNT)</td>
-                    <td>@Html.DisplayFor(model => model.AcctMrktLandTotl)</td>
+                    <td>@Html.DisplayFor(model => model.UtilUnitAssessVal)</td>
                     <td></td>
-                    <td>@Html.DisplayFor(model => model.AcctLandAssessTotl)</td>
-                    <td>@Html.DisplayFor(model => model.MsavBaseNsaLand)</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="upper-case bold">Utility (OTH)</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>@Html.DisplayFor(model => model.UtilOtherAssessVal)</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="upper-case bold">Land Value</td>
-                    <td>@Html.DisplayFor(model => model.AcctImprMrktValTotl)</td>
+                    <td>@Html.DisplayFor(model => model.AcctMrktLandTotl)</td>
                     <td></td>
-                    <td>@Html.DisplayFor(model => model.AcctImprTotl)</td>
-                    <td>@Html.DisplayFor(model => model.MsavBaseImprovements)</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="upper-case bold">Improvements</td>
-                    <td>@Html.DisplayFor(model => model.AcctMobHomeTotl)</td>
+                    <td>@Html.DisplayFor(model => model.AcctImprMrktValTotl)</td>
                     <td></td>
-                    <td>@Html.DisplayFor(model => model.AcctMobHomeTotl)</td>
-                    <td>@Html.DisplayFor(model => model.MsavBaseManuStructure)</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="upper-case bold">&nbsp;&nbsp;Sub Total</td>
-                    <td>@(Model.AcctMrktLandTotl + Model.AcctImprMrktValTotl + Model.AcctMobHomeTotl)</td>
-                    <td>@(Model.AcctLandAssessTotl + Model.AcctImprTotl + Model.AcctMobHomeTotl)</td>
-                    <td></td>
+                    <td>@(Model.UtilUnitAssessVal + Model.UtilOtherAssessVal + Model.AcctMrktLandTotl + Model.AcctImprMrktValTotl )</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="upper-case bold">Exceptions</td>
                     <td></td>
-                    <td>@Html.DisplayFor(model => model.ExceptionsMav)</td>
-                    <td></td>
-                    <td>@Html.DisplayFor(model => model.ExceptionsMsav)</td>
+                    <td>@Html.DisplayFor(model => model.TotalExceptions)</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="upper-case bold">&nbsp;&nbsp;Sub Total</td>
-                    <td>@(Model.AcctMrktLandTotl + Model.AcctImprMrktValTotl + Model.AcctMobHomeTotl)</td>
-                    <td>@(Model.AcctLandAssessTotl + Model.AcctImprTotl + Model.AcctMobHomeTotl)</td>
-                    <td></td>
-                    <td></td>
-                    <td>@Html.DisplayFor(model => model.TaxableAssessedValue)</td>
+                    <td>@(Model.UtilUnitAssessVal + Model.UtilOtherAssessVal + Model.AcctMrktLandTotl + Model.AcctImprMrktValTotl )</td>
+                    <td>@(Model.UtilUnitAssessVal + Model.UtilOtherAssessVal + Model.AcctMrktLandTotl + Model.AcctImprMrktValTotl )</td>
+                    <td>@(Model.UtilUnitAssessVal + Model.UtilOtherAssessVal + Model.AcctMrktLandTotl + Model.AcctImprMrktValTotl )</td>
                 </tr>
                 <tr>
                     <td class="upper-case bold">Exemptions</td>
-                    <td>@Html.DisplayFor(model => model.ExemptionsMav)</td>
                     <td></td>
-                    <td>@Html.DisplayFor(model => model.ExemptionsMsav)</td>
-                    <td>@Html.DisplayFor(model => model.AcctExmpTotal)</td>
+                    <td></td>
                     <td>@Html.DisplayFor(model => model.AcctExmpTotal)</td>
                 </tr>
                 <tr>
                     <td class="upper-case bold">@ViewBag.Year Totals</td>
-                    <td>@(Model.AcctMrktLandTotl + Model.AcctImprMrktValTotl + Model.AcctMobHomeTotl)</td>
-                    <td>@Html.DisplayFor(model => model.MaximumAssessedValue)</td>
-                    <td>@(Model.AcctLandAssessTotl + Model.AcctImprTotl + Model.AcctMobHomeTotl)</td>
-                    <td>@Html.DisplayFor(model => model.MaxSpecAssessedValue)</td>
-                    <td>@Html.DisplayFor(model => model.TaxableAssessedValue)</td>
+                    <td>@(Model.UtilUnitAssessVal + Model.UtilOtherAssessVal + Model.AcctMrktLandTotl + Model.AcctImprMrktValTotl )</td>
+                    <td>@(Model.MaximumAssessedValue)</td>
+                    <td>@(Model.TaxableAssessedValue)</td>
+                    <td>@Html.DisplayFor(model => model.AcctSpecAses)</td>
+                    <td>@(Model.AcctSpecAses)</td>
                 </tr>
             </tbody>
         </table>
