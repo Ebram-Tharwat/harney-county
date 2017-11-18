@@ -59,6 +59,7 @@
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Interfaces\IAccountMasterRepository.cs" />
     <Compile Include="Interfaces\IJournalVoucherRepository.cs" />
+    <Compile Include="Interfaces\IPersonalPropFullDetailsRepository.cs" />
     <Compile Include="Interfaces\IPropertyClassRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
@@ -153,6 +154,9 @@
     <Compile Include="Mappings\PersonalPropFloatingConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
+    <Compile Include="Mappings\PersonalPropFullDetailConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
     <Compile Include="Mappings\PersonalPropLibraryConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
@@ -223,6 +227,7 @@
     <Compile Include="Repositories\AccountMasterRepository.cs" />
     <Compile Include="Repositories\EFRepository.cs" />
     <Compile Include="Repositories\JournalVoucherRepository.cs" />
+    <Compile Include="Repositories\PersonalPropFullDetailsRepository.cs" />
     <Compile Include="Repositories\PropertyClassRepository.cs" />
     <Compile Include="Repositories\UtilityDetailRepository.cs" />
     <Compile Include="Repositories\ZipCodeFileRepository.cs" />

@@ -75,6 +75,7 @@ namespace HarneyCounty.Utilities.App_Start
             kernel.Bind<IUtilityDetailRepository>().To<UtilityDetailRepository>();
             kernel.Bind<IPropertyClassRepository>().To<PropertyClassRepository>();
             kernel.Bind<IJournalVoucherRepository>().To<JournalVoucherRepository>();
+            kernel.Bind<IPersonalPropFullDetailsRepository>().To<PersonalPropFullDetailsRepository>();
         }
     }
 }

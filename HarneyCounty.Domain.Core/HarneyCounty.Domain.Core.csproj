@@ -137,6 +137,9 @@
     <Compile Include="Models\PersonalPropFloating.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PersonalPropFullDetail.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PersonalPropLibrary.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>

@@ -17,6 +17,8 @@ namespace HarneyCounty.Application.Core.Interfaces
 
         MobileHomePropertyAccountViewModel GetMobileHomePropertyAccountData(int year, string accountNumber);
 
+        PersonalPropertyAccountViewModel GetPersonalPropertyAccountData(int year, string accountNumber);
+
         string GetAccountZipCodeMatch(string accountZipCode);
 
         bool IsAccountSpecillyAssessed(string propClassCode);

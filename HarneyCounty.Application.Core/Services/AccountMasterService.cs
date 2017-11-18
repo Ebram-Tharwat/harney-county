@@ -18,15 +18,17 @@ namespace HarneyCounty.Application.Core.Services
         private readonly IUtilityDetailRepository _utilityDetailRepository;
         private readonly IPropertyClassRepository _propertyClassRepository;
         private readonly IJournalVoucherRepository _journalVoucherRepository;
+        private readonly IPersonalPropFullDetailsRepository _personalPropFullDetailsRepository;
 
         public AccountMasterService(IAccountMasterRepository accountMasterRepository, IZipCodeFileRepository zipCodeFileRepository, IPropertyClassRepository propertyClassRepository
-            , IJournalVoucherRepository journalVoucherRepository, IUtilityDetailRepository utilityDetailRepository)
+            , IJournalVoucherRepository journalVoucherRepository, IUtilityDetailRepository utilityDetailRepository, IPersonalPropFullDetailsRepository personalPropFullDetailsRepository)
         {
             this._accountMasterRepository = accountMasterRepository;
             this._zipCodeFileRepository = zipCodeFileRepository;
             this._propertyClassRepository = propertyClassRepository;
             this._journalVoucherRepository = journalVoucherRepository;
             this._utilityDetailRepository = utilityDetailRepository;
+            this._personalPropFullDetailsRepository = personalPropFullDetailsRepository;
         }
 
         public List<AccountMasterDetailsViewModel> SearchForAccounts(SearchCriteria searchCriteria, PagingInfo pagingInfo)
@@ -97,6 +99,20 @@ namespace HarneyCounty.Application.Core.Services
             if (account != null)
             {
                 var result = AutoMapper.Mapper.Map<AccountMasterFullDetail, MobileHomePropertyAccountViewModel>(account);
+                result.ZipCode = this.GetAccountZipCodeMatch(result.ZipCode.Trim());
+                result.SitusZipCode = this.GetAccountZipCodeMatch(result.SitusZipCode.Trim());
+                result.JournalVoucher = _journalVoucherRepository.GetByYearAndAccountNumber(account.AsmtYear, account.AcctNmbr);
+                return result;
+            }
+            return null;
+        }
+
+        public PersonalPropertyAccountViewModel GetPersonalPropertyAccountData(int year, string accountNumber)
+        {
+            var account = _personalPropFullDetailsRepository.GetPersonalPropFullDetailsByYearAndAccountNumber(year, accountNumber);
+            if (account != null)
+            {
+                var result = AutoMapper.Mapper.Map<PersonalPropFullDetail, PersonalPropertyAccountViewModel>(account);
                 result.ZipCode = this.GetAccountZipCodeMatch(result.ZipCode.Trim());
                 result.SitusZipCode = this.GetAccountZipCodeMatch(result.SitusZipCode.Trim());
                 result.JournalVoucher = _journalVoucherRepository.GetByYearAndAccountNumber(account.AsmtYear, account.AcctNmbr);
