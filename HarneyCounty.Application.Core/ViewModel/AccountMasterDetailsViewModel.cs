@@ -10,6 +10,7 @@ namespace HarneyCounty.Application.Core.ViewModel
         public int AccountNumber { get; set; }
 
         [Display(Name = "Year")]
+        [DisplayFormat(DataFormatString = "{0:0.##}")]
         public int AsmtYear { get; set; }
 
         [Display(Name = "Owner Name")]
@@ -37,6 +38,7 @@ namespace HarneyCounty.Application.Core.ViewModel
         public int SpecIntNmbr { get; set; }
 
         [Display(Name = "MA")]
+        [DisplayFormat(DataFormatString = "{0:0.##}")]
         public decimal MntnAreaCode { get; set; }
 
         [Display(Name = "VALUE AREA")]
@@ -83,6 +85,8 @@ namespace HarneyCounty.Application.Core.ViewModel
 
         public decimal? MobileHomeId { get; set; }
 
+        [Display(Name = "YEAR BUILT")]
+        [DisplayFormat(DataFormatString = "{0:0.##}")]
         public decimal? YearBuilt { get; set; }
 
         public decimal? MobHomeWdth { get; set; }
@@ -90,9 +94,10 @@ namespace HarneyCounty.Application.Core.ViewModel
         public decimal? MobHomeLngth { get; set; }
 
         public string MhSerial { get; set; }
-
+        
         public string AcctNmbr01431 { get; set; }
 
+        [Display(Name ="MAKE")]
         public string MobHomeMnfr { get; set; }
 
         public string XNmbr { get; set; }

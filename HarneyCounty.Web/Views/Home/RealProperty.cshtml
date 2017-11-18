@@ -138,7 +138,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-11">
+    <div class="col-md-10">
         <table class="table table-hover table-bordered">
             <thead>
                 <tr>
@@ -204,9 +204,15 @@
                 <tr>
                     <td class="upper-case bold">&nbsp;&nbsp;Sub Total/Base</td>
                     <td>@(Model.AcctMrktLandTotl + Model.AcctImprMrktValTotl + Model.AcctMobHomeTotl)</td>
-                    <td>@(Model.AcctLandAssessTotl + Model.AcctImprTotl + Model.AcctMobHomeTotl)</td>
                     <td></td>
-                    <td></td>
+                    <td>
+                        @if (Model.IsAccountSpecillyAssessed)
+                        {@(Model.AcctLandAssessTotl + Model.AcctImprTotl + Model.AcctMobHomeTotl)}
+                    </td>
+                    <td>
+                        @if (Model.IsAccountSpecillyAssessed)
+                        {@(Model.MaxSpecAssessedValue - Model.ExceptionsMsav )}
+                    </td>
                     <td></td>
                 </tr>
                 <tr>

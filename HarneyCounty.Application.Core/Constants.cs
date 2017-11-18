@@ -12,7 +12,7 @@
         {
             public const string RealProperty = "R";
             public const string MobileHome = "M";
-            public const string Utilities= "U";
+            public const string Utilities = "U";
             public const string PesonalProperty = "P";
         }
     }

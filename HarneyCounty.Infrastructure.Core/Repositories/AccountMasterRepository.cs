@@ -98,7 +98,7 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
                 query = query.Where(t => t.MhSerial == mhSerial);
 
             if (!string.IsNullOrWhiteSpace(propCode))
-                query = query.Where(t => t.PropClassCode == propCode);
+                query = query.Where(t => t.PropClassCode.Trim().Equals(propCode.Trim(), System.StringComparison.InvariantCultureIgnoreCase));
 
             if (!string.IsNullOrWhiteSpace(codeArea))
                 query = query.Where(t => t.CodeAreaCode == codeArea);

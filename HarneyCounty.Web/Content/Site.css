@@ -23,6 +23,11 @@ textarea {
     _max-width: 280px;
 }
 
+.details-page .control-label {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 /*Herlpers*/
 .no-pad-horizontal {
     padding-left: 0;

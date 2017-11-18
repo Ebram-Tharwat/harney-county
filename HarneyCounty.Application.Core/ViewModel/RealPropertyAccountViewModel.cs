@@ -24,6 +24,7 @@ namespace HarneyCounty.Application.Core.ViewModel
         public string Split { get; set; }
 
         [Display(Name = "SD#")]
+        [DisplayFormat(DataFormatString = "{0:0.##}")]
         public decimal? SrCitizen { get; set; }
 
         [Display(Name = "CON/SEG#")]

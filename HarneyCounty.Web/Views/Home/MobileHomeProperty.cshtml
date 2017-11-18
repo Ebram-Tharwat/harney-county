@@ -1,0 +1,276 @@
+﻿@model HarneyCounty.Application.Core.ViewModel.MobileHomePropertyAccountViewModel
+@{
+    ViewBag.Title = "Display Manufactured Home Accounts";
+}
+
+<h2>Display Manufactured Home Accounts</h2>
+<hr />
+<div class="row details-page">
+    <div class="col-md-6">
+        <div>
+            @Html.LabelFor(model => model.AccountNumber, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.AccountNumber)
+            &nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.AsmtYear)
+        </div>
+        <div class="row">
+            &nbsp;
+        </div>
+        <div>
+            @Html.LabelFor(model => model.MapId, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.MapId)
+        </div>
+        <div class="row">
+            <div class="col-md-4 ">
+                @Html.LabelFor(model => model.CodeAreaCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.CodeAreaCode)
+            </div>
+            <div class="col-md-4 ">
+                @Html.LabelFor(model => model.ValAreaCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.ValAreaCode)
+            </div>
+            <div class="col-md-4 ">
+                @Html.LabelFor(model => model.PropClassCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.PropClassCode)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.MntnAreaCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.MntnAreaCode)
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.ZoningCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.ZoningCode)
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.TrendClass, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.TrendClass)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.SbdvnBlckLot, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.SbdvnBlckLot)
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.Split, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.Split)
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(model => model.SitusStrtNmbr, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.SitusStrtNmbr)
+            &nbsp;&nbsp;<b>#</b>&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.SitusStrtNmbrSufx)&nbsp;
+            @Html.DisplayFor(model => model.SitusStrtDir)&nbsp;
+            @Html.DisplayFor(model => model.SitusStrtName)&nbsp;
+            @Html.DisplayFor(model => model.SitusStrtNameSufx)
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.GisLeft, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.GisLeft)
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.GisRight, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.GisRight)
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.Ref, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.Ref)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.XNmbr, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.XNmbr)
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.MobileHomeId, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.MobileHomeId)
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.FctrBookCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.FctrBookCode)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.MobHomeWidthLength, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.MobHomeWdth)
+                &nbsp;&nbsp;<b>x</b>&nbsp;&nbsp;
+                @Html.DisplayFor(model => model.MobHomeLngth)
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.MobHomeTipoutWidthLength, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.MobHomeTipoutLngth)
+                &nbsp;&nbsp;<b>x</b>&nbsp;&nbsp;
+                @Html.DisplayFor(model => model.MobHomeTipoutWidth)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.AcctNmbr01431, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.AcctNmbr01431)
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.MobHomeRollType, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.MobHomeRollType)
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.MhSerial, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.MhSerial)
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div>
+            @Html.LabelFor(model => model.OwnerName, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.OwnerName)
+        </div>
+        <div>
+            <label class="control-label">C/O</label>
+            @Html.DisplayFor(model => model.CareOfFlag)
+            &nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.CareOfName)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.OwnerAdrsNameLine1, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.OwnerAdrsNameLine1)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.OwnerAdrsLine2, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.OwnerAdrsLine2)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.OwnerAdrsLine3, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.OwnerAdrsLine3)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.ZipCode)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.SitusZipCode, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.SitusZipCode)
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.SrCitizen, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.SrCitizen)
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.MobHomeSizeFlag, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.MobHomeSizeFlag)
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.JournalVoucher, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.JournalVoucher.JournalVoucherNumber)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.YearBuilt, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.YearBuilt)
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.PrctGood, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.PrctGood)
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.Trend, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.Trend)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.MobHomeMnfr, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.MobHomeMnfr)
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.SpaceNumber, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.SpaceNumber)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.ApprsrCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.ApprsrCode)
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.YearAppraised, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.YearAppraised)
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-11">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayFor(model => model.CentroidNumber)</th>
+                    <th>RMV</th>
+                    <th>MAV</th>
+                    <th>TAXABLE AV</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="upper-case bold">MFG. Structure</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="upper-case bold">Improvements</td>
+                    <td>@Html.DisplayFor(model => model.AcctImprMrktValTotl)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="upper-case bold">&nbsp;&nbsp;Sub Total</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="upper-case bold">Exceptions</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="upper-case bold">&nbsp;&nbsp;Sub Total</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="upper-case bold">Exemptions</td>
+                    <td></td>
+                    <td></td>
+                    <td>@Html.DisplayFor(model => model.AcctExmpTotal)</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="upper-case bold">@ViewBag.Year Totals</td>
+                    <td></td>
+                    <td>@Html.DisplayFor(model => model.MaximumAssessedValue)</td>
+                    <td>@Html.DisplayFor(model => model.TaxableAssessedValue)</td>
+                    <td>
+                        <span class="upper-case bold">Spec Asmt&nbsp;&nbsp;</span>
+                        @Html.DisplayFor(model => model.AcctSpecAses)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

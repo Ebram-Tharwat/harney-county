@@ -498,6 +498,40 @@ namespace HarneyCounty.Domain.Core.Models
         [StringLength(8)]
         [Display(Name = "Xn mbr")]
         public string XNmbr { get; set; }
+
+        [Column(@"FctrBookCode", Order = 98, TypeName = "char")]
+        [MaxLength(4)]
+        [StringLength(4)]
+        [Display(Name = "Fctr book code")]
+        public string FctrBookCode { get; set; }
+
+        [Column(@"PrctGood", Order = 99, TypeName = "decimal")]
+        [Display(Name = "Prct good")]
+        public decimal? PrctGood { get; set; }
+
+        [Column(@"MobHomeTipoutLngth", Order = 100, TypeName = "decimal")]
+        [Display(Name = "Mob home tipout lngth")]
+        public decimal? MobHomeTipoutLngth { get; set; }
+
+        [Column(@"MobHomeTipoutWidth", Order = 101, TypeName = "decimal")]
+        [Display(Name = "Mob home tipout width")]
+        public decimal? MobHomeTipoutWidth { get; set; }
+
+        [Column(@"SpaceNumber", Order = 102, TypeName = "char")]
+        [MaxLength(6)]
+        [StringLength(6)]
+        [Display(Name = "Space number")]
+        public string SpaceNumber { get; set; }
+
+        [Column(@"ApprsrCode", Order = 103, TypeName = "char")]
+        [MaxLength(3)]
+        [StringLength(3)]
+        [Display(Name = "Apprsr code")]
+        public string ApprsrCode { get; set; }
+
+        [Column(@"YearAppraised", Order = 104, TypeName = "decimal")]
+        [Display(Name = "Year appraised")]
+        public decimal? YearAppraised { get; set; }
     }
 
 }

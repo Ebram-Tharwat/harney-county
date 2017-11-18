@@ -13,7 +13,9 @@ namespace HarneyCounty.Application.Core.Interfaces
 
         RealPropertyAccountViewModel GetRealPropertyAccountData(int year, string accountNumber);
 
-       UtilityPropertyAccountViewModel GetUtilityAccountData(int year, string accountNumber);
+        UtilityPropertyAccountViewModel GetUtilityAccountData(int year, string accountNumber);
+
+        MobileHomePropertyAccountViewModel GetMobileHomePropertyAccountData(int year, string accountNumber);
 
         string GetAccountZipCodeMatch(string accountZipCode);
 

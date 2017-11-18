@@ -62,9 +62,14 @@ namespace HarneyCounty.Web.Controllers
                     if (utilityPropertyEntity == null)
                         return HttpNotFound();
                     return View("UtilityProperty", utilityPropertyEntity);
+                case Constants.RollType.MobileHome:
+                    var mobileHomeEntity = _accountMasterService.GetMobileHomePropertyAccountData(year.Value, accountNumber);
+                    if (mobileHomeEntity == null)
+                        return HttpNotFound();
+                    return View("MobileHomeProperty", mobileHomeEntity);
             }
 
-            return View();
+            return HttpNotFound();
         }
     }
 }

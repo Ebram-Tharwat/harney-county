@@ -119,6 +119,13 @@ namespace HarneyCounty.Infrastructure.Core.Mappings
             Property(x => x.AcctNmbr01431).IsOptional().IsFixedLength().IsUnicode(false);
             Property(x => x.MobHomeMnfr).IsOptional().IsFixedLength().IsUnicode(false);
             Property(x => x.XNmbr).IsOptional().IsFixedLength().IsUnicode(false);
+            Property(x => x.FctrBookCode).IsOptional().IsFixedLength().IsUnicode(false);
+            Property(x => x.PrctGood).IsOptional().HasPrecision(3,2);
+            Property(x => x.MobHomeTipoutLngth).IsOptional().HasPrecision(3,0);
+            Property(x => x.MobHomeTipoutWidth).IsOptional().HasPrecision(3,0);
+            Property(x => x.SpaceNumber).IsOptional().IsFixedLength().IsUnicode(false);
+            Property(x => x.ApprsrCode).IsOptional().IsFixedLength().IsUnicode(false);
+            Property(x => x.YearAppraised).IsOptional().HasPrecision(4,0);
         }
     }
 
