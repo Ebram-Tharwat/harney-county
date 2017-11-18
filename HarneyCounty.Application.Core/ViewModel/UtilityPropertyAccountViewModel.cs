@@ -13,6 +13,9 @@ namespace HarneyCounty.Application.Core.ViewModel
         [Display(Name ="Units")]
         public string Units { get; set; }
 
+        public string UtilUnitAssessVal { get; set; }
+        public string UtilOtherAssessVal { get; set; }
+
         [Display(Name = "Address")]
         public string OwnerAdrsNameLine1 { get; set; }
 
@@ -84,6 +87,7 @@ namespace HarneyCounty.Application.Core.ViewModel
         public decimal? ExemptionsMsav { get; set; }
 
         public decimal? AcctExmpTotal { get; set; }
+        public decimal? TotalExceptions { get; set; }
 
         public decimal? MaximumAssessedValue { get; set; }
 

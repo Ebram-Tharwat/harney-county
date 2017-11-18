@@ -64,12 +64,13 @@ namespace HarneyCounty.Application.Core.Services
                 var utilityPropertyAccounts = AutoMapper.Mapper.Map<AccountMasterFullDetail, UtilityPropertyAccountViewModel>(result);
                 if (utilityPropertyAccounts != null)
                 {
-                    var unitDetail = _utilityDetailRepository.Get(ud => ud.AsmtYear == year && ud.AcctNmbrParent == accountNumber).FirstOrDefault();
+                    var unitDetail = _utilityDetailRepository.Get(ud => ud.AsmtYear == year && ud.AcctNmbrParent.Trim() == accountNumber.Trim()).FirstOrDefault();
                     if (unitDetail != null)
                     {
                         utilityPropertyAccounts.Units = unitDetail.UnitsForAccount.HasValue ?
                                                         unitDetail.UnitsForAccount.Value.ToString() : string.Empty;
                     }
+                    return utilityPropertyAccounts;
                 }
             }
             return null;
