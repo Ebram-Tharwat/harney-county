@@ -71,9 +71,15 @@ namespace HarneyCounty.Utilities.App_Start
             kernel.Bind<IAccountMasterRepository>().To<AccountMasterRepository>();
             kernel.Bind<IAccountMasterService>().To<AccountMasterService>();
 
+            kernel.Bind<IPropertyClassRepository>().To<PropertyClassRepository>();
+            kernel.Bind<IPropertyClassService>().To<PropertyClassService>();
+
+            kernel.Bind<ICodeAreaRepository>().To<CodeAreaRepository>();
+            kernel.Bind<ICodeAreaService>().To<CodeAreaService>(); 
+
             kernel.Bind<IZipCodeFileRepository>().To<ZipCodeFileRepository>();
             kernel.Bind<IUtilityDetailRepository>().To<UtilityDetailRepository>();
-            kernel.Bind<IPropertyClassRepository>().To<PropertyClassRepository>();
+
             kernel.Bind<IJournalVoucherRepository>().To<JournalVoucherRepository>();
             kernel.Bind<IPersonalPropFullDetailsRepository>().To<PersonalPropFullDetailsRepository>();
         }

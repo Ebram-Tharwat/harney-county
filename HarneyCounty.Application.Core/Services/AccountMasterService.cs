@@ -86,7 +86,7 @@ namespace HarneyCounty.Application.Core.Services
                 var result = AutoMapper.Mapper.Map<AccountMasterFullDetail, RealPropertyAccountViewModel>(account);
                 result.ZipCode = this.GetAccountZipCodeMatch(result.ZipCode.Trim());
                 result.SitusZipCode = this.GetAccountZipCodeMatch(result.SitusZipCode.Trim());
-                result.IsAccountSpecillyAssessed = IsAccountSpecillyAssessed(account.PropClassCode);
+                result.IsAccountSpecillyAssessed = IsAccountSpeciallyAssessed(account.PropClassCode);
                 result.JournalVoucher = _journalVoucherRepository.GetByYearAndAccountNumber(account.AsmtYear, account.AcctNmbr);
                 return result;
             }
@@ -140,7 +140,7 @@ namespace HarneyCounty.Application.Core.Services
             }
         }
 
-        public bool IsAccountSpecillyAssessed(string propClassCode)
+        public bool IsAccountSpeciallyAssessed(string propClassCode)
         {
             var propClassData = _propertyClassRepository.GetByPropertyClass(propClassCode.Trim());
             return propClassData.SpecAssdFlag.Trim().ToUpper() == Constants.SpeciallyAssessedAccountFlag;

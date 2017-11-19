@@ -60,12 +60,17 @@
     <Compile Include="Contracts\SearchByType.cs" />
     <Compile Include="Contracts\SearchCriteria.cs" />
     <Compile Include="Interfaces\IAccountMasterService.cs" />
+    <Compile Include="Interfaces\ICodeAreaService.cs" />
+    <Compile Include="Interfaces\IPropertyClassService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountMasterService.cs" />
+    <Compile Include="Services\CodeAreaService.cs" />
+    <Compile Include="Services\PropertyClassService.cs" />
     <Compile Include="ViewModel\AccountMasterDetailsViewModel.cs" />
     <Compile Include="ViewModel\MobileHomePropertyAccountViewModel.cs" />
     <Compile Include="ViewModel\MobileHomeViewModel.cs" />
     <Compile Include="ViewModel\PersonalPropertyAccountViewModel.cs" />
+    <Compile Include="ViewModel\PropertyClassViewModel.cs" />
     <Compile Include="ViewModel\RealPropertyAccountViewModel.cs" />
     <Compile Include="ViewModel\UtilityPropertyAccountViewModel.cs" />
   </ItemGroup>

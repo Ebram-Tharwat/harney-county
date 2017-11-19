@@ -13,10 +13,14 @@ namespace HarneyCounty.Web.Controllers
     public class HomeController : Controller
     {
         private IAccountMasterService _accountMasterService;
+        private IPropertyClassService _propertyClassService;
+        private ICodeAreaService _codeAreaService;
 
-        public HomeController(IAccountMasterService accountMasterService)
+        public HomeController(IAccountMasterService accountMasterService, IPropertyClassService propertyClassService, ICodeAreaService codeAreaService)
         {
             _accountMasterService = accountMasterService;
+            _propertyClassService = propertyClassService;
+            _codeAreaService = codeAreaService;
         }
 
         // GET: Search data
@@ -36,6 +40,17 @@ namespace HarneyCounty.Web.Controllers
 
             ViewBag.FilterViewModel = filter;
             ViewBag.SearchBy = filter.SearchBy;
+            ViewBag.PropertyClasses = _propertyClassService.GetDistinctPropsInfo().Select(item=>new SelectListItem() {
+                Value = item.Name,
+                Text = $"{item.Name} - {item.Description}"
+            });
+
+            ViewBag.CodeAreas = _codeAreaService.GetDistinctCodeAreasInfo().Select(item => new SelectListItem()
+            {
+                Value = item.Name,
+                Text = $"{item.Description}"
+            });
+
             var viewmodel = entities.ToManualPagedList(pagingInfo);
 
             return View(viewmodel);

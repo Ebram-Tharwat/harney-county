@@ -21,6 +21,6 @@ namespace HarneyCounty.Application.Core.Interfaces
 
         string GetAccountZipCodeMatch(string accountZipCode);
 
-        bool IsAccountSpecillyAssessed(string propClassCode);
+        bool IsAccountSpeciallyAssessed(string propClassCode);
     }
 }
