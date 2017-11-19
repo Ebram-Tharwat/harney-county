@@ -1,0 +1,33 @@
+﻿@model IEnumerable<HarneyCounty.Domain.Core.Models.AuditFiscalYear>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateFiscalYear")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FiscalYear)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FiscalYear)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditFiscalYear", new { id=item.Id }) |
+            @*@Html.ActionLink("Details", "Details", new { id=item.Id }) |*@
+            @Html.ActionLink("Delete", "DeleteFiscalYear", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

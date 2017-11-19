@@ -3,6 +3,7 @@
 
 namespace HarneyCounty.Utilities.App_Start
 {
+    using Domain.Core.Models;
     using HarneyCounty.Application.Core.Interfaces;
     using HarneyCounty.Application.Core.Services;
     using HarneyCounty.Infrastructure.Core;
@@ -70,6 +71,7 @@ namespace HarneyCounty.Utilities.App_Start
 
             kernel.Bind<IAccountMasterRepository>().To<AccountMasterRepository>();
             kernel.Bind<IAccountMasterService>().To<AccountMasterService>();
+            kernel.Bind<IAuditService>().To<AuditService>();
 
             kernel.Bind<IPropertyClassRepository>().To<PropertyClassRepository>();
             kernel.Bind<IPropertyClassService>().To<PropertyClassService>();
@@ -82,6 +84,7 @@ namespace HarneyCounty.Utilities.App_Start
 
             kernel.Bind<IJournalVoucherRepository>().To<JournalVoucherRepository>();
             kernel.Bind<IPersonalPropFullDetailsRepository>().To<PersonalPropFullDetailsRepository>();
+            kernel.Bind<IRepository<AuditFiscalYear>>().To<EFRepository<AuditFiscalYear>>();
         }
     }
 }

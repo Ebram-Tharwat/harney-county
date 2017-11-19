@@ -81,6 +81,10 @@
       <Project>{9D410BCF-142C-4B09-851C-905AE9F85641}</Project>
       <Name>HarneyCounty.Application.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HarneyCounty.Domain.Core\HarneyCounty.Domain.Core.csproj">
+      <Project>{c2327950-83c8-423d-a017-62b18e3b7c59}</Project>
+      <Name>HarneyCounty.Domain.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HarneyCounty.Infrastructure.Core\HarneyCounty.Infrastructure.Core.csproj">
       <Project>{6E9E22C5-E3DA-4B73-B6AA-23B2AC1D90A2}</Project>
       <Name>HarneyCounty.Infrastructure.Core</Name>

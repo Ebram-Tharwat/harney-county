@@ -185,6 +185,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AuditController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\PagedListExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -248,6 +249,10 @@
     <Content Include="Views\Home\UtilityProperty.cshtml" />
     <Content Include="Views\Home\MobileHomeProperty.cshtml" />
     <Content Include="Views\Home\PersonalProperty.cshtml" />
+    <Content Include="Views\Audit\Index.cshtml" />
+    <Content Include="Views\Audit\CreateFiscalYear.cshtml" />
+    <Content Include="Views\Audit\EditFiscalYear.cshtml" />
+    <Content Include="Views\Audit\DeleteFiscalYear.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
