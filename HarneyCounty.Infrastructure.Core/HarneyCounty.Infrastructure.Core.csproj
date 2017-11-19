@@ -251,6 +251,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>HarneyCountyDbContext.cs</LastGenOutput>
     </Content>
+    <Content Include="DbScripts\DB Tables.sql" />
+    <Content Include="DbScripts\PersonalPropFullDetails.sql" />
+    <Content Include="DbScripts\AccountMasterFullDetails.sql" />
     <Content Include="Mappings\HarneyCountyDbMappings.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>HarneyCountyDbMappings.cs</LastGenOutput>
