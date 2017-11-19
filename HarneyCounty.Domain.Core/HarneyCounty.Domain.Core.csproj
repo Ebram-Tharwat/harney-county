@@ -60,10 +60,19 @@
     <Compile Include="Models\AccountSummary.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AuditFiscalYear.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AuditTurnoverSequence.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ChangeFile.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CodeArea.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DisplayUtilityAccountsDetail.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EtAlName.cs">
@@ -90,6 +99,9 @@
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Improvement.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JoinAccountMasterWithAccountSummary.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\JournalVoucher.cs">
