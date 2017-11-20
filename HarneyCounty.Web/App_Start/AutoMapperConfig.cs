@@ -37,6 +37,13 @@ namespace HarneyCounty.Web.App_Start
                 .ForMember(dest => dest.Prop, opt => opt.MapFrom(src => src.PropClassCode))
                 .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.CodeAreaCode))
                 ;
+
+                cfg.CreateMap<PersonalPropFullDetail, PersonalPropertyAccountViewModel>()
+                .ForMember(dest => dest.AccountNumber, opt => opt.MapFrom(src => src.AcctNmbr))
+                .ForMember(dest => dest.Flg, opt => opt.MapFrom(src => src.CareOfFlag))
+                .ForMember(dest => dest.Prop, opt => opt.MapFrom(src => src.PropClassCode))
+                .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.CodeAreaCode))
+                ;
             });
         }
     }

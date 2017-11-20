@@ -1,0 +1,238 @@
+﻿@model HarneyCounty.Application.Core.ViewModel.PersonalPropertyAccountViewModel
+@{
+    ViewBag.Title = "Display Personal Proop Account";
+}
+
+<h2>Display Personal Proop Account</h2>
+<hr />
+<div class="row details-page">
+    <div class="col-md-6">
+        <div>
+            @Html.LabelFor(model => model.AccountNumber, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.AccountNumber)
+            &nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.AsmtYear)
+        </div>
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-md-6 ">
+                @Html.LabelFor(model => model.CodeAreaCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.CodeAreaCode)
+            </div>
+            <div class="col-md-6 ">
+                @Html.LabelFor(model => model.ValAreaCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.ValAreaCode)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 ">
+                @Html.LabelFor(model => model.MntnAreaCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.MntnAreaCode)
+            </div>
+            <div class="col-md-4 ">
+                @Html.LabelFor(model => model.PropClassCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.PropClassCode)
+            </div>
+            <div class="col-md-4 ">
+                @Html.LabelFor(model => model.BusType, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.BusType)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.AcctNmbr01431, htmlAttributes: new { @class = "control-label" })
+                @*@Html.DisplayFor(model => model.AcctNmbr01431)*@
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.JournalVoucher, htmlAttributes: new { @class = "control-label" })
+                @Html.DisplayFor(model => model.JournalVoucher.JournalVoucherNumber)
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(model => model.MapId, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.MapId)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.SitusStrtNmbr, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.SitusStrtNmbr)
+            &nbsp;&nbsp;<b>#</b>&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.SitusStrtNmbrSufx)&nbsp;
+            @Html.DisplayFor(model => model.SitusStrtDir)&nbsp;
+            @Html.DisplayFor(model => model.SitusStrtName)&nbsp;
+            @Html.DisplayFor(model => model.SitusStrtNameSufx)
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div>
+            @Html.LabelFor(model => model.OwnerName, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.OwnerName)
+        </div>
+        <div>
+            <label class="control-label">C/O</label>
+            @Html.DisplayFor(model => model.CareOfFlag)
+            &nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.CareOfName)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.OwnerAdrsNameLine1, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.OwnerAdrsNameLine1)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.OwnerAdrsLine2, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.OwnerAdrsLine2)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.OwnerAdrsLine3, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.OwnerAdrsLine3)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.ZipCode)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.SitusZipCode, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.SitusZipCode)
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th class="bold upper-case">Filed/Date
+                        <span>
+                            &nbsp;&nbsp;
+                            &nbsp;&nbsp;@Html.DisplayFor(model => model.ReturnFiledStatus)
+                            &nbsp;&nbsp;@Html.DisplayFor(model => model.DateReturnFiled)
+                            &nbsp;&nbsp;@Html.DisplayFor(model => model.WorkedStatus)
+                        </span>
+                    </th>
+                    <th>RMV</th>
+                    <th>MAV</th>
+                    <th>TAXABLE AV</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    
+                </tr>
+            </tbody>
+            @*<tbody>
+                    <tr>
+                        <td class="upper-case bold">Market Land</td>
+                        <td>@Html.DisplayFor(model => model.AcctMrktLandTotl)</td>
+                        <td></td>
+                        <td>
+                            @if (Model.IsAccountSpecillyAssessed)
+                            { @Html.DisplayFor(model => model.AcctLandAssessTotl)}
+                        </td>
+                        <td>
+                            @if (Model.IsAccountSpecillyAssessed)
+                            {@Html.DisplayFor(model => model.MsavBaseNsaLand)}
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="upper-case bold">Special Land</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="upper-case bold">Improvements</td>
+                        <td>@Html.DisplayFor(model => model.AcctImprMrktValTotl)</td>
+                        <td></td>
+                        <td>
+                            @if (Model.IsAccountSpecillyAssessed)
+                            {@Html.DisplayFor(model => model.AcctImprTotl)}
+                        </td>
+                        <td>
+                            @if (Model.IsAccountSpecillyAssessed)
+                            {@Html.DisplayFor(model => model.MsavBaseImprovements)}
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="upper-case bold">Mfg Structure</td>
+                        <td>@Html.DisplayFor(model => model.AcctMobHomeTotl)</td>
+                        <td></td>
+                        <td>
+                            @if (Model.IsAccountSpecillyAssessed)
+                            {@Html.DisplayFor(model => model.AcctMobHomeTotl)}
+                        </td>
+                        <td>
+                            @if (Model.IsAccountSpecillyAssessed)
+                            {@Html.DisplayFor(model => model.MsavBaseManuStructure)}
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="upper-case bold">&nbsp;&nbsp;Sub Total/Base</td>
+                        <td>@(Model.AcctMrktLandTotl + Model.AcctImprMrktValTotl + Model.AcctMobHomeTotl)</td>
+                        <td></td>
+                        <td>
+                            @if (Model.IsAccountSpecillyAssessed)
+                            {@(Model.AcctLandAssessTotl + Model.AcctImprTotl + Model.AcctMobHomeTotl)}
+                        </td>
+                        <td>
+                            @if (Model.IsAccountSpecillyAssessed)
+                            {@(Model.MaxSpecAssessedValue - Model.ExceptionsMsav )}
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="upper-case bold">Exceptions</td>
+                        <td></td>
+                        <td>@Html.DisplayFor(model => model.ExceptionsMav)</td>
+                        <td></td>
+                        <td>
+                            @if (Model.IsAccountSpecillyAssessed)
+                            {@Html.DisplayFor(model => model.ExceptionsMsav)}
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="upper-case bold">&nbsp;&nbsp;Sub Total/Base(new)</td>
+                        <td>@(Model.AcctMrktLandTotl + Model.AcctImprMrktValTotl + Model.AcctMobHomeTotl)</td>
+                        <td>@(Model.AcctLandAssessTotl + Model.AcctImprTotl + Model.AcctMobHomeTotl)</td>
+                        <td></td>
+                        <td></td>
+                        <td>@Html.DisplayFor(model => model.TaxableAssessedValue)</td>
+                    </tr>
+                    <tr>
+                        <td class="upper-case bold">Exemptions</td>
+                        <td>@Html.DisplayFor(model => model.ExemptionsMav)</td>
+                        <td></td>
+                        <td>
+                            @if (Model.IsAccountSpecillyAssessed)
+                            {@Html.DisplayFor(model => model.ExemptionsMsav)}
+                        </td>
+                        <td>
+                            @if (Model.IsAccountSpecillyAssessed)
+                            {@Html.DisplayFor(model => model.AcctExmpTotal)}
+                        </td>
+                        <td>@Html.DisplayFor(model => model.AcctExmpTotal)</td>
+                    </tr>
+                    <tr>
+                        <td class="upper-case bold">@ViewBag.Year Totals</td>
+                        <td>@(Model.AcctMrktLandTotl + Model.AcctImprMrktValTotl + Model.AcctMobHomeTotl)</td>
+                        <td>@Html.DisplayFor(model => model.MaximumAssessedValue)</td>
+                        <td>
+                            @if (Model.IsAccountSpecillyAssessed)
+                            {@(Model.AcctLandAssessTotl + Model.AcctImprTotl + Model.AcctMobHomeTotl)}
+                        </td>
+                        <td>
+                            @if (Model.IsAccountSpecillyAssessed)
+                            {@Html.DisplayFor(model => model.MaxSpecAssessedValue)}
+                        </td>
+                        <td>@Html.DisplayFor(model => model.TaxableAssessedValue)</td>
+                    </tr>
+                </tbody>*@
+        </table>
+    </div>
+</div>

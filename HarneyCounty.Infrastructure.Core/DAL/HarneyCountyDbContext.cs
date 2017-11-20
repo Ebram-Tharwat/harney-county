@@ -65,6 +65,7 @@ namespace HarneyCounty.Infrastructure.Core.DAL
         public System.Data.Entity.DbSet<PersonalPropComment> PersonalPropComments { get; set; }
         public System.Data.Entity.DbSet<PersonalPropDetail> PersonalPropDetails { get; set; }
         public System.Data.Entity.DbSet<PersonalPropFloating> PersonalPropFloatings { get; set; }
+        public System.Data.Entity.DbSet<PersonalPropFullDetail> PersonalPropFullDetails { get; set; }
         public System.Data.Entity.DbSet<PersonalPropLibrary> PersonalPropLibraries { get; set; }
         public System.Data.Entity.DbSet<PersonalPropNonInvent> PersonalPropNonInvents { get; set; }
         public System.Data.Entity.DbSet<PersonalPropOther> PersonalPropOthers { get; set; }
@@ -168,6 +169,7 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new PersonalPropCommentConfiguration());
             modelBuilder.Configurations.Add(new PersonalPropDetailConfiguration());
             modelBuilder.Configurations.Add(new PersonalPropFloatingConfiguration());
+            modelBuilder.Configurations.Add(new PersonalPropFullDetailConfiguration());
             modelBuilder.Configurations.Add(new PersonalPropLibraryConfiguration());
             modelBuilder.Configurations.Add(new PersonalPropNonInventConfiguration());
             modelBuilder.Configurations.Add(new PersonalPropOtherConfiguration());
@@ -226,6 +228,7 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new PersonalPropCommentConfiguration(schema));
             modelBuilder.Configurations.Add(new PersonalPropDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new PersonalPropFloatingConfiguration(schema));
+            modelBuilder.Configurations.Add(new PersonalPropFullDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new PersonalPropLibraryConfiguration(schema));
             modelBuilder.Configurations.Add(new PersonalPropNonInventConfiguration(schema));
             modelBuilder.Configurations.Add(new PersonalPropOtherConfiguration(schema));
