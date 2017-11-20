@@ -78,6 +78,7 @@ namespace HarneyCounty.Utilities.App_Start
             kernel.Bind<IPropertyClassRepository>().To<PropertyClassRepository>();
             kernel.Bind<IJournalVoucherRepository>().To<JournalVoucherRepository>();
             kernel.Bind<IRepository<AuditFiscalYear>>().To<EFRepository<AuditFiscalYear>>();
+            kernel.Bind<IRepository<AuditTurnoverSequence>>().To<EFRepository<AuditTurnoverSequence>>();
         }
     }
 }

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<HarneyCounty.Domain.Core.Models.AuditTurnoverSequence>
+
+@{
+    ViewBag.Title = "Index2";
+}
+
+<h2>Index2</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateAuditTurnOverSequence",new { id= ViewBag.FiscalYearId })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.Display("Sequence")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TurnOverDateFrom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TurnOverDateTo)
+        </th>
+    </tr>
+    @{ 
+        int i = 0;
+    }
+    @foreach (var item in Model)
+    {
+        i++;
+        <tr>
+            <td>
+               
+            @i
+            </td>
+
+            <td>
+                @{ 
+                    string parsedTurnOverDateFrom = item.TurnOverDateFrom.ToShortDateString();
+                }
+                @Html.DisplayFor(modelItem => parsedTurnOverDateFrom)
+            </td>
+            <td>
+                @{
+                    string parsedTurnOverDateTo = item.TurnOverDateTo.ToShortDateString();
+                }
+                @Html.DisplayFor(modelItem => parsedTurnOverDateTo)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditAuditTurnOverSequence", new {  id=item.Id  }) |
+                @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                @Html.ActionLink("Delete", "DeleteAuditTurnOverSequence", new {  id=item.Id  })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -20,7 +20,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.FiscalYear)
+            <a href="@Url.Action("Index", "AuditTurnOverSequence",new { id = item.Id })">@Html.DisplayFor(modelItem => item.FiscalYear)</a>
         </td>
         <td>
             @Html.ActionLink("Edit", "EditFiscalYear", new { id=item.Id }) |

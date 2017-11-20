@@ -24,6 +24,7 @@ namespace HarneyCounty.Infrastructure.Core.Mappings
 
         public AuditTurnoverSequenceConfiguration(string schema)
         {
+            Property(x => x.IsActive).IsOptional();
 
         }
     }
