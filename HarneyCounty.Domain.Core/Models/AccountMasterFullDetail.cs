@@ -532,6 +532,10 @@ namespace HarneyCounty.Domain.Core.Models
         [Column(@"YearAppraised", Order = 104, TypeName = "decimal")]
         [Display(Name = "Year appraised")]
         public decimal? YearAppraised { get; set; }
+
+        [Column(@"MobHomeMrktVal", Order = 105, TypeName = "decimal")]
+        [Display(Name = "Mob home mrkt val")]
+        public decimal? MobHomeMrktVal { get; set; }
     }
 
 }

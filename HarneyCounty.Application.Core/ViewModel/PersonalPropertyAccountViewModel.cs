@@ -41,6 +41,27 @@ namespace HarneyCounty.Application.Core.ViewModel
 
         public string WorkedStatus { get; set; }
 
+        public decimal? PpLine1Total { get; set; }
+
+        public decimal? PpLine2Total { get; set; }
+
+        public decimal? PpLine3Total { get; set; }
+
+        public decimal? PpLine4Total { get; set; }
+
+        public decimal? PpLine5Total { get; set; }
+
+        public decimal? PpLine6Total { get; set; }
+        
+        public decimal? MaximumAssessedValue { get; set; }
+
+        public decimal? TotalExceptions { get; set; }
+
+        public decimal? TaxableAssessedValue { get; set; }
+
+        public decimal? AcctExmpTotal { get; set; }
+
+        public decimal? AcctSpecAses { get; set; }
         #region Composite Props
 
 

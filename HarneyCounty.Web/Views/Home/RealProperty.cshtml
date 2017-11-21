@@ -51,7 +51,7 @@
             </div>
             <div class="col-md-6">
                 @Html.LabelFor(model => model.Split, htmlAttributes: new { @class = "control-label" })
-                @Html.DisplayFor(model => model.Split)
+                @*@Html.DisplayFor(model => model.Split)*@
             </div>
         </div>
         <div class="row">
@@ -132,7 +132,7 @@
             </div>
             <div class="col-md-6 ">
                 @Html.LabelFor(model => model.SplitCode, htmlAttributes: new { @class = "control-label" })
-                @Html.DisplayFor(model => model.SplitCode)
+                @*@Html.DisplayFor(model => model.SplitCode)*@
             </div>
         </div>
     </div>
@@ -227,9 +227,11 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="upper-case bold">&nbsp;&nbsp;Sub Total/Base(new)</td>
-                    <td>@(Model.AcctMrktLandTotl + Model.AcctImprMrktValTotl + Model.AcctMobHomeTotl)</td>
-                    <td>@(Model.AcctLandAssessTotl + Model.AcctImprTotl + Model.AcctMobHomeTotl)</td>
+                    <td class="upper-case bold">&nbsp;&nbsp;Sub Total</td>
+                    @*<td>@(Model.AcctMrktLandTotl + Model.AcctImprMrktValTotl + Model.AcctMobHomeTotl)</td>
+                    <td>@(Model.AcctLandAssessTotl + Model.AcctImprTotl + Model.AcctMobHomeTotl)</td>*@
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td>@Html.DisplayFor(model => model.TaxableAssessedValue)</td>

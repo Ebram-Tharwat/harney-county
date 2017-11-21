@@ -180,10 +180,11 @@
             </div>
             <div class="col-md-4">
                 @Html.LabelFor(model => model.Trend, htmlAttributes: new { @class = "control-label" })
-                @Html.DisplayFor(model => model.Trend)
+                @*@Html.DisplayFor(model => model.Trend)*@
             </div>
         </div>
         <div class="row">
+            @*Q – Ignore*@
             <div class="col-md-6">
                 @Html.LabelFor(model => model.MobHomeMnfr, htmlAttributes: new { @class = "control-label" })
                 @Html.DisplayFor(model => model.MobHomeMnfr)
@@ -220,7 +221,7 @@
             <tbody>
                 <tr>
                     <td class="upper-case bold">MFG. Structure</td>
-                    <td></td>
+                    <td>@Html.DisplayFor(model => model.MobHomeMrktVal)</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -234,23 +235,23 @@
                 </tr>
                 <tr>
                     <td class="upper-case bold">&nbsp;&nbsp;Sub Total</td>
-                    <td></td>
-                    <td></td>
+                    <td>@(Model.MobHomeMrktVal + Model.AcctImprMrktValTotl)</td>
+                    <td>@(Model.MaximumAssessedValue - Model.TotalExceptions)</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="upper-case bold">Exceptions</td>
                     <td></td>
-                    <td></td>
+                    <td>@Html.DisplayFor(model => model.TotalExceptions)</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="upper-case bold">&nbsp;&nbsp;Sub Total</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>@(Model.MobHomeMrktVal + Model.AcctImprMrktValTotl)</td>
+                    <td>@( (Model.MaximumAssessedValue - Model.TotalExceptions) + Model.TotalExceptions)</td>
+                    <td>@Math.Min((Model.MobHomeMrktVal + Model.AcctImprMrktValTotl).Value, ((Model.MaximumAssessedValue - Model.TotalExceptions) + Model.TotalExceptions).Value) </td>
                     <td></td>
                 </tr>
                 <tr>
@@ -262,7 +263,7 @@
                 </tr>
                 <tr>
                     <td class="upper-case bold">@ViewBag.Year Totals</td>
-                    <td></td>
+                    <td>@(Model.MobHomeMrktVal + Model.AcctImprMrktValTotl)</td>
                     <td>@Html.DisplayFor(model => model.MaximumAssessedValue)</td>
                     <td>@Html.DisplayFor(model => model.TaxableAssessedValue)</td>
                     <td>

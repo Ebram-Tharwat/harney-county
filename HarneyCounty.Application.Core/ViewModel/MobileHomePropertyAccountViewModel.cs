@@ -104,6 +104,11 @@ namespace HarneyCounty.Application.Core.ViewModel
 
         public decimal? AcctSpecAses { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:0.##}")]
+        public decimal? MobHomeMrktVal { get; set; }
+
+        public decimal? TotalExceptions { get; set; }
+
         #region Composite Props
 
         [Display(Name = "SUB/BL/LT")]

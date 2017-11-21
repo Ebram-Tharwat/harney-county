@@ -533,24 +533,28 @@ namespace HarneyCounty.Domain.Core.Models
         [Display(Name = "Year appraised")]
         public decimal? YearAppraised { get; set; }
 
+        [Column(@"MobHomeMrktVal", Order = 105, TypeName = "decimal")]
+        [Display(Name = "Mob home mrkt val")]
+        public decimal? MobHomeMrktVal { get; set; }
+
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column(@"PersonalPropDetail_Id", Order = 105, TypeName = "int")]
+        [Column(@"PersonalPropDetail_Id", Order = 106, TypeName = "int")]
         [Required]
         [Key]
         [Display(Name = "Personal prop detail ID")]
         public int PersonalPropDetail_Id { get; set; }
 
-        [Column(@"ReturnFiledStatus", Order = 106, TypeName = "char")]
+        [Column(@"ReturnFiledStatus", Order = 107, TypeName = "char")]
         [MaxLength(1)]
         [StringLength(1)]
         [Display(Name = "Return filed status")]
         public string ReturnFiledStatus { get; set; }
 
-        [Column(@"DateReturnFiled", Order = 107, TypeName = "date")]
+        [Column(@"DateReturnFiled", Order = 108, TypeName = "date")]
         [Display(Name = "Date return filed")]
         public System.DateTime? DateReturnFiled { get; set; }
 
-        [Column(@"WorkedStatus", Order = 108, TypeName = "char")]
+        [Column(@"WorkedStatus", Order = 109, TypeName = "char")]
         [MaxLength(1)]
         [StringLength(1)]
         [Display(Name = "Worked status")]
