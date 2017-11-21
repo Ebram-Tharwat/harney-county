@@ -1,4 +1,4 @@
-/****** Object:  View [dbo].[AccountMasterFullDetails]    Script Date: 11/19/2017 21:21:38 ******/
+/****** Object:  View [dbo].[AccountMasterFullDetails]    Script Date: 11/22/2017 00:00:11 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -29,7 +29,7 @@ SELECT DISTINCT
                       dbo.MobileHome.ID AS MobileHome_Id, dbo.MobileHome.MobHomeRollType, dbo.MobileHome.MobHomeSizeFlag, dbo.MobileHome.MobileHomeId, dbo.MobileHome.YearBuilt, 
                       dbo.MobileHome.MobHomeWdth, dbo.MobileHome.MobHomeLngth, dbo.MobileHome.MhSerial, dbo.MobileHome.AcctNmbr01431, dbo.MobileHome.MobHomeMnfr, dbo.MobileHome.XNmbr, 
                       dbo.MobileHome.FctrBookCode, dbo.MobileHome.PrctGood, dbo.MobileHome.MobHomeTipoutLngth, dbo.MobileHome.MobHomeTipoutWidth, dbo.MobileHome.SpaceNumber, 
-                      dbo.MobileHome.ApprsrCode, dbo.MobileHome.YearAppraised
+                      dbo.MobileHome.ApprsrCode, dbo.MobileHome.YearAppraised, dbo.MobileHome.MobHomeMrktVal
 FROM         dbo.AccountMaster INNER JOIN
                       dbo.AccountSummary ON dbo.AccountMaster.AsmtYear = dbo.AccountSummary.AsmtYear AND dbo.AccountMaster.AcctNmbr = dbo.AccountSummary.AcctNmbr LEFT OUTER JOIN
                       dbo.MobileHome ON dbo.AccountMaster.AsmtYear = dbo.MobileHome.AsmtYear AND dbo.AccountMaster.AcctNmbr = dbo.MobileHome.AcctNmbr
