@@ -54,7 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppSettings.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Contracts\Paging\PagingInfo.cs" />
     <Compile Include="Contracts\SearchByType.cs" />

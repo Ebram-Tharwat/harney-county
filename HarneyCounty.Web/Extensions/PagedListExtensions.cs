@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
-using HarneyCounty.Application.Core;
-using HarneyCounty.Application.Core.Contracts.Paging;
+using HarneyCounty.Common;
 using System.Collections.Generic;
 using X.PagedList;
-
 
 namespace HarneyCounty.Web.Extensions
 {

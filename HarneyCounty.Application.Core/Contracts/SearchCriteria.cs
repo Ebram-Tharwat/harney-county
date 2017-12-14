@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using HarneyCounty.Common;
+using System.ComponentModel.DataAnnotations;
 
 namespace HarneyCounty.Application.Core.Contracts
 {
@@ -8,7 +9,7 @@ namespace HarneyCounty.Application.Core.Contracts
         public string AccountNumber { get; set; }
 
         [Range(1900, 2050)]
-        public int Year { get; set; }
+        public int Year { get; set; } = AppSettings.DefaultSearchYear;
 
         [Display(Name = "Owner Name")]
         public string OwnerName { get; set; }
