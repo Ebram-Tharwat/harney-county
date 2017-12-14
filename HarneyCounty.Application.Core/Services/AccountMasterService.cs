@@ -20,9 +20,11 @@ namespace HarneyCounty.Application.Core.Services
         private readonly IPropertyClassRepository _propertyClassRepository;
         private readonly IJournalVoucherRepository _journalVoucherRepository;
         private readonly IPersonalPropFullDetailsRepository _personalPropFullDetailsRepository;
+        private readonly IImprovementRepository _improvementRepository;
 
         public AccountMasterService(IAccountMasterRepository accountMasterRepository, IZipCodeFileRepository zipCodeFileRepository, IPropertyClassRepository propertyClassRepository
-            , IJournalVoucherRepository journalVoucherRepository, IUtilityDetailRepository utilityDetailRepository, IPersonalPropFullDetailsRepository personalPropFullDetailsRepository)
+            , IJournalVoucherRepository journalVoucherRepository, IUtilityDetailRepository utilityDetailRepository, IPersonalPropFullDetailsRepository personalPropFullDetailsRepository
+            , IImprovementRepository improvementRepository)
         {
             this._accountMasterRepository = accountMasterRepository;
             this._zipCodeFileRepository = zipCodeFileRepository;
@@ -30,6 +32,7 @@ namespace HarneyCounty.Application.Core.Services
             this._journalVoucherRepository = journalVoucherRepository;
             this._utilityDetailRepository = utilityDetailRepository;
             this._personalPropFullDetailsRepository = personalPropFullDetailsRepository;
+            this._improvementRepository = improvementRepository;
         }
 
         public List<AccountMasterDetailsViewModel> SearchForAccounts(SearchCriteria searchCriteria, PagingInfo pagingInfo)
@@ -89,6 +92,10 @@ namespace HarneyCounty.Application.Core.Services
                 result.SitusZipCode = this.GetAccountZipCodeMatch(result.SitusZipCode.Trim());
                 result.IsAccountSpecillyAssessed = IsAccountSpeciallyAssessed(account.PropClassCode);
                 result.JournalVoucher = _journalVoucherRepository.GetByYearAndAccountNumber(account.AsmtYear, account.AcctNmbr);
+
+                var improvmentsData = _improvementRepository.GetImprovementsFullDetailsByYearAndAccountNumber(account.AsmtYear, account.AcctNmbr);
+                result.Improvements = AutoMapper.Mapper.Map<List<ImprovementsFullDetail>, List<ImprovementDetailsViewModel>>(improvmentsData);
+                result.Improvements.ForEach(t => t.CodeAreaCode = result.CodeAreaCode);
                 return result;
             }
             return null;

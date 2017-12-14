@@ -44,6 +44,8 @@ namespace HarneyCounty.Web.App_Start
                 .ForMember(dest => dest.Prop, opt => opt.MapFrom(src => src.PropClassCode))
                 .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.CodeAreaCode))
                 ;
+
+                cfg.CreateMap<ImprovementsFullDetail, ImprovementDetailsViewModel>();
             });
         }
     }

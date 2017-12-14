@@ -59,6 +59,7 @@
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Interfaces\IAccountMasterRepository.cs" />
     <Compile Include="Interfaces\ICodeAreaRepository.cs" />
+    <Compile Include="Interfaces\IImprovementRepository.cs" />
     <Compile Include="Interfaces\IJournalVoucherRepository.cs" />
     <Compile Include="Interfaces\IPersonalPropFullDetailsRepository.cs" />
     <Compile Include="Interfaces\IPropertyClassRepository.cs" />
@@ -128,6 +129,9 @@
     <Compile Include="Mappings\JoinAccountMasterWithAccountSummaryConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
+    <Compile Include="Mappings\ImprovementsFullDetailConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
     <Compile Include="Mappings\JournalVoucherConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
@@ -159,6 +163,9 @@
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
     <Compile Include="Mappings\MobileHomeConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\MobileHomeTrendStatuConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
     <Compile Include="Mappings\OwnershipHistoryConfiguration.cs">
@@ -246,6 +253,7 @@
     <Compile Include="Repositories\AccountMasterRepository.cs" />
     <Compile Include="Repositories\CodeAreaRepository.cs" />
     <Compile Include="Repositories\EFRepository.cs" />
+    <Compile Include="Repositories\ImprovementRepository.cs" />
     <Compile Include="Repositories\JournalVoucherRepository.cs" />
     <Compile Include="Repositories\PersonalPropFullDetailsRepository.cs" />
     <Compile Include="Repositories\PropertyClassRepository.cs" />

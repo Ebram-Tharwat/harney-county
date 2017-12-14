@@ -229,7 +229,7 @@
                 <tr>
                     <td class="upper-case bold">&nbsp;&nbsp;Sub Total</td>
                     @*<td>@(Model.AcctMrktLandTotl + Model.AcctImprMrktValTotl + Model.AcctMobHomeTotl)</td>
-                    <td>@(Model.AcctLandAssessTotl + Model.AcctImprTotl + Model.AcctMobHomeTotl)</td>*@
+                        <td>@(Model.AcctLandAssessTotl + Model.AcctImprTotl + Model.AcctMobHomeTotl)</td>*@
                     <td></td>
                     <td></td>
                     <td></td>
@@ -266,5 +266,106 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h3>Related Information</h3>
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#improvements">Improvements</a></li>
+            @*<li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+                <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>*@
+        </ul>
+
+        <div class="tab-content">
+            <div id="improvements" class="tab-pane fade in active">
+                @if (Model.Improvements.Any())
+                {
+                    <table class="table table-hover table-bordered">
+                        <thead class="upper-case">
+                            <tr>
+                                <th>@Html.LabelFor(model => model.Improvements[0].FctrBookCode)</th>
+                                <th></th>
+                                <th>@Html.LabelFor(model => model.Improvements[0].YearBuilt)</th>
+                                <th>@Html.LabelFor(model => model.Improvements[0].PrctGood)</th>
+                                <th>@Html.LabelFor(model => model.Improvements[0].ImprvAssessValue)</th>
+                                <th>@Html.LabelFor(model => model.Improvements[0].ImprvMrktValue)</th>
+                                <th>@Html.LabelFor(model => model.Improvements[0].ApprsrCode)</th>
+                                <th>@Html.LabelFor(model => model.Improvements[0].YearAppraised)</th>
+                                <th>@Html.LabelFor(model => model.Improvements[0].CodeAreaCode)</th>
+                                <th>@Html.LabelFor(model => model.Improvements[0].PropClassCode)</th>
+                                <th>@Html.LabelFor(model => model.Improvements[0].SqFeet)</th>
+                                <th>@Html.LabelFor(model => model.Improvements[0].PrimaryIndicator)</th>
+                                <th>@Html.LabelFor(model => model.Improvements[0].ExemFlag)</th>
+                                <th>@Html.LabelFor(model => model.Improvements[0].ImprovemNoTrendFlag)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Improvements)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FctrBookCode)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FactorBookDescr)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.YearBuilt)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PrctGood)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ImprvAssessValue)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ImprvMrktValue)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ApprsrCode)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.YearAppraised)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CodeAreaCode)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PropClassCode)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SqFeet)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PrimaryIndicator)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ExemFlag)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ImprovemNoTrendFlag)
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <div>
+                        <span class="label label-info label-small">No improvements found for the specified account at @Model.AsmtYear</span>
+                    </div>
+                }
+            </div>
+            @*<div id="menu1" class="tab-pane fade">
+                    <h3>Menu 1</h3>
+                    <p>Some content in menu 1.</p>
+                </div>
+                <div id="menu2" class="tab-pane fade">
+                    <h3>Menu 2</h3>
+                    <p>Some content in menu 2.</p>
+                </div>*@
+        </div>
     </div>
 </div>

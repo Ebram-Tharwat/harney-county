@@ -52,6 +52,7 @@ namespace HarneyCounty.Infrastructure.Core.DAL
         public System.Data.Entity.DbSet<FlaggingMaster> FlaggingMasters { get; set; }
         public System.Data.Entity.DbSet<Improvement> Improvements { get; set; }
         public System.Data.Entity.DbSet<JoinAccountMasterWithAccountSummary> JoinAccountMasterWithAccountSummaries { get; set; }
+        public System.Data.Entity.DbSet<ImprovementsFullDetail> ImprovementsFullDetails { get; set; }
         public System.Data.Entity.DbSet<JournalVoucher> JournalVouchers { get; set; }
         public System.Data.Entity.DbSet<LandApprDetail> LandApprDetails { get; set; }
         public System.Data.Entity.DbSet<LandAprsPropCharItem> LandAprsPropCharItems { get; set; }
@@ -63,6 +64,7 @@ namespace HarneyCounty.Infrastructure.Core.DAL
         public System.Data.Entity.DbSet<MaintenanceArea> MaintenanceAreas { get; set; }
         public System.Data.Entity.DbSet<MasterException> MasterExceptions { get; set; }
         public System.Data.Entity.DbSet<MobileHome> MobileHomes { get; set; }
+        public System.Data.Entity.DbSet<MobileHomeTrendStatu> MobileHomeTrendStatus { get; set; }
         public System.Data.Entity.DbSet<OwnershipHistory> OwnershipHistories { get; set; }
         public System.Data.Entity.DbSet<PersonalPropComment> PersonalPropComments { get; set; }
         public System.Data.Entity.DbSet<PersonalPropDetail> PersonalPropDetails { get; set; }
@@ -158,6 +160,7 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new FlaggingMasterConfiguration());
             modelBuilder.Configurations.Add(new ImprovementConfiguration());
             modelBuilder.Configurations.Add(new JoinAccountMasterWithAccountSummaryConfiguration());
+            modelBuilder.Configurations.Add(new ImprovementsFullDetailConfiguration());
             modelBuilder.Configurations.Add(new JournalVoucherConfiguration());
             modelBuilder.Configurations.Add(new LandApprDetailConfiguration());
             modelBuilder.Configurations.Add(new LandAprsPropCharItemConfiguration());
@@ -169,6 +172,7 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new MaintenanceAreaConfiguration());
             modelBuilder.Configurations.Add(new MasterExceptionConfiguration());
             modelBuilder.Configurations.Add(new MobileHomeConfiguration());
+            modelBuilder.Configurations.Add(new MobileHomeTrendStatuConfiguration());
             modelBuilder.Configurations.Add(new OwnershipHistoryConfiguration());
             modelBuilder.Configurations.Add(new PersonalPropCommentConfiguration());
             modelBuilder.Configurations.Add(new PersonalPropDetailConfiguration());
@@ -219,6 +223,7 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new FlaggingMasterConfiguration(schema));
             modelBuilder.Configurations.Add(new ImprovementConfiguration(schema));
             modelBuilder.Configurations.Add(new JoinAccountMasterWithAccountSummaryConfiguration(schema));
+            modelBuilder.Configurations.Add(new ImprovementsFullDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new JournalVoucherConfiguration(schema));
             modelBuilder.Configurations.Add(new LandApprDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new LandAprsPropCharItemConfiguration(schema));
@@ -230,6 +235,7 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new MaintenanceAreaConfiguration(schema));
             modelBuilder.Configurations.Add(new MasterExceptionConfiguration(schema));
             modelBuilder.Configurations.Add(new MobileHomeConfiguration(schema));
+            modelBuilder.Configurations.Add(new MobileHomeTrendStatuConfiguration(schema));
             modelBuilder.Configurations.Add(new OwnershipHistoryConfiguration(schema));
             modelBuilder.Configurations.Add(new PersonalPropCommentConfiguration(schema));
             modelBuilder.Configurations.Add(new PersonalPropDetailConfiguration(schema));

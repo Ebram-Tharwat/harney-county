@@ -1,4 +1,5 @@
 ﻿using HarneyCounty.Domain.Core.Models;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace HarneyCounty.Application.Core.ViewModel
@@ -103,5 +104,11 @@ namespace HarneyCounty.Application.Core.ViewModel
         }
 
         #endregion Composite Props
+
+        #region Tabs
+
+        public List<ImprovementDetailsViewModel> Improvements { get; set; }
+
+        #endregion Tabs
     }
 }

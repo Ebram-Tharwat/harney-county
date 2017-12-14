@@ -110,6 +110,9 @@
     <Compile Include="Models\JoinAccountMasterWithAccountSummary.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ImprovementsFullDetail.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\JournalVoucher.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
@@ -141,6 +144,9 @@
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MobileHome.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MobileHomeTrendStatu.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OwnershipHistory.cs">

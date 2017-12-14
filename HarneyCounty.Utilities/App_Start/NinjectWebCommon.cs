@@ -77,10 +77,11 @@ namespace HarneyCounty.Utilities.App_Start
             kernel.Bind<IPropertyClassService>().To<PropertyClassService>();
 
             kernel.Bind<ICodeAreaRepository>().To<CodeAreaRepository>();
-            kernel.Bind<ICodeAreaService>().To<CodeAreaService>(); 
+            kernel.Bind<ICodeAreaService>().To<CodeAreaService>();
 
             kernel.Bind<IZipCodeFileRepository>().To<ZipCodeFileRepository>();
             kernel.Bind<IUtilityDetailRepository>().To<UtilityDetailRepository>();
+            kernel.Bind<IImprovementRepository>().To<ImprovementRepository>();
 
             kernel.Bind<IJournalVoucherRepository>().To<JournalVoucherRepository>();
             kernel.Bind<IPersonalPropFullDetailsRepository>().To<PersonalPropFullDetailsRepository>();
@@ -88,7 +89,6 @@ namespace HarneyCounty.Utilities.App_Start
             kernel.Bind<IRepository<AuditTurnoverSequence>>().To<EFRepository<AuditTurnoverSequence>>();
             kernel.Bind<IRepository<DailyMaster>>().To<EFRepository<DailyMaster>>();
             kernel.Bind<IRepository<AuditDailyDetail>>().To<EFRepository<AuditDailyDetail>>();
-            
         }
     }
 }
