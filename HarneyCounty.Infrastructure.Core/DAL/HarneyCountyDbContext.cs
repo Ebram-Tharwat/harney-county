@@ -37,10 +37,12 @@ namespace HarneyCounty.Infrastructure.Core.DAL
         public System.Data.Entity.DbSet<AccountMaster> AccountMasters { get; set; }
         public System.Data.Entity.DbSet<AccountMasterFullDetail> AccountMasterFullDetails { get; set; }
         public System.Data.Entity.DbSet<AccountSummary> AccountSummaries { get; set; }
+        public System.Data.Entity.DbSet<AuditDailyDetail> AuditDailyDetails { get; set; }
         public System.Data.Entity.DbSet<AuditFiscalYear> AuditFiscalYears { get; set; }
         public System.Data.Entity.DbSet<AuditTurnoverSequence> AuditTurnoverSequences { get; set; }
         public System.Data.Entity.DbSet<ChangeFile> ChangeFiles { get; set; }
         public System.Data.Entity.DbSet<CodeArea> CodeAreas { get; set; }
+        public System.Data.Entity.DbSet<DailyMaster> DailyMasters { get; set; }
         public System.Data.Entity.DbSet<DisplayUtilityAccountsDetail> DisplayUtilityAccountsDetails { get; set; }
         public System.Data.Entity.DbSet<EtAlName> EtAlNames { get; set; }
         public System.Data.Entity.DbSet<ExemptionDetail> ExemptionDetails { get; set; }
@@ -141,10 +143,12 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new AccountMasterConfiguration());
             modelBuilder.Configurations.Add(new AccountMasterFullDetailConfiguration());
             modelBuilder.Configurations.Add(new AccountSummaryConfiguration());
+            modelBuilder.Configurations.Add(new AuditDailyDetailConfiguration());
             modelBuilder.Configurations.Add(new AuditFiscalYearConfiguration());
             modelBuilder.Configurations.Add(new AuditTurnoverSequenceConfiguration());
             modelBuilder.Configurations.Add(new ChangeFileConfiguration());
             modelBuilder.Configurations.Add(new CodeAreaConfiguration());
+            modelBuilder.Configurations.Add(new DailyMasterConfiguration());
             modelBuilder.Configurations.Add(new DisplayUtilityAccountsDetailConfiguration());
             modelBuilder.Configurations.Add(new EtAlNameConfiguration());
             modelBuilder.Configurations.Add(new ExemptionDetailConfiguration());
@@ -200,10 +204,12 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new AccountMasterConfiguration(schema));
             modelBuilder.Configurations.Add(new AccountMasterFullDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new AccountSummaryConfiguration(schema));
+            modelBuilder.Configurations.Add(new AuditDailyDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new AuditFiscalYearConfiguration(schema));
             modelBuilder.Configurations.Add(new AuditTurnoverSequenceConfiguration(schema));
             modelBuilder.Configurations.Add(new ChangeFileConfiguration(schema));
             modelBuilder.Configurations.Add(new CodeAreaConfiguration(schema));
+            modelBuilder.Configurations.Add(new DailyMasterConfiguration(schema));
             modelBuilder.Configurations.Add(new DisplayUtilityAccountsDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new EtAlNameConfiguration(schema));
             modelBuilder.Configurations.Add(new ExemptionDetailConfiguration(schema));

@@ -13,11 +13,15 @@ namespace HarneyCounty.Application.Core.Services
     {
         private readonly IRepository<AuditFiscalYear> _auditFiscalYearRepository;
         private readonly IRepository<AuditTurnoverSequence> _auditTurnOverSequenceRepository;
+        private readonly IRepository<DailyMaster> _dailyMasterRepository;
+        private readonly IRepository<AuditDailyDetail> _auditDailyDetailRepository;
         private readonly IUnitOfWork _unitOfWork;
-        public AuditService(IRepository<AuditFiscalYear> repository,IRepository<AuditTurnoverSequence> auditTurnOverSequenceRepository,IUnitOfWork unitOfWork)
+        public AuditService(IRepository<AuditFiscalYear> repository,IRepository<AuditTurnoverSequence> auditTurnOverSequenceRepository,IRepository<DailyMaster> dailyMasterRepository, IRepository<AuditDailyDetail> auditDailyDetailRepository, IUnitOfWork unitOfWork)
         {
             _auditFiscalYearRepository = repository;
             _auditTurnOverSequenceRepository = auditTurnOverSequenceRepository;
+            _dailyMasterRepository = dailyMasterRepository;
+            _auditDailyDetailRepository = auditDailyDetailRepository;
             _unitOfWork = unitOfWork;
         }
         public List<AuditFiscalYear> GetAllAuditFiscalYears()
@@ -26,10 +30,43 @@ namespace HarneyCounty.Application.Core.Services
             return result;
         }
 
+        public List<DailyMaster> GetAllDailyMasterByAuditTurnOverSequenceId(int id)
+        {
+            return _dailyMasterRepository
+                   .Get((dailyMasterItem) => dailyMasterItem.AuditTurnoverSequenceId == id)
+                   .Where(dailyMasterItem => dailyMasterItem.IsActive.HasValue && dailyMasterItem.IsActive.Value).ToList();
+        }
+        public DailyMaster GetDailyMasterById(int id)
+        {
+            return _dailyMasterRepository.GetById(id);
+        }
+
+        public List<AuditDailyDetail> GetAllDailyDetailByDailyMasterId(int id)
+        {
+            return _auditDailyDetailRepository.Get((dailyDetailItem) => dailyDetailItem.DailyMasterId == id)
+                .Where(dailyMasterItem => dailyMasterItem.IsActive.HasValue && dailyMasterItem.IsActive.Value).ToList();
+        }
         public void SaveAuditTurnOverSequence(AuditTurnoverSequence auditTurnOverSequence)
         {
             auditTurnOverSequence.IsActive = true;
             _auditTurnOverSequenceRepository.Add(auditTurnOverSequence);
+            _unitOfWork.Commit();
+        }
+
+        public void SaveDailyMaster(DailyMaster dailyMaster)
+        {
+            dailyMaster.IsActive = true;
+            var turnOvrSequence = _auditTurnOverSequenceRepository.GetById(dailyMaster.AuditTurnoverSequenceId);
+            dailyMaster.FromDate = turnOvrSequence.TurnOverDateFrom;
+            dailyMaster.ThruDate = turnOvrSequence.TurnOverDateTo;
+            _dailyMasterRepository.Add(dailyMaster);
+            _unitOfWork.Commit();
+        }
+
+        public void SaveDailyDetail(AuditDailyDetail dailyDetail)
+        {
+            dailyDetail.IsActive = true;
+            _auditDailyDetailRepository.Add(dailyDetail);
             _unitOfWork.Commit();
         }
 
@@ -44,6 +81,22 @@ namespace HarneyCounty.Application.Core.Services
         {
             auditTurnoverSequence.IsActive = true;
             _auditTurnOverSequenceRepository.Update(auditTurnoverSequence);
+            _unitOfWork.Commit();
+        }
+
+        public void EditDailyMaster(DailyMaster dailyMaster)
+        {
+            dailyMaster.IsActive = true;
+            var result = _dailyMasterRepository.GetById(dailyMaster.Id);
+            result.FromDate = dailyMaster.FromDate.HasValue ? dailyMaster.FromDate : default(DateTime?);
+            result.ThruDate = dailyMaster.ThruDate.HasValue ? dailyMaster.ThruDate : default(DateTime?);
+            result.FromReceipt = dailyMaster.FromReceipt;
+            result.ThruReceipt = dailyMaster.ThruReceipt;
+            result.CheckDollars = dailyMaster.CheckDollars;
+            result.CurrencyDollars = dailyMaster.CurrencyDollars;
+            result.CashDrawerDollars = dailyMaster.CashDrawerDollars;
+            result.CoinDollars = dailyMaster.CoinDollars;
+           // _dailyMasterRepository.Update(dailyMaster);
             _unitOfWork.Commit();
         }
 

@@ -86,6 +86,9 @@ namespace HarneyCounty.Utilities.App_Start
             kernel.Bind<IPersonalPropFullDetailsRepository>().To<PersonalPropFullDetailsRepository>();
             kernel.Bind<IRepository<AuditFiscalYear>>().To<EFRepository<AuditFiscalYear>>();
             kernel.Bind<IRepository<AuditTurnoverSequence>>().To<EFRepository<AuditTurnoverSequence>>();
+            kernel.Bind<IRepository<DailyMaster>>().To<EFRepository<DailyMaster>>();
+            kernel.Bind<IRepository<AuditDailyDetail>>().To<EFRepository<AuditDailyDetail>>();
+            
         }
     }
 }

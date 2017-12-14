@@ -1,0 +1,179 @@
+﻿@model HarneyCounty.Web.ViewModel.AuditDailyDetailViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Audit Daily Detail</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+
+     @{Html.RenderPartial("_InsertDailyMaster", Model.DailyMaster); }
+
+<form method="post">
+    <input type="submit"
+           value="Insert" formaction="/auditEditDailyTransaction/new/@Model.DailyMaster.Id" />
+    <br /><br />
+    @{int i = 0; }
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("Year")
+            </th>
+            <th>
+                @Html.DisplayName("Curr Rcpts")
+            </th>
+            <th>
+                @Html.DisplayName("State %")
+            </th>
+            <th>
+                @Html.DisplayName("Penalities")
+            </th>
+            <th>
+                @Html.DisplayName("Refunds/Nsf")
+            </th>
+            <th>
+                @Html.DisplayName("Net RCPTS")
+            </th>
+            <th>
+                @Html.DisplayName("12% Interest")
+            </th>
+            <th>
+                @Html.DisplayName("16% Interest")
+            </th>
+            <th>
+                @Html.DisplayName("Discount")
+            </th>
+            <th>
+                @Html.DisplayName("Net Tax CR")
+            </th>
+            <th>
+                @Html.DisplayName("LossesToRoll")
+            </th>
+            <th>
+                @Html.DisplayName("GainsToRoll")
+            </th>
+            <th>
+                @Html.DisplayName("Net Roll Chg")
+            </th>
+            <th>
+                @Html.DisplayName("DailyMasterId")
+            </th>
+        </tr>
+        @foreach (var item in Model.DailyDetail)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaxYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CurrRcpts)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatePercentage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Penalities)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RefundsNsf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.NetRcpts[i])
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.C12PercentageInterest)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.C16PercentageInterest)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.NetTaxCr[i])
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LossesToRoll)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GainsToRoll)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.NetRollChg[i])
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DailyMasterId)
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                    </td>*@
+            </tr>
+            i++;
+        }
+        <tr>
+            <td></td>
+            @{string currRcptsSum = Model.DailyDetail.Sum(t => t.CurrRcpts).ToString(); }
+            <td>@Html.DisplayFor(modelItem => currRcptsSum)</td>
+            @{ string statePercentageSum = Model.DailyDetail.Sum(t => t.StatePercentage).ToString();}
+            <td>
+                @Html.DisplayFor(modelItem => statePercentageSum)
+            </td>
+            @{ string penalitiesSum = Model.DailyDetail.Sum(t => t.Penalities).ToString();}
+            <td>
+                @Html.DisplayFor(modelItem => penalitiesSum)
+            </td>
+            @{ string refundsSum = Model.DailyDetail.Sum(t => t.RefundsNsf).ToString();}
+            <td>
+                @Html.DisplayFor(modelItem => refundsSum)
+            </td>
+            @{ var netRcptsSum = Model.NetRcpts.Sum(t => double.Parse(t));
+                string netRcptsSumString = netRcptsSum.ToString();}
+            <td>
+                @Html.DisplayFor(modelItem => netRcptsSumString)
+            </td>
+            @{ string twelvePercentageSum = Model.DailyDetail.Sum(t => t.C12PercentageInterest).ToString();}
+            <td>
+                @Html.DisplayFor(modelItem => twelvePercentageSum)
+            </td>
+            @{ string sixteenPercentageSum = Model.DailyDetail.Sum(t => t.C16PercentageInterest).ToString();}
+            <td>
+                @Html.DisplayFor(modelItem => sixteenPercentageSum)
+            </td>
+            @{ string discountSum = Model.DailyDetail.Sum(t => t.Discount).ToString();}
+            <td>
+                @Html.DisplayFor(modelItem => discountSum)
+            </td>
+            @{ string netTaxCrSum = Model.NetTaxCr.Sum(t => double.Parse(t)).ToString();}
+            <td>
+                @Html.DisplayFor(modelItem => netTaxCrSum)
+            </td>
+            @{ string lossesToRollSum = Model.DailyDetail.Sum(t => t.LossesToRoll).ToString();}
+            <td>
+                @Html.DisplayFor(modelItem => lossesToRollSum)
+            </td>
+            @{ string gainToRollSum = Model.DailyDetail.Sum(t => t.GainsToRoll).ToString();}
+            <td>
+                @Html.DisplayFor(modelItem => gainToRollSum)
+            </td>
+            @{ string netRollChgSum = Model.NetRollChg.Sum(t => double.Parse(t)).ToString();}
+            <td>
+                @Html.DisplayFor(modelItem => netRollChgSum)
+            </td>
+        </tr>
+
+    </table>
+</form>
+<br />
+<br />
+@{
+            if (Model.DisplayMode == "WriteOnly")
+            {
+                Html.RenderPartial("_InsertDailyDetail",
+                new HarneyCounty.Domain.Core.Models.AuditDailyDetail() { DailyMasterId = Model.DailyMaster.Id });
+            }
+}

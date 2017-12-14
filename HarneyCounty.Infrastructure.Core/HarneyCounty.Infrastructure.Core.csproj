@@ -78,6 +78,9 @@
     <Compile Include="Mappings\AccountSummaryConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
+    <Compile Include="Mappings\AuditDailyDetailConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
     <Compile Include="Mappings\AuditFiscalYearConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
@@ -88,6 +91,9 @@
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
     <Compile Include="Mappings\CodeAreaConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\DailyMasterConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
     <Compile Include="Mappings\DisplayUtilityAccountsDetailConfiguration.cs">
@@ -263,6 +269,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>HarneyCountyDbContext.cs</LastGenOutput>
     </Content>
+    <Content Include="DbScripts\AuditModule.sql" />
     <Content Include="DbScripts\DB Tables.sql" />
     <Content Include="DbScripts\PersonalPropFullDetails.sql" />
     <Content Include="DbScripts\AccountMasterFullDetails.sql" />

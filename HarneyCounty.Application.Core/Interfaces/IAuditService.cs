@@ -18,9 +18,17 @@ namespace HarneyCounty.Application.Core.Interfaces
 
         void DeleteFiscalYear(AuditFiscalYear auditFiscalYear);
         List<AuditTurnoverSequence> GetAllTurnOverSequenceByAuditFiscalYearId(int id);
+        List<DailyMaster> GetAllDailyMasterByAuditTurnOverSequenceId(int id);
+        DailyMaster GetDailyMasterById(int id);
+        List<AuditDailyDetail> GetAllDailyDetailByDailyMasterId(int id);
         void SaveAuditTurnOverSequence(AuditTurnoverSequence auditTurnOverSequence);
         AuditTurnoverSequence GetAuditTurnOverSequence(int id);
         void EditAuditTurnOverSequence(AuditTurnoverSequence auditTurnoverSequence);
+
+        void EditDailyMaster(DailyMaster dailyMaster);
         void DeleteTurnOverSequence(AuditTurnoverSequence auditTurnOverSequence);
+
+        void SaveDailyMaster(DailyMaster dailyMaster);
+        void SaveDailyDetail(AuditDailyDetail dailyDetail);
     }
 }

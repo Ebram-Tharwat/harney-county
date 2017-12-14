@@ -60,6 +60,9 @@
     <Compile Include="Models\AccountSummary.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AuditDailyDetail.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\AuditFiscalYear.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
@@ -70,6 +73,9 @@
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CodeArea.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DailyMaster.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DisplayUtilityAccountsDetail.cs">
