@@ -10,7 +10,7 @@
     @*@Html.ActionLink("Create New", "Create")*@
 </p>
 
-     @{Html.RenderPartial("_InsertDailyMaster", Model.DailyMaster); }
+@{Html.RenderPartial("_InsertDailyMaster", Model.DailyMaster); }
 
 <form method="post">
     <input type="submit"
@@ -165,7 +165,6 @@
                 @Html.DisplayFor(modelItem => netRollChgSum)
             </td>
         </tr>
-
     </table>
 </form>
 <br />
