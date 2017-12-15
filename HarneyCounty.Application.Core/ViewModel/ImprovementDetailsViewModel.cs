@@ -21,10 +21,10 @@ namespace HarneyCounty.Application.Core.ViewModel
         [Display(Name = "Year Appr")]
         public decimal? YearAppraised { get; set; }
 
-        [Display(Name = "Primary indicator")]
+        [Display(Name = "P")]
         public string PrimaryIndicator { get; set; }
 
-        [Display(Name = "no trend flag")]
+        [Display(Name = "T")]
         public string ImprovemNoTrendFlag { get; set; }
 
         [Display(Name = "Market value")]
@@ -33,7 +33,7 @@ namespace HarneyCounty.Application.Core.ViewModel
         [Display(Name = "Assess value")]
         public decimal? ImprvAssessValue { get; set; }
 
-        [Display(Name = "Exem flag")]
+        [Display(Name = "E")]
         public string ExemFlag { get; set; }
 
         [Display(Name = "Sq feet")]
@@ -48,7 +48,7 @@ namespace HarneyCounty.Application.Core.ViewModel
         [Display(Name = "Code Area")]
         public string CodeAreaCode { get; set; }
 
-        [Display(Name = "Apprsr code")]
+        [Display(Name = "Apr code")]
         public string ApprsrCode { get; set; }
 
         public int? FactorBookMasterId { get; set; }
