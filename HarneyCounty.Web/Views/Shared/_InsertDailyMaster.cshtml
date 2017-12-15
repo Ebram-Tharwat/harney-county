@@ -11,9 +11,9 @@
                 @Html.DisplayFor(model => model.EntryDate, new { htmlAttributes = new { @class = "form-control" } })
             </div>
         </div>
-      
-                @Html.HiddenFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
-           
+
+        @Html.HiddenFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+
         <div class="form-group">
             @Html.LabelFor(model => model.AuditTurnoverSequence.AuditFiscalYear.FiscalYear, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -45,26 +45,34 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.CheckDollars, htmlAttributes: new { @class = "control-label col-md-2" })
+            <span class="control-label col-md-2">
+                <strong> @Html.DisplayName("Checks")</strong>
+            </span>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CheckDollars, new { htmlAttributes = new { @class = "form-control" } })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.CurrencyDollars, htmlAttributes: new { @class = "control-label col-md-2" })
+            <span class="control-label col-md-2">
+                <strong>@Html.DisplayName("Currency")</strong>
+            </span>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CurrencyDollars, new { htmlAttributes = new { @class = "form-control" } })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CoinDollars, htmlAttributes: new { @class = "control-label col-md-2" })
+            <span class="control-label col-md-2">
+                <strong>@Html.DisplayName("Coin")</strong>
+            </span>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CoinDollars, new { htmlAttributes = new { @class = "form-control" } })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.CashDrawerDollars, htmlAttributes: new { @class = "control-label col-md-2" })
+            <span class="control-label col-md-2">
+                <strong>@Html.DisplayName("Cash Drawer")</strong>
+            </span>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CashDrawerDollars, new { htmlAttributes = new { @class = "form-control" } })
             </div>

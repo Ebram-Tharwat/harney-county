@@ -12,10 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.Display("Id")
+            @Html.DisplayName("Id")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AuditTurnoverSequenceId)
+            @Html.DisplayName("Turnover Sequence")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.EntryDate)
@@ -39,7 +39,8 @@
             @Html.DisplayFor(modelItem => item.AuditTurnoverSequenceId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EntryDate)
+            @{ string entryDate = item.EntryDate.ToShortDateString();}
+            @Html.DisplayFor(modelItem => entryDate)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FromReceipt)

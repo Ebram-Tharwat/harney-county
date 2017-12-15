@@ -45,6 +45,7 @@ namespace HarneyCounty.Web.Controllers
         public ActionResult CreateAuditTurnOverSequence(int id)
         {
             ViewBag.FiscalYearId = id;
+            ViewBag.FiscalYearName = _auditService.GetAuditFiscalYear(id).FiscalYear;
             return View();
         }
 
