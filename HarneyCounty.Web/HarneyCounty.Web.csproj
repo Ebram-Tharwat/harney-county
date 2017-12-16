@@ -330,6 +330,8 @@
     <Content Include="Views\AuditEditDailyTransaction\Index.cshtml" />
     <Content Include="Views\Shared\_InsertDailyDetail.cshtml" />
     <Content Include="Views\Shared\_InsertDailyMaster.cshtml" />
+    <Content Include="Views\Home\_LandAssessments.cshtml" />
+    <Content Include="Views\Home\_Improvements.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

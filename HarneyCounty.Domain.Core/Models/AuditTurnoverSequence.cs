@@ -46,7 +46,14 @@ namespace HarneyCounty.Domain.Core.Models
         [Display(Name = "Is active")]
         public bool? IsActive { get; set; }
 
+        public virtual System.Collections.Generic.ICollection<DailyMaster> DailyMasters { get; set; }
+
         [ForeignKey("AuditFiscalYearId")] public virtual AuditFiscalYear AuditFiscalYear { get; set; }
+
+        public AuditTurnoverSequence()
+        {
+            DailyMasters = new System.Collections.Generic.List<DailyMaster>();
+        }
     }
 
 }

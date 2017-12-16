@@ -51,12 +51,13 @@ namespace HarneyCounty.Infrastructure.Core.DAL
         public System.Data.Entity.DbSet<FlaggingDetail> FlaggingDetails { get; set; }
         public System.Data.Entity.DbSet<FlaggingMaster> FlaggingMasters { get; set; }
         public System.Data.Entity.DbSet<Improvement> Improvements { get; set; }
-        public System.Data.Entity.DbSet<JoinAccountMasterWithAccountSummary> JoinAccountMasterWithAccountSummaries { get; set; }
         public System.Data.Entity.DbSet<ImprovementsFullDetail> ImprovementsFullDetails { get; set; }
+        public System.Data.Entity.DbSet<JoinAccountMasterWithAccountSummary> JoinAccountMasterWithAccountSummaries { get; set; }
         public System.Data.Entity.DbSet<JournalVoucher> JournalVouchers { get; set; }
         public System.Data.Entity.DbSet<LandApprDetail> LandApprDetails { get; set; }
         public System.Data.Entity.DbSet<LandAprsPropCharItem> LandAprsPropCharItems { get; set; }
         public System.Data.Entity.DbSet<LandAssessment> LandAssessments { get; set; }
+        public System.Data.Entity.DbSet<LandAssessmentFullDetail> LandAssessmentFullDetails { get; set; }
         public System.Data.Entity.DbSet<LandAssessmentMsav> LandAssessmentMsavs { get; set; }
         public System.Data.Entity.DbSet<LandAssessmentSgmtAdj> LandAssessmentSgmtAdjs { get; set; }
         public System.Data.Entity.DbSet<LandClass> LandClasses { get; set; }
@@ -159,12 +160,13 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new FlaggingDetailConfiguration());
             modelBuilder.Configurations.Add(new FlaggingMasterConfiguration());
             modelBuilder.Configurations.Add(new ImprovementConfiguration());
-            modelBuilder.Configurations.Add(new JoinAccountMasterWithAccountSummaryConfiguration());
             modelBuilder.Configurations.Add(new ImprovementsFullDetailConfiguration());
+            modelBuilder.Configurations.Add(new JoinAccountMasterWithAccountSummaryConfiguration());
             modelBuilder.Configurations.Add(new JournalVoucherConfiguration());
             modelBuilder.Configurations.Add(new LandApprDetailConfiguration());
             modelBuilder.Configurations.Add(new LandAprsPropCharItemConfiguration());
             modelBuilder.Configurations.Add(new LandAssessmentConfiguration());
+            modelBuilder.Configurations.Add(new LandAssessmentFullDetailConfiguration());
             modelBuilder.Configurations.Add(new LandAssessmentMsavConfiguration());
             modelBuilder.Configurations.Add(new LandAssessmentSgmtAdjConfiguration());
             modelBuilder.Configurations.Add(new LandClassConfiguration());
@@ -222,12 +224,13 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new FlaggingDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new FlaggingMasterConfiguration(schema));
             modelBuilder.Configurations.Add(new ImprovementConfiguration(schema));
-            modelBuilder.Configurations.Add(new JoinAccountMasterWithAccountSummaryConfiguration(schema));
             modelBuilder.Configurations.Add(new ImprovementsFullDetailConfiguration(schema));
+            modelBuilder.Configurations.Add(new JoinAccountMasterWithAccountSummaryConfiguration(schema));
             modelBuilder.Configurations.Add(new JournalVoucherConfiguration(schema));
             modelBuilder.Configurations.Add(new LandApprDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new LandAprsPropCharItemConfiguration(schema));
             modelBuilder.Configurations.Add(new LandAssessmentConfiguration(schema));
+            modelBuilder.Configurations.Add(new LandAssessmentFullDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new LandAssessmentMsavConfiguration(schema));
             modelBuilder.Configurations.Add(new LandAssessmentSgmtAdjConfiguration(schema));
             modelBuilder.Configurations.Add(new LandClassConfiguration(schema));

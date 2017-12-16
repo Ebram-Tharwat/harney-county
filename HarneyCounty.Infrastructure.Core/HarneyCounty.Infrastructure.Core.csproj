@@ -61,6 +61,7 @@
     <Compile Include="Interfaces\ICodeAreaRepository.cs" />
     <Compile Include="Interfaces\IImprovementRepository.cs" />
     <Compile Include="Interfaces\IJournalVoucherRepository.cs" />
+    <Compile Include="Interfaces\ILandAssessmentRepository.cs" />
     <Compile Include="Interfaces\IPersonalPropFullDetailsRepository.cs" />
     <Compile Include="Interfaces\IPropertyClassRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
@@ -126,10 +127,10 @@
     <Compile Include="Mappings\ImprovementConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
-    <Compile Include="Mappings\JoinAccountMasterWithAccountSummaryConfiguration.cs">
+    <Compile Include="Mappings\ImprovementsFullDetailConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
-    <Compile Include="Mappings\ImprovementsFullDetailConfiguration.cs">
+    <Compile Include="Mappings\JoinAccountMasterWithAccountSummaryConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
     <Compile Include="Mappings\JournalVoucherConfiguration.cs">
@@ -142,6 +143,9 @@
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
     <Compile Include="Mappings\LandAssessmentConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\LandAssessmentFullDetailConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
     <Compile Include="Mappings\LandAssessmentMsavConfiguration.cs">
@@ -255,6 +259,7 @@
     <Compile Include="Repositories\EFRepository.cs" />
     <Compile Include="Repositories\ImprovementRepository.cs" />
     <Compile Include="Repositories\JournalVoucherRepository.cs" />
+    <Compile Include="Repositories\LandAssessmentRepository.cs" />
     <Compile Include="Repositories\PersonalPropFullDetailsRepository.cs" />
     <Compile Include="Repositories\PropertyClassRepository.cs" />
     <Compile Include="Repositories\UtilityDetailRepository.cs" />
@@ -277,6 +282,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>HarneyCountyDbContext.cs</LastGenOutput>
     </Content>
+    <Content Include="DbScripts\LandAssessmentFullDetails.sql" />
     <Content Include="DbScripts\ImprovementsFullDetails.sql" />
     <Content Include="DbScripts\AuditModule.sql" />
     <Content Include="DbScripts\DB Tables.sql" />

@@ -107,10 +107,10 @@
     <Compile Include="Models\Improvement.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\JoinAccountMasterWithAccountSummary.cs">
+    <Compile Include="Models\ImprovementsFullDetail.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ImprovementsFullDetail.cs">
+    <Compile Include="Models\JoinAccountMasterWithAccountSummary.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\JournalVoucher.cs">
@@ -123,6 +123,9 @@
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LandAssessment.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LandAssessmentFullDetail.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LandAssessmentMsav.cs">

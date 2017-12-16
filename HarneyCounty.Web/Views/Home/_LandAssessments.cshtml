@@ -1,0 +1,132 @@
+﻿@model List<HarneyCounty.Application.Core.ViewModel.LandAssessmentDetailsViewModel>
+
+@if (Model.Any())
+{
+    <div class="row upper-case">
+        <div class="col-md-3">
+            @Html.LabelFor(model => model[0].LandPropCharItem01, htmlAttributes: new { @class = "control-label" })
+            &nbsp;
+            @Html.DisplayFor(model => model[0].LandPropCharItem01)
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model[0].LandPropCharItem02, htmlAttributes: new { @class = "control-label" })
+            &nbsp;
+            @Html.DisplayFor(model => model[0].LandPropCharItem02)
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model[0].LandPropCharItem03, htmlAttributes: new { @class = "control-label" })
+            &nbsp;
+            @Html.DisplayFor(model => model[0].LandPropCharItem03)
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model[0].LandPropCharItem04, htmlAttributes: new { @class = "control-label" })
+            &nbsp;
+            @Html.DisplayFor(model => model[0].LandPropCharItem04)
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model[0].LandPropCharItem05, htmlAttributes: new { @class = "control-label" })
+            &nbsp;
+            @Html.DisplayFor(model => model[0].LandPropCharItem05)
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model[0].LandPropCharItem06, htmlAttributes: new { @class = "control-label" })
+            &nbsp;
+            @Html.DisplayFor(model => model[0].LandPropCharItem06)
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model[0].LandPropCharItem07, htmlAttributes: new { @class = "control-label" })
+            &nbsp;
+            @Html.DisplayFor(model => model[0].LandPropCharItem07)
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model[0].LandPropCharItem08, htmlAttributes: new { @class = "control-label" })
+            &nbsp;
+            @Html.DisplayFor(model => model[0].LandPropCharItem08)
+        </div>
+        <div class="col-md-12">
+            @Html.LabelFor(model => model[0].PartOfTotl, htmlAttributes: new { @class = "control-label" })
+            &nbsp;
+            @Html.DisplayFor(model => model[0].PartOfTotl)
+        </div>
+        <div class="col-md-12">
+            @Html.LabelFor(model => model[0].ApprsrCode, htmlAttributes: new { @class = "control-label" })
+            /
+            @Html.LabelFor(model => model[0].AppraisalDate, htmlAttributes: new { @class = "control-label" })
+            &nbsp;
+            @Html.DisplayFor(model => model[0].ApprsrCode)
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model[0].AppraisalDate)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-hover table-bordered">
+                <thead class="upper-case">
+                    <tr>
+                        <th>@Html.LabelFor(model => model[0].ValAreaCode)</th>
+                        <th>@Html.LabelFor(model => model[0].LandType)</th>
+                        <th>@Html.LabelFor(model => model[0].LandClassCode)</th>
+                        <th>@Html.LabelFor(model => model[0].LandApprSize1)</th>
+                        <th>@Html.LabelFor(model => model[0].CostPerUnit)</th>
+                        <th>@Html.LabelFor(model => model[0].LandCalcMthd)</th>
+                        <th>@Html.LabelFor(model => model[0].PropClassCode)</th>
+                        <th>@Html.LabelFor(model => model[0].LandApprAssessValue)</th>
+                        <th>@Html.LabelFor(model => model[0].TotlLandSgmtAdj)</th>
+                        <th>@Html.LabelFor(model => model[0].YearAppraised)</th>
+                        <th>@Html.LabelFor(model => model[0].ExemFlag)</th>
+                        <th>@Html.LabelFor(model => model[0].NoTrendFlag)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ValAreaCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LandType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LandClassCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LandApprSize1)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CostPerUnit)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LandCalcMthd)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PropClassCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LandApprAssessValue)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TotlLandSgmtAdj)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.YearAppraised)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ExemFlag)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NoTrendFlag)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+else
+{
+    <div>
+        <span class="label label-info label-small">No lands records found for the specified account at @ViewBag.Year</span>
+    </div>
+}

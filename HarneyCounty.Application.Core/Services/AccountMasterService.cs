@@ -21,10 +21,11 @@ namespace HarneyCounty.Application.Core.Services
         private readonly IJournalVoucherRepository _journalVoucherRepository;
         private readonly IPersonalPropFullDetailsRepository _personalPropFullDetailsRepository;
         private readonly IImprovementRepository _improvementRepository;
+        private readonly ILandAssessmentRepository _landAssessmentRepository;
 
         public AccountMasterService(IAccountMasterRepository accountMasterRepository, IZipCodeFileRepository zipCodeFileRepository, IPropertyClassRepository propertyClassRepository
             , IJournalVoucherRepository journalVoucherRepository, IUtilityDetailRepository utilityDetailRepository, IPersonalPropFullDetailsRepository personalPropFullDetailsRepository
-            , IImprovementRepository improvementRepository)
+            , IImprovementRepository improvementRepository, ILandAssessmentRepository landAssessmentRepository)
         {
             this._accountMasterRepository = accountMasterRepository;
             this._zipCodeFileRepository = zipCodeFileRepository;
@@ -33,6 +34,7 @@ namespace HarneyCounty.Application.Core.Services
             this._utilityDetailRepository = utilityDetailRepository;
             this._personalPropFullDetailsRepository = personalPropFullDetailsRepository;
             this._improvementRepository = improvementRepository;
+            this._landAssessmentRepository = landAssessmentRepository;
         }
 
         public List<AccountMasterDetailsViewModel> SearchForAccounts(SearchCriteria searchCriteria, PagingInfo pagingInfo)
@@ -96,6 +98,10 @@ namespace HarneyCounty.Application.Core.Services
                 var improvmentsData = _improvementRepository.GetImprovementsFullDetailsByYearAndAccountNumber(account.AsmtYear, account.AcctNmbr);
                 result.Improvements = AutoMapper.Mapper.Map<List<ImprovementsFullDetail>, List<ImprovementDetailsViewModel>>(improvmentsData);
                 result.Improvements.ForEach(t => t.CodeAreaCode = result.CodeAreaCode);
+
+                var landAssessgmentData = _landAssessmentRepository.GetLandAssessmentFullDetailsByYearAndAccountNumber(account.AsmtYear, account.AcctNmbr);
+                result.LandAssessments = AutoMapper.Mapper.Map<List<LandAssessmentFullDetail>, List<LandAssessmentDetailsViewModel>>(landAssessgmentData);
+
                 return result;
             }
             return null;
@@ -110,6 +116,14 @@ namespace HarneyCounty.Application.Core.Services
                 result.ZipCode = this.GetAccountZipCodeMatch(result.ZipCode.Trim());
                 result.SitusZipCode = this.GetAccountZipCodeMatch(result.SitusZipCode.Trim());
                 result.JournalVoucher = _journalVoucherRepository.GetByYearAndAccountNumber(account.AsmtYear, account.AcctNmbr);
+
+                var improvmentsData = _improvementRepository.GetImprovementsFullDetailsByYearAndAccountNumber(account.AsmtYear, account.AcctNmbr);
+                result.Improvements = AutoMapper.Mapper.Map<List<ImprovementsFullDetail>, List<ImprovementDetailsViewModel>>(improvmentsData);
+                result.Improvements.ForEach(t => t.CodeAreaCode = result.CodeAreaCode);
+
+                var landAssessgmentData = _landAssessmentRepository.GetLandAssessmentFullDetailsByYearAndAccountNumber(account.AsmtYear, account.AcctNmbr);
+                result.LandAssessments = AutoMapper.Mapper.Map<List<LandAssessmentFullDetail>, List<LandAssessmentDetailsViewModel>>(landAssessgmentData);
+
                 return result;
             }
             return null;

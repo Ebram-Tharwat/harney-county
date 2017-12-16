@@ -109,6 +109,8 @@ namespace HarneyCounty.Application.Core.ViewModel
 
         public List<ImprovementDetailsViewModel> Improvements { get; set; }
 
+        public List<LandAssessmentDetailsViewModel> LandAssessments { get; set; }
+
         #endregion Tabs
     }
 }

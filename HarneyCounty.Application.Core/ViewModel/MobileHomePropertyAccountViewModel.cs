@@ -1,4 +1,5 @@
 ﻿using HarneyCounty.Domain.Core.Models;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace HarneyCounty.Application.Core.ViewModel
@@ -73,13 +74,13 @@ namespace HarneyCounty.Application.Core.ViewModel
 
         public decimal? MobHomeTipoutWidth { get; set; }
 
-        [Display(Name ="Space")]
+        [Display(Name = "Space")]
         public string SpaceNumber { get; set; }
 
         [Display(Name = "Roll")]
         public new string MobHomeRollType { get; set; }
 
-        [Display(Name ="Serial #")]
+        [Display(Name = "Serial #")]
         public new string MhSerial { get; set; }
 
         [Display(Name = "Real Acct")]
@@ -130,5 +131,13 @@ namespace HarneyCounty.Application.Core.ViewModel
         }
 
         #endregion Composite Props
+
+        #region Tabs
+
+        public List<ImprovementDetailsViewModel> Improvements { get; set; }
+
+        public List<LandAssessmentDetailsViewModel> LandAssessments { get; set; }
+
+        #endregion Tabs
     }
 }

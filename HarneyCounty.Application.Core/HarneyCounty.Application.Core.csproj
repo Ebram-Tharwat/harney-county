@@ -69,6 +69,7 @@
     <Compile Include="Services\AuditService.cs" />
     <Compile Include="ViewModel\AccountMasterDetailsViewModel.cs" />
     <Compile Include="ViewModel\ImprovementDetailsViewModel.cs" />
+    <Compile Include="ViewModel\LandAssessmentDetailsViewModel.cs" />
     <Compile Include="ViewModel\MobileHomePropertyAccountViewModel.cs" />
     <Compile Include="ViewModel\MobileHomeViewModel.cs" />
     <Compile Include="ViewModel\PersonalPropertyAccountViewModel.cs" />

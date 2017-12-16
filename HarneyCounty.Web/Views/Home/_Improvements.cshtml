@@ -1,0 +1,80 @@
+﻿@model List<HarneyCounty.Application.Core.ViewModel.ImprovementDetailsViewModel>
+
+@if (Model.Any())
+{
+    <table class="table table-hover table-bordered">
+        <thead class="upper-case">
+            <tr>
+                <th>@Html.LabelFor(model => model[0].FctrBookCode)</th>
+                <th></th>
+                <th>@Html.LabelFor(model => model[0].YearBuilt)</th>
+                <th>@Html.LabelFor(model => model[0].PrctGood)</th>
+                <th>@Html.LabelFor(model => model[0].ImprvAssessValue)</th>
+                <th>@Html.LabelFor(model => model[0].ImprvMrktValue)</th>
+                <th>@Html.LabelFor(model => model[0].ApprsrCode)</th>
+                <th>@Html.LabelFor(model => model[0].YearAppraised)</th>
+                <th>@Html.LabelFor(model => model[0].CodeAreaCode)</th>
+                <th>@Html.LabelFor(model => model[0].PropClassCode)</th>
+                <th>@Html.LabelFor(model => model[0].SqFeet)</th>
+                <th>@Html.LabelFor(model => model[0].PrimaryIndicator)</th>
+                <th>@Html.LabelFor(model => model[0].ExemFlag)</th>
+                <th>@Html.LabelFor(model => model[0].ImprovemNoTrendFlag)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FctrBookCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FactorBookDescr)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.YearBuilt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PrctGood)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImprvAssessValue)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImprvMrktValue)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApprsrCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.YearAppraised)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodeAreaCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PropClassCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SqFeet)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PrimaryIndicator)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExemFlag)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImprovemNoTrendFlag)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div>
+        <span class="label label-info label-small">No improvements records found for the specified account at @ViewBag.Year</span>
+    </div>
+}
