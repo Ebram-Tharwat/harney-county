@@ -289,6 +289,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>HarneyCountyDbContext.cs</LastGenOutput>
     </Content>
+    <Content Include="DbScripts\FlaggingFullDetails.sql" />
     <Content Include="DbScripts\LandAssessmentFullDetails.sql" />
     <Content Include="DbScripts\ImprovementsFullDetails.sql" />
     <Content Include="DbScripts\AuditModule.sql" />
