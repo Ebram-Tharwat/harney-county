@@ -214,4 +214,31 @@
         </table>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-12">
+        <h3>Related Information</h3>
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#lands">Lands</a></li>
+            <li><a data-toggle="tab" href="#improvements">Improvements</a></li>
+            <li><a data-toggle="tab" href="#comments">Comments</a></li>
+            <li><a data-toggle="tab" href="#legals">Legals</a></li>
+            <li><a data-toggle="tab" href="#flags">Flags</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="lands" class="tab-pane fade in active">
+                @Html.Partial("_LandAssessments", Model.LandAssessments)
+            </div>
+            <div id="improvements" class="tab-pane fade in ">
+                @Html.Partial("_Improvements", Model.Improvements)
+            </div>
+            <div id="comments" class="tab-pane fade in ">
+                @Html.Partial("_Comments", Model.Comments)
+            </div>
+            <div id="flags" class="tab-pane fade in ">
+                @Html.Partial("_Flags", Model.Flaggings)
+            </div>
+        </div>
+    </div>
+</div>
 

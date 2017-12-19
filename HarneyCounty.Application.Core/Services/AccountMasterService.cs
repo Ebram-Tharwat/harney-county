@@ -71,15 +71,16 @@ namespace HarneyCounty.Application.Core.Services
 
         public UtilityPropertyAccountViewModel GetUtilityAccountData(int year, string accountNumber)
         {
-            var result = _accountMasterRepository.GetAccountFullDetailsByYearAndAccountNumber(year, accountNumber);
+            var result = _accountMasterRepository.GetAccountFullDetailsByYearAndAccountNumber(year, accountNumber);            
             if (result != null)
             {
                 var utilityPropertyAccounts = AutoMapper.Mapper.Map<AccountMasterFullDetail, UtilityPropertyAccountViewModel>(result);
+                SetupAccountRelatedInformation(utilityPropertyAccounts, year, accountNumber);
                 if (utilityPropertyAccounts != null)
                 {
                     var unitDetail = _utilityDetailRepository.Get(ud => ud.AsmtYear == year && ud.AcctNmbrParent.Trim() == accountNumber.Trim()).FirstOrDefault();
                     if (unitDetail != null)
-                    {
+                    {                        
                         utilityPropertyAccounts.Units = unitDetail.UnitsForAccount.HasValue ?
                                                         unitDetail.UnitsForAccount.Value.ToString() : string.Empty;
                     }
@@ -128,6 +129,7 @@ namespace HarneyCounty.Application.Core.Services
             if (account != null)
             {
                 var result = AutoMapper.Mapper.Map<PersonalPropFullDetail, PersonalPropertyAccountViewModel>(account);
+                SetupAccountRelatedInformation(result, account.AsmtYear, account.AcctNmbr);
                 result.ZipCode = this.GetAccountZipCodeMatch(result.ZipCode.Trim());
                 result.SitusZipCode = this.GetAccountZipCodeMatch(result.SitusZipCode.Trim());
                 result.JournalVoucher = _journalVoucherRepository.GetByYearAndAccountNumber(account.AsmtYear, account.AcctNmbr);
