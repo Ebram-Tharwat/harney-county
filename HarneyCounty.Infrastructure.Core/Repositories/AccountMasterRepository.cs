@@ -29,7 +29,7 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
         {
             IQueryable<AccountMasterFullDetail> query = _dbContext.AccountMasterFullDetails;
             if (!string.IsNullOrWhiteSpace(accountNumber))
-                query = query.Where(t => t.AcctNmbr.Trim() == accountNumber.Trim());
+                query = query.Where(t => t.AcctNmbr.ToLower().Trim() == accountNumber.ToLower().Trim());
 
             if (asmtYear > 0)
                 query = query.Where(t => t.AsmtYear.ToString() == asmtYear.ToString());
@@ -41,40 +41,40 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
                 query = query.Where(t => t.SitusStrtNmbr == situsNumber);
 
             if (!string.IsNullOrWhiteSpace(situsSufx))
-                query = query.Where(t => t.SitusStrtNmbrSufx == situsSufx);
+                query = query.Where(t => t.SitusStrtNmbrSufx.ToLower() == situsSufx.ToLower());
 
             if (!string.IsNullOrWhiteSpace(situsDir))
-                query = query.Where(t => t.SitusStrtDir == situsDir);
+                query = query.Where(t => t.SitusStrtDir.ToLower() == situsDir.ToLower());
 
             if (!string.IsNullOrWhiteSpace(situsZip))
-                query = query.Where(t => t.SitusZipCode == situsZip);
+                query = query.Where(t => t.SitusZipCode.ToLower() == situsZip.ToLower());
 
             if (!string.IsNullOrWhiteSpace(subDivCode))
-                query = query.Where(t => t.SbdvnCode == subDivCode);
+                query = query.Where(t => t.SbdvnCode.ToLower() == subDivCode.ToLower());
 
             if (townShip.HasValue)
                 query = query.Where(t => t.Twnshp == townShip.Value);
 
             if (!string.IsNullOrWhiteSpace(townshipDirection))
-                query = query.Where(t => t.TwnshpDir == townshipDirection);
+                query = query.Where(t => t.TwnshpDir.ToLower() == townshipDirection.ToLower());
 
             if (!string.IsNullOrWhiteSpace(range))
-                query = query.Where(t => t.Range == range);
+                query = query.Where(t => t.Range.ToLower() == range.ToLower());
 
             if (!string.IsNullOrWhiteSpace(rangeDirection))
-                query = query.Where(t => t.RangDir == range);
+                query = query.Where(t => t.RangDir.ToLower() == rangeDirection.ToLower());
 
             if (section.HasValue)
                 query = query.Where(t => t.Sctn == section.Value);
 
             if (!string.IsNullOrWhiteSpace(quarterSection))
-                query = query.Where(t => t.QtrSctn == quarterSection);
+                query = query.Where(t => t.QtrSctn.ToLower() == quarterSection.ToLower());
 
             if (parcel.HasValue)
                 query = query.Where(t => t.Prcl == parcel.Value);
 
             if (!string.IsNullOrWhiteSpace(specialInterestAlpha))
-                query = query.Where(t => t.SpecIntAlph == specialInterestAlpha);
+                query = query.Where(t => t.SpecIntAlph.ToLower() == specialInterestAlpha.ToLower());
 
             if (specialInterestNumber.HasValue)
                 query = query.Where(t => t.SpecIntNmbr == specialInterestNumber);
@@ -86,22 +86,22 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
                 query = query.Where(t => t.BlckNmbr == blockNumber);
 
             if (!string.IsNullOrWhiteSpace(xNumber))
-                query = query.Where(t => t.XNmbr == xNumber);
+                query = query.Where(t => t.XNmbr.ToLower() == xNumber.ToLower());
 
             if (mobileHomeId.HasValue)
                 query = query.Where(t => t.MobileHomeId == mobileHomeId);
 
             if (!string.IsNullOrWhiteSpace(mobHomeMnfr))
-                query = query.Where(t => t.MobHomeMnfr == mobHomeMnfr);
+                query = query.Where(t => t.MobHomeMnfr.ToLower() == mobHomeMnfr.ToLower());
 
             if (!string.IsNullOrWhiteSpace(mhSerial))
-                query = query.Where(t => t.MhSerial == mhSerial);
+                query = query.Where(t => t.MhSerial.ToLower() == mhSerial.ToLower());
 
             if (!string.IsNullOrWhiteSpace(propCode))
                 query = query.Where(t => t.PropClassCode.Trim().Equals(propCode.Trim(), System.StringComparison.InvariantCultureIgnoreCase));
 
             if (!string.IsNullOrWhiteSpace(codeArea))
-                query = query.Where(t => t.CodeAreaCode == codeArea);
+                query = query.Where(t => t.CodeAreaCode.ToLower() == codeArea.ToLower());
 
             if (pageNumber > 0)
             {
