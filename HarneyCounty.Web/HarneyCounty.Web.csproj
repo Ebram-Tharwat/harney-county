@@ -332,6 +332,9 @@
     <Content Include="Views\Shared\_InsertDailyMaster.cshtml" />
     <Content Include="Views\Home\_LandAssessments.cshtml" />
     <Content Include="Views\Home\_Improvements.cshtml" />
+    <Content Include="Views\Home\_Comments.cshtml" />
+    <Content Include="Views\Home\_Legals.cshtml" />
+    <Content Include="Views\Home\_Flags.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

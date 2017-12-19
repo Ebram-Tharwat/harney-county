@@ -1,0 +1,52 @@
+﻿@model List<HarneyCounty.Application.Core.ViewModel.FlaggingDetailsViewModel>
+
+@if (Model.Any())
+{
+    <table class="table table-hover table-bordered">
+        <thead class="upper-case">
+            <tr>
+                <th>@Html.LabelFor(model => model[0].FlaggingCode)</th>
+                <th>@Html.LabelFor(model => model[0].FlaggingDetailYear)</th>
+                <th>@Html.LabelFor(model => model[0].FlagStartDate)</th>
+                <th>@Html.LabelFor(model => model[0].FlagEndDate)</th>
+                <th>@Html.LabelFor(model => model[0].FlagPotentialTaxLiab)</th>
+                <th>@Html.LabelFor(model => model[0].FlagDescription)</th>
+                <th>@Html.LabelFor(model => model[0].FlagComment)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlaggingCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlaggingDetailYear)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlagStartDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlagEndDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlagPotentialTaxLiab)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlagDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlagComment)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div>
+        <span class="label label-info label-small">No flags records found for the specified account at @ViewBag.Year</span>
+    </div>
+}

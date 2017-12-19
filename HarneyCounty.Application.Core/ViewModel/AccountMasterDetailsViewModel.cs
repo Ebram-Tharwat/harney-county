@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace HarneyCounty.Application.Core.ViewModel
 {
@@ -94,10 +95,10 @@ namespace HarneyCounty.Application.Core.ViewModel
         public decimal? MobHomeLngth { get; set; }
 
         public string MhSerial { get; set; }
-        
+
         public string AcctNmbr01431 { get; set; }
 
-        [Display(Name ="MAKE")]
+        [Display(Name = "MAKE")]
         public string MobHomeMnfr { get; set; }
 
         public string XNmbr { get; set; }
@@ -121,5 +122,19 @@ namespace HarneyCounty.Application.Core.ViewModel
         }
 
         #endregion Composite Props
+
+        #region Tabs
+
+        public List<ImprovementDetailsViewModel> Improvements { get; set; }
+
+        public List<LandAssessmentDetailsViewModel> LandAssessments { get; set; }
+
+        public List<AccountLegalCommentViewModel> Comments { get; set; }
+
+        public List<AccountLegalCommentViewModel> Legals { get; set; }
+
+        public List<FlaggingDetailsViewModel> Flaggings { get; set; }
+
+        #endregion Tabs
     }
 }

@@ -15,5 +15,11 @@
             public const string Utilities = "U";
             public const string PersonalProperty = "P";
         }
+
+        public static class LegalCommentType
+        {
+            public const string Comment = "C";
+            public const string Legal = "L";
+        }
     }
 }

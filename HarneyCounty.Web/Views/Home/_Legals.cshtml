@@ -1,0 +1,32 @@
+﻿@model List<HarneyCounty.Application.Core.ViewModel.AccountLegalCommentViewModel>
+
+@if (Model.Any())
+{
+    <table class="table table-hover table-bordered">
+        <thead class="upper-case">
+            <tr>
+                <th>DATE</th>
+                <th>LEGAL DESCRIPTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AcctCommDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommLegalText)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div>
+        <span class="label label-info label-small">No legals records found for the specified account</span>
+    </div>
+}

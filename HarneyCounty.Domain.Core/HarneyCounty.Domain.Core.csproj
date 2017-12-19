@@ -96,6 +96,9 @@
     <Compile Include="Models\FlaggingDetail.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FlaggingFullDetail.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\FlaggingMaster.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>

@@ -22,10 +22,13 @@ namespace HarneyCounty.Application.Core.Services
         private readonly IPersonalPropFullDetailsRepository _personalPropFullDetailsRepository;
         private readonly IImprovementRepository _improvementRepository;
         private readonly ILandAssessmentRepository _landAssessmentRepository;
+        private readonly IAccountLegalCommentRepository _accountLegalCommentRepository;
+        private readonly IFlaggingDetailRepository _flaggingDetailRepository;
 
         public AccountMasterService(IAccountMasterRepository accountMasterRepository, IZipCodeFileRepository zipCodeFileRepository, IPropertyClassRepository propertyClassRepository
             , IJournalVoucherRepository journalVoucherRepository, IUtilityDetailRepository utilityDetailRepository, IPersonalPropFullDetailsRepository personalPropFullDetailsRepository
-            , IImprovementRepository improvementRepository, ILandAssessmentRepository landAssessmentRepository)
+            , IImprovementRepository improvementRepository, ILandAssessmentRepository landAssessmentRepository
+            , IAccountLegalCommentRepository accountLegalCommentRepository, IFlaggingDetailRepository flaggingDetailRepository)
         {
             this._accountMasterRepository = accountMasterRepository;
             this._zipCodeFileRepository = zipCodeFileRepository;
@@ -35,6 +38,8 @@ namespace HarneyCounty.Application.Core.Services
             this._personalPropFullDetailsRepository = personalPropFullDetailsRepository;
             this._improvementRepository = improvementRepository;
             this._landAssessmentRepository = landAssessmentRepository;
+            this._accountLegalCommentRepository = accountLegalCommentRepository;
+            this._flaggingDetailRepository = flaggingDetailRepository;
         }
 
         public List<AccountMasterDetailsViewModel> SearchForAccounts(SearchCriteria searchCriteria, PagingInfo pagingInfo)
@@ -90,17 +95,11 @@ namespace HarneyCounty.Application.Core.Services
             if (account != null)
             {
                 var result = AutoMapper.Mapper.Map<AccountMasterFullDetail, RealPropertyAccountViewModel>(account);
+                SetupAccountRelatedInformation(result, account.AsmtYear, account.AcctNmbr);
                 result.ZipCode = this.GetAccountZipCodeMatch(result.ZipCode.Trim());
                 result.SitusZipCode = this.GetAccountZipCodeMatch(result.SitusZipCode.Trim());
                 result.IsAccountSpecillyAssessed = IsAccountSpeciallyAssessed(account.PropClassCode);
                 result.JournalVoucher = _journalVoucherRepository.GetByYearAndAccountNumber(account.AsmtYear, account.AcctNmbr);
-
-                var improvmentsData = _improvementRepository.GetImprovementsFullDetailsByYearAndAccountNumber(account.AsmtYear, account.AcctNmbr);
-                result.Improvements = AutoMapper.Mapper.Map<List<ImprovementsFullDetail>, List<ImprovementDetailsViewModel>>(improvmentsData);
-                result.Improvements.ForEach(t => t.CodeAreaCode = result.CodeAreaCode);
-
-                var landAssessgmentData = _landAssessmentRepository.GetLandAssessmentFullDetailsByYearAndAccountNumber(account.AsmtYear, account.AcctNmbr);
-                result.LandAssessments = AutoMapper.Mapper.Map<List<LandAssessmentFullDetail>, List<LandAssessmentDetailsViewModel>>(landAssessgmentData);
 
                 return result;
             }
@@ -113,16 +112,10 @@ namespace HarneyCounty.Application.Core.Services
             if (account != null)
             {
                 var result = AutoMapper.Mapper.Map<AccountMasterFullDetail, MobileHomePropertyAccountViewModel>(account);
+                SetupAccountRelatedInformation(result, account.AsmtYear, account.AcctNmbr);
                 result.ZipCode = this.GetAccountZipCodeMatch(result.ZipCode.Trim());
                 result.SitusZipCode = this.GetAccountZipCodeMatch(result.SitusZipCode.Trim());
                 result.JournalVoucher = _journalVoucherRepository.GetByYearAndAccountNumber(account.AsmtYear, account.AcctNmbr);
-
-                var improvmentsData = _improvementRepository.GetImprovementsFullDetailsByYearAndAccountNumber(account.AsmtYear, account.AcctNmbr);
-                result.Improvements = AutoMapper.Mapper.Map<List<ImprovementsFullDetail>, List<ImprovementDetailsViewModel>>(improvmentsData);
-                result.Improvements.ForEach(t => t.CodeAreaCode = result.CodeAreaCode);
-
-                var landAssessgmentData = _landAssessmentRepository.GetLandAssessmentFullDetailsByYearAndAccountNumber(account.AsmtYear, account.AcctNmbr);
-                result.LandAssessments = AutoMapper.Mapper.Map<List<LandAssessmentFullDetail>, List<LandAssessmentDetailsViewModel>>(landAssessgmentData);
 
                 return result;
             }
@@ -166,6 +159,25 @@ namespace HarneyCounty.Application.Core.Services
         {
             var propClassData = _propertyClassRepository.GetByPropertyClass(propClassCode.Trim());
             return propClassData.SpecAssdFlag.Trim().ToUpper() == Constants.SpeciallyAssessedAccountFlag;
+        }
+
+        public void SetupAccountRelatedInformation(AccountMasterDetailsViewModel result, decimal year, string accountNumber)
+        {
+            var improvmentsData = _improvementRepository.GetImprovementsFullDetailsByYearAndAccountNumber(year, accountNumber);
+            result.Improvements = AutoMapper.Mapper.Map<List<ImprovementsFullDetail>, List<ImprovementDetailsViewModel>>(improvmentsData);
+            result.Improvements.ForEach(t => t.CodeAreaCode = result.CodeAreaCode);
+
+            var landAssessgmentData = _landAssessmentRepository.GetLandAssessmentFullDetailsByYearAndAccountNumber(year, accountNumber);
+            result.LandAssessments = AutoMapper.Mapper.Map<List<LandAssessmentFullDetail>, List<LandAssessmentDetailsViewModel>>(landAssessgmentData);
+
+            var commentsAndLegalsData = _accountLegalCommentRepository.GetAccountLegalCommentByAccountNumber(accountNumber);
+            var comments = commentsAndLegalsData.Where(t => t.CommentLegalFlag.ToLower() == Constants.LegalCommentType.Comment.ToLower()).ToList();
+            var legals = commentsAndLegalsData.Where(t => t.CommentLegalFlag.ToLower() == Constants.LegalCommentType.Legal.ToLower()).ToList();
+            result.Comments = AutoMapper.Mapper.Map<List<AccountLegalComment>, List<AccountLegalCommentViewModel>>(comments);
+            result.Legals = AutoMapper.Mapper.Map<List<AccountLegalComment>, List<AccountLegalCommentViewModel>>(legals);
+
+            var flaggingsData = _flaggingDetailRepository.GetFlaggingFullDetailsByYearAndAccountNumber(year, accountNumber);
+            result.Flaggings = AutoMapper.Mapper.Map<List<FlaggingFullDetail>, List<FlaggingDetailsViewModel>>(flaggingsData);
         }
     }
 }

@@ -57,8 +57,10 @@
       <DependentUpon>HarneyCountyDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Extensions\DbContextExtensions.cs" />
+    <Compile Include="Interfaces\IAccountLegalCommentRepository.cs" />
     <Compile Include="Interfaces\IAccountMasterRepository.cs" />
     <Compile Include="Interfaces\ICodeAreaRepository.cs" />
+    <Compile Include="Interfaces\IFlaggingDetailRepository.cs" />
     <Compile Include="Interfaces\IImprovementRepository.cs" />
     <Compile Include="Interfaces\IJournalVoucherRepository.cs" />
     <Compile Include="Interfaces\ILandAssessmentRepository.cs" />
@@ -114,6 +116,9 @@
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
     <Compile Include="Mappings\FlaggingDetailConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\FlaggingFullDetailConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
     <Compile Include="Mappings\FlaggingMasterConfiguration.cs">
@@ -254,9 +259,11 @@
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AccountLegalCommentRepository.cs" />
     <Compile Include="Repositories\AccountMasterRepository.cs" />
     <Compile Include="Repositories\CodeAreaRepository.cs" />
     <Compile Include="Repositories\EFRepository.cs" />
+    <Compile Include="Repositories\FlaggingDetailRepository.cs" />
     <Compile Include="Repositories\ImprovementRepository.cs" />
     <Compile Include="Repositories\JournalVoucherRepository.cs" />
     <Compile Include="Repositories\LandAssessmentRepository.cs" />

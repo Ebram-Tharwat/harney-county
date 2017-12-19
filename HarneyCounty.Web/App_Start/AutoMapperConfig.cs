@@ -48,6 +48,10 @@ namespace HarneyCounty.Web.App_Start
                 cfg.CreateMap<ImprovementsFullDetail, ImprovementDetailsViewModel>();
 
                 cfg.CreateMap<LandAssessmentFullDetail, LandAssessmentDetailsViewModel>();
+
+                cfg.CreateMap<AccountLegalComment, AccountLegalCommentViewModel>();
+
+                cfg.CreateMap<FlaggingFullDetail, FlaggingDetailsViewModel>();
             });
         }
     }

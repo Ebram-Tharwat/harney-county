@@ -49,6 +49,7 @@ namespace HarneyCounty.Infrastructure.Core.DAL
         public System.Data.Entity.DbSet<ExemptionMaster> ExemptionMasters { get; set; }
         public System.Data.Entity.DbSet<FactorBookMaster> FactorBookMasters { get; set; }
         public System.Data.Entity.DbSet<FlaggingDetail> FlaggingDetails { get; set; }
+        public System.Data.Entity.DbSet<FlaggingFullDetail> FlaggingFullDetails { get; set; }
         public System.Data.Entity.DbSet<FlaggingMaster> FlaggingMasters { get; set; }
         public System.Data.Entity.DbSet<Improvement> Improvements { get; set; }
         public System.Data.Entity.DbSet<ImprovementsFullDetail> ImprovementsFullDetails { get; set; }
@@ -158,6 +159,7 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new ExemptionMasterConfiguration());
             modelBuilder.Configurations.Add(new FactorBookMasterConfiguration());
             modelBuilder.Configurations.Add(new FlaggingDetailConfiguration());
+            modelBuilder.Configurations.Add(new FlaggingFullDetailConfiguration());
             modelBuilder.Configurations.Add(new FlaggingMasterConfiguration());
             modelBuilder.Configurations.Add(new ImprovementConfiguration());
             modelBuilder.Configurations.Add(new ImprovementsFullDetailConfiguration());
@@ -222,6 +224,7 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new ExemptionMasterConfiguration(schema));
             modelBuilder.Configurations.Add(new FactorBookMasterConfiguration(schema));
             modelBuilder.Configurations.Add(new FlaggingDetailConfiguration(schema));
+            modelBuilder.Configurations.Add(new FlaggingFullDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new FlaggingMasterConfiguration(schema));
             modelBuilder.Configurations.Add(new ImprovementConfiguration(schema));
             modelBuilder.Configurations.Add(new ImprovementsFullDetailConfiguration(schema));
