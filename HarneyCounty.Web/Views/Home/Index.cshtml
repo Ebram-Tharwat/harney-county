@@ -197,7 +197,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => filterViewModel.PropertyClass, htmlAttributes: new { @class = "control-label" })
                         @*@Html.EditorFor(model => filterViewModel.PropertyClass, null, "propertyclass", new { htmlAttributes = new { @class = "form-control" } })*@
-                        @Html.DropDownListFor(model => filterViewModel.PropertyClass, (IEnumerable<SelectListItem>)ViewBag.PropertyClasses,
+                        @Html.DropDownListFor(model => filterViewModel.PropertyClass, (IEnumerable<SelectListItem>)ViewBag.PropertyClasses, "--Please Select--",
                             new { @class = "form-control", Name = "propertyclass" })
                     </div>
                 </div>
@@ -208,7 +208,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => filterViewModel.CodeArea, htmlAttributes: new { @class = "control-label" })
                         @*@Html.EditorFor(model => filterViewModel.CodeArea, null, "codearea", new { htmlAttributes = new { @class = "form-control" } })*@
-                        @Html.DropDownListFor(model => filterViewModel.CodeArea, (IEnumerable<SelectListItem>)ViewBag.CodeAreas,
+                        @Html.DropDownListFor(model => filterViewModel.CodeArea, (IEnumerable<SelectListItem>)ViewBag.CodeAreas,"--Please Select--",
                             new { @class = "form-control", Name = "codearea" })
                     </div>
                 </div>
@@ -249,6 +249,7 @@
             $('#btnReset').click(function () {
                 $('input[type="text"]', 'div.row[data-search-type]').val('');
                 $('input[type="number"]', 'div.row[data-search-type]').val('');
+                $('select', 'div.row[data-search-type]').val('');
             });
         });
     </script>
