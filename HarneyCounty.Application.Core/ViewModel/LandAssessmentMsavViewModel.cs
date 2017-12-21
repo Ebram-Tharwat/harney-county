@@ -13,6 +13,7 @@ namespace HarneyCounty.Application.Core.ViewModel
         public decimal LandApprSeq { get; set; }
 
         [Display(Name = "Size")]
+        [DisplayFormat(DataFormatString = "{0:0.000}")]
         public decimal? LandApprSize1 { get; set; }
 
         [Display(Name = "MSAV Base")]
