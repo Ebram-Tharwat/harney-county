@@ -1,0 +1,71 @@
+﻿@model List<HarneyCounty.Application.Core.ViewModel.LandAssessmentMsavViewModel>
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>MSAV</h4>
+        @if (Model.Any())
+        {
+            <table class="table table-hover table-bordered">
+                <thead class="upper-case">
+                    <tr>
+                        <th>@Html.LabelFor(model => model[0].ValAreaCode)</th>
+                        <th>@Html.LabelFor(model => model[0].LandType)</th>
+                        <th>@Html.LabelFor(model => model[0].LandClassCode)</th>
+                        <th>@Html.LabelFor(model => model[0].LandApprSize1)</th>
+                        <th>@Html.LabelFor(model => model[0].MsavBaseLandValue)</th>
+                        <th>@Html.LabelFor(model => model[0].MsavCurrentLandValue)</th>
+                        <th>@Html.LabelFor(model => model[0].LandCalcMthd)</th>
+                        <th>@Html.LabelFor(model => model[0].LandApprAssessValue)</th>
+                        <th>@Html.LabelFor(model => model[0].MsavLandValue)</th>
+                        <th>@Html.LabelFor(model => model[0].M50LandValue)</th>
+                        <th>@Html.LabelFor(model => model[0].ExemFlag)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ValAreaCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LandType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LandClassCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LandApprSize1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MsavBaseLandValue)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MsavCurrentLandValue)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LandCalcMthd)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LandApprAssessValue)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MsavLandValue)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.M50LandValue)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ExemFlag)
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <span class="label label-info label-small">No MSAV land records found for the specified account at @ViewBag.Year</span>
+        }
+    </div>
+</div>

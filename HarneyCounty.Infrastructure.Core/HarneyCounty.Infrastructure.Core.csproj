@@ -63,6 +63,7 @@
     <Compile Include="Interfaces\IFlaggingDetailRepository.cs" />
     <Compile Include="Interfaces\IImprovementRepository.cs" />
     <Compile Include="Interfaces\IJournalVoucherRepository.cs" />
+    <Compile Include="Interfaces\ILandAssessmentMsavRepository.cs" />
     <Compile Include="Interfaces\ILandAssessmentRepository.cs" />
     <Compile Include="Interfaces\IPersonalPropFullDetailsRepository.cs" />
     <Compile Include="Interfaces\IPropertyClassRepository.cs" />
@@ -266,6 +267,7 @@
     <Compile Include="Repositories\FlaggingDetailRepository.cs" />
     <Compile Include="Repositories\ImprovementRepository.cs" />
     <Compile Include="Repositories\JournalVoucherRepository.cs" />
+    <Compile Include="Repositories\LandAssessmentMsavRepository.cs" />
     <Compile Include="Repositories\LandAssessmentRepository.cs" />
     <Compile Include="Repositories\PersonalPropFullDetailsRepository.cs" />
     <Compile Include="Repositories\PropertyClassRepository.cs" />

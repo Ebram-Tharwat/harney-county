@@ -21,5 +21,11 @@
             public const string Comment = "C";
             public const string Legal = "L";
         }
+
+        public static class LandAssessmentType
+        {
+            public const string Special = "S";
+            public const string Market = "M";
+        }
     }
 }

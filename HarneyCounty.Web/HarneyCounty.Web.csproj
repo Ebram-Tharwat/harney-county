@@ -330,11 +330,15 @@
     <Content Include="Views\AuditEditDailyTransaction\Index.cshtml" />
     <Content Include="Views\Shared\_InsertDailyDetail.cshtml" />
     <Content Include="Views\Shared\_InsertDailyMaster.cshtml" />
-    <Content Include="Views\Home\_LandAssessments.cshtml" />
+    <Content Include="Views\Home\LandAssessment\_LandAssessmentsListing.cshtml" />
     <Content Include="Views\Home\_Improvements.cshtml" />
     <Content Include="Views\Home\_Comments.cshtml" />
     <Content Include="Views\Home\_Legals.cshtml" />
     <Content Include="Views\Home\_Flags.cshtml" />
+    <Content Include="Views\Home\LandAssessment\_LandAssessmentHeader.cshtml" />
+    <Content Include="Views\Home\LandAssessment\_MarketLandAssessments.cshtml" />
+    <Content Include="Views\Home\LandAssessment\_SpecialLandAssessments.cshtml" />
+    <Content Include="Views\Home\LandAssessment\_MsavLandAssessments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

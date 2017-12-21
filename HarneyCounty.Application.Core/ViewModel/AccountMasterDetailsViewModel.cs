@@ -129,6 +129,12 @@ namespace HarneyCounty.Application.Core.ViewModel
 
         public List<LandAssessmentDetailsViewModel> LandAssessments { get; set; }
 
+        public List<LandAssessmentDetailsViewModel> SpecialLandAssessments { get; set; }
+
+        public List<LandAssessmentDetailsViewModel> MarketLandAssessments { get; set; }
+
+        public List<LandAssessmentMsavViewModel> MsavLandAssessments { get; set; }
+
         public List<AccountLegalCommentViewModel> Comments { get; set; }
 
         public List<AccountLegalCommentViewModel> Legals { get; set; }

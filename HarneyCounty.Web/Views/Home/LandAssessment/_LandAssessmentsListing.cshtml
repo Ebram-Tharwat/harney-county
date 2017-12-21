@@ -1,63 +1,7 @@
 ﻿@model List<HarneyCounty.Application.Core.ViewModel.LandAssessmentDetailsViewModel>
 
 @if (Model.Any())
-{
-    <div class="row upper-case">
-        <div class="col-md-3">
-            @Html.LabelFor(model => model[0].LandPropCharItem01, htmlAttributes: new { @class = "control-label" })
-            &nbsp;
-            @Html.DisplayFor(model => model[0].LandPropCharItem01)
-        </div>
-        <div class="col-md-3">
-            @Html.LabelFor(model => model[0].LandPropCharItem02, htmlAttributes: new { @class = "control-label" })
-            &nbsp;
-            @Html.DisplayFor(model => model[0].LandPropCharItem02)
-        </div>
-        <div class="col-md-3">
-            @Html.LabelFor(model => model[0].LandPropCharItem03, htmlAttributes: new { @class = "control-label" })
-            &nbsp;
-            @Html.DisplayFor(model => model[0].LandPropCharItem03)
-        </div>
-        <div class="col-md-3">
-            @Html.LabelFor(model => model[0].LandPropCharItem04, htmlAttributes: new { @class = "control-label" })
-            &nbsp;
-            @Html.DisplayFor(model => model[0].LandPropCharItem04)
-        </div>
-        <div class="col-md-3">
-            @Html.LabelFor(model => model[0].LandPropCharItem05, htmlAttributes: new { @class = "control-label" })
-            &nbsp;
-            @Html.DisplayFor(model => model[0].LandPropCharItem05)
-        </div>
-        <div class="col-md-3">
-            @Html.LabelFor(model => model[0].LandPropCharItem06, htmlAttributes: new { @class = "control-label" })
-            &nbsp;
-            @Html.DisplayFor(model => model[0].LandPropCharItem06)
-        </div>
-        <div class="col-md-3">
-            @Html.LabelFor(model => model[0].LandPropCharItem07, htmlAttributes: new { @class = "control-label" })
-            &nbsp;
-            @Html.DisplayFor(model => model[0].LandPropCharItem07)
-        </div>
-        <div class="col-md-3">
-            @Html.LabelFor(model => model[0].LandPropCharItem08, htmlAttributes: new { @class = "control-label" })
-            &nbsp;
-            @Html.DisplayFor(model => model[0].LandPropCharItem08)
-        </div>
-        <div class="col-md-12">
-            @Html.LabelFor(model => model[0].PartOfTotl, htmlAttributes: new { @class = "control-label" })
-            &nbsp;
-            @Html.DisplayFor(model => model[0].PartOfTotl)
-        </div>
-        <div class="col-md-12">
-            @Html.LabelFor(model => model[0].ApprsrCode, htmlAttributes: new { @class = "control-label" })
-            /
-            @Html.LabelFor(model => model[0].AppraisalDate, htmlAttributes: new { @class = "control-label" })
-            &nbsp;
-            @Html.DisplayFor(model => model[0].ApprsrCode)
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            @Html.DisplayFor(model => model[0].AppraisalDate)
-        </div>
-    </div>
+{    
     <div class="row">
         <div class="col-md-12">
             <table class="table table-hover table-bordered">

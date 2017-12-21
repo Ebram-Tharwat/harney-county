@@ -1,0 +1,16 @@
+﻿@model List<HarneyCounty.Application.Core.ViewModel.LandAssessmentDetailsViewModel>
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>Market</h4>
+        @if (Model.Any())
+        {
+            @Html.Partial("LandAssessment/_LandAssessmentsListing", Model)
+
+        }
+        else
+        {
+            <span class="label label-info label-small">No market land records found for the specified account at @ViewBag.Year</span>
+        }
+    </div>
+</div>

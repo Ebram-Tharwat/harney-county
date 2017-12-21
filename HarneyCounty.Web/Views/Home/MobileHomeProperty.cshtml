@@ -288,7 +288,10 @@
 
         <div class="tab-content">
             <div id="lands" class="tab-pane fade in active">
-                @Html.Partial("_LandAssessments", Model.LandAssessments)
+                @Html.Partial("LandAssessment/_LandAssessmentHeader", Model.LandAssessments)
+                @Html.Partial("LandAssessment/_MarketLandAssessments", Model.MarketLandAssessments)
+                @Html.Partial("LandAssessment/_SpecialLandAssessments", Model.SpecialLandAssessments)
+                @Html.Partial("LandAssessment/_MsavLandAssessments", Model.MsavLandAssessments)
             </div>
             <div id="improvements" class="tab-pane fade in ">
                 @Html.Partial("_Improvements", Model.Improvements)

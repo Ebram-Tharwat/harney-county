@@ -21,12 +21,9 @@ SELECT     dbo.LandAssessment.ID AS LandAssessmentId, dbo.LandAssessment.AsmtYea
                       dbo.LandAprsPropCharItems.LandPropCharItem11, dbo.LandAprsPropCharItems.LandPropCharItem12, dbo.LandAprsPropCharItems.LandPropCharItem13, 
                       dbo.LandAprsPropCharItems.LandPropCharItem14
 FROM         dbo.LandAssessment LEFT OUTER JOIN
-                      dbo.LandAssessmentMsav ON dbo.LandAssessment.AsmtYear = dbo.LandAssessmentMsav.AsmtYear AND dbo.LandAssessment.AcctNmbr = dbo.LandAssessmentMsav.AcctNmbr AND 
-                      dbo.LandAssessment.LandApprSeq = dbo.LandAssessmentMsav.LandApprSeq LEFT OUTER JOIN
                       dbo.LandAprsPropCharItems ON dbo.LandAssessment.AsmtYear = dbo.LandAprsPropCharItems.AsmtYear AND 
                       dbo.LandAssessment.AcctNmbr = dbo.LandAprsPropCharItems.AcctNmbr LEFT OUTER JOIN
                       dbo.LandApprDetails ON dbo.LandAssessment.AsmtYear = dbo.LandApprDetails.AsmtYear AND dbo.LandAssessment.AcctNmbr = dbo.LandApprDetails.AcctNmbr
 
 GO
-
 

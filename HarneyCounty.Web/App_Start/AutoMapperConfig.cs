@@ -49,6 +49,8 @@ namespace HarneyCounty.Web.App_Start
 
                 cfg.CreateMap<LandAssessmentFullDetail, LandAssessmentDetailsViewModel>();
 
+                cfg.CreateMap<LandAssessmentMsav, LandAssessmentMsavViewModel>();
+
                 cfg.CreateMap<AccountLegalComment, AccountLegalCommentViewModel>();
 
                 cfg.CreateMap<FlaggingFullDetail, FlaggingDetailsViewModel>();
