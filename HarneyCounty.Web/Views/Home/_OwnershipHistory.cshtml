@@ -1,0 +1,60 @@
+﻿@model List<HarneyCounty.Application.Core.ViewModel.OwnershipHistoryViewModel>
+
+@if (Model.Any())
+{
+    <table class="table table-hover table-bordered">
+        <thead class="upper-case">
+            <tr>
+                <th>@Html.LabelFor(model => model[0].OwnerName)</th>
+                <th>@Html.LabelFor(model => model[0].SaleDate)</th>
+                <th>@Html.LabelFor(model => model[0].Ref)</th>
+                <th>@Html.LabelFor(model => model[0].RefAcres)</th>
+                <th>@Html.LabelFor(model => model[0].CareOfName)</th>
+                <th>@Html.LabelFor(model => model[0].InstrumentCode)</th>
+                <th>@Html.LabelFor(model => model[0].Jv)</th>
+                <th>@Html.LabelFor(model => model[0].OwnerHstryComment)</th>
+                <th>@Html.LabelFor(model => model[0].CareOfFlag)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OwnerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SaleDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ref)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RefAcres)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CareOfName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InstrumentCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Jv)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OwnerHstryComment)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CareOfFlag)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div>
+        <span class="label label-info label-small">No Onwership history records found for the specified account at @ViewBag.Year</span>
+    </div>
+}

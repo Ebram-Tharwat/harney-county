@@ -54,6 +54,8 @@ namespace HarneyCounty.Web.App_Start
                 cfg.CreateMap<AccountLegalComment, AccountLegalCommentViewModel>();
 
                 cfg.CreateMap<FlaggingFullDetail, FlaggingDetailsViewModel>();
+
+                cfg.CreateMap<OwnershipHistory, OwnershipHistoryViewModel>();
             });
         }
     }

@@ -86,6 +86,7 @@ namespace HarneyCounty.Utilities.App_Start
             kernel.Bind<IFlaggingDetailRepository>().To<FlaggingDetailRepository>();
             kernel.Bind<IAccountLegalCommentRepository>().To<AccountLegalCommentRepository>();
             kernel.Bind<ILandAssessmentMsavRepository>().To<LandAssessmentMsavRepository>();
+            kernel.Bind<IOwnershipHistoryRepository>().To<OwnershipHistoryRepository>();
 
             kernel.Bind<IJournalVoucherRepository>().To<JournalVoucherRepository>();
             kernel.Bind<IPersonalPropFullDetailsRepository>().To<PersonalPropFullDetailsRepository>();

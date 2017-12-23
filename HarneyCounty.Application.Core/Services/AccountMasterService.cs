@@ -25,11 +25,12 @@ namespace HarneyCounty.Application.Core.Services
         private readonly IAccountLegalCommentRepository _accountLegalCommentRepository;
         private readonly IFlaggingDetailRepository _flaggingDetailRepository;
         private readonly ILandAssessmentMsavRepository _landAssessmentMsavRepository;
+        private readonly IOwnershipHistoryRepository _ownershipHistoryRepository;
 
         public AccountMasterService(IAccountMasterRepository accountMasterRepository, IZipCodeFileRepository zipCodeFileRepository, IPropertyClassRepository propertyClassRepository
             , IJournalVoucherRepository journalVoucherRepository, IUtilityDetailRepository utilityDetailRepository, IPersonalPropFullDetailsRepository personalPropFullDetailsRepository
-            , IImprovementRepository improvementRepository, ILandAssessmentRepository landAssessmentRepository
-            , IAccountLegalCommentRepository accountLegalCommentRepository, IFlaggingDetailRepository flaggingDetailRepository, ILandAssessmentMsavRepository landAssessmentMsavRepository)
+            , IImprovementRepository improvementRepository, ILandAssessmentRepository landAssessmentRepository, IAccountLegalCommentRepository accountLegalCommentRepository
+            , IFlaggingDetailRepository flaggingDetailRepository, ILandAssessmentMsavRepository landAssessmentMsavRepository, IOwnershipHistoryRepository ownershipHistoryRepository)
         {
             this._accountMasterRepository = accountMasterRepository;
             this._zipCodeFileRepository = zipCodeFileRepository;
@@ -42,6 +43,7 @@ namespace HarneyCounty.Application.Core.Services
             this._accountLegalCommentRepository = accountLegalCommentRepository;
             this._flaggingDetailRepository = flaggingDetailRepository;
             this._landAssessmentMsavRepository = landAssessmentMsavRepository;
+            this._ownershipHistoryRepository = ownershipHistoryRepository;
         }
 
         public List<AccountMasterDetailsViewModel> SearchForAccounts(SearchCriteria searchCriteria, PagingInfo pagingInfo)
@@ -187,6 +189,9 @@ namespace HarneyCounty.Application.Core.Services
 
             var flaggingsData = _flaggingDetailRepository.GetFlaggingFullDetailsByYearAndAccountNumber(year, accountNumber);
             result.Flaggings = AutoMapper.Mapper.Map<List<FlaggingFullDetail>, List<FlaggingDetailsViewModel>>(flaggingsData);
+
+            var ownershipHistoryData = _ownershipHistoryRepository.GetOwnershipHistoryByYearAndAccountNumber(year, accountNumber);
+            result.OwnershipHistory = AutoMapper.Mapper.Map<List<OwnershipHistory>, List<OwnershipHistoryViewModel>>(ownershipHistoryData);
         }
     }
 }

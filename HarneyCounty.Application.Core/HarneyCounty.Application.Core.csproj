@@ -75,6 +75,7 @@
     <Compile Include="ViewModel\LandAssessmentMsavViewModel.cs" />
     <Compile Include="ViewModel\MobileHomePropertyAccountViewModel.cs" />
     <Compile Include="ViewModel\MobileHomeViewModel.cs" />
+    <Compile Include="ViewModel\OwnershipHistoryViewModel.cs" />
     <Compile Include="ViewModel\PersonalPropertyAccountViewModel.cs" />
     <Compile Include="ViewModel\PropertyClassViewModel.cs" />
     <Compile Include="ViewModel\RealPropertyAccountViewModel.cs" />

@@ -141,6 +141,8 @@ namespace HarneyCounty.Application.Core.ViewModel
 
         public List<FlaggingDetailsViewModel> Flaggings { get; set; }
 
+        public List<OwnershipHistoryViewModel> OwnershipHistory { get; set; }
+
         #endregion Tabs
     }
 }

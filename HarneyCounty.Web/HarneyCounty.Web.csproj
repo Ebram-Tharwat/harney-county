@@ -339,6 +339,7 @@
     <Content Include="Views\Home\LandAssessment\_MarketLandAssessments.cshtml" />
     <Content Include="Views\Home\LandAssessment\_SpecialLandAssessments.cshtml" />
     <Content Include="Views\Home\LandAssessment\_MsavLandAssessments.cshtml" />
+    <Content Include="Views\Home\_OwnershipHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
