@@ -26,11 +26,13 @@ namespace HarneyCounty.Application.Core.Services
         private readonly IFlaggingDetailRepository _flaggingDetailRepository;
         private readonly ILandAssessmentMsavRepository _landAssessmentMsavRepository;
         private readonly IOwnershipHistoryRepository _ownershipHistoryRepository;
+        private readonly ISalesFullDetailsRepository _salesFullDetailsRepository;
 
         public AccountMasterService(IAccountMasterRepository accountMasterRepository, IZipCodeFileRepository zipCodeFileRepository, IPropertyClassRepository propertyClassRepository
             , IJournalVoucherRepository journalVoucherRepository, IUtilityDetailRepository utilityDetailRepository, IPersonalPropFullDetailsRepository personalPropFullDetailsRepository
             , IImprovementRepository improvementRepository, ILandAssessmentRepository landAssessmentRepository, IAccountLegalCommentRepository accountLegalCommentRepository
-            , IFlaggingDetailRepository flaggingDetailRepository, ILandAssessmentMsavRepository landAssessmentMsavRepository, IOwnershipHistoryRepository ownershipHistoryRepository)
+            , IFlaggingDetailRepository flaggingDetailRepository, ILandAssessmentMsavRepository landAssessmentMsavRepository, IOwnershipHistoryRepository ownershipHistoryRepository
+            , ISalesFullDetailsRepository salesFullDetailsRepository)
         {
             this._accountMasterRepository = accountMasterRepository;
             this._zipCodeFileRepository = zipCodeFileRepository;
@@ -44,6 +46,7 @@ namespace HarneyCounty.Application.Core.Services
             this._flaggingDetailRepository = flaggingDetailRepository;
             this._landAssessmentMsavRepository = landAssessmentMsavRepository;
             this._ownershipHistoryRepository = ownershipHistoryRepository;
+            this._salesFullDetailsRepository = salesFullDetailsRepository;
         }
 
         public List<AccountMasterDetailsViewModel> SearchForAccounts(SearchCriteria searchCriteria, PagingInfo pagingInfo)
@@ -192,6 +195,9 @@ namespace HarneyCounty.Application.Core.Services
 
             var ownershipHistoryData = _ownershipHistoryRepository.GetOwnershipHistoryByYearAndAccountNumber(year, accountNumber);
             result.OwnershipHistory = AutoMapper.Mapper.Map<List<OwnershipHistory>, List<OwnershipHistoryViewModel>>(ownershipHistoryData);
+
+            var salesData = _salesFullDetailsRepository.GetSalesFullDetailsByAccountNumber(accountNumber);
+            result.Sales = AutoMapper.Mapper.Map<List<SalesFullDetail>, List<SalesDetailsViewModel>>(salesData);
         }
     }
 }

@@ -537,12 +537,9 @@ namespace HarneyCounty.Domain.Core.Models
         [Display(Name = "Mob home mrkt val")]
         public decimal? MobHomeMrktVal { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column(@"PersonalPropDetail_Id", Order = 106, TypeName = "int")]
-        [Required]
-        [Key]
         [Display(Name = "Personal prop detail ID")]
-        public int PersonalPropDetail_Id { get; set; }
+        public int? PersonalPropDetail_Id { get; set; }
 
         [Column(@"ReturnFiledStatus", Order = 107, TypeName = "char")]
         [MaxLength(1)]

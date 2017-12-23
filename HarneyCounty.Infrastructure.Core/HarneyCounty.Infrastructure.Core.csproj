@@ -69,6 +69,7 @@
     <Compile Include="Interfaces\IPersonalPropFullDetailsRepository.cs" />
     <Compile Include="Interfaces\IPropertyClassRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\ISalesFullDetailsRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\IUtilityDetailRepository.cs" />
     <Compile Include="Interfaces\IZipCodeFileRepository.cs" />
@@ -102,7 +103,25 @@
     <Compile Include="Mappings\DailyMasterConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
+    <Compile Include="Mappings\DeductionHistoryConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\DeductionMasterConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
     <Compile Include="Mappings\DisplayUtilityAccountsDetailConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\EmployeeMasterCommentConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\EmployeeMasterConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\EmployeePayHrsHistoryConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\EmployeeYtdAmountConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
     <Compile Include="Mappings\EtAlNameConfiguration.cs">
@@ -215,7 +234,16 @@
     <Compile Include="Mappings\PropertyClassConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
+    <Compile Include="Mappings\SalesAccountConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
     <Compile Include="Mappings\SalesCommentConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\SalesFullDetailConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\SalesMasterConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
     <Compile Include="Mappings\SearchFileConfiguration.cs">
@@ -273,6 +301,7 @@
     <Compile Include="Repositories\LandAssessmentRepository.cs" />
     <Compile Include="Repositories\PersonalPropFullDetailsRepository.cs" />
     <Compile Include="Repositories\PropertyClassRepository.cs" />
+    <Compile Include="Repositories\SalesFullDetailsRepository.cs" />
     <Compile Include="Repositories\UtilityDetailRepository.cs" />
     <Compile Include="Repositories\ZipCodeFileRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
@@ -293,6 +322,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>HarneyCountyDbContext.cs</LastGenOutput>
     </Content>
+    <Content Include="DbScripts\SalesFullDetails.sql" />
     <Content Include="DbScripts\FlaggingFullDetails.sql" />
     <Content Include="DbScripts\LandAssessmentFullDetails.sql" />
     <Content Include="DbScripts\ImprovementsFullDetails.sql" />

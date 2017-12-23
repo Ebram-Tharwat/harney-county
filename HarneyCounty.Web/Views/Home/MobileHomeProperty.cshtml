@@ -285,6 +285,7 @@
             <li><a data-toggle="tab" href="#legals">Legal</a></li>
             <li><a data-toggle="tab" href="#flags">Flags</a></li>
             <li><a data-toggle="tab" href="#ownershipHistory">Ownership History</a></li>
+            <li><a data-toggle="tab" href="#sales">Sales</a></li>
         </ul>
 
         <div class="tab-content">
@@ -308,6 +309,9 @@
             </div>
             <div id="ownershipHistory" class="tab-pane fade in ">
                 @Html.Partial("_OwnershipHistory", Model.OwnershipHistory)
+            </div>
+            <div id="sales" class="tab-pane fade in ">
+                @Html.Partial("_Sales", Model.Sales)
             </div>
         </div>
     </div>

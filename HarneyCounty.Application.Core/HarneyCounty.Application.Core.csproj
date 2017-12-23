@@ -79,6 +79,7 @@
     <Compile Include="ViewModel\PersonalPropertyAccountViewModel.cs" />
     <Compile Include="ViewModel\PropertyClassViewModel.cs" />
     <Compile Include="ViewModel\RealPropertyAccountViewModel.cs" />
+    <Compile Include="ViewModel\SalesDetailsViewModel.cs" />
     <Compile Include="ViewModel\UtilityPropertyAccountViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

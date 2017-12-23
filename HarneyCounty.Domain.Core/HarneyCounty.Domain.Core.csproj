@@ -78,7 +78,25 @@
     <Compile Include="Models\DailyMaster.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DeductionHistory.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeductionMaster.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DisplayUtilityAccountsDetail.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeMaster.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeMasterComment.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeePayHrsHistory.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeYtdAmount.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EtAlName.cs">
@@ -191,7 +209,16 @@
     <Compile Include="Models\PropertyClass.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SalesAccount.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SalesComment.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SalesFullDetail.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SalesMaster.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SearchFile.cs">

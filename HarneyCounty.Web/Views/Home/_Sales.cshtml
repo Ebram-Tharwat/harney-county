@@ -1,0 +1,56 @@
+﻿@model List<HarneyCounty.Application.Core.ViewModel.SalesDetailsViewModel>
+
+@if (Model.Any())
+{
+    <table class="table table-hover table-bordered">
+        <thead class="upper-case">
+            <tr>
+                <th>@Html.LabelFor(model => model[0].AcctNmbr)</th>
+                <th>@Html.LabelFor(model => model[0].SaleDate)</th>
+                <th>@Html.LabelFor(model => model[0].BuyerName)</th>
+                <th>@Html.LabelFor(model => model[0].NetSalesPrice)</th>
+                <th>@Html.LabelFor(model => model[0].ConditionCode)</th>
+                <th>@Html.LabelFor(model => model[0].SaleRatio)</th>
+                <th>@Html.LabelFor(model => model[0].MultiAccountFlag)</th>
+                <th>@Html.LabelFor(model => model[0].CommentsExistStatus)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AcctNmbr)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SaleDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BuyerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NetSalesPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ConditionCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SaleRatio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MultiAccountFlag)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommentsExistStatus)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div>
+        <span class="label label-info label-small">No sales records found for the specified account at @ViewBag.Year</span>
+    </div>
+}

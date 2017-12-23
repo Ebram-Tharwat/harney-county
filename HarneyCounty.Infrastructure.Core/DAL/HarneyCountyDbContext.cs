@@ -43,7 +43,13 @@ namespace HarneyCounty.Infrastructure.Core.DAL
         public System.Data.Entity.DbSet<ChangeFile> ChangeFiles { get; set; }
         public System.Data.Entity.DbSet<CodeArea> CodeAreas { get; set; }
         public System.Data.Entity.DbSet<DailyMaster> DailyMasters { get; set; }
+        public System.Data.Entity.DbSet<DeductionHistory> DeductionHistories { get; set; }
+        public System.Data.Entity.DbSet<DeductionMaster> DeductionMasters { get; set; }
         public System.Data.Entity.DbSet<DisplayUtilityAccountsDetail> DisplayUtilityAccountsDetails { get; set; }
+        public System.Data.Entity.DbSet<EmployeeMaster> EmployeeMasters { get; set; }
+        public System.Data.Entity.DbSet<EmployeeMasterComment> EmployeeMasterComments { get; set; }
+        public System.Data.Entity.DbSet<EmployeePayHrsHistory> EmployeePayHrsHistories { get; set; }
+        public System.Data.Entity.DbSet<EmployeeYtdAmount> EmployeeYtdAmounts { get; set; }
         public System.Data.Entity.DbSet<EtAlName> EtAlNames { get; set; }
         public System.Data.Entity.DbSet<ExemptionDetail> ExemptionDetails { get; set; }
         public System.Data.Entity.DbSet<ExemptionMaster> ExemptionMasters { get; set; }
@@ -79,7 +85,10 @@ namespace HarneyCounty.Infrastructure.Core.DAL
         public System.Data.Entity.DbSet<PersonalPropRentDetail> PersonalPropRentDetails { get; set; }
         public System.Data.Entity.DbSet<PersonalPropValue> PersonalPropValues { get; set; }
         public System.Data.Entity.DbSet<PropertyClass> PropertyClasses { get; set; }
+        public System.Data.Entity.DbSet<SalesAccount> SalesAccounts { get; set; }
         public System.Data.Entity.DbSet<SalesComment> SalesComments { get; set; }
+        public System.Data.Entity.DbSet<SalesFullDetail> SalesFullDetails { get; set; }
+        public System.Data.Entity.DbSet<SalesMaster> SalesMasters { get; set; }
         public System.Data.Entity.DbSet<SearchFile> SearchFiles { get; set; }
         public System.Data.Entity.DbSet<SpecialAssessDetail> SpecialAssessDetails { get; set; }
         public System.Data.Entity.DbSet<SpecialAssessment> SpecialAssessments { get; set; }
@@ -153,7 +162,13 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new ChangeFileConfiguration());
             modelBuilder.Configurations.Add(new CodeAreaConfiguration());
             modelBuilder.Configurations.Add(new DailyMasterConfiguration());
+            modelBuilder.Configurations.Add(new DeductionHistoryConfiguration());
+            modelBuilder.Configurations.Add(new DeductionMasterConfiguration());
             modelBuilder.Configurations.Add(new DisplayUtilityAccountsDetailConfiguration());
+            modelBuilder.Configurations.Add(new EmployeeMasterConfiguration());
+            modelBuilder.Configurations.Add(new EmployeeMasterCommentConfiguration());
+            modelBuilder.Configurations.Add(new EmployeePayHrsHistoryConfiguration());
+            modelBuilder.Configurations.Add(new EmployeeYtdAmountConfiguration());
             modelBuilder.Configurations.Add(new EtAlNameConfiguration());
             modelBuilder.Configurations.Add(new ExemptionDetailConfiguration());
             modelBuilder.Configurations.Add(new ExemptionMasterConfiguration());
@@ -189,7 +204,10 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new PersonalPropRentDetailConfiguration());
             modelBuilder.Configurations.Add(new PersonalPropValueConfiguration());
             modelBuilder.Configurations.Add(new PropertyClassConfiguration());
+            modelBuilder.Configurations.Add(new SalesAccountConfiguration());
             modelBuilder.Configurations.Add(new SalesCommentConfiguration());
+            modelBuilder.Configurations.Add(new SalesFullDetailConfiguration());
+            modelBuilder.Configurations.Add(new SalesMasterConfiguration());
             modelBuilder.Configurations.Add(new SearchFileConfiguration());
             modelBuilder.Configurations.Add(new SpecialAssessDetailConfiguration());
             modelBuilder.Configurations.Add(new SpecialAssessmentConfiguration());
@@ -218,7 +236,13 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new ChangeFileConfiguration(schema));
             modelBuilder.Configurations.Add(new CodeAreaConfiguration(schema));
             modelBuilder.Configurations.Add(new DailyMasterConfiguration(schema));
+            modelBuilder.Configurations.Add(new DeductionHistoryConfiguration(schema));
+            modelBuilder.Configurations.Add(new DeductionMasterConfiguration(schema));
             modelBuilder.Configurations.Add(new DisplayUtilityAccountsDetailConfiguration(schema));
+            modelBuilder.Configurations.Add(new EmployeeMasterConfiguration(schema));
+            modelBuilder.Configurations.Add(new EmployeeMasterCommentConfiguration(schema));
+            modelBuilder.Configurations.Add(new EmployeePayHrsHistoryConfiguration(schema));
+            modelBuilder.Configurations.Add(new EmployeeYtdAmountConfiguration(schema));
             modelBuilder.Configurations.Add(new EtAlNameConfiguration(schema));
             modelBuilder.Configurations.Add(new ExemptionDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new ExemptionMasterConfiguration(schema));
@@ -254,7 +278,10 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new PersonalPropRentDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new PersonalPropValueConfiguration(schema));
             modelBuilder.Configurations.Add(new PropertyClassConfiguration(schema));
+            modelBuilder.Configurations.Add(new SalesAccountConfiguration(schema));
             modelBuilder.Configurations.Add(new SalesCommentConfiguration(schema));
+            modelBuilder.Configurations.Add(new SalesFullDetailConfiguration(schema));
+            modelBuilder.Configurations.Add(new SalesMasterConfiguration(schema));
             modelBuilder.Configurations.Add(new SearchFileConfiguration(schema));
             modelBuilder.Configurations.Add(new SpecialAssessDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new SpecialAssessmentConfiguration(schema));

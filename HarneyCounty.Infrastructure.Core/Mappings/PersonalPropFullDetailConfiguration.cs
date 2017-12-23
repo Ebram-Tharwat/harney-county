@@ -127,6 +127,7 @@ namespace HarneyCounty.Infrastructure.Core.Mappings
             Property(x => x.ApprsrCode).IsOptional().IsFixedLength().IsUnicode(false);
             Property(x => x.YearAppraised).IsOptional().HasPrecision(4,0);
             Property(x => x.MobHomeMrktVal).IsOptional().HasPrecision(7,0);
+            Property(x => x.PersonalPropDetail_Id).IsOptional();
             Property(x => x.ReturnFiledStatus).IsOptional().IsFixedLength().IsUnicode(false);
             Property(x => x.DateReturnFiled).IsOptional();
             Property(x => x.WorkedStatus).IsOptional().IsFixedLength().IsUnicode(false);

@@ -28,7 +28,7 @@ SELECT     dbo.AccountMasterFullDetails.AccountMasterId, dbo.AccountMasterFullDe
                       dbo.AccountMasterFullDetails.PrctGood, dbo.AccountMasterFullDetails.MobHomeTipoutLngth, dbo.AccountMasterFullDetails.MobHomeTipoutWidth, dbo.AccountMasterFullDetails.SpaceNumber, 
                       dbo.AccountMasterFullDetails.ApprsrCode, dbo.AccountMasterFullDetails.YearAppraised, dbo.AccountMasterFullDetails.MobHomeMrktVal, dbo.PersonalPropDetail.ID AS PersonalPropDetail_Id, 
                       dbo.PersonalPropDetail.ReturnFiledStatus, dbo.PersonalPropDetail.DateReturnFiled, dbo.PersonalPropDetail.WorkedStatus
-FROM         dbo.AccountMasterFullDetails INNER JOIN
+FROM         dbo.AccountMasterFullDetails LEFT OUTER JOIN
                       dbo.PersonalPropDetail ON dbo.AccountMasterFullDetails.AcctNmbr = dbo.PersonalPropDetail.AcctNmbr AND dbo.AccountMasterFullDetails.AsmtYear = dbo.PersonalPropDetail.AsmtYear
 
 GO

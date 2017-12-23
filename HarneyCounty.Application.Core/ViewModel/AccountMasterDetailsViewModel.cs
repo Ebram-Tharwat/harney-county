@@ -143,6 +143,8 @@ namespace HarneyCounty.Application.Core.ViewModel
 
         public List<OwnershipHistoryViewModel> OwnershipHistory { get; set; }
 
+        public List<SalesDetailsViewModel> Sales { get; set; }
+
         #endregion Tabs
     }
 }
