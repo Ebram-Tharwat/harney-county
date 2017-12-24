@@ -1,0 +1,64 @@
+﻿@model List<HarneyCounty.Application.Core.ViewModel.Employee.EmployeePayHrsHistoryViewModel>
+
+@if (Model.Any())
+{
+    <table class="table table-hover">
+        <thead class="upper-case">
+            <tr>
+                <th>@Html.LabelFor(model => model[0].PayDate)</th>
+                <th>@Html.LabelFor(model => model[0].CheckTypeCvd)</th>
+                <th>@Html.LabelFor(model => model[0].PaySequence)</th>
+                <th>@Html.LabelFor(model => model[0].Check)</th>
+                <th>@Html.LabelFor(model => model[0].DirectDepositStatus)</th>
+                <th>@Html.LabelFor(model => model[0].GrossPay)</th>
+                <th>@Html.LabelFor(model => model[0].NetPayCheck)</th>
+                <th>@Html.LabelFor(model => model[0].FedTaxPaid)</th>
+                <th>@Html.LabelFor(model => model[0].StateTaxPaid)</th>
+                @*<th></th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PayDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CheckTypeCvd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PaySequence)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Check)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DirectDepositStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GrossPay)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NetPayCheck)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FedTaxPaid)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StateTaxPaid)
+                    </td>
+                    @*<td>
+                            @Html.ActionLink("Details", "Details", new { id = item.Id })
+                        </td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div>
+        <span class="label label-info label-small">No pay history records found for the specified employee</span>
+    </div>
+}

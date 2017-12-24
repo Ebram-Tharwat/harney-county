@@ -13,11 +13,14 @@ namespace HarneyCounty.Application.Core.Services
     {
         private readonly IEmployeeMasterRepository _employeeMasterRepository;
         private readonly IEmployeeMasterCommentRepository _employeeMasterCommentRepository;
+        private readonly IEmployeePayHrsHistoryRepository _employeePayHrsHistoryRepository;
 
-        public EmployeeMasterService(IEmployeeMasterRepository employeeMasterRepository, IEmployeeMasterCommentRepository employeeMasterCommentRepository)
+        public EmployeeMasterService(IEmployeeMasterRepository employeeMasterRepository, IEmployeeMasterCommentRepository employeeMasterCommentRepository
+            , IEmployeePayHrsHistoryRepository employeePayHrsHistoryRepository)
         {
             this._employeeMasterRepository = employeeMasterRepository;
             this._employeeMasterCommentRepository = employeeMasterCommentRepository;
+            this._employeePayHrsHistoryRepository = employeePayHrsHistoryRepository;
         }
 
         public List<EmployeeMasterViewModel> SearchForEmployees(string firstName, string lastName, string status, PagingInfo pagingInfo)
@@ -36,6 +39,9 @@ namespace HarneyCounty.Application.Core.Services
 
             var empComments = _employeeMasterCommentRepository.GetEmployeeCommentsByEmpNumber(employee.EmployeeNumber);
             result.Comments = AutoMapper.Mapper.Map<List<EmployeeMasterComment>, List<EmployeeMasterCommentViewModel>>(empComments);
+
+            var empPayHistory = _employeePayHrsHistoryRepository.GetEmployeePayHrsHistoryByEmpNumber(employee.EmployeeNumber);
+            result.PayHistory = AutoMapper.Mapper.Map<List<EmployeePayHrsHistory>, List<EmployeePayHrsHistoryViewModel>>(empPayHistory);
 
             return result;
         }

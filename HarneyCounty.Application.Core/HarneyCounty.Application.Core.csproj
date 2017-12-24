@@ -74,6 +74,7 @@
     <Compile Include="ViewModel\Employee\EmployeeMasterCommentViewModel.cs" />
     <Compile Include="ViewModel\Employee\EmployeeFilterViewModel.cs" />
     <Compile Include="ViewModel\Employee\EmployeeMasterViewModel.cs" />
+    <Compile Include="ViewModel\Employee\EmployeePayHrsHistoryViewModel.cs" />
     <Compile Include="ViewModel\FlaggingDetailsViewModel.cs" />
     <Compile Include="ViewModel\ImprovementDetailsViewModel.cs" />
     <Compile Include="ViewModel\LandAssessmentDetailsViewModel.cs" />
