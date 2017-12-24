@@ -95,6 +95,13 @@ namespace HarneyCounty.Utilities.App_Start
             kernel.Bind<IRepository<AuditTurnoverSequence>>().To<EFRepository<AuditTurnoverSequence>>();
             kernel.Bind<IRepository<DailyMaster>>().To<EFRepository<DailyMaster>>();
             kernel.Bind<IRepository<AuditDailyDetail>>().To<EFRepository<AuditDailyDetail>>();
+
+            #region Employee
+
+            kernel.Bind<IEmployeeMasterRepository>().To<EmployeeMasterRepository>();
+            kernel.Bind<IEmployeeMasterService>().To<EmployeeMasterService>();
+
+            #endregion Employee
         }
     }
 }

@@ -27,5 +27,12 @@
             public const string Special = "S";
             public const string Market = "M";
         }
+
+        public static class EmployeeStatus
+        {
+            public const string Active = "A";
+            public const string Deleted = "D";
+            public const string Terminated = "T";
+        }
     }
 }

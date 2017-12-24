@@ -190,6 +190,7 @@
     <Compile Include="Controllers\AuditEditDailyTransactionController.cs" />
     <Compile Include="Controllers\AuditTurnOverSequenceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PayrollController.cs" />
     <Compile Include="Extensions\PagedListExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -341,6 +342,7 @@
     <Content Include="Views\Home\LandAssessment\_MsavLandAssessments.cshtml" />
     <Content Include="Views\Home\_OwnershipHistory.cshtml" />
     <Content Include="Views\Home\_Sales.cshtml" />
+    <Content Include="Views\Payroll\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

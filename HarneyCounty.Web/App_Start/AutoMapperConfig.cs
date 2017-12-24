@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using HarneyCounty.Application.Core.ViewModel;
+using HarneyCounty.Application.Core.ViewModel.Employee;
 using HarneyCounty.Domain.Core.Models;
 
 namespace HarneyCounty.Web.App_Start
@@ -45,6 +46,8 @@ namespace HarneyCounty.Web.App_Start
                 .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.CodeAreaCode))
                 ;
 
+                #region Tabs
+
                 cfg.CreateMap<ImprovementsFullDetail, ImprovementDetailsViewModel>();
 
                 cfg.CreateMap<LandAssessmentFullDetail, LandAssessmentDetailsViewModel>();
@@ -58,6 +61,14 @@ namespace HarneyCounty.Web.App_Start
                 cfg.CreateMap<OwnershipHistory, OwnershipHistoryViewModel>();
 
                 cfg.CreateMap<SalesFullDetail, SalesDetailsViewModel>();
+
+                #endregion Tabs
+
+                #region Employee
+
+                cfg.CreateMap<EmployeeMaster, EmployeeMasterViewModel>();
+
+                #endregion Employee
             });
         }
     }

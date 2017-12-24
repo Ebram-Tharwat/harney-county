@@ -57,6 +57,7 @@
       <DependentUpon>HarneyCountyDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Extensions\DbContextExtensions.cs" />
+    <Compile Include="Interfaces\IEmployeeMasterRepository.cs" />
     <Compile Include="Interfaces\IOwnershipHistoryRepository.cs" />
     <Compile Include="Interfaces\IAccountLegalCommentRepository.cs" />
     <Compile Include="Interfaces\IAccountMasterRepository.cs" />
@@ -289,6 +290,7 @@
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\EmployeeMasterRepository.cs" />
     <Compile Include="Repositories\OwnershipHistoryRepository.cs" />
     <Compile Include="Repositories\AccountLegalCommentRepository.cs" />
     <Compile Include="Repositories\AccountMasterRepository.cs" />

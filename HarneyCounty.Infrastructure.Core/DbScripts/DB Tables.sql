@@ -1307,3 +1307,330 @@ GO
 SET ANSI_PADDING OFF
 GO
 /*****************************************************************************************************************/
+CREATE TABLE [dbo].[DeductionHistory](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[EmployeeNumber] [decimal](5, 0) NOT NULL,
+	[PayDate] [date] NOT NULL,
+	[PaySequence] [decimal](1, 0) NOT NULL,
+	[DeductionCode] [char](6) NOT NULL,
+	[Fund] [decimal](3, 0) NOT NULL,
+	[Department] [decimal](3, 0) NOT NULL,
+	[DeductionSeq] [numeric](1, 0) NOT NULL,
+	[PayPeriodEndingDate] [date] NULL,
+	[Check] [decimal](5, 0) NULL,
+	[CheckType] [char](1) NULL,
+	[EmployeeAmt] [decimal](7, 2) NULL,
+	[EmployerAmt] [decimal](7, 2) NULL,
+	[EmployeeAmtPickedUp] [decimal](7, 2) NULL,
+	[Percent76] [decimal](7, 6) NULL,
+	[GrossPay] [decimal](7, 2) NULL,
+	[ExcessOvertime] [decimal](7, 2) NULL,
+	[VacationGrossWage] [decimal](7, 2) NULL,
+	[SaifHoursWorked] [decimal](4, 1) NULL,
+	[DeductSts] [char](1) NULL,
+	[DirectDepositStatus] [char](1) NULL,
+	[SaifYear] [decimal](4, 0) NULL,
+	[SaifCode] [char](5) NULL,
+	PRIMARY KEY (ID)
+)
+
+GO
+SET ANSI_PADDING OFF
+GO
+/*****************************************************************************************************************/
+CREATE TABLE [dbo].[DeductionMaster](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[DeductionCode] [char](6) NOT NULL,
+	[DeductionDesc] [char](25) NOT NULL,
+	[ExpenseAcct] [decimal](7, 0) NULL,
+	[ApAcct] [decimal](7, 0) NULL,
+	[EmployerPercent] [decimal](5, 4) NULL,
+	[EmployerAmt] [decimal](7, 2) NULL,
+	[PayPeriodSts] [char](1) NULL,
+	[ApCreated] [char](1) NULL,
+	[QuarterlySts] [char](1) NULL,
+	[CountyPaysEmployeeShar] [char](1) NULL,
+	[ElectronicTransfer] [char](1) NULL,
+	[NormalDeduction] [char](1) NULL,
+	[ActiveInactiveStatus] [char](1) NULL,
+	[VendorTypeStatus] [char](1) NULL,
+	[VendorNumber] [decimal](5, 0) NULL,
+	PRIMARY KEY (ID)
+)
+
+GO
+SET ANSI_PADDING OFF
+GO
+/*****************************************************************************************************************/
+CREATE TABLE [dbo].[EmployeeMaster](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[EmployeeNumber] [decimal](5, 0) NOT NULL,
+	[LastName] [char](20) NOT NULL,
+	[FirstName] [char](15) NOT NULL,
+	[MiddleInitial] [char](1) NULL,
+	[EmployeeAddress1] [char](25) NULL,
+	[EmployeeAddress2] [char](25) NULL,
+	[ZipCode] [char](10) NULL,
+	[EmployeePosition] [char](25) NULL,
+	[EmployeeSocSecurity] [decimal](9, 0) NULL,
+	[UnionSts] [char](1) NULL,
+	[ElectedOfficialSts] [char](1) NULL,
+	[EmployeePhone] [decimal](10, 0) NULL,
+	[HireDate] [date] NULL,
+	[TerminationDate] [date] NULL,
+	[RehireDate] [date] NULL,
+	[BirthDate] [date] NULL,
+	[AnnivDate] [date] NULL,
+	[MiscVacDate] [date] NULL,
+	[VacationSchedule] [char](2) NULL,
+	[Sex] [char](1) NULL,
+	[SalariedHourly] [char](1) NULL,
+	[PartTimeSts] [char](1) NULL,
+	[DefaultPayRate] [decimal](7, 2) NULL,
+	[SalariedHourlyRate] [decimal](6, 2) NULL,
+	[MaritalSts] [char](1) NULL,
+	[Exemptions] [decimal](2, 0) NULL,
+	[ExemptionsState] [decimal](2, 0) NULL,
+	[EmployeeSocSecLimit] [decimal](7, 2) NULL,
+	[EmployeeMedicareLimit] [decimal](7, 2) NULL,
+	[Pers] [decimal](6, 0) NULL,
+	[AutoPayrollSts] [char](1) NULL,
+	[Retirement] [decimal](10, 0) NULL,
+	[RegularDayHours] [decimal](4, 2) NULL,
+	[ActiveDeleteTermSts] [char](1) NULL,
+	[EmployeeRange] [char](3) NULL,
+	[EmployeeStep] [char](3) NULL,
+	[EmployeeLevel1] [char](3) NULL,
+	[EditCode] [char](1) NULL,
+	[EmploymentTypeW2Status] [char](1) NULL,
+	[W2Sequence] [decimal](2, 0) NULL,
+	[SaifYear] [decimal](4, 0) NULL,
+	[SaifCode] [char](5) NULL,
+	[Fund] [decimal](3, 0) NULL,
+	[Department] [decimal](3, 0) NULL,
+	[AccountNumberType] [decimal](1, 0) NULL,
+	[AccountNumberClass] [decimal](2, 0) NULL,
+	[AccountNumberItem] [decimal](4, 0) NULL,
+	[DefaultOtBudgetNumberFund] [decimal](3, 0) NULL,
+	[DefaultOtBudgetNumberOrganization] [decimal](3, 0) NULL,
+	[DefaultOtBudgetNumberAccountType] [decimal](1, 0) NULL,
+	[DefaultOtBudgetNumberAccountClass] [decimal](2, 0) NULL,
+	[DefaultOtBudgetNumberAccountItem] [decimal](4, 0) NULL,
+	[FedTaxTableType] [char](2) NULL,
+	[PersStsCode] [char](1) NULL,
+	[HealthInsurStsCode] [char](1) NULL,
+	[VacationAccrualBal] [decimal](7, 2) NULL,
+	[PriorVacationBal] [decimal](7, 2) NULL,
+	[VacationBalanceUseLose] [decimal](7, 2) NULL,
+	[HolidayHoursBanked] [decimal](7, 2) NULL,
+	[SickAccrualBal] [decimal](7, 2) NULL,
+	[CompAccrualBal] [decimal](7, 2) NULL,
+	[WeeksWorked] [decimal](2, 0) NULL,
+	[FloatingHolidayBal] [decimal](7, 2) NULL,
+	[SickAccrualRate] [decimal](9, 7) NULL,
+	[VacationAccrualRate] [decimal](9, 7) NULL,
+	[DirectDepositStatus] [char](1) NULL,
+	PRIMARY KEY (ID)
+)
+
+GO
+SET ANSI_PADDING OFF
+GO
+/*****************************************************************************************************************/
+CREATE TABLE [dbo].[EmployeeMasterComments](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[EmployeeNumber] [decimal](5, 0) NOT NULL,
+	[EmpMasterCommentDate] [date] NOT NULL,
+	[EmpMasterCommentSeq] [decimal](3, 0) NOT NULL,
+	[EmpMasterCommentText] [char](60) NULL,
+	[CommentType] [char](3) NOT NULL,
+	PRIMARY KEY (ID)
+)
+
+GO
+SET ANSI_PADDING OFF
+GO
+/*****************************************************************************************************************/
+CREATE TABLE [dbo].[EmployeePayHrsHistory](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[EmployeeNumber] [decimal](5, 0) NOT NULL,
+	[PayDate] [date] NOT NULL,
+	[CheckTypeCVD] [char](1) NOT NULL,
+	[PaySequence] [decimal](1, 0) NOT NULL,
+	[PayPeriodEndingDate] [date] NULL,
+	[Check] [decimal](5, 0) NULL,
+	[DirectDepositStatus] [char](1) NULL,
+	[RegularHrs] [decimal](6, 2) NULL,
+	[RegularPay] [decimal](7, 2) NULL,
+	[OvertimeHrs] [decimal](6, 2) NULL,
+	[OvertimePay] [decimal](7, 2) NULL,
+	[SalaryHrs] [decimal](6, 2) NULL,
+	[SalaryPay] [decimal](7, 2) NULL,
+	[HolidayHrs] [decimal](6, 2) NULL,
+	[HolidayPay] [decimal](7, 2) NULL,
+	[HolidayHrsBankedUsed] [decimal](6, 2) NULL,
+	[HolidayHrsBankedPay] [decimal](6, 2) NULL,
+	[FloatingHolidayHrsUsed] [decimal](6, 2) NULL,
+	[FloatingHolidayPay] [decimal](7, 2) NULL,
+	[VacationHrsUsed] [decimal](6, 2) NULL,
+	[VacationHrsAdded] [decimal](6, 2) NULL,
+	[VacationHrsUsedPrior] [decimal](6, 2) NULL,
+	[VacationHrsUseLseUsed] [decimal](6, 2) NULL,
+	[SickHrsUsed] [decimal](6, 2) NULL,
+	[SickHrsAdded] [decimal](6, 2) NULL,
+	[CompHrsUsed] [decimal](6, 2) NULL,
+	[CompHrsAdded] [decimal](6, 2) NULL,
+	[SaifHoursWorked] [decimal](4, 1) NULL,
+	[WeeksWorked] [decimal](2, 0) NULL,
+	[GrossPay] [decimal](7, 2) NULL,
+	[GrossSubjWorkersComp] [decimal](7, 2) NULL,
+	[GrossSubjSuta] [decimal](7, 2) NULL,
+	[NetPayCheck] [decimal](7, 2) NULL,
+	[FedTaxPaid] [decimal](7, 2) NULL,
+	[StateTaxPaid] [decimal](7, 2) NULL,
+	[FicaTaxPaid] [decimal](7, 2) NULL,
+	[FicmTaxPaid] [decimal](7, 2) NULL,
+	[GrossNotSubjStateFed] [decimal](7, 2) NULL,
+	[GrossNoStateFedFica] [decimal](7, 2) NULL,
+	[DeferredCompPaid] [decimal](7, 2) NULL,
+	[FringeGross] [decimal](7, 2) NULL,
+	[FringeGrossFicaOnly] [decimal](7, 2) NULL,
+	PRIMARY KEY (ID)
+)
+
+GO
+SET ANSI_PADDING OFF
+GO
+/*****************************************************************************************************************/
+CREATE TABLE [dbo].[EmployeeYTDAmounts](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[EmployeeNumber] [decimal](5, 0) NOT NULL,
+	[PayrollYear] [numeric](4, 0) NOT NULL,
+	[GrossPayYtd] [decimal](9, 2) NULL,
+	[FedTaxPaidYtd] [decimal](9, 2) NULL,
+	[StateTaxPaidYtd] [decimal](9, 2) NULL,
+	[FicaPaidYtd] [decimal](9, 2) NULL,
+	[FicaMedicarePaidYtd] [decimal](9, 2) NULL,
+	[FringeGrossYtd] [decimal](9, 2) NULL,
+	[DeferGross401KYtd] [decimal](9, 2) NULL,
+	[FedStExemptYtd] [decimal](9, 2) NULL,
+	[FedStFicaExemptYtd] [decimal](9, 2) NULL,
+	[GrossSubjSutaYtd] [decimal](9, 2) NULL,
+	[AdvancedEicPaymentsYtd] [decimal](9, 2) NULL,
+	[401KDeductAmountYtd] [decimal](9, 2) NULL,
+	[Sect457AmountYtd] [decimal](9, 2) NULL,
+	PRIMARY KEY (ID)
+)
+
+GO
+SET ANSI_PADDING OFF
+GO
+/*****************************************************************************************************************/
+CREATE TABLE [dbo].[SalesAccounts](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[SaleIdentification] [char](9) NOT NULL,
+	[AcctNmbr] [char](9) NULL,
+	[AcctLandAssessedTotal] [decimal](9, 0) NULL,
+	[AcctImprovementTotal] [decimal](9, 0) NULL,
+	[SalesAcres] [decimal](9, 3) NULL,
+	[PrimeIndicator] [char](1) NULL,
+	[MultiAccountSaleStatus] [char](1) NULL,
+	[CommentsExistStatus] [char](1) NULL,
+	[AcctMobileHomeTotal] [decimal](7, 0) NULL,
+	[Twnshp] [numeric](2, 0) NULL,
+	[TwnshpDir] [char](1) NULL,
+	[Range] [char](3) NULL,
+	[RangDir] [char](1) NULL,
+	[Sctn] [decimal](2, 0) NULL,
+	[QtrSctn] [char](2) NULL,
+	[Prcl] [numeric](5, 0) NULL,
+	[SpecIntAlph] [char](1) NULL,
+	[SpecIntNmbr] [numeric](2, 0) NULL,
+	[PrimeIndicatorNonDisp] [char](1) NULL,
+	PRIMARY KEY (ID)
+)
+
+GO
+SET ANSI_PADDING OFF
+GO
+/*****************************************************************************************************************/
+CREATE TABLE [dbo].[SalesMaster](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[SaleIdentification] [char](9) NOT NULL,
+	[FactorBookDigit1] [char](1) NULL,
+	[FactorBookDigit2] [char](1) NULL,
+	[FactorBookDigit3] [char](1) NULL,
+	[FactorBookDigit4] [char](1) NULL,
+	[PropClassDigit1] [char](1) NULL,
+	[PropClassDigit2] [char](1) NULL,
+	[PropClassDigit3] [char](1) NULL,
+	[PropClassDigit4] [char](1) NULL,
+	[RecordedSalesPrice] [decimal](9, 0) NULL,
+	[ConfirmedSalesPrice] [decimal](9, 0) NULL,
+	[ChattelAmount] [decimal](8, 0) NULL,
+	[NetSalesPrice] [decimal](9, 0) NULL,
+	[SaleRatio] [decimal](5, 2) NULL,
+	[BuyerName] [char](35) NULL,
+	[BuyerAddress1] [char](30) NULL,
+	[BuyerAddress2] [char](30) NULL,
+	[SellerAddress1] [char](30) NULL,
+	[SellerAddress2] [char](30) NULL,
+	[SellerName] [char](35) NULL,
+	[ConfirmationStatus] [char](1) NULL,
+	[Ref] [char](10) NULL,
+	[InterestRate] [decimal](6, 4) NULL,
+	[DownPaymentAmount] [decimal](7, 0) NULL,
+	[DurationOfFinancing] [decimal](3, 0) NULL,
+	[SaleLandValue] [decimal](9, 0) NULL,
+	[SaleImprovementValue] [decimal](9, 0) NULL,
+	[SaleMobHomeValue] [decimal](9, 0) NULL,
+	[TotalAssessedValue] [decimal](9, 0) NULL,
+	[TotalAcres] [decimal](9, 3) NULL,
+	[DateOfConfirmation] [date] NULL,
+	[YearAppraised] [decimal](4, 0) NULL,
+	[CountyNumber] [decimal](2, 0) NULL,
+	[PercentGood] [decimal](3, 2) NULL,
+	[YearBuilt] [decimal](4, 0) NULL,
+	[AssessmentYear] [decimal](4, 0) NULL,
+	[SaleDate] [date] NULL,
+	[MultiAccountFlag] [char](1) NULL,
+	[SalesLetterStatus] [char](1) NULL,
+	[AreaSquareLinealFeety] [decimal](5, 0) NULL,
+	[Class] [char](1) NULL,
+	[MobileHomeManufacturer] [char](15) NULL,
+	[MobileHomeSize] [char](1) NULL,
+	[NumberBedrooms] [decimal](2, 0) NULL,
+	[NumberBaths] [decimal](2, 1) NULL,
+	[NumberFloors] [decimal](1, 0) NULL,
+	[AtticBasementBoth] [char](2) NULL,
+	[SaleCenturyYearMonth] [decimal](5, 0) NULL,
+	[ConditionCode] [char](3) NULL,
+	[SecondaryVerificationCode] [char](3) NULL,
+	[FinancingCode] [char](3) NULL,
+	[InstrumentCode] [char](2) NULL,
+	[BuyerZipCode] [char](10) NULL,
+	[SellerZipCode] [char](10) NULL,
+	[AppraiserCode1] [char](3) NULL,
+	[ValueAreaCode] [char](3) NULL,
+	[CodeAreaCode] [char](6) NULL,
+	[AppraiserCode2] [char](3) NULL,
+	[AsmtYear] [decimal](4, 0) NULL,
+	[MaintenanceAreaCode] [decimal](2, 0) NULL,
+	[ZoningCode] [char](6) NULL,
+	[PropertyClassCode] [char](4) NULL,
+	[Twnshp] [numeric](2, 0) NULL,
+	[TwnshpDir] [char](1) NULL,
+	[Range] [char](3) NULL,
+	[RangDir] [char](1) NULL,
+	[Sctn] [decimal](2, 0) NULL,
+	[QtrSctn] [char](2) NULL,
+	[Prcl] [numeric](5, 0) NULL,
+	[SpecIntAlph] [char](1) NULL,
+	[SpecIntNmbr] [numeric](2, 0) NULL,
+	PRIMARY KEY (ID)
+)
+
+GO
+SET ANSI_PADDING OFF
+GO
+/*****************************************************************************************************************/
