@@ -7,7 +7,7 @@ namespace HarneyCounty.Infrastructure.Core.Interfaces
     {
         List<AccountMasterFullDetail> SearchForAccounts(string accountNumber, decimal asmtYear, out int resultCount
             , string ownerName = null
-            , decimal? situsNumber = null, string situsSufx = null, string situsDir = null, string situsZip = null
+            , decimal? situsNumber = null, string situsSufx = null, string situsDir = null, string situsZip = null, string situsStreetName = null
             , string subDivCode = null, decimal? lotNumber = null, decimal? blockNumber = null, int? townShip = null, string townshipDirection = null
             , string range = null, string rangeDirection = null, int? section = null, string quarterSection = null, int? parcel = null, string specialInterestAlpha = null, int? specialInterestNumber = 0
             , string xNumber = null, decimal? mobileHomeId = null, string mobHomeMnfr = null, string mhSerial = null

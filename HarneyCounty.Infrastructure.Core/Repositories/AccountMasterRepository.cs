@@ -20,7 +20,7 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
 
         public List<AccountMasterFullDetail> SearchForAccounts(string accountNumber, decimal asmtYear, out int resultCount
             , string ownerName = null
-            , decimal? situsNumber = null, string situsSufx = null, string situsDir = null, string situsZip = null
+            , decimal? situsNumber = null, string situsSufx = null, string situsDir = null, string situsZip = null, string situsStreetName = null
             , string subDivCode = null, decimal? lotNumber = null, decimal? blockNumber = null, int? townShip = null, string townshipDirection = null
             , string range = null, string rangeDirection = null, int? section = 0, string quarterSection = null, int? parcel = null, string specialInterestAlpha = null, int? specialInterestNumber = 0
             , string xNumber = null, decimal? mobileHomeId = null, string mobHomeMnfr = null, string mhSerial = null
@@ -48,6 +48,9 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
 
             if (!string.IsNullOrWhiteSpace(situsZip))
                 query = query.Where(t => t.SitusZipCode.ToLower() == situsZip.ToLower());
+
+            if (!string.IsNullOrWhiteSpace(situsStreetName))
+                query = query.Where(t => t.SitusStrtName.ToLower() == situsStreetName.ToLower());
 
             if (!string.IsNullOrWhiteSpace(subDivCode))
                 query = query.Where(t => t.SbdvnCode.ToLower() == subDivCode.ToLower());
