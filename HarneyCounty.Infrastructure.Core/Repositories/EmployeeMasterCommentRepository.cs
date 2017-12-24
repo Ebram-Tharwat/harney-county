@@ -15,7 +15,8 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
         public List<EmployeeMasterComment> GetEmployeeCommentsByEmpNumber(decimal empNumber)
         {
             return _dbContext.EmployeeMasterComments
-                .Where(t => t.EmployeeNumber == empNumber).ToList();
+                .Where(t => t.EmployeeNumber == empNumber)
+                .OrderByDescending(t => t.EmpMasterCommentDate).ToList();
         }
     }
 }
