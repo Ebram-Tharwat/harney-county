@@ -67,6 +67,7 @@ namespace HarneyCounty.Web.App_Start
                 #region Employee
 
                 cfg.CreateMap<EmployeeMaster, EmployeeMasterViewModel>();
+                cfg.CreateMap<EmployeeMasterComment, EmployeeMasterCommentViewModel>();
 
                 #endregion Employee
             });

@@ -99,6 +99,7 @@ namespace HarneyCounty.Utilities.App_Start
             #region Employee
 
             kernel.Bind<IEmployeeMasterRepository>().To<EmployeeMasterRepository>();
+            kernel.Bind<IEmployeeMasterCommentRepository>().To<EmployeeMasterCommentRepository>();
             kernel.Bind<IEmployeeMasterService>().To<EmployeeMasterService>();
 
             #endregion Employee

@@ -1,6 +1,7 @@
 ﻿@using X.PagedList
 @using X.PagedList.Mvc
 @using HarneyCounty.Application.Core.Contracts;
+@using HarneyCounty.Web.Extensions;
 @model IEnumerable<HarneyCounty.Application.Core.ViewModel.AccountMasterDetailsViewModel>
 
 @{
@@ -16,6 +17,9 @@
             @Html.DisplayNameFor(model => model.MapId)
         </th>
         <th>
+            @{ 
+                var ownername = Html.DisplayNameFor(model => model.OwnerName).ToString();
+            }
             @Html.DisplayNameFor(model => model.OwnerName)
         </th>
         <th>

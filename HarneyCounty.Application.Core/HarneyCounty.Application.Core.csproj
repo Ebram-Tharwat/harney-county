@@ -71,6 +71,7 @@
     <Compile Include="Services\AuditService.cs" />
     <Compile Include="ViewModel\AccountLegalCommentViewModel.cs" />
     <Compile Include="ViewModel\AccountMasterDetailsViewModel.cs" />
+    <Compile Include="ViewModel\Employee\EmployeeMasterCommentViewModel.cs" />
     <Compile Include="ViewModel\Employee\EmployeeFilterViewModel.cs" />
     <Compile Include="ViewModel\Employee\EmployeeMasterViewModel.cs" />
     <Compile Include="ViewModel\FlaggingDetailsViewModel.cs" />

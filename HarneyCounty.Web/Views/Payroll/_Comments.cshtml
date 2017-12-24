@@ -1,0 +1,36 @@
+﻿@model List<HarneyCounty.Application.Core.ViewModel.Employee.EmployeeMasterCommentViewModel>
+
+@if (Model.Any())
+{
+    <table class="table table-hover table-bordered">
+        <thead class="upper-case">
+            <tr>
+                <th>@Html.LabelFor(model => model[0].EmpMasterCommentDate)</th>
+                <th>@Html.LabelFor(model => model[0].EmpMasterCommentText)</th>
+                <th>@Html.LabelFor(model => model[0].CommentType)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmpMasterCommentDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmpMasterCommentText)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommentType)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div>
+        <span class="label label-info label-small">No comment records found for the specified employee</span>
+    </div>
+}

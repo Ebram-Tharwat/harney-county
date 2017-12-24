@@ -12,10 +12,12 @@ namespace HarneyCounty.Application.Core.Services
     public class EmployeeMasterService : IEmployeeMasterService
     {
         private readonly IEmployeeMasterRepository _employeeMasterRepository;
+        private readonly IEmployeeMasterCommentRepository _employeeMasterCommentRepository;
 
-        public EmployeeMasterService(IEmployeeMasterRepository employeeMasterRepository)
+        public EmployeeMasterService(IEmployeeMasterRepository employeeMasterRepository, IEmployeeMasterCommentRepository employeeMasterCommentRepository)
         {
             this._employeeMasterRepository = employeeMasterRepository;
+            this._employeeMasterCommentRepository = employeeMasterCommentRepository;
         }
 
         public List<EmployeeMasterViewModel> SearchForEmployees(string firstName, string lastName, string status, PagingInfo pagingInfo)
@@ -29,8 +31,13 @@ namespace HarneyCounty.Application.Core.Services
 
         public EmployeeMasterViewModel GetById(int id)
         {
-            var data = _employeeMasterRepository.GetById(id);
-            return AutoMapper.Mapper.Map<EmployeeMaster, EmployeeMasterViewModel>(data);
+            var employee = _employeeMasterRepository.GetById(id);
+            var result = AutoMapper.Mapper.Map<EmployeeMaster, EmployeeMasterViewModel>(employee);
+
+            var empComments = _employeeMasterCommentRepository.GetEmployeeCommentsByEmpNumber(employee.EmployeeNumber);
+            result.Comments = AutoMapper.Mapper.Map<List<EmployeeMasterComment>, List<EmployeeMasterCommentViewModel>>(empComments);
+
+            return result;
         }
 
         public Dictionary<string, string> GetEmployeeStatusesDic()

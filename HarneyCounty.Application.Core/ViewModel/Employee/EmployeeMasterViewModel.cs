@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace HarneyCounty.Application.Core.ViewModel.Employee
 {
@@ -35,10 +36,12 @@ namespace HarneyCounty.Application.Core.ViewModel.Employee
         [DataType(DataType.Date)]
         public System.DateTime? TerminationDate { get; set; }
 
-        [Display(Name ="Emp Name")]
+        [Display(Name = "Emp Name")]
         public string FullName
         {
             get { return $"{this.LastName} {this.FirstName} {this.MiddleInitial}"; }
         }
+
+        public List<EmployeeMasterCommentViewModel> Comments { get; set; }
     }
 }

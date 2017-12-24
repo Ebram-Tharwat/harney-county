@@ -15,31 +15,6 @@
         <dd>
             @Html.DisplayFor(model => model.EmployeeNumber)
         </dd>
-
-        @*<dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MiddleInitial)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MiddleInitial)
-        </dd>*@
-
         <dt>
             @Html.DisplayNameFor(model => model.FullName)
         </dt>
@@ -79,9 +54,22 @@
         <dd>
             @Html.DisplayFor(model => model.TerminationDate)
         </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Back to List", "Index")
+    <hr />
 </p>
+<div class="row">
+    <div class="col-md-12">
+        <h3>Related Information</h3>
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#comments">Comments</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="comments" class="tab-pane fade in active">
+                @Html.Partial("_Comments", Model.Comments)
+            </div>
+        </div>
+    </div>
+</div>
