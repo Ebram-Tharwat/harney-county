@@ -108,13 +108,13 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
 
             if (pageNumber > 0)
             {
-                var result = query.OrderBy(t => new { t.AsmtYear, t.AcctNmbr }).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+                var result = query.OrderBy(t => new { t.AsmtYear, t.AcctNmbr, t.OwnerName }).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
                 resultCount = query.Count();
                 return result;
             }
             else
             {
-                var result = query.ToList();
+                var result = query.OrderBy(t => new { t.AsmtYear, t.AcctNmbr, t.OwnerName }).ToList();
                 resultCount = result.Count;
                 return result;
             }
