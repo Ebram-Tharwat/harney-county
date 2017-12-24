@@ -3,6 +3,7 @@ using HarneyCounty.Application.Core.Interfaces;
 using HarneyCounty.Application.Core.ViewModel.Employee;
 using HarneyCounty.Web.Extensions;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 
 namespace HarneyCounty.Web.Controllers
@@ -28,6 +29,21 @@ namespace HarneyCounty.Web.Controllers
             });
             var viewmodel = entities.ToManualPagedList(pagingInfo);
             return View(viewmodel);
+        }
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var entity = _employeeMasterService.GetById(id.Value);
+            if (entity == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(entity);
         }
     }
 }

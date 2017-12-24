@@ -8,6 +8,8 @@ namespace HarneyCounty.Application.Core.Interfaces
     {
         List<EmployeeMasterViewModel> SearchForEmployees(string firstName, string lastName, string status, PagingInfo pagingInfo);
 
+        EmployeeMasterViewModel GetById(int id);
+
         Dictionary<string, string> GetEmployeeStatusesDic();
     }
 }

@@ -1,0 +1,87 @@
+﻿@model HarneyCounty.Application.Core.ViewModel.Employee.EmployeeMasterViewModel
+
+@{
+    ViewBag.Title = Model.FullName + " - details";
+}
+
+<div>
+    <h2>@Model.FullName</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeNumber)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MiddleInitial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MiddleInitial)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeePosition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeePosition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeSocSecurity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeSocSecurity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HireDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HireDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TerminationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TerminationDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

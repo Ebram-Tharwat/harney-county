@@ -26,5 +26,19 @@ namespace HarneyCounty.Application.Core.ViewModel.Employee
 
         [Display(Name = "S")]
         public string ActiveDeleteTermSts { get; set; }
+
+        [Display(Name = "Hire Date")]
+        [DataType(DataType.Date)]
+        public System.DateTime? HireDate { get; set; }
+
+        [Display(Name = "Termin Date")]
+        [DataType(DataType.Date)]
+        public System.DateTime? TerminationDate { get; set; }
+
+        [Display(Name ="Emp Name")]
+        public string FullName
+        {
+            get { return $"{this.LastName} {this.FirstName} {this.MiddleInitial}"; }
+        }
     }
 }

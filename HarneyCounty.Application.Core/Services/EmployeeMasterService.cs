@@ -27,6 +27,12 @@ namespace HarneyCounty.Application.Core.Services
             return AutoMapper.Mapper.Map<List<EmployeeMaster>, List<EmployeeMasterViewModel>>(result);
         }
 
+        public EmployeeMasterViewModel GetById(int id)
+        {
+            var data = _employeeMasterRepository.GetById(id);
+            return AutoMapper.Mapper.Map<EmployeeMaster, EmployeeMasterViewModel>(data);
+        }
+
         public Dictionary<string, string> GetEmployeeStatusesDic()
         {
             return new Dictionary<string, string>()
