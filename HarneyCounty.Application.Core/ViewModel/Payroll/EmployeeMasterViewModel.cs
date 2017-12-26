@@ -22,10 +22,6 @@ namespace HarneyCounty.Application.Core.ViewModel.Payroll
         [Display(Name = "Position")]
         public string EmployeePosition { get; set; }
 
-        [Display(Name = "SOC Sec #")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:###-##-####}")]
-        public decimal? EmployeeSocSecurity { get; set; }
-
         [Display(Name = "S")]
         public string ActiveDeleteTermSts { get; set; }
 
