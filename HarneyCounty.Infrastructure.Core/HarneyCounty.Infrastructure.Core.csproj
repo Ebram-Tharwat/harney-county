@@ -57,6 +57,7 @@
       <DependentUpon>HarneyCountyDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Extensions\DbContextExtensions.cs" />
+    <Compile Include="Interfaces\IDeductionHistoryRepository.cs" />
     <Compile Include="Interfaces\IEmployeeMasterCommentRepository.cs" />
     <Compile Include="Interfaces\IEmployeeMasterRepository.cs" />
     <Compile Include="Interfaces\IEmployeePayHrsHistoryRepository.cs" />
@@ -104,6 +105,9 @@
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
     <Compile Include="Mappings\DailyMasterConfiguration.cs">
+      <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\DeductionFullDetailConfiguration.cs">
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
     <Compile Include="Mappings\DeductionHistoryConfiguration.cs">
@@ -292,6 +296,7 @@
       <DependentUpon>HarneyCountyDbMappings.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\DeductionHistoryRepository.cs" />
     <Compile Include="Repositories\EmployeeMasterCommentRepository.cs" />
     <Compile Include="Repositories\EmployeeMasterRepository.cs" />
     <Compile Include="Repositories\EmployeePayHrsHistoryRepository.cs" />

@@ -1,0 +1,56 @@
+﻿@model List<HarneyCounty.Application.Core.ViewModel.Payroll.DeductionDetailsViewModel>
+
+@if (Model.Any())
+{
+    <table class="table table-hover">
+        <thead class="upper-case">
+            <tr>
+                <th>@Html.LabelFor(model => model[0].DeductionCode)</th>
+                <th>@Html.LabelFor(model => model[0].DeductionDesc)</th>
+                <th>@Html.LabelFor(model => model[0].PayPeriodEndingDate)</th>
+                <th>@Html.LabelFor(model => model[0].Check)</th>
+                <th>@Html.LabelFor(model => model[0].DirectDepositStatus)</th>
+                <th>@Html.LabelFor(model => model[0].EmployeeAmt)</th>
+                <th>@Html.LabelFor(model => model[0].EmployerAmt)</th>
+                <th>@Html.LabelFor(model => model[0].EmployeeAmtPickedUp)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeductionCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeductionDesc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PayPeriodEndingDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Check)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DirectDepositStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeAmt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployerAmt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeAmtPickedUp)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div>
+        <span class="label label-info label-small">No deduction records found for the specified employee</span>
+    </div>
+}

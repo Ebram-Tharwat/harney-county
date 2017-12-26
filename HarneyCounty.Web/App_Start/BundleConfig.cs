@@ -15,7 +15,7 @@ namespace HarneyCounty.Web
                         "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/jQueryPlugins").Include(
-                        "~/Scripts/jquery.mask.js"));
+                        "~/Scripts/loadingoverlay.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.

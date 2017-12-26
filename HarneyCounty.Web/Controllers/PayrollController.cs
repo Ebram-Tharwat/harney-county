@@ -1,6 +1,6 @@
 ﻿using HarneyCounty.Application.Core.Contracts.Paging;
 using HarneyCounty.Application.Core.Interfaces;
-using HarneyCounty.Application.Core.ViewModel.Employee;
+using HarneyCounty.Application.Core.ViewModel.Payroll;
 using HarneyCounty.Web.Extensions;
 using System.Linq;
 using System.Net;
@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace HarneyCounty.Web.Controllers
 {
+    [RoutePrefix("payroll")]
     public class PayrollController : Controller
     {
         private readonly IEmployeeMasterService _employeeMasterService;
@@ -17,6 +18,7 @@ namespace HarneyCounty.Web.Controllers
             this._employeeMasterService = employeeMasterService;
         }
 
+        [Route("")]
         public ActionResult Index(EmployeeFilterViewModel filter, int page = 1)
         {
             var pagingInfo = new PagingInfo() { PageNumber = page };
@@ -31,6 +33,7 @@ namespace HarneyCounty.Web.Controllers
             return View(viewmodel);
         }
 
+        [Route("details/{id?}")]
         public ActionResult Details(int? id)
         {
             if (id == null)

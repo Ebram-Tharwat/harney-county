@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using HarneyCounty.Application.Core.ViewModel;
-using HarneyCounty.Application.Core.ViewModel.Employee;
+using HarneyCounty.Application.Core.ViewModel.Payroll;
 using HarneyCounty.Domain.Core.Models;
 
 namespace HarneyCounty.Web.App_Start
@@ -68,7 +68,10 @@ namespace HarneyCounty.Web.App_Start
 
                 cfg.CreateMap<EmployeeMaster, EmployeeMasterViewModel>();
                 cfg.CreateMap<EmployeeMasterComment, EmployeeMasterCommentViewModel>();
-                cfg.CreateMap<EmployeePayHrsHistory, EmployeePayHrsHistoryViewModel>();
+                cfg.CreateMap<EmployeePayHrsHistory, PayHrsHistoryViewModel>();
+                cfg.CreateMap<EmployeePayHrsHistory, PayDetailsViewModel>();
+                cfg.CreateMap<EmployeePayHrsHistory, HourDetailsViewModel>();
+                cfg.CreateMap<DeductionFullDetail, DeductionDetailsViewModel>();
 
                 #endregion Employee
             });

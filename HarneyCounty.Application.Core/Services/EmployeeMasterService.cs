@@ -1,6 +1,6 @@
 ﻿using HarneyCounty.Application.Core.Contracts.Paging;
 using HarneyCounty.Application.Core.Interfaces;
-using HarneyCounty.Application.Core.ViewModel.Employee;
+using HarneyCounty.Application.Core.ViewModel.Payroll;
 using HarneyCounty.Common;
 using HarneyCounty.Domain.Core.Models;
 using HarneyCounty.Infrastructure.Core.Interfaces;
@@ -13,14 +13,14 @@ namespace HarneyCounty.Application.Core.Services
     {
         private readonly IEmployeeMasterRepository _employeeMasterRepository;
         private readonly IEmployeeMasterCommentRepository _employeeMasterCommentRepository;
-        private readonly IEmployeePayHrsHistoryRepository _employeePayHrsHistoryRepository;
+        private readonly IEmployeePayHrsHistoryService _employeePayHrsHistoryService;
 
         public EmployeeMasterService(IEmployeeMasterRepository employeeMasterRepository, IEmployeeMasterCommentRepository employeeMasterCommentRepository
-            , IEmployeePayHrsHistoryRepository employeePayHrsHistoryRepository)
+            , IEmployeePayHrsHistoryService employeePayHrsHistoryService)
         {
             this._employeeMasterRepository = employeeMasterRepository;
             this._employeeMasterCommentRepository = employeeMasterCommentRepository;
-            this._employeePayHrsHistoryRepository = employeePayHrsHistoryRepository;
+            this._employeePayHrsHistoryService = employeePayHrsHistoryService;
         }
 
         public List<EmployeeMasterViewModel> SearchForEmployees(string firstName, string lastName, string status, PagingInfo pagingInfo)
@@ -40,8 +40,7 @@ namespace HarneyCounty.Application.Core.Services
             var empComments = _employeeMasterCommentRepository.GetEmployeeCommentsByEmpNumber(employee.EmployeeNumber);
             result.Comments = AutoMapper.Mapper.Map<List<EmployeeMasterComment>, List<EmployeeMasterCommentViewModel>>(empComments);
 
-            var empPayHistory = _employeePayHrsHistoryRepository.GetEmployeePayHrsHistoryByEmpNumber(employee.EmployeeNumber);
-            result.PayHistory = AutoMapper.Mapper.Map<List<EmployeePayHrsHistory>, List<EmployeePayHrsHistoryViewModel>>(empPayHistory);
+            result.PayHistory = _employeePayHrsHistoryService.GetEmployeePayHistoryListByEmpNumber(employee.EmployeeNumber);
 
             return result;
         }

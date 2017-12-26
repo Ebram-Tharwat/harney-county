@@ -78,6 +78,9 @@
     <Compile Include="Models\DailyMaster.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DeductionFullDetail.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DeductionHistory.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>

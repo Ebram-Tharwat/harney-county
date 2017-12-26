@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace HarneyCounty.Application.Core.ViewModel.Employee
+namespace HarneyCounty.Application.Core.ViewModel.Payroll
 {
-    public class EmployeePayHrsHistoryViewModel
+    public class PayHrsHistoryViewModel
     {
         public int Id { get; set; }
 

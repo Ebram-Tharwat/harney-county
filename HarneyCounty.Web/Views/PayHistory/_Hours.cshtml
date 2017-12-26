@@ -1,0 +1,100 @@
+﻿@model  HarneyCounty.Application.Core.ViewModel.Payroll.HourDetailsViewModel
+
+<div class="row upper-case">
+    <div class="col-md-6">
+        <div>
+            @Html.LabelFor(model => model.PayPeriodEndingDate, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.PayPeriodEndingDate)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.RegularHrs, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.RegularHrs)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.OvertimeHrs, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.OvertimeHrs)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.SalaryHrs, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.SalaryHrs)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.HolidayHrs, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.HolidayHrs)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.HolidayHrsBankedPay, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.HolidayHrsBankedPay)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.FloatingHolidayHrsUsed, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.FloatingHolidayHrsUsed)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.VacationHrsUsed, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.VacationHrsUsed)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.VacationHrsUsedPrior, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.VacationHrsUsedPrior)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.SickHrsUsed, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.SickHrsUsed)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.CompHrsUsed, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.CompHrsUsed)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.SaifHoursWorked, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.SaifHoursWorked)
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div>
+            @Html.LabelFor(model => model.Check, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.Check)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.RegularPay, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.RegularPay)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.OvertimePay, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.OvertimePay)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.SalaryPay, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.SalaryPay)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.HolidayPay, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.HolidayPay)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.FloatingHolidayPay, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.FloatingHolidayPay)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.VacationHrsAdded, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.VacationHrsAdded)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.VacationHrsUseLseUsed, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.VacationHrsUseLseUsed)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.SickHrsAdded, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.SickHrsAdded)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.CompHrsAdded, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.CompHrsAdded)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.WeeksWorked, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.WeeksWorked)
+        </div>
+    </div>
+</div>

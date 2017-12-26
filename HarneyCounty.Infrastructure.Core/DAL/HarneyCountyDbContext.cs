@@ -43,6 +43,7 @@ namespace HarneyCounty.Infrastructure.Core.DAL
         public System.Data.Entity.DbSet<ChangeFile> ChangeFiles { get; set; }
         public System.Data.Entity.DbSet<CodeArea> CodeAreas { get; set; }
         public System.Data.Entity.DbSet<DailyMaster> DailyMasters { get; set; }
+        public System.Data.Entity.DbSet<DeductionFullDetail> DeductionFullDetails { get; set; }
         public System.Data.Entity.DbSet<DeductionHistory> DeductionHistories { get; set; }
         public System.Data.Entity.DbSet<DeductionMaster> DeductionMasters { get; set; }
         public System.Data.Entity.DbSet<DisplayUtilityAccountsDetail> DisplayUtilityAccountsDetails { get; set; }
@@ -162,6 +163,7 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new ChangeFileConfiguration());
             modelBuilder.Configurations.Add(new CodeAreaConfiguration());
             modelBuilder.Configurations.Add(new DailyMasterConfiguration());
+            modelBuilder.Configurations.Add(new DeductionFullDetailConfiguration());
             modelBuilder.Configurations.Add(new DeductionHistoryConfiguration());
             modelBuilder.Configurations.Add(new DeductionMasterConfiguration());
             modelBuilder.Configurations.Add(new DisplayUtilityAccountsDetailConfiguration());
@@ -236,6 +238,7 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             modelBuilder.Configurations.Add(new ChangeFileConfiguration(schema));
             modelBuilder.Configurations.Add(new CodeAreaConfiguration(schema));
             modelBuilder.Configurations.Add(new DailyMasterConfiguration(schema));
+            modelBuilder.Configurations.Add(new DeductionFullDetailConfiguration(schema));
             modelBuilder.Configurations.Add(new DeductionHistoryConfiguration(schema));
             modelBuilder.Configurations.Add(new DeductionMasterConfiguration(schema));
             modelBuilder.Configurations.Add(new DisplayUtilityAccountsDetailConfiguration(schema));

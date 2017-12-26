@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace HarneyCounty.Application.Core.ViewModel.Employee
+namespace HarneyCounty.Application.Core.ViewModel.Payroll
 {
     public class EmployeeMasterViewModel
     {
@@ -44,6 +44,6 @@ namespace HarneyCounty.Application.Core.ViewModel.Employee
 
         public List<EmployeeMasterCommentViewModel> Comments { get; set; }
 
-        public List<EmployeePayHrsHistoryViewModel> PayHistory { get; set; }
+        public List<PayHrsHistoryViewModel> PayHistory { get; set; }
     }
 }

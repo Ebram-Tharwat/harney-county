@@ -1,0 +1,64 @@
+﻿@model  HarneyCounty.Application.Core.ViewModel.Payroll.PayDetailsViewModel
+
+<div class="row upper-case">
+    <div class="col-md-6">
+        <div>
+            @Html.LabelFor(model => model.PayPeriodEndingDate, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.PayPeriodEndingDate)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.GrossPay, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.GrossPay)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.GrossSubjWorkersComp, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.GrossSubjWorkersComp)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.GrossSubjSuta, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.GrossSubjSuta)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.NetPayCheck, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.NetPayCheck)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.GrossNotSubjStateFed, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.GrossNotSubjStateFed)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.GrossNoStateFedFica, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.GrossNoStateFedFica)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.FringeGross, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.FringeGross)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.FringeGrossFicaOnly, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.FringeGrossFicaOnly)
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div>
+            @Html.LabelFor(model => model.Check, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.Check)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.FedTaxPaid, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.FedTaxPaid)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.StateTaxPaid, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.StateTaxPaid)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.FicaTaxPaid, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.FicaTaxPaid)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.FicmTaxPaid, htmlAttributes: new { @class = "control-label" })
+            @Html.DisplayFor(model => model.FicmTaxPaid)
+        </div>
+    </div>
+</div>

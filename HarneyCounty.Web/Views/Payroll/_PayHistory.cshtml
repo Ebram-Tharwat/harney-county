@@ -1,4 +1,4 @@
-﻿@model List<HarneyCounty.Application.Core.ViewModel.Employee.EmployeePayHrsHistoryViewModel>
+﻿@model List<HarneyCounty.Application.Core.ViewModel.Payroll.PayHrsHistoryViewModel>
 
 @if (Model.Any())
 {
@@ -14,7 +14,7 @@
                 <th>@Html.LabelFor(model => model[0].NetPayCheck)</th>
                 <th>@Html.LabelFor(model => model[0].FedTaxPaid)</th>
                 <th>@Html.LabelFor(model => model[0].StateTaxPaid)</th>
-                @*<th></th>*@
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -48,9 +48,10 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.StateTaxPaid)
                     </td>
-                    @*<td>
-                            @Html.ActionLink("Details", "Details", new { id = item.Id })
-                        </td>*@
+                    <td>
+                        <a href="" class="payhistoryDetails" data-url='@Url.Action("Details", "PayHistory", new { id = item.Id })'>Details</a>
+                        @*@Html.ActionLink("Details", "Details", "PayHistory", new { id = item.Id }, null)*@
+                    </td>
                 </tr>
             }
         </tbody>
@@ -62,3 +63,35 @@ else
         <span class="label label-info label-small">No pay history records found for the specified employee</span>
     </div>
 }
+
+<div id="payhistoryDetailsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Pay History Details</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('.payhistoryDetails').click(function (event) {
+            event.preventDefault();
+            $.LoadingOverlay("show");
+            var url = $(this).data('url');
+            $.get(url, function (data) {
+                $('#payhistoryDetailsModal .modal-body').html(data);
+                $('#payhistoryDetailsModal').modal('show');
+                $.LoadingOverlay("hide");
+            });
+        });
+    });
+</script>

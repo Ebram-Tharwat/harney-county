@@ -1,5 +1,5 @@
 ﻿using HarneyCounty.Application.Core.Contracts.Paging;
-using HarneyCounty.Application.Core.ViewModel.Employee;
+using HarneyCounty.Application.Core.ViewModel.Payroll;
 using System.Collections.Generic;
 
 namespace HarneyCounty.Application.Core.Interfaces

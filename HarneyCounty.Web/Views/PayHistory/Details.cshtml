@@ -1,0 +1,43 @@
+﻿@model HarneyCounty.Application.Core.ViewModel.Payroll.EmployeePayhistoryFullDetailsViewModel
+
+@{
+    ViewBag.Title = "Payhistory Details";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.EmployeeNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EmployeeNumber)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PayDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PayDate)
+            </dd>
+        </dl>
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#pay">Pay History</a></li>
+            <li><a data-toggle="tab" href="#hours">Hours</a></li>
+            <li><a data-toggle="tab" href="#deductions">Deductions</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="pay" class="tab-pane fade in active">
+                @Html.Partial("_Pay", Model.PayDetails)
+            </div>
+            <div id="hours" class="tab-pane fade in">
+                @Html.Partial("_Hours", Model.HourDetails)
+            </div>
+            <div id="deductions" class="tab-pane fade in">
+                @Html.Partial("_Deductions", Model.Deductions)
+            </div>
+        </div>
+    </div>
+</div>

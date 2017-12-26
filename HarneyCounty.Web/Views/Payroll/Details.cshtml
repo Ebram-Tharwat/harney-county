@@ -1,4 +1,4 @@
-﻿@model HarneyCounty.Application.Core.ViewModel.Employee.EmployeeMasterViewModel
+﻿@model HarneyCounty.Application.Core.ViewModel.Payroll.EmployeeMasterViewModel
 
 @{
     ViewBag.Title = Model.FullName + " - details";
@@ -77,3 +77,9 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jQueryPlugins")
+    @Scripts.Render("~/bundles/bootstrap")
+}

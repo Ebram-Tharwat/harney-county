@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace HarneyCounty.Application.Core.ViewModel.Employee
+namespace HarneyCounty.Application.Core.ViewModel.Payroll
 {
     public class EmployeeFilterViewModel
     {
