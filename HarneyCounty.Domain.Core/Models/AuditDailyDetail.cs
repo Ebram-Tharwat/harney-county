@@ -30,7 +30,6 @@ namespace HarneyCounty.Domain.Core.Models
         [Column(@"TaxYear", Order = 2, TypeName = "int")]
         [Required]
         [Display(Name = "Tax year")]
-        [DataType(DataType.Date)]
         public int TaxYear { get; set; }
 
         [Column(@"CurrRcpts", Order = 3, TypeName = "decimal")]
