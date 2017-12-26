@@ -162,7 +162,7 @@ namespace HarneyCounty.Web.Controllers
                 netRollChg += item.GainsToRoll.HasValue ? item.GainsToRoll.Value : 0;
                 result.NetRollChg.Add(netRollChg.ToString());
             }
-            return View("Index", result.DailyMaster.Id);
+            return View("Index", result);
         }
     }
 }
