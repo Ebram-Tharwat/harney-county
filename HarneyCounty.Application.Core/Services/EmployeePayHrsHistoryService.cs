@@ -34,7 +34,7 @@ namespace HarneyCounty.Application.Core.Services
             }
             result.PayDetails = AutoMapper.Mapper.Map<EmployeePayHrsHistory, PayDetailsViewModel>(empPayHistory);
             result.HourDetails = AutoMapper.Mapper.Map<EmployeePayHrsHistory, HourDetailsViewModel>(empPayHistory);
-            result.EmployeeNumber = result.PayDetails.EmployeeNumber;
+            result.EmployeeNumber = (int)result.PayDetails.EmployeeNumber;
             result.PayDate = result.PayDetails.PayDate;
 
             var deductions = _deductionHistoryRepository.GetDeductionHistoryFullDetails(result.PayDetails.EmployeeNumber, result.PayDetails.PayDate);

@@ -10,14 +10,14 @@ namespace HarneyCounty.Application.Core.ViewModel.Payroll
             Deductions = new List<DeductionDetailsViewModel>();
         }
 
-        public EmployeePayhistoryFullDetailsViewModel(decimal empNumber)
+        public EmployeePayhistoryFullDetailsViewModel(int empNumber)
         {
             this.EmployeeNumber = empNumber;
             this.Deductions = new List<DeductionDetailsViewModel>();
         }
 
         [Display(Name = "Employee Number")]
-        public decimal EmployeeNumber { get; set; }
+        public int EmployeeNumber { get; set; }
 
         [Display(Name = "Pay Date")]
         [DataType(DataType.Date)]

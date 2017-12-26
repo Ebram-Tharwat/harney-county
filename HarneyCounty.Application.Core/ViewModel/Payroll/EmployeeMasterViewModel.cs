@@ -8,7 +8,7 @@ namespace HarneyCounty.Application.Core.ViewModel.Payroll
         public int Id { get; set; }
 
         [Display(Name = "Emp #")]
-        public decimal EmployeeNumber { get; set; }
+        public int EmployeeNumber { get; set; }
 
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
