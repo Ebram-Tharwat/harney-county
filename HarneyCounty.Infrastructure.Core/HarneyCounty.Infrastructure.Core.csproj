@@ -333,6 +333,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>HarneyCountyDbContext.cs</LastGenOutput>
     </Content>
+    <Content Include="DbScripts\DeductionFullDetails.sql" />
     <Content Include="DbScripts\SalesFullDetails.sql" />
     <Content Include="DbScripts\FlaggingFullDetails.sql" />
     <Content Include="DbScripts\LandAssessmentFullDetails.sql" />
