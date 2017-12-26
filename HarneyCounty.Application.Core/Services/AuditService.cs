@@ -1,11 +1,9 @@
 ﻿using HarneyCounty.Application.Core.Interfaces;
+using HarneyCounty.Domain.Core.Models;
+using HarneyCounty.Infrastructure.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HarneyCounty.Domain.Core.Models;
-using HarneyCounty.Infrastructure.Core.Interfaces;
 
 namespace HarneyCounty.Application.Core.Services
 {
@@ -16,7 +14,8 @@ namespace HarneyCounty.Application.Core.Services
         private readonly IRepository<DailyMaster> _dailyMasterRepository;
         private readonly IRepository<AuditDailyDetail> _auditDailyDetailRepository;
         private readonly IUnitOfWork _unitOfWork;
-        public AuditService(IRepository<AuditFiscalYear> repository,IRepository<AuditTurnoverSequence> auditTurnOverSequenceRepository,IRepository<DailyMaster> dailyMasterRepository, IRepository<AuditDailyDetail> auditDailyDetailRepository, IUnitOfWork unitOfWork)
+
+        public AuditService(IRepository<AuditFiscalYear> repository, IRepository<AuditTurnoverSequence> auditTurnOverSequenceRepository, IRepository<DailyMaster> dailyMasterRepository, IRepository<AuditDailyDetail> auditDailyDetailRepository, IUnitOfWork unitOfWork)
         {
             _auditFiscalYearRepository = repository;
             _auditTurnOverSequenceRepository = auditTurnOverSequenceRepository;
@@ -24,9 +23,10 @@ namespace HarneyCounty.Application.Core.Services
             _auditDailyDetailRepository = auditDailyDetailRepository;
             _unitOfWork = unitOfWork;
         }
+
         public List<AuditFiscalYear> GetAllAuditFiscalYears()
         {
-            var result = _auditFiscalYearRepository.GetAll().Where(f=>f.IsActive.HasValue && f.IsActive.Value).ToList();
+            var result = _auditFiscalYearRepository.GetAll().Where(f => f.IsActive.HasValue && f.IsActive.Value).ToList();
             return result;
         }
 
@@ -36,6 +36,7 @@ namespace HarneyCounty.Application.Core.Services
                    .Get((dailyMasterItem) => dailyMasterItem.AuditTurnoverSequenceId == id)
                    .Where(dailyMasterItem => dailyMasterItem.IsActive.HasValue && dailyMasterItem.IsActive.Value).ToList();
         }
+
         public DailyMaster GetDailyMasterById(int id)
         {
             return _dailyMasterRepository.GetById(id);
@@ -46,6 +47,12 @@ namespace HarneyCounty.Application.Core.Services
             return _auditDailyDetailRepository.Get((dailyDetailItem) => dailyDetailItem.DailyMasterId == id)
                 .Where(dailyMasterItem => dailyMasterItem.IsActive.HasValue && dailyMasterItem.IsActive.Value).ToList();
         }
+
+        public AuditDailyDetail GetDailyDetailById(int id)
+        {
+            return _auditDailyDetailRepository.OneOrDefault(t => t.Id == id);
+        }
+
         public void SaveAuditTurnOverSequence(AuditTurnoverSequence auditTurnOverSequence)
         {
             auditTurnOverSequence.IsActive = true;
@@ -65,8 +72,15 @@ namespace HarneyCounty.Application.Core.Services
 
         public void SaveDailyDetail(AuditDailyDetail dailyDetail)
         {
-            dailyDetail.IsActive = true;
-            _auditDailyDetailRepository.Add(dailyDetail);
+            if (dailyDetail.Id > 0)
+            {
+                _auditDailyDetailRepository.Update(dailyDetail);
+            }
+            else
+            {
+                dailyDetail.IsActive = true;
+                _auditDailyDetailRepository.Add(dailyDetail);
+            }
             _unitOfWork.Commit();
         }
 
@@ -96,7 +110,7 @@ namespace HarneyCounty.Application.Core.Services
             result.CurrencyDollars = dailyMaster.CurrencyDollars;
             result.CashDrawerDollars = dailyMaster.CashDrawerDollars;
             result.CoinDollars = dailyMaster.CoinDollars;
-           // _dailyMasterRepository.Update(dailyMaster);
+            // _dailyMasterRepository.Update(dailyMaster);
             _unitOfWork.Commit();
         }
 
@@ -104,12 +118,14 @@ namespace HarneyCounty.Application.Core.Services
         {
             return _auditTurnOverSequenceRepository.GetById(id);
         }
+
         public void EditFiscalYear(AuditFiscalYear auditFiscalYear)
         {
             auditFiscalYear.IsActive = true;
             _auditFiscalYearRepository.Update(auditFiscalYear);
             _unitOfWork.Commit();
         }
+
         public void DeleteFiscalYear(AuditFiscalYear auditFiscalYear)
         {
             auditFiscalYear.IsActive = false;
@@ -117,7 +133,6 @@ namespace HarneyCounty.Application.Core.Services
             _unitOfWork.Commit();
         }
 
-        
         public void DeleteTurnOverSequence(AuditTurnoverSequence auditTurnoverSequence)
         {
             auditTurnoverSequence.IsActive = false;
@@ -130,7 +145,7 @@ namespace HarneyCounty.Application.Core.Services
             return _auditFiscalYearRepository.GetById(id);
         }
 
-       public List<AuditTurnoverSequence> GetAllTurnOverSequenceByAuditFiscalYearId(int id)
+        public List<AuditTurnoverSequence> GetAllTurnOverSequenceByAuditFiscalYearId(int id)
         {
             return _auditTurnOverSequenceRepository
                    .Get((audit) => audit.AuditFiscalYearId == id)

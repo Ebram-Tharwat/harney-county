@@ -1,10 +1,7 @@
 ﻿using HarneyCounty.Application.Core.Interfaces;
 using HarneyCounty.Domain.Core.Models;
 using HarneyCounty.Web.ViewModel;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace HarneyCounty.Web.Controllers
@@ -24,7 +21,7 @@ namespace HarneyCounty.Web.Controllers
             List<AuditDailyDetail> auditDailyDetail = _auditService.GetAllDailyDetailByDailyMasterId(id);
             AuditDailyDetailViewModel result = new AuditDailyDetailViewModel();
             result.DailyDetail = auditDailyDetail;
-            result.DailyMaster  = _auditService.GetDailyMasterById(id);
+            result.DailyMaster = _auditService.GetDailyMasterById(id);
             result.NetRcpts = new List<string>();
             result.NetTaxCr = new List<string>();
             result.NetRollChg = new List<string>();
@@ -35,7 +32,7 @@ namespace HarneyCounty.Web.Controllers
                 netRcpts -= item.Penalities.HasValue ? item.Penalities.Value : 0;
                 netRcpts += item.RefundsNsf.HasValue ? item.RefundsNsf.Value : 0;
                 result.NetRcpts.Add(netRcpts.ToString());
-                decimal netTaxCr = netRcpts - (item.C12PercentageInterest.HasValue ? item.C12PercentageInterest.Value : 0);
+                decimal netTaxCr = item.CurrRcpts.Value - (item.C12PercentageInterest.HasValue ? item.C12PercentageInterest.Value : 0);
                 netTaxCr -= item.C16PercentageInterest.HasValue ? item.C16PercentageInterest.Value : 0;
                 netTaxCr += item.Discount.HasValue ? item.Discount.Value : 0;
                 result.NetTaxCr.Add(netTaxCr.ToString());
@@ -68,7 +65,7 @@ namespace HarneyCounty.Web.Controllers
                 netRcpts -= item.Penalities.HasValue ? item.Penalities.Value : 0;
                 netRcpts += item.RefundsNsf.HasValue ? item.RefundsNsf.Value : 0;
                 result.NetRcpts.Add(netRcpts.ToString());
-                decimal netTaxCr = netRcpts - (item.C12PercentageInterest.HasValue ? item.C12PercentageInterest.Value : 0);
+                decimal netTaxCr = item.CurrRcpts.Value - (item.C12PercentageInterest.HasValue ? item.C12PercentageInterest.Value : 0);
                 netTaxCr -= item.C16PercentageInterest.HasValue ? item.C16PercentageInterest.Value : 0;
                 netTaxCr += item.Discount.HasValue ? item.Discount.Value : 0;
                 result.NetTaxCr.Add(netTaxCr.ToString());
@@ -97,7 +94,7 @@ namespace HarneyCounty.Web.Controllers
                 netRcpts -= item.Penalities.HasValue ? item.Penalities.Value : 0;
                 netRcpts += item.RefundsNsf.HasValue ? item.RefundsNsf.Value : 0;
                 result.NetRcpts.Add(netRcpts.ToString());
-                decimal netTaxCr = netRcpts - (item.C12PercentageInterest.HasValue ? item.C12PercentageInterest.Value : 0);
+                decimal netTaxCr = item.CurrRcpts.Value - (item.C12PercentageInterest.HasValue ? item.C12PercentageInterest.Value : 0);
                 netTaxCr -= item.C16PercentageInterest.HasValue ? item.C16PercentageInterest.Value : 0;
                 netTaxCr += item.Discount.HasValue ? item.Discount.Value : 0;
                 result.NetTaxCr.Add(netTaxCr.ToString());
@@ -105,8 +102,37 @@ namespace HarneyCounty.Web.Controllers
                 netRollChg += item.GainsToRoll.HasValue ? item.GainsToRoll.Value : 0;
                 result.NetRollChg.Add(netRollChg.ToString());
             }
-            return View("Index",result);
+            return View("Index", result);
+        }
 
+        [HttpGet]
+        public ActionResult Edit(int dailyMasterId, int dailyDetailId)
+        {
+            List<AuditDailyDetail> auditDailyDetail = _auditService.GetAllDailyDetailByDailyMasterId(dailyMasterId);
+            AuditDailyDetailViewModel result = new AuditDailyDetailViewModel();
+            result.DailyDetail = auditDailyDetail;
+            result.DisplayMode = "WriteOnly";
+            result.DailyMaster = _auditService.GetDailyMasterById(dailyMasterId);
+            result.NetRcpts = new List<string>();
+            result.NetTaxCr = new List<string>();
+            result.NetRollChg = new List<string>();
+            foreach (var item in result.DailyDetail)
+            {
+                decimal netRcpts = item.CurrRcpts.HasValue ? item.CurrRcpts.Value : 0;
+                netRcpts -= item.StatePercentage.HasValue ? item.StatePercentage.Value : 0;
+                netRcpts -= item.Penalities.HasValue ? item.Penalities.Value : 0;
+                netRcpts += item.RefundsNsf.HasValue ? item.RefundsNsf.Value : 0;
+                result.NetRcpts.Add(netRcpts.ToString());
+                decimal netTaxCr = item.CurrRcpts.Value - (item.C12PercentageInterest.HasValue ? item.C12PercentageInterest.Value : 0);
+                netTaxCr -= item.C16PercentageInterest.HasValue ? item.C16PercentageInterest.Value : 0;
+                netTaxCr += item.Discount.HasValue ? item.Discount.Value : 0;
+                result.NetTaxCr.Add(netTaxCr.ToString());
+                decimal netRollChg = netTaxCr - (item.LossesToRoll.HasValue ? item.LossesToRoll.Value : 0);
+                netRollChg += item.GainsToRoll.HasValue ? item.GainsToRoll.Value : 0;
+                result.NetRollChg.Add(netRollChg.ToString());
+            }
+            ViewBag.DailyDetailObj = _auditService.GetDailyDetailById(dailyDetailId);
+            return View("Index", result);
         }
 
         [HttpPost]
@@ -126,9 +152,9 @@ namespace HarneyCounty.Web.Controllers
                 decimal netRcpts = item.CurrRcpts.HasValue ? item.CurrRcpts.Value : 0;
                 netRcpts -= item.StatePercentage.HasValue ? item.StatePercentage.Value : 0;
                 netRcpts -= item.Penalities.HasValue ? item.Penalities.Value : 0;
-                netRcpts += item.RefundsNsf.HasValue?item.RefundsNsf.Value:0;
+                netRcpts += item.RefundsNsf.HasValue ? item.RefundsNsf.Value : 0;
                 result.NetRcpts.Add(netRcpts.ToString());
-                decimal netTaxCr = netRcpts - (item.C12PercentageInterest.HasValue ? item.C12PercentageInterest.Value : 0);
+                decimal netTaxCr = item.CurrRcpts.Value - (item.C12PercentageInterest.HasValue ? item.C12PercentageInterest.Value : 0);
                 netTaxCr -= item.C16PercentageInterest.HasValue ? item.C16PercentageInterest.Value : 0;
                 netTaxCr += item.Discount.HasValue ? item.Discount.Value : 0;
                 result.NetTaxCr.Add(netTaxCr.ToString());
@@ -136,7 +162,7 @@ namespace HarneyCounty.Web.Controllers
                 netRollChg += item.GainsToRoll.HasValue ? item.GainsToRoll.Value : 0;
                 result.NetRollChg.Add(netRollChg.ToString());
             }
-            return View("Index", result);
+            return View("Index", result.DailyMaster.Id);
         }
     }
 }

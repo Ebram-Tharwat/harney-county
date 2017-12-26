@@ -35,6 +35,7 @@ namespace HarneyCounty.Domain.Core.Models
         [Column(@"EntryDate", Order = 3, TypeName = "date")]
         [Required]
         [Display(Name = "Entry date")]
+        [DataType(DataType.Date)]
         public System.DateTime EntryDate { get; set; }
 
         [Column(@"FromDate", Order = 4, TypeName = "date")]
