@@ -117,7 +117,7 @@
             </tr>
             i++;
         }
-        <tr>
+        <tr class="bold">
             <td></td>
             @{string currRcptsSum = Model.DailyDetail.Sum(t => t.CurrRcpts).ToString(); }
             <td>@Html.DisplayFor(modelItem => currRcptsSum)</td>

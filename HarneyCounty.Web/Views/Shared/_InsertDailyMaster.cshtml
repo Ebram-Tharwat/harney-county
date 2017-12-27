@@ -49,7 +49,7 @@
                 <strong> @Html.DisplayName("Checks")</strong>
             </span>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CheckDollars, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.CheckDollars, new { htmlAttributes = new { @class = "form-control netCashValue" } })
             </div>
         </div>
         <div class="form-group">
@@ -57,7 +57,7 @@
                 <strong>@Html.DisplayName("Currency")</strong>
             </span>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CurrencyDollars, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.CurrencyDollars, new { htmlAttributes = new { @class = "form-control netCashValue" } })
             </div>
         </div>
 
@@ -66,7 +66,15 @@
                 <strong>@Html.DisplayName("Coin")</strong>
             </span>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CoinDollars, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.CoinDollars, new { htmlAttributes = new { @class = "form-control netCashValue" } })
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="control-label col-md-2">
+                <strong>@Html.DisplayName("Net Cash")</strong>
+            </span>
+            <div class="col-md-10">
+                <label id="netCashTotal" class="control-label">0</label>
             </div>
         </div>
         <div class="form-group">
@@ -74,7 +82,15 @@
                 <strong>@Html.DisplayName("Cash Drawer")</strong>
             </span>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CashDrawerDollars, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.CashDrawerDollars, new { htmlAttributes = new { @class = "form-control toCashValue" } })
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="control-label col-md-2">
+                <strong>@Html.DisplayName("T/O Cash")</strong>
+            </span>
+            <div class="col-md-10">
+                <label id="toCashTotal" class="control-label">0</label>
             </div>
         </div>
         <div class="form-group">
@@ -90,5 +106,37 @@
     $(function () {
         // This will make every element with the class "date-picker" into a DatePicker element
         $('.date-picker').datepicker();
+
+        $('.netCashValue').on('keyup change', function () {
+            debugger;
+            var netCash = calculateNetCash();
+            if (!isNaN(netCash)) {
+                $('#netCashTotal').text(netCash);
+                $('.toCashValue').eq(0).change();
+            }
+        });
+
+        $('.toCashValue').on('keyup change', function () {
+            var toCash = calculateTOCash();
+            if (!isNaN(toCash)) {
+                $('#toCashTotal').text(toCash);
+            }
+        });
+
+        $('.netCashValue').eq(0).change();
     })
+
+    function calculateNetCash() {
+        var sum = 0;
+        $('.netCashValue').each(function () {
+            sum += +$(this).val();
+        });
+        return sum;
+    }
+
+    function calculateTOCash() {
+        var netCash = calculateNetCash();
+        var cashDrawer = $('.toCashValue').val();
+        return netCash - cashDrawer;
+    }
 </script>
