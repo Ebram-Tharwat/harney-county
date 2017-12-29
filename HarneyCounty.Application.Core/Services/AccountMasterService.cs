@@ -193,7 +193,7 @@ namespace HarneyCounty.Application.Core.Services
             var flaggingsData = _flaggingDetailRepository.GetFlaggingFullDetailsByYearAndAccountNumber(year, accountNumber);
             result.Flaggings = AutoMapper.Mapper.Map<List<FlaggingFullDetail>, List<FlaggingDetailsViewModel>>(flaggingsData);
 
-            var ownershipHistoryData = _ownershipHistoryRepository.GetOwnershipHistoryByYearAndAccountNumber(year, accountNumber);
+            var ownershipHistoryData = _ownershipHistoryRepository.GetOwnershipHistoryByAccountNumber(accountNumber);
             result.OwnershipHistory = AutoMapper.Mapper.Map<List<OwnershipHistory>, List<OwnershipHistoryViewModel>>(ownershipHistoryData);
 
             var salesData = _salesFullDetailsRepository.GetSalesFullDetailsByAccountNumber(accountNumber);

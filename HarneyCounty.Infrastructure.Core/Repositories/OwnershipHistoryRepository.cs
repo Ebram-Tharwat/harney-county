@@ -12,10 +12,10 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
         {
         }
 
-        public List<OwnershipHistory> GetOwnershipHistoryByYearAndAccountNumber(decimal year, string actNumber)
+        public List<OwnershipHistory> GetOwnershipHistoryByAccountNumber(string actNumber)
         {
             return _dbContext.OwnershipHistories
-               .Where(t => t.AsmtYear == year && t.AcctNmbr.Trim() == actNumber.Trim()).ToList();
+               .Where(t => t.AcctNmbr.Trim() == actNumber.Trim()).ToList();
         }
     }
 }
