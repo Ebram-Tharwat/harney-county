@@ -111,7 +111,7 @@
             debugger;
             var netCash = calculateNetCash();
             if (!isNaN(netCash)) {
-                $('#netCashTotal').text(netCash);
+                $('#netCashTotal').text(netCash.toFixed(2));
                 $('.toCashValue').eq(0).change();
             }
         });
@@ -119,7 +119,7 @@
         $('.toCashValue').on('keyup change', function () {
             var toCash = calculateTOCash();
             if (!isNaN(toCash)) {
-                $('#toCashTotal').text(toCash);
+                $('#toCashTotal').text(toCash.toFixed(2));
             }
         });
 
