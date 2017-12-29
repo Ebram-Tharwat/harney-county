@@ -13,6 +13,7 @@
                 <th>@Html.LabelFor(model => model[0].EmployeeAmt)</th>
                 <th>@Html.LabelFor(model => model[0].EmployerAmt)</th>
                 <th>@Html.LabelFor(model => model[0].EmployeeAmtPickedUp)</th>
+                <th>@Html.LabelFor(model => model[0].TotalAmount)</th>
             </tr>
         </thead>
         <tbody>
@@ -42,6 +43,9 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.EmployeeAmtPickedUp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalAmount)
                     </td>
                 </tr>
             }

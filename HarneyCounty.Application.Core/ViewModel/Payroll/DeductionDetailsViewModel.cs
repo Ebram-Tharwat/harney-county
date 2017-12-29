@@ -40,5 +40,11 @@ namespace HarneyCounty.Application.Core.ViewModel.Payroll
 
         [Display(Name = "Description")]
         public string DeductionDesc { get; set; }
+
+        [Display(Name = "Total")]
+        public decimal? TotalAmount
+        {
+            get { return this.EmployeeAmt + this.EmployerAmt + this.EmployeeAmtPickedUp; }
+        }
     }
 }
