@@ -21,7 +21,7 @@ namespace HarneyCounty.Application.Core.Services
 
         public List<string> GetAllDeductionCodes()
         {
-            return _deductionMasterRepository.GetAll().Select(t => t.DeductionCode.Trim()).ToList();
+            return _deductionMasterRepository.Get(null, (list => list.OrderBy(t => t.DeductionCode)), null).Select(t => t.DeductionCode.Trim()).ToList();
         }
 
         public List<DeductionDetailsViewModel> GetDeductionHistoryFullDetails(decimal employeeNumber, DateTime? payDate = null, string deductionCode = null)
