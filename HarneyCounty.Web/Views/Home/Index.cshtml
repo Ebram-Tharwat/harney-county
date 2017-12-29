@@ -208,7 +208,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => filterViewModel.CodeArea, htmlAttributes: new { @class = "control-label" })
                         @*@Html.EditorFor(model => filterViewModel.CodeArea, null, "codearea", new { htmlAttributes = new { @class = "form-control" } })*@
-                        @Html.DropDownListFor(model => filterViewModel.CodeArea, (IEnumerable<SelectListItem>)ViewBag.CodeAreas,"--Please Select--",
+                        @Html.DropDownListFor(model => filterViewModel.CodeArea, (IEnumerable<SelectListItem>)ViewBag.CodeAreas, "--Please Select--",
                             new { @class = "form-control", Name = "codearea" })
                     </div>
                 </div>
@@ -248,6 +248,7 @@
                 $('input[type="text"]', 'div.row[data-search-type]').val('');
                 $('input[type="number"]', 'div.row[data-search-type]').val('');
                 $('select', 'div.row[data-search-type]').val('');
+                $('#accountnumber').val('');
             });
         });
     </script>
