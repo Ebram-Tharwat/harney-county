@@ -56,10 +56,17 @@
             $('#startdate', '.payhistoryfilterviewmodel').parent('.input-group.date').data('DateTimePicker').maxDate(e.date);
         });
 
-        $('#btnReset').click(function () {
+        $('.payhistoryfilterviewmodel #btnReset').click(function () {
             $('input[type="text"]', $(this).parents('form:first')).val('');
             $('input[type="number"]', $(this).parents('form:first')).val('');
             $('select', $(this).parents('form:first')).val('');
+        });
+
+        // preserve location.hash on form submitting.
+        $('.payhistoryfilterviewmodel').parents('form:first').submit(function () {
+            var query = $.param($(this).serializeArray());
+            window.location.href = window.location.pathname + '?' + query + window.location.hash;
+            return false;
         });
     });
 </script>
