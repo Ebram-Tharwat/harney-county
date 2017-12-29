@@ -58,6 +58,7 @@
     </Compile>
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Interfaces\IDeductionHistoryRepository.cs" />
+    <Compile Include="Interfaces\IDeductionMasterRepository.cs" />
     <Compile Include="Interfaces\IEmployeeMasterCommentRepository.cs" />
     <Compile Include="Interfaces\IEmployeeMasterRepository.cs" />
     <Compile Include="Interfaces\IEmployeePayHrsHistoryRepository.cs" />
@@ -297,6 +298,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\DeductionHistoryRepository.cs" />
+    <Compile Include="Repositories\DeductionMasterRepository.cs" />
     <Compile Include="Repositories\EmployeeMasterCommentRepository.cs" />
     <Compile Include="Repositories\EmployeeMasterRepository.cs" />
     <Compile Include="Repositories\EmployeePayHrsHistoryRepository.cs" />

@@ -6,6 +6,8 @@ namespace HarneyCounty.Infrastructure.Core.Interfaces
 {
     public interface IDeductionHistoryRepository : IRepository<DeductionHistory>
     {
-        List<DeductionFullDetail> GetDeductionHistoryFullDetails(decimal employeeNumber, DateTime paydate);
+        List<DeductionFullDetail> GetDeductionHistoryFullDetails(decimal employeeNumber, DateTime? paydate = null, string deductionCode = null);
+
+        List<DeductionFullDetail> GetDeductionHistoryFullDetails(decimal employeeNumber, DateTime? startDate = null, DateTime? endDate = null, string deductionCode = null);
     }
 }

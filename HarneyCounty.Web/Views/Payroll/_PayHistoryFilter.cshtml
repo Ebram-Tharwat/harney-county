@@ -1,0 +1,65 @@
+﻿@using HarneyCounty.Application.Core.ViewModel.Payroll
+
+@{
+    var filterViewModel = ViewBag.FilterViewModel as PayHistoryFilterViewModel;
+}
+
+@using (Html.BeginForm("Details", "Payroll", FormMethod.Get))
+{
+    <div class="form-horizontal payhistoryfilterviewmodel">
+        <div class="form-group">
+            @Html.LabelFor(model => filterViewModel.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => filterViewModel.StartDate, null, "startdate", new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => filterViewModel.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => filterViewModel.EndDate, null, "enddate", new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => filterViewModel.DeductionCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => filterViewModel.DeductionCode, (IEnumerable<SelectListItem>)ViewBag.DeductionCodes, "--Please Select--",
+                            new { @class = "form-control", Name = "deductioncode" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="form-group pull-right">
+                    <input type="submit" value="Filter" class="btn btn-success" />
+                    <input type="button" value="Clear" class="btn btn-default" id="btnReset" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script>
+    $(function () {
+        $('.date-datepicker', '.payhistoryfilterviewmodel').parent('.input-group.date').datetimepicker({
+            format: 'MM/DD/YYYY',
+            showTodayButton: true,
+            ignoreReadonly: true,
+            showClear: true,
+            useCurrent: false,
+        });
+
+        $('#startdate', '.payhistoryfilterviewmodel').parent('.input-group.date').on('dp.change', function (e) {
+            $('#enddate', '.payhistoryfilterviewmodel').parent('.input-group.date').data('DateTimePicker').minDate(e.date);
+        });
+        $('#enddate', '.payhistoryfilterviewmodel').parent('.input-group.date').on('dp.change', function (e) {
+            $('#startdate', '.payhistoryfilterviewmodel').parent('.input-group.date').data('DateTimePicker').maxDate(e.date);
+        });
+
+        $('#btnReset').click(function () {
+            $('input[type="text"]', $(this).parents('form:first')).val('');
+            $('input[type="number"]', $(this).parents('form:first')).val('');
+            $('select', $(this).parents('form:first')).val('');
+        });
+    });
+</script>

@@ -102,8 +102,10 @@ namespace HarneyCounty.Utilities.App_Start
             kernel.Bind<IEmployeeMasterCommentRepository>().To<EmployeeMasterCommentRepository>();
             kernel.Bind<IEmployeePayHrsHistoryRepository>().To<EmployeePayHrsHistoryRepository>();
             kernel.Bind<IDeductionHistoryRepository>().To<DeductionHistoryRepository>();
+            kernel.Bind<IDeductionMasterRepository>().To<DeductionMasterRepository>();
             kernel.Bind<IEmployeeMasterService>().To<EmployeeMasterService>();
             kernel.Bind<IEmployeePayHrsHistoryService>().To<EmployeePayHrsHistoryService>();
+            kernel.Bind<IDeductionHistoryService>().To<DeductionHistoryService>();
 
             #endregion Employee
         }

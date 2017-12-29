@@ -10,12 +10,12 @@ namespace HarneyCounty.Application.Core.Services
     public class EmployeePayHrsHistoryService : IEmployeePayHrsHistoryService
     {
         private readonly IEmployeePayHrsHistoryRepository _employeePayHrsHistoryRepository;
-        private readonly IDeductionHistoryRepository _deductionHistoryRepository;
+        private readonly IDeductionHistoryService _deductionHistoryService;
 
-        public EmployeePayHrsHistoryService(IEmployeePayHrsHistoryRepository employeePayHrsHistoryRepository, IDeductionHistoryRepository deductionHistoryRepository)
+        public EmployeePayHrsHistoryService(IEmployeePayHrsHistoryRepository employeePayHrsHistoryRepository, IDeductionHistoryService deductionHistoryService)
         {
             this._employeePayHrsHistoryRepository = employeePayHrsHistoryRepository;
-            this._deductionHistoryRepository = deductionHistoryRepository;
+            this._deductionHistoryService = deductionHistoryService;
         }
 
         public List<PayHrsHistoryViewModel> GetEmployeePayHistoryListByEmpNumber(decimal empNumber)
@@ -37,8 +37,7 @@ namespace HarneyCounty.Application.Core.Services
             result.EmployeeNumber = (int)result.PayDetails.EmployeeNumber;
             result.PayDate = result.PayDetails.PayDate;
 
-            var deductions = _deductionHistoryRepository.GetDeductionHistoryFullDetails(result.PayDetails.EmployeeNumber, result.PayDetails.PayDate);
-            result.Deductions = AutoMapper.Mapper.Map<List<DeductionFullDetail>, List<DeductionDetailsViewModel>>(deductions);
+            result.Deductions = _deductionHistoryService.GetDeductionHistoryFullDetails(result.PayDetails.EmployeeNumber, result.PayDetails.PayDate, null);
 
             return result;
         }

@@ -12,10 +12,12 @@ namespace HarneyCounty.Web.Controllers
     public class PayrollController : Controller
     {
         private readonly IEmployeeMasterService _employeeMasterService;
+        private readonly IDeductionHistoryService _deductionHistoryService;
 
-        public PayrollController(IEmployeeMasterService employeeMasterService)
+        public PayrollController(IEmployeeMasterService employeeMasterService, IDeductionHistoryService deductionHistoryService)
         {
             this._employeeMasterService = employeeMasterService;
+            this._deductionHistoryService = deductionHistoryService;
         }
 
         [Route("")]
@@ -34,17 +36,24 @@ namespace HarneyCounty.Web.Controllers
         }
 
         [Route("details/{id?}")]
-        public ActionResult Details(int? id)
+        public ActionResult Details(PayHistoryFilterViewModel filter, int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var entity = _employeeMasterService.GetById(id.Value);
+            var entity = _employeeMasterService.GetById(id.Value, filter);
             if (entity == null)
             {
                 return HttpNotFound();
             }
+
+            ViewBag.FilterViewModel = filter;
+            ViewBag.DeductionCodes = _deductionHistoryService.GetAllDeductionCodes().Select(item => new SelectListItem()
+            {
+                Value = item,
+                Text = item
+            });
 
             return View(entity);
         }

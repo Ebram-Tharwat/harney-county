@@ -15,6 +15,9 @@ namespace HarneyCounty.Web
                         "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/jQueryPlugins").Include(
+                        "~/Scripts/moment.js",
+                        "~/Scripts/moment-with-locales.js",
+                        "~/Scripts/bootstrap-datetimepicker.js",
                         "~/Scripts/loadingoverlay.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
@@ -28,7 +31,8 @@ namespace HarneyCounty.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/bootstrap-datetimepicker.css"));
         }
     }
 }

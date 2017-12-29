@@ -42,5 +42,7 @@ namespace HarneyCounty.Application.Core.ViewModel.Payroll
         public List<EmployeeMasterCommentViewModel> Comments { get; set; }
 
         public List<PayHrsHistoryViewModel> PayHistory { get; set; }
+
+        public List<DeductionDetailsViewModel> Deductions { get; set; }
     }
 }

@@ -60,6 +60,7 @@
     <Compile Include="Contracts\SearchCriteria.cs" />
     <Compile Include="Interfaces\IAccountMasterService.cs" />
     <Compile Include="Interfaces\ICodeAreaService.cs" />
+    <Compile Include="Interfaces\IDeductionHistoryService.cs" />
     <Compile Include="Interfaces\IEmployeeMasterService.cs" />
     <Compile Include="Interfaces\IEmployeePayHrsHistoryService.cs" />
     <Compile Include="Interfaces\IPropertyClassService.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountMasterService.cs" />
     <Compile Include="Services\CodeAreaService.cs" />
+    <Compile Include="Services\DeductionHistoryService.cs" />
     <Compile Include="Services\EmployeeMasterService.cs" />
     <Compile Include="Services\EmployeePayHrsHistoryService.cs" />
     <Compile Include="Services\PropertyClassService.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="ViewModel\Payroll\EmployeePayhistoryFullDetailsViewModel.cs" />
     <Compile Include="ViewModel\Payroll\HourDetailsViewModel.cs" />
     <Compile Include="ViewModel\Payroll\PayDetailsViewModel.cs" />
+    <Compile Include="ViewModel\Payroll\PayHistoryFilterViewModel.cs" />
     <Compile Include="ViewModel\Payroll\PayHrsHistoryViewModel.cs" />
     <Compile Include="ViewModel\PersonalPropertyAccountViewModel.cs" />
     <Compile Include="ViewModel\PropertyClassViewModel.cs" />

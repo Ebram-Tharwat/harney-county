@@ -5,7 +5,6 @@ using HarneyCounty.Common;
 using HarneyCounty.Domain.Core.Models;
 using HarneyCounty.Infrastructure.Core.Interfaces;
 using System.Collections.Generic;
-using static HarneyCounty.Application.Core.Constants;
 
 namespace HarneyCounty.Application.Core.Services
 {
@@ -14,13 +13,15 @@ namespace HarneyCounty.Application.Core.Services
         private readonly IEmployeeMasterRepository _employeeMasterRepository;
         private readonly IEmployeeMasterCommentRepository _employeeMasterCommentRepository;
         private readonly IEmployeePayHrsHistoryService _employeePayHrsHistoryService;
+        private readonly IDeductionHistoryService _deductionHistoryService;
 
         public EmployeeMasterService(IEmployeeMasterRepository employeeMasterRepository, IEmployeeMasterCommentRepository employeeMasterCommentRepository
-            , IEmployeePayHrsHistoryService employeePayHrsHistoryService)
+            , IEmployeePayHrsHistoryService employeePayHrsHistoryService, IDeductionHistoryService deductionHistoryService)
         {
             this._employeeMasterRepository = employeeMasterRepository;
             this._employeeMasterCommentRepository = employeeMasterCommentRepository;
             this._employeePayHrsHistoryService = employeePayHrsHistoryService;
+            this._deductionHistoryService = deductionHistoryService;
         }
 
         public List<EmployeeMasterViewModel> SearchForEmployees(string firstName, string lastName, string status, PagingInfo pagingInfo)
@@ -32,15 +33,18 @@ namespace HarneyCounty.Application.Core.Services
             return AutoMapper.Mapper.Map<List<EmployeeMaster>, List<EmployeeMasterViewModel>>(result);
         }
 
-        public EmployeeMasterViewModel GetById(int id)
+        public EmployeeMasterViewModel GetById(int id, PayHistoryFilterViewModel filter = null)
         {
             var employee = _employeeMasterRepository.GetById(id);
             var result = AutoMapper.Mapper.Map<EmployeeMaster, EmployeeMasterViewModel>(employee);
 
             var empComments = _employeeMasterCommentRepository.GetEmployeeCommentsByEmpNumber(employee.EmployeeNumber);
             result.Comments = AutoMapper.Mapper.Map<List<EmployeeMasterComment>, List<EmployeeMasterCommentViewModel>>(empComments);
-
             result.PayHistory = _employeePayHrsHistoryService.GetEmployeePayHistoryListByEmpNumber(employee.EmployeeNumber);
+            if (filter == null)
+                result.Deductions = _deductionHistoryService.GetDeductionHistoryFullDetails(employee.EmployeeNumber, null, null);
+            else
+                result.Deductions = _deductionHistoryService.GetDeductionHistoryFullDetails(employee.EmployeeNumber, filter.StartDate, filter.EndDate, filter.DeductionCode);
 
             return result;
         }
@@ -49,9 +53,9 @@ namespace HarneyCounty.Application.Core.Services
         {
             return new Dictionary<string, string>()
             {
-                {EmployeeStatus.Active, "Active" },
-                {EmployeeStatus.Deleted, "Deleted" },
-                {EmployeeStatus.Terminated, "Terminated" }
+                {Constants.EmployeeStatus.Active, "Active" },
+                {Constants.EmployeeStatus.Deleted, "Deleted" },
+                {Constants.EmployeeStatus.Terminated, "Terminated" }
             };
         }
     }
