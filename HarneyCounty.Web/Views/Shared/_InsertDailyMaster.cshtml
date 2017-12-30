@@ -4,95 +4,99 @@
 {
     @Html.AntiForgeryToken()
     <div class="form-horizontal">
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.EntryDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DisplayFor(model => model.EntryDate, new { htmlAttributes = new { @class = "form-control" } })
-            </div>
-        </div>
-
         @Html.HiddenFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EntryDate, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.DisplayFor(model => model.EntryDate, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AuditTurnoverSequence.AuditFiscalYear.FiscalYear, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.DisplayFor(model => model.AuditTurnoverSequence.AuditFiscalYear.FiscalYear, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FromDate, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.FromDate, new { @Value = Model.FromDate.Value.ToString("yyyy/MM/dd"), @class = "form-control date-picker" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ThruDate, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.ThruDate, new { @Value = Model.ThruDate.Value.ToString("yyyy/MM/dd"), @class = "form-control date-picker" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FromReceipt, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.FromReceipt, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ThruReceipt, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.ThruReceipt, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12 no-pad-horizontal">
+                <div class="form-group">
+                    <span class="control-label col-md-3">
+                        <strong> @Html.DisplayName("Checks")</strong>
+                    </span>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.CheckDollars, new { htmlAttributes = new { @class = "form-control netCashValue" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <span class="control-label col-md-3">
+                        <strong>@Html.DisplayName("Currency")</strong>
+                    </span>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.CurrencyDollars, new { htmlAttributes = new { @class = "form-control netCashValue" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <span class="control-label col-md-3">
+                        <strong>@Html.DisplayName("Coin")</strong>
+                    </span>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.CoinDollars, new { htmlAttributes = new { @class = "form-control netCashValue" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <span class="control-label col-md-3">
+                        <strong>@Html.DisplayName("Net Cash")</strong>
+                    </span>
+                    <div class="col-md-9">
+                        <label id="netCashTotal" class="control-label">0</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <span class="control-label col-md-3">
+                        <strong>@Html.DisplayName("Cash Drawer")</strong>
+                    </span>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.CashDrawerDollars, new { htmlAttributes = new { @class = "form-control toCashValue" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <span class="control-label col-md-3">
+                        <strong>@Html.DisplayName("T/O Cash")</strong>
+                    </span>
+                    <div class="col-md-9">
+                        <label id="toCashTotal" class="control-label">0</label>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.AuditTurnoverSequence.AuditFiscalYear.FiscalYear, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DisplayFor(model => model.AuditTurnoverSequence.AuditFiscalYear.FiscalYear, new { htmlAttributes = new { @class = "form-control" } })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.FromDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.FromDate, new { @Value = Model.FromDate.Value.ToString("yyyy/MM/dd"), @class = "form-control date-picker" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.ThruDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.ThruDate, new { @Value = Model.ThruDate.Value.ToString("yyyy/MM/dd"), @class = "form-control date-picker" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.FromReceipt, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FromReceipt, new { htmlAttributes = new { @class = "form-control" } })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.ThruReceipt, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ThruReceipt, new { htmlAttributes = new { @class = "form-control" } })
-            </div>
-        </div>
-        <div class="form-group">
-            <span class="control-label col-md-2">
-                <strong> @Html.DisplayName("Checks")</strong>
-            </span>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CheckDollars, new { htmlAttributes = new { @class = "form-control netCashValue" } })
-            </div>
-        </div>
-        <div class="form-group">
-            <span class="control-label col-md-2">
-                <strong>@Html.DisplayName("Currency")</strong>
-            </span>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CurrencyDollars, new { htmlAttributes = new { @class = "form-control netCashValue" } })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <span class="control-label col-md-2">
-                <strong>@Html.DisplayName("Coin")</strong>
-            </span>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CoinDollars, new { htmlAttributes = new { @class = "form-control netCashValue" } })
-            </div>
-        </div>
-        <div class="form-group">
-            <span class="control-label col-md-2">
-                <strong>@Html.DisplayName("Net Cash")</strong>
-            </span>
-            <div class="col-md-10">
-                <label id="netCashTotal" class="control-label">0</label>
-            </div>
-        </div>
-        <div class="form-group">
-            <span class="control-label col-md-2">
-                <strong>@Html.DisplayName("Cash Drawer")</strong>
-            </span>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CashDrawerDollars, new { htmlAttributes = new { @class = "form-control toCashValue" } })
-            </div>
-        </div>
-        <div class="form-group">
-            <span class="control-label col-md-2">
-                <strong>@Html.DisplayName("T/O Cash")</strong>
-            </span>
-            <div class="col-md-10">
-                <label id="toCashTotal" class="control-label">0</label>
-            </div>
-        </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" formaction="/AuditEditDailyTransaction/SaveDailyMaster" />
@@ -108,7 +112,6 @@
         $('.date-picker').datepicker();
 
         $('.netCashValue').on('keyup change', function () {
-            debugger;
             var netCash = calculateNetCash();
             if (!isNaN(netCash)) {
                 $('#netCashTotal').text(netCash.toFixed(2));
