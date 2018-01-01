@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using HarneyCounty.Application.Core.ViewModel;
+using HarneyCounty.Application.Core.ViewModel.Audit;
 using HarneyCounty.Application.Core.ViewModel.Payroll;
 using HarneyCounty.Domain.Core.Models;
 
@@ -74,6 +75,16 @@ namespace HarneyCounty.Web.App_Start
                 cfg.CreateMap<DeductionFullDetail, DeductionDetailsViewModel>();
 
                 #endregion Employee
+
+                #region Audit
+
+                cfg.CreateMap<FiscalYearBeginningBalance, FiscalYearBeginningBalanceViewModel>()
+                .ReverseMap()
+                .ForMember(dest => dest.AuditFiscalYear, opt => opt.Ignore());
+                cfg.CreateMap<AuditFiscalYear, AuditFiscalYearViewModel>()
+                .ReverseMap();
+
+                #endregion Audit
             });
         }
     }

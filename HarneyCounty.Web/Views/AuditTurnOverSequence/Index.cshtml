@@ -7,7 +7,7 @@
 <h2>Index2</h2>
 
 <p>
-    @Html.ActionLink("Create New", "CreateAuditTurnOverSequence",new { id= ViewBag.FiscalYearId })
+    @Html.ActionLink("Create New", "CreateAuditTurnOverSequence", new { id = ViewBag.FiscalYearId })
 </p>
 <table class="table">
     <tr>
@@ -20,8 +20,9 @@
         <th>
             @Html.DisplayNameFor(model => model.TurnOverDateTo)
         </th>
+        <th></th>
     </tr>
-    @{ 
+    @{
         int i = 0;
     }
     @foreach (var item in Model)
@@ -33,7 +34,7 @@
             </td>
 
             <td>
-                @{ 
+                @{
                     string parsedTurnOverDateFrom = item.TurnOverDateFrom.ToShortDateString();
                 }
                 @Html.DisplayFor(modelItem => parsedTurnOverDateFrom)
@@ -45,11 +46,10 @@
                 @Html.DisplayFor(modelItem => parsedTurnOverDateTo)
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditAuditTurnOverSequence", new {  id=item.Id  }) |
+                @Html.ActionLink("Edit", "EditAuditTurnOverSequence", new { id = item.Id }) |
                 @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
-                @Html.ActionLink("Delete", "DeleteAuditTurnOverSequence", new {  id=item.Id  })
+                @Html.ActionLink("Delete", "DeleteAuditTurnOverSequence", new { id = item.Id })
             </td>
         </tr>
-    }
-
+                    }
 </table>

@@ -37,10 +37,12 @@ namespace HarneyCounty.Domain.Core.Models
         public bool? IsActive { get; set; }
 
         public virtual System.Collections.Generic.ICollection<AuditTurnoverSequence> AuditTurnoverSequences { get; set; }
+        public virtual System.Collections.Generic.ICollection<FiscalYearBeginningBalance> FiscalYearBeginningBalances { get; set; }
 
         public AuditFiscalYear()
         {
             AuditTurnoverSequences = new System.Collections.Generic.List<AuditTurnoverSequence>();
+            FiscalYearBeginningBalances = new System.Collections.Generic.List<FiscalYearBeginningBalance>();
         }
     }
 

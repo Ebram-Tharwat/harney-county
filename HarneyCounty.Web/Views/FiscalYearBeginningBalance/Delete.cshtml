@@ -1,0 +1,80 @@
+﻿@model HarneyCounty.Application.Core.ViewModel.Audit.FiscalYearBeginningBalanceViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>FiscalYearBeginningBalanceViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BeginningBalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeginningBalance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YtdCollections)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YtdCollections)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YtdLosses)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YtdLosses)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YtdGains)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YtdGains)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YtdBalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YtdBalance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AuditFiscalYearId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AuditFiscalYear.FiscalYear)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index", new { fiscalYearId = Model.AuditFiscalYearId })
+        </div>
+    }
+</div>

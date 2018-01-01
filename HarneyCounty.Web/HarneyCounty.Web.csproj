@@ -189,6 +189,7 @@
     <Compile Include="Controllers\AuditDailyMasterController.cs" />
     <Compile Include="Controllers\AuditEditDailyTransactionController.cs" />
     <Compile Include="Controllers\AuditTurnOverSequenceController.cs" />
+    <Compile Include="Controllers\FiscalYearBeginningBalanceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PayHistoryController.cs" />
     <Compile Include="Controllers\PayrollController.cs" />
@@ -370,10 +371,16 @@
     <Content Include="Views\PayHistory\_Hours.cshtml" />
     <Content Include="Views\Payroll\_PayHistoryFilter.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DatePicker.cshtml" />
+    <Content Include="Views\FiscalYearBeginningBalance\Index.cshtml" />
+    <Content Include="Views\FiscalYearBeginningBalance\Create.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\YearDatePicker.cshtml" />
+    <Content Include="Views\FiscalYearBeginningBalance\Edit.cshtml" />
+    <Content Include="Views\FiscalYearBeginningBalance\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\app\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

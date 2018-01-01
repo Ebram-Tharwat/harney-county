@@ -1,0 +1,125 @@
+﻿@model HarneyCounty.Application.Core.ViewModel.Audit.FiscalYearBeginningBalanceViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>FiscalYearBeginningBalanceViewModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.AuditFiscalYearId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BeginningBalance, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BeginningBalance, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BeginningBalance, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.YtdCollections, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.YtdCollections, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.YtdCollections, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.YtdLosses, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.YtdLosses, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.YtdLosses, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.YtdGains, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.YtdGains, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.YtdGains, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.YtdBalance, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <label id="YtdBalance" class="control-label">@Html.DisplayFor(model => model.YtdBalance)</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Populate" id="btnPopulate" data-url="@Url.Action("BeginningBalanceByDailyDetailYear", "FiscalYearBeginningBalance", new { fiscalYearId = Model.AuditFiscalYearId })" class="btn btn-success" />
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new { fiscalYearId = Model.AuditFiscalYearId })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jQueryPlugins")
+    <script type="text/javascript">
+        $(function () {
+            $('.year-datepicker').parent('.input-group.date').datetimepicker({
+                viewMode: 'years',
+                format: 'YYYY',
+                showTodayButton: true,
+                ignoreReadonly: true,
+                showClear: true,
+                useCurrent: false,
+            });
+
+            $('input').on('keyup change', function () {
+                var ytdBalance = calculateYtdBalance();
+                if (!isNaN(ytdBalance)) {
+                    $('#YtdBalance').text(parseFloat(ytdBalance).toFixed(2));
+                }
+            });
+
+            $('#btnPopulate').click(function (event) {
+                event.preventDefault();
+                $.LoadingOverlay("show");
+                var url = $(this).data('url') + '&dailyDetailyear=' + $('#Year').val();
+                $.get(url, function (data) {
+                    if (data.YtdCollections !== undefined) { // then, thre aren't any DailyDetail records found.
+                        $('#YtdCollections').val(data.YtdCollections);
+                        $('#YtdLosses').val(data.YtdLosses);
+                        $('#YtdGains').val(data.YtdGains);
+                    } else {
+                        alert('No records found for year ' + $('#Year').val());
+                    }
+                })
+                    .always(function () { $.LoadingOverlay("hide"); });
+            });
+        });
+
+        function calculateYtdBalance() {
+            return parseFloat($('#BeginningBalance').val() || 0)
+                - parseFloat($('#YtdCollections').val() || 0)
+                - parseFloat($('#YtdLosses').val() || 0)
+                + parseFloat($('#YtdGains').val() || 0);
+        }
+    </script>
+}

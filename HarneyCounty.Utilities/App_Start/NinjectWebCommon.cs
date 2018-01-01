@@ -71,7 +71,6 @@ namespace HarneyCounty.Utilities.App_Start
 
             kernel.Bind<IAccountMasterRepository>().To<AccountMasterRepository>();
             kernel.Bind<IAccountMasterService>().To<AccountMasterService>();
-            kernel.Bind<IAuditService>().To<AuditService>();
 
             kernel.Bind<IPropertyClassRepository>().To<PropertyClassRepository>();
             kernel.Bind<IPropertyClassService>().To<PropertyClassService>();
@@ -91,10 +90,8 @@ namespace HarneyCounty.Utilities.App_Start
 
             kernel.Bind<IJournalVoucherRepository>().To<JournalVoucherRepository>();
             kernel.Bind<IPersonalPropFullDetailsRepository>().To<PersonalPropFullDetailsRepository>();
-            kernel.Bind<IRepository<AuditFiscalYear>>().To<EFRepository<AuditFiscalYear>>();
-            kernel.Bind<IRepository<AuditTurnoverSequence>>().To<EFRepository<AuditTurnoverSequence>>();
+
             kernel.Bind<IRepository<DailyMaster>>().To<EFRepository<DailyMaster>>();
-            kernel.Bind<IRepository<AuditDailyDetail>>().To<EFRepository<AuditDailyDetail>>();
 
             #region Employee
 
@@ -108,6 +105,17 @@ namespace HarneyCounty.Utilities.App_Start
             kernel.Bind<IDeductionHistoryService>().To<DeductionHistoryService>();
 
             #endregion Employee
+
+            #region Audit
+
+            kernel.Bind<IRepository<AuditFiscalYear>>().To<EFRepository<AuditFiscalYear>>();
+            kernel.Bind<IRepository<AuditTurnoverSequence>>().To<EFRepository<AuditTurnoverSequence>>();
+            kernel.Bind<IAuditDailyDetailRepository>().To<AuditDailyDetailRepository>();
+            kernel.Bind<IFiscalYearBeginningBalanceRepository>().To<FiscalYearBeginningBalanceRepository>();
+            kernel.Bind<IFiscalYearBeginningBalanceService>().To<FiscalYearBeginningBalanceService>();
+            kernel.Bind<IAuditService>().To<AuditService>();
+
+            #endregion Audit
         }
     }
 }

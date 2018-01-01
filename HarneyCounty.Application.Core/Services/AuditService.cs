@@ -12,10 +12,10 @@ namespace HarneyCounty.Application.Core.Services
         private readonly IRepository<AuditFiscalYear> _auditFiscalYearRepository;
         private readonly IRepository<AuditTurnoverSequence> _auditTurnOverSequenceRepository;
         private readonly IRepository<DailyMaster> _dailyMasterRepository;
-        private readonly IRepository<AuditDailyDetail> _auditDailyDetailRepository;
+        private readonly IAuditDailyDetailRepository _auditDailyDetailRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public AuditService(IRepository<AuditFiscalYear> repository, IRepository<AuditTurnoverSequence> auditTurnOverSequenceRepository, IRepository<DailyMaster> dailyMasterRepository, IRepository<AuditDailyDetail> auditDailyDetailRepository, IUnitOfWork unitOfWork)
+        public AuditService(IRepository<AuditFiscalYear> repository, IRepository<AuditTurnoverSequence> auditTurnOverSequenceRepository, IRepository<DailyMaster> dailyMasterRepository, IAuditDailyDetailRepository auditDailyDetailRepository, IUnitOfWork unitOfWork)
         {
             _auditFiscalYearRepository = repository;
             _auditTurnOverSequenceRepository = auditTurnOverSequenceRepository;

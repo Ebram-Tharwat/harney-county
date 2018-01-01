@@ -63,6 +63,7 @@
     <Compile Include="Interfaces\IDeductionHistoryService.cs" />
     <Compile Include="Interfaces\IEmployeeMasterService.cs" />
     <Compile Include="Interfaces\IEmployeePayHrsHistoryService.cs" />
+    <Compile Include="Interfaces\IFiscalYearBeginningBalanceService.cs" />
     <Compile Include="Interfaces\IPropertyClassService.cs" />
     <Compile Include="Interfaces\IAuditService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,10 +72,13 @@
     <Compile Include="Services\DeductionHistoryService.cs" />
     <Compile Include="Services\EmployeeMasterService.cs" />
     <Compile Include="Services\EmployeePayHrsHistoryService.cs" />
+    <Compile Include="Services\FiscalYearBeginningBalanceService.cs" />
     <Compile Include="Services\PropertyClassService.cs" />
     <Compile Include="Services\AuditService.cs" />
     <Compile Include="ViewModel\AccountLegalCommentViewModel.cs" />
     <Compile Include="ViewModel\AccountMasterDetailsViewModel.cs" />
+    <Compile Include="ViewModel\Audit\AuditFiscalYearViewModel.cs" />
+    <Compile Include="ViewModel\Audit\FiscalYearBeginningBalanceViewModel.cs" />
     <Compile Include="ViewModel\Payroll\DeductionDetailsViewModel.cs" />
     <Compile Include="ViewModel\Payroll\EmployeeMasterCommentViewModel.cs" />
     <Compile Include="ViewModel\Payroll\EmployeeFilterViewModel.cs" />

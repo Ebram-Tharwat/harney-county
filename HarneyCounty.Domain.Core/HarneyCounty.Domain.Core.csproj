@@ -114,6 +114,9 @@
     <Compile Include="Models\FactorBookMaster.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FiscalYearBeginningBalance.cs">
+      <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\FlaggingDetail.cs">
       <DependentUpon>HarneyCountyDbModels.tt</DependentUpon>
     </Compile>
