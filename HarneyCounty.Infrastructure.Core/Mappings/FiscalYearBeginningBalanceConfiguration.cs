@@ -26,9 +26,9 @@ namespace HarneyCounty.Infrastructure.Core.Mappings
         {
             Property(x => x.Year).HasPrecision(4,0);
             Property(x => x.BeginningBalance).HasPrecision(11,2);
-            Property(x => x.YtdCollections).HasPrecision(11,2);
-            Property(x => x.YtdLosses).HasPrecision(9,2);
-            Property(x => x.YtdGains).HasPrecision(9,2);
+            Property(x => x.YtdCollections).IsOptional().HasPrecision(11,2);
+            Property(x => x.YtdLosses).IsOptional().HasPrecision(9,2);
+            Property(x => x.YtdGains).IsOptional().HasPrecision(9,2);
             Property(x => x.YtdBalance).IsOptional().HasPrecision(14,2);
 
         }

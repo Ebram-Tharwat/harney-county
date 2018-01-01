@@ -17,20 +17,17 @@ namespace HarneyCounty.Application.Core.ViewModel.Audit
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:#.##}")]
         public decimal BeginningBalance { get; set; }
 
-        [Required]
         [Display(Name = "YTD Collections")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:#.##}")]
-        public decimal YtdCollections { get; set; }
+        public decimal? YtdCollections { get; set; }
 
-        [Required]
         [Display(Name = "YTD  Losses")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:#.##}")]
-        public decimal YtdLosses { get; set; }
+        public decimal? YtdLosses { get; set; }
 
-        [Required]
         [Display(Name = "YTD Gains")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:#.##}")]
-        public decimal YtdGains { get; set; }
+        public decimal? YtdGains { get; set; }
 
         [Display(Name = "YTD Balance")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:#.##}")]

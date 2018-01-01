@@ -38,19 +38,16 @@ namespace HarneyCounty.Domain.Core.Models
         public decimal BeginningBalance { get; set; }
 
         [Column(@"YTDCollections", Order = 4, TypeName = "decimal")]
-        [Required]
         [Display(Name = "Ytdc ollections")]
-        public decimal YtdCollections { get; set; }
+        public decimal? YtdCollections { get; set; }
 
         [Column(@"YTDLosses", Order = 5, TypeName = "decimal")]
-        [Required]
         [Display(Name = "Ytdl osses")]
-        public decimal YtdLosses { get; set; }
+        public decimal? YtdLosses { get; set; }
 
         [Column(@"YTDGains", Order = 6, TypeName = "decimal")]
-        [Required]
         [Display(Name = "Ytdg ains")]
-        public decimal YtdGains { get; set; }
+        public decimal? YtdGains { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Column(@"YTDBalance", Order = 7, TypeName = "decimal")]

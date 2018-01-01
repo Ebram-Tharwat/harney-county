@@ -109,7 +109,13 @@
 <script type="text/javascript">
     $(function () {
         // This will make every element with the class "date-picker" into a DatePicker element
-        $('.date-picker').datepicker();
+        $('.date-picker').datetimepicker({
+            format: 'MM/DD/YYYY',
+            showTodayButton: true,
+            ignoreReadonly: true,
+            showClear: true,
+            useCurrent: false,
+        });
 
         $('.netCashValue').on('keyup change', function () {
             var netCash = calculateNetCash();
