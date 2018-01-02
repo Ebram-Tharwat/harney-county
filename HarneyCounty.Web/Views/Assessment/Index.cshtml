@@ -1,0 +1,255 @@
+﻿@using HarneyCounty.Application.Core.Contracts;
+@model IEnumerable<HarneyCounty.Application.Core.ViewModel.AccountMasterDetailsViewModel>
+
+@{
+    ViewBag.Title = "Search";
+    var filterViewModel = ViewBag.FilterViewModel as SearchCriteria;
+    var displayResults = (bool)ViewBag.DisplayResults;
+    var searchByType = (SearchByType)ViewBag.SearchBy;
+}
+
+<h2>Search</h2>
+
+<div class="row">
+    <div class="col-xs-12">
+        @using (Html.BeginForm("Index", "Assessment", FormMethod.Get, new { id = "searchForm" }))
+        {
+            @Html.ValidationSummary(true)
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label" for="SearchBy">Search By</label>
+                        @Html.EnumDropDownListFor(model => filterViewModel.SearchBy, "-- Search By --", htmlAttributes: new { Name = "SearchBy", @class = "form-control search-filter" })
+                        @Html.ValidationMessageFor(model => filterViewModel.SearchBy, "", new { @class = "text-danger", data_valmsg_for = "SearchBy" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.AccountNumber, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.AccountNumber, null, "accountnumber", new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => filterViewModel.AccountNumber, "", new { @class = "text-danger", data_valmsg_for = "accountnumber" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.Year, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.Year, null, "year", new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => filterViewModel.AccountNumber, "", new { @class = "text-danger", data_valmsg_for = "year" })
+                    </div>
+                </div>
+            </div>
+            <div class="row" data-search-type="@((int)SearchByType.OwnerName)">
+                <hr />
+                <div class="col-md-12">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.OwnerName, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.OwnerName, null, "ownername", new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => filterViewModel.OwnerName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row" data-search-type="@((int)SearchByType.Situs)">
+                <hr />
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.SitusNumber, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.SitusNumber, null, "situsnumber", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.SitusNumberSuffix, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.SitusNumberSuffix, null, "situsnumbersuffix", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.SitusDirectory, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.SitusDirectory, null, "situsdirectory", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.SitusStreetName, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.SitusStreetName, null, "situsstreetname", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.SitusZipCode, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.SitusZipCode, null, "situszipcode", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+            </div>
+            <div class="row" data-search-type="@((int)SearchByType.SubBlockLot)">
+                <hr />
+                <div class="col-md-4">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.SubDivCode, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.SubDivCode, null, "subdivcode", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.BlockNumber, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.BlockNumber, null, "blocknumber", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.LotNumber, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.LotNumber, null, "lotnumber", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+            </div>
+            <div class="row" data-search-type="@((int)SearchByType.Map)">
+                <hr />
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.Twnshp, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.Twnshp, null, "twnshp", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.TwnshpDir, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.TwnshpDir, null, "twnshpdir", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.Range, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.Range, null, "range", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.RangDir, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.RangDir, null, "rangdir", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.Sctn, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.Sctn, null, "sctn", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.QtrSctn, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.QtrSctn, null, "qtrsctn", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.SpecIntAlph, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.SpecIntAlph, null, "specintalph", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.SpecIntNmbr, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.SpecIntNmbr, null, "specintnmbr", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.Prcl, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.Prcl, null, "prcl", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+            </div>
+            <div class="row" data-search-type="@((int)SearchByType.XNumberOrMobileHomeId)">
+                <hr />
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.MobileHomeId, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.MobileHomeId, null, "mobilehomeid", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.XNmbr, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.XNmbr, null, "xnmbr", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+            </div>
+            <div class="row" data-search-type="@((int)SearchByType.MobileHomeManufacturerOrMobileSerial)">
+                <hr />
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.MobHomeMnfr, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.MobHomeMnfr, null, "mobhomemnfr", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.MHSerial, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => filterViewModel.MHSerial, null, "mhserial", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+            </div>
+            <div class="row" data-search-type="@((int)SearchByType.PropertyClass)">
+                <hr />
+                <div class="col-md-12">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.PropertyClass, htmlAttributes: new { @class = "control-label" })
+                        @*@Html.EditorFor(model => filterViewModel.PropertyClass, null, "propertyclass", new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.DropDownListFor(model => filterViewModel.PropertyClass, (IEnumerable<SelectListItem>)ViewBag.PropertyClasses, "--Please Select--",
+                            new { @class = "form-control", Name = "propertyclass" })
+                    </div>
+                </div>
+            </div>
+            <div class="row" data-search-type="@((int)SearchByType.CodeArea)">
+                <hr />
+                <div class="col-md-12">
+                    <div class="form-group">
+                        @Html.LabelFor(model => filterViewModel.CodeArea, htmlAttributes: new { @class = "control-label" })
+                        @*@Html.EditorFor(model => filterViewModel.CodeArea, null, "codearea", new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.DropDownListFor(model => filterViewModel.CodeArea, (IEnumerable<SelectListItem>)ViewBag.CodeAreas, "--Please Select--",
+                            new { @class = "form-control", Name = "codearea" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group pull-right">
+                <input type="submit" value="Filter" class="btn btn-success" />
+                <input type="button" value="Clear" class="btn btn-default" id="btnReset" />
+            </div>
+        }
+    </div>
+</div>
+@if (displayResults)
+{
+    Html.RenderPartial("_SearchBy" + searchByType.ToString(), Model);
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @*@Scripts.Render("~/bundles/jQueryPlugins")*@
+
+    <script>
+        $(function () {
+            $('.search-filter').change(function () {
+                $('.row[data-search-type]').hide(); // hide all groups
+                $('.row[data-search-type="' + $(this).val() + '"]').show(); // then show only the required one.
+                // then clear controls of hidden groups.
+                $(':input:hidden', 'form')
+                    .not(':button, :submit, :reset')
+                    .val('')
+                    .removeAttr('checked')
+                    .removeAttr('selected');
+            });
+
+            $('.search-filter').trigger('change');
+
+            $('#btnReset').click(function () {
+                $('input[type="text"]', 'div.row[data-search-type]').val('');
+                $('input[type="number"]', 'div.row[data-search-type]').val('');
+                $('select', 'div.row[data-search-type]').val('');
+                $('#accountnumber').val('');
+            });
+        });
+    </script>
+}

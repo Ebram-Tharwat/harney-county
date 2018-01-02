@@ -185,6 +185,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AssessmentController.cs" />
     <Compile Include="Controllers\AuditController.cs" />
     <Compile Include="Controllers\AuditDailyMasterController.cs" />
     <Compile Include="Controllers\AuditEditDailyTransactionController.cs" />
@@ -324,7 +325,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Assessment\Index.cshtml" />
     <Content Include="Views\Shared\_SearchByOwnerName.cshtml" />
     <Content Include="Views\Shared\_SearchBySitus.cshtml" />
     <Content Include="Views\Shared\_SearchBySubBlockLot.cshtml" />
@@ -333,10 +334,10 @@
     <Content Include="Views\Shared\_SearchByPropertyClass.cshtml" />
     <Content Include="Views\Shared\_SearchByCodeArea.cshtml" />
     <Content Include="Views\Shared\_SearchByMap.cshtml" />
-    <Content Include="Views\Home\RealProperty.cshtml" />
-    <Content Include="Views\Home\UtilityProperty.cshtml" />
-    <Content Include="Views\Home\MobileHomeProperty.cshtml" />
-    <Content Include="Views\Home\PersonalProperty.cshtml" />
+    <Content Include="Views\Assessment\RealProperty.cshtml" />
+    <Content Include="Views\Assessment\UtilityProperty.cshtml" />
+    <Content Include="Views\Assessment\MobileHomeProperty.cshtml" />
+    <Content Include="Views\Assessment\PersonalProperty.cshtml" />
     <Content Include="Views\Audit\Index.cshtml" />
     <Content Include="Views\Audit\CreateFiscalYear.cshtml" />
     <Content Include="Views\Audit\EditFiscalYear.cshtml" />
@@ -350,17 +351,17 @@
     <Content Include="Views\AuditEditDailyTransaction\Index.cshtml" />
     <Content Include="Views\Shared\_InsertDailyDetail.cshtml" />
     <Content Include="Views\Shared\_InsertDailyMaster.cshtml" />
-    <Content Include="Views\Home\LandAssessment\_LandAssessmentsListing.cshtml" />
-    <Content Include="Views\Home\_Improvements.cshtml" />
-    <Content Include="Views\Home\_Comments.cshtml" />
-    <Content Include="Views\Home\_Legals.cshtml" />
-    <Content Include="Views\Home\_Flags.cshtml" />
-    <Content Include="Views\Home\LandAssessment\_LandAssessmentHeader.cshtml" />
-    <Content Include="Views\Home\LandAssessment\_MarketLandAssessments.cshtml" />
-    <Content Include="Views\Home\LandAssessment\_SpecialLandAssessments.cshtml" />
-    <Content Include="Views\Home\LandAssessment\_MsavLandAssessments.cshtml" />
-    <Content Include="Views\Home\_OwnershipHistory.cshtml" />
-    <Content Include="Views\Home\_Sales.cshtml" />
+    <Content Include="Views\Assessment\LandAssessment\_LandAssessmentsListing.cshtml" />
+    <Content Include="Views\Assessment\_Improvements.cshtml" />
+    <Content Include="Views\Assessment\_Comments.cshtml" />
+    <Content Include="Views\Assessment\_Legals.cshtml" />
+    <Content Include="Views\Assessment\_Flags.cshtml" />
+    <Content Include="Views\Assessment\LandAssessment\_LandAssessmentHeader.cshtml" />
+    <Content Include="Views\Assessment\LandAssessment\_MarketLandAssessments.cshtml" />
+    <Content Include="Views\Assessment\LandAssessment\_SpecialLandAssessments.cshtml" />
+    <Content Include="Views\Assessment\LandAssessment\_MsavLandAssessments.cshtml" />
+    <Content Include="Views\Assessment\_OwnershipHistory.cshtml" />
+    <Content Include="Views\Assessment\_Sales.cshtml" />
     <Content Include="Views\Payroll\Index.cshtml" />
     <Content Include="Views\Payroll\Details.cshtml" />
     <Content Include="Views\Payroll\_Comments.cshtml" />
@@ -376,6 +377,7 @@
     <Content Include="Views\Shared\EditorTemplates\YearDatePicker.cshtml" />
     <Content Include="Views\FiscalYearBeginningBalance\Edit.cshtml" />
     <Content Include="Views\FiscalYearBeginningBalance\Delete.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
