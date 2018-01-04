@@ -73,7 +73,7 @@ namespace HarneyCounty.Web.Controllers
                 netRollChg += item.GainsToRoll.HasValue ? item.GainsToRoll.Value : 0;
                 result.NetRollChg.Add(netRollChg.ToString());
             }
-            return View("Index", result);
+            return RedirectToAction("Index", new { id = obj.Id});
         }
 
         [HttpPost]
