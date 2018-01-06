@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace HarneyCounty.Web.Controllers
 {
+    [Authorize(Roles = "Admin,Payroll")]
     [RoutePrefix("payroll")]
     public class PayrollController : Controller
     {
