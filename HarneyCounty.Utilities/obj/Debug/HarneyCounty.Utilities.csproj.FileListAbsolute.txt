@@ -70,3 +70,5 @@ E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\N
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\AutoMapper.xml
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Common.pdb
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\Newtonsoft.Json.xml
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Utilities\bin\Debug\EPPlus.dll
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Utilities\bin\Debug\EPPlus.xml

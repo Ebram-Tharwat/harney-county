@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using HarneyCounty.Application.Core;
 using HarneyCounty.Application.Core.Interfaces;
 using HarneyCounty.Application.Core.ViewModel.Audit;
 using HarneyCounty.Domain.Core.Models;
+using System.IO;
 using System.Net;
 using System.Web.Mvc;
 
@@ -12,10 +14,14 @@ namespace HarneyCounty.Web.Controllers
     public class FiscalYearBeginningBalanceController : Controller
     {
         private readonly IFiscalYearBeginningBalanceService _fiscalYearBeginningBalanceService;
+        private readonly IExportingService _exportingService;
+        private readonly IAuditService _auditService;
 
-        public FiscalYearBeginningBalanceController(IFiscalYearBeginningBalanceService fiscalYearBeginningBalanceService)
+        public FiscalYearBeginningBalanceController(IFiscalYearBeginningBalanceService fiscalYearBeginningBalanceService, IExportingService exportingService, IAuditService auditService)
         {
             this._fiscalYearBeginningBalanceService = fiscalYearBeginningBalanceService;
+            this._exportingService = exportingService;
+            this._auditService = auditService;
         }
 
         [Route("{fiscalYearId}")]
@@ -115,6 +121,17 @@ namespace HarneyCounty.Web.Controllers
                 return Json(new { }, JsonRequestBehavior.AllowGet);
             }
             return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        [Route("export/{fiscalYearId}")]
+        public FileResult ExportBeginingBalancesTemplate(int fiscalYearId)
+        {
+            var fiscalYear = _auditService.GetAuditFiscalYear(fiscalYearId);
+            MemoryStream stream = _exportingService.GetBeginingBalancesTemplate(fiscalYearId);
+
+            return File(stream, Constants.ExcelFilesMimeType,
+                string.Format(Constants.FiscalYearBeginingBalancesTemplateExcelFileName, fiscalYear.FiscalYear));
         }
     }
 }

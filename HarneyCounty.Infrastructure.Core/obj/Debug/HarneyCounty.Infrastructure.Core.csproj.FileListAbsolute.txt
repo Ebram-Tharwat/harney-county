@@ -37,3 +37,5 @@ E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\b
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\bin\Debug\EPPlus.dll
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\bin\Debug\EPPlus.xml
