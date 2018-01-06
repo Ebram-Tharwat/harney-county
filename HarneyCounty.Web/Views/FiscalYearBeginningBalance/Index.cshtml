@@ -8,6 +8,12 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
+    @if (Model.Any())
+    {
+        <div class="row">
+            <a class="btn-success btn pull-right" target="_blank" href="@Url.Action("ExportBeginingBalancesTemplate", "FiscalYearBeginningBalance")">Export To Excel</a>
+        </div>
+    }
 </p>
 <table class="table">
     <tr>
@@ -54,9 +60,18 @@
                 @Html.DisplayFor(modelItem => item.YtdBalance)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |                
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
             </td>
         </tr>
     }
+    <tr class="bold">
+        <td></td>
+        <td>@Model.Sum(t => t.BeginningBalance)</td>
+        <td>@Model.Sum(t => t.YtdCollections)</td>
+        <td>@Model.Sum(t => t.YtdLosses)</td>
+        <td>@Model.Sum(t => t.YtdGains)</td>
+        <td>@Model.Sum(t => t.YtdBalance)</td>
+        <td></td>
+    </tr>
 </table>

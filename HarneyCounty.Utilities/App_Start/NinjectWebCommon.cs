@@ -116,6 +116,12 @@ namespace HarneyCounty.Utilities.App_Start
             kernel.Bind<IAuditService>().To<AuditService>();
 
             #endregion Audit
+
+            #region Common
+
+            kernel.Bind<IExportingService>().To<ExcelExportingService>();
+
+            #endregion Common
         }
     }
 }

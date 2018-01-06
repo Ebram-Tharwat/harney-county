@@ -58,11 +58,13 @@
     <Compile Include="Contracts\Paging\PagingInfo.cs" />
     <Compile Include="Contracts\SearchByType.cs" />
     <Compile Include="Contracts\SearchCriteria.cs" />
+    <Compile Include="Enums\ReportType.cs" />
     <Compile Include="Interfaces\IAccountMasterService.cs" />
     <Compile Include="Interfaces\ICodeAreaService.cs" />
     <Compile Include="Interfaces\IDeductionHistoryService.cs" />
     <Compile Include="Interfaces\IEmployeeMasterService.cs" />
     <Compile Include="Interfaces\IEmployeePayHrsHistoryService.cs" />
+    <Compile Include="Interfaces\IExportingService.cs" />
     <Compile Include="Interfaces\IFiscalYearBeginningBalanceService.cs" />
     <Compile Include="Interfaces\IPropertyClassService.cs" />
     <Compile Include="Interfaces\IAuditService.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="Services\DeductionHistoryService.cs" />
     <Compile Include="Services\EmployeeMasterService.cs" />
     <Compile Include="Services\EmployeePayHrsHistoryService.cs" />
+    <Compile Include="Services\ExcelExportingService.cs" />
     <Compile Include="Services\FiscalYearBeginningBalanceService.cs" />
     <Compile Include="Services\PropertyClassService.cs" />
     <Compile Include="Services\AuditService.cs" />
