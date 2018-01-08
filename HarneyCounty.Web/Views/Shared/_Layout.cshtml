@@ -23,11 +23,26 @@
                 @Html.ActionLink("Harney County", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Assessment Module", "Index", "Assessment")</li>
-                    <li>@Html.ActionLink("Audit Module", "Index", "Audit")</li>
-                    <li>@Html.ActionLink("Payroll Module", "Index", "Payroll")</li>
-                </ul>
+                    <ul class="nav navbar-nav">
+                        @if (User.IsInRole("Admin") || User.IsInRole("Assessment"))
+                        {
+                        <li>@Html.ActionLink("Assessment Module", "Index", "Assessment")</li>
+                        }
+                        @if (User.IsInRole("Admin") || User.IsInRole("Audit"))
+                        {
+                        <li>@Html.ActionLink("Audit Module", "Index", "Audit")</li>
+                        }
+                        @if (User.IsInRole("Admin") || User.IsInRole("Payroll"))
+                        {
+                        <li>@Html.ActionLink("Payroll Module", "Index", "Payroll")</li>
+                        }
+                        @if (User.IsInRole("Admin"))
+                        {
+                        <li>@Html.ActionLink("Users", "Index", "UserAdmin")</li>
+                        }
+                    </ul>
+                 
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>

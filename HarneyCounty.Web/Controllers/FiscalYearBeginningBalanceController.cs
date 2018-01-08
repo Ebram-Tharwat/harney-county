@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace HarneyCounty.Web.Controllers
 {
+    [Authorize(Roles = "Admin,Audit")]
     [RoutePrefix("beginningbalance")]
     public class FiscalYearBeginningBalanceController : Controller
     {

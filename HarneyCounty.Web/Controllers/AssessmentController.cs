@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace HarneyCounty.Web.Controllers
 {
+    [Authorize(Roles = "Admin,Assessment")]
     public class AssessmentController : Controller
     {
         private IAccountMasterService _accountMasterService;

@@ -4,6 +4,7 @@ using System.Web.Mvc;
 
 namespace HarneyCounty.Web.Controllers
 {
+    [Authorize(Roles = "Admin,Payroll")]
     [RoutePrefix("payhistory")]
     public class PayHistoryController : Controller
     {

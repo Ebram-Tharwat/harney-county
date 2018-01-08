@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace HarneyCounty.Web.Controllers
 {
+    [Authorize(Roles = "Admin,Audit")]
     public class AuditDailyMasterController : Controller
     {
         private readonly IAuditService _auditService;

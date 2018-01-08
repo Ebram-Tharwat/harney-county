@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace HarneyCounty.Web.Controllers
 {
+    [Authorize(Roles = "Admin,Audit")]
     public class AuditEditDailyTransactionController : Controller
     {
         private readonly IAuditService _auditService;

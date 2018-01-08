@@ -4,16 +4,22 @@
 namespace HarneyCounty.Utilities.App_Start
 {
     using Domain.Core.Models;
+    using Domain.Core.ViewModel;
     using HarneyCounty.Application.Core.Interfaces;
     using HarneyCounty.Application.Core.Services;
     using HarneyCounty.Infrastructure.Core;
     using HarneyCounty.Infrastructure.Core.DAL;
     using HarneyCounty.Infrastructure.Core.Interfaces;
     using HarneyCounty.Infrastructure.Core.Repositories;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject;
     using Ninject.Web.Common;
     using System;
+    using System.Collections.Generic;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
     using System.Web;
 
     public static class NinjectWebCommon
@@ -38,6 +44,59 @@ namespace HarneyCounty.Utilities.App_Start
             bootstrapper.ShutDown();
         }
 
+        public static object CurrentDbContext
+        {
+            get
+            {
+                if (currentKernal == null)
+                {
+                    return null;
+                }
+                return currentKernal.Get(typeof(ApplicationDbContext));
+            }
+        }
+
+        private static StandardKernel currentKernal = null;
+
+        public static void InitializeMasterUser()
+        {
+            var currentDbContext = CurrentDbContext as ApplicationDbContext;
+            var UserStore = new UserStore<ApplicationUser>(currentDbContext);
+            var UserManager = new UserManager<ApplicationUser>(UserStore);
+
+            string[] systemRoles = new string[] { "Admin", "Audit", "Payroll","Assessment" };
+            List<string> names = new List<string>();
+            names.Add("Admin");
+            names.Add("Audit");
+            names.Add("Payroll");
+            names.Add("Assessment");
+
+            for (int i = 0; i < systemRoles.Count(); i++)
+            {
+                string sysRoelName = systemRoles[i];
+                IdentityRole sysRole = currentDbContext.Roles.Where(m => m.Name == sysRoelName).FirstOrDefault();
+                if (sysRole == null)
+                {
+                    sysRole = new IdentityRole(sysRoelName);
+                    currentDbContext.Roles.AddOrUpdate(sysRole);
+                    currentDbContext.SaveChanges();
+                    sysRole = currentDbContext.Roles.Where(m => m.Name == sysRoelName).FirstOrDefault();
+
+                    string userName = names[i];
+                    int deptId = i + 1;
+                    if (deptId > 5)
+                        deptId += 1;
+                    ApplicationUser defaultUsers = new ApplicationUser { UserName = userName, Email = userName + "@harneycounty.com", FullName = "Test Harney county Admin User", PhoneNumber = "054863478", LockoutEnabled = true };
+                    var result = UserManager.Create(defaultUsers, "123456");
+                    if (result.Succeeded)
+                    {
+                        var roelResult = UserManager.AddToRoles(defaultUsers.Id, sysRole.Name);
+                    }
+
+                }
+            }
+        }
+
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -51,6 +110,7 @@ namespace HarneyCounty.Utilities.App_Start
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
                 RegisterServices(kernel);
+                currentKernal = kernel;
                 return kernel;
             }
             catch
@@ -67,6 +127,7 @@ namespace HarneyCounty.Utilities.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<HarneyCountyDbContext>().ToSelf().InRequestScope();
+            kernel.Bind<ApplicationDbContext>().ToSelf().InRequestScope();
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
 
             kernel.Bind<IAccountMasterRepository>().To<AccountMasterRepository>();
