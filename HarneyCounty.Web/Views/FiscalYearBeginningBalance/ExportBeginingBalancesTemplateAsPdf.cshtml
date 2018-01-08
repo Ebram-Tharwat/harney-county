@@ -1,29 +1,10 @@
 ﻿@model IEnumerable<HarneyCounty.Application.Core.ViewModel.Audit.FiscalYearBeginningBalanceViewModel>
 
 @{
-    ViewBag.Title = "Fiscal Year Beginning Balance";
+    ViewBag.Title = "Beginning Balance of " + ViewBag.FiscalYearName;
 }
-
 <h2>Fiscal Year Beginning Balances</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-    @if (Model.Any())
-    {
-        <div class="row">
-            <div class="dropdown pull-right">
-                <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
-                    <i class="glyphicon glyphicon-download-alt"></i>&nbsp;&nbsp;Export
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="" target="_blank" href="@Url.Action("ExportBeginingBalancesTemplateAsExcel", "FiscalYearBeginningBalance")">Export To Excel</a></li>
-                    <li><a class="" target="_blank" href="@Url.Action("ExportBeginingBalancesTemplateAsPdf", "FiscalYearBeginningBalance")">Export To PDF</a></li>
-                </ul>
-            </div>
-        </div>
-    }
-</p>
 <table class="table">
     <tr>
         <th>
@@ -44,7 +25,6 @@
         <th>
             @Html.DisplayNameFor(model => model.YtdBalance)
         </th>
-        <th></th>
     </tr>
 
     @foreach (var item in Model)
@@ -67,10 +47,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.YtdBalance)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
             </td>
         </tr>
     }
