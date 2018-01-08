@@ -27,3 +27,12 @@ E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\bin\Debug
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\bin\Debug\Microsoft.Owin.xml
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Domain.Core\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Domain.Core\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Domain.Core\bin\Debug\Microsoft.Owin.dll
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Domain.Core\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Domain.Core\bin\Debug\Owin.dll
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Domain.Core\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Domain.Core\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Domain.Core\bin\Debug\Microsoft.Owin.xml
+D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Domain.Core\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
