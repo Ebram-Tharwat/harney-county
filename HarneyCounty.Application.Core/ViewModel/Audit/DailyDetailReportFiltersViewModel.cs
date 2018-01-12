@@ -10,11 +10,11 @@ namespace HarneyCounty.Application.Core.ViewModel.Audit
 
         [Display(Name = "Tax year from")]
         [UIHint("YearDatePicker")]
-        public DateTime? TaxYearFrom { get; set; }
+        public int? TaxYearFrom { get; set; }
 
         [Display(Name = "Tax year through")]
         [UIHint("YearDatePicker")]
-        public DateTime? TaxYearTo { get; set; }
+        public int? TaxYearTo { get; set; }
 
         [Display(Name = "Entry date from")]
         [UIHint("DatePicker")]

@@ -118,15 +118,8 @@ namespace HarneyCounty.Web.Controllers
                 Text = item.FiscalYear.ToString()
             });
 
-            if (TryValidateModel(filter) && filter.FiscalYearId > 0)
-            {
-                viewmodel = _auditService.GetDailyDetailReport(filter);
-                ViewBag.DisplayResults = true;
-            }
-            else
-            {
-                ViewBag.DisplayResults = false;
-            }
+            viewmodel = _auditService.GetDailyDetailReport(filter);
+            ViewBag.DisplayResults = true;
             return View(viewmodel);
         }
 

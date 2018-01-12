@@ -168,7 +168,7 @@ namespace HarneyCounty.Application.Core.Services
         {
             var report = new List<DailyDetailReportGroupedByTaxYearViewModel>();
             var dailyDetailData = _auditDailyDetailRepository.GetByFiscalYearId(filter.FiscalYearId
-                , filter.TaxYearFrom?.Year, filter.TaxYearTo?.Year
+                , filter.TaxYearFrom, filter.TaxYearTo
                 , filter.EntryDateFrom, filter.EntryDateTo);
 
             var dailyDetailReportItems = Mapper.Map<List<AuditDailyDetail>, List<DailyDetailReportItemViewModel>>(dailyDetailData);
