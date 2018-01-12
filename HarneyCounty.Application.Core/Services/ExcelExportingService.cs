@@ -33,9 +33,59 @@ namespace HarneyCounty.Application.Core.Services
             return stream;
         }
 
+        public MemoryStream GetDailyDetailTemplate(int fiscalYearId)
+        {
+            string excelTemplate = GetExcelTemplate(ReportType.DailyDetail);
+            var templateFile = new FileInfo(excelTemplate);
+            ExcelPackage package = new ExcelPackage(templateFile, true);
+
+            var fiscalYear = _auditService.GetAuditFiscalYear(fiscalYearId);
+            //GenerateBeginingBalancesReportExcel(package, _auditService.GetAllDailyDetailByFiscalYearIdAndYear(fiscalYearId), fiscalYear.FiscalYear.ToString());
+
+            var stream = new MemoryStream(package.GetAsByteArray());
+            return stream;
+        }
+
         #region Audit
 
         private void GenerateBeginingBalancesReportExcel(ExcelPackage excelPackage, List<FiscalYearBeginningBalanceViewModel> reportData, string fiscalYearName)
+        {
+            var dataSheet = excelPackage.Workbook.Worksheets[1];
+            dataSheet.Name = fiscalYearName;
+            var sheetStartingIndex = 2;
+            var rowIndex = sheetStartingIndex; // starting index of each sheet.
+            foreach (var item in reportData)
+            {
+                dataSheet.Cells["A" + rowIndex].Value = item.Year;
+                dataSheet.Cells["B" + rowIndex].Value = item.BeginningBalance;
+                dataSheet.Cells["C" + rowIndex].Value = item.YtdCollections;
+                dataSheet.Cells["D" + rowIndex].Value = item.YtdLosses;
+                dataSheet.Cells["E" + rowIndex].Value = item.YtdGains;
+                dataSheet.Cells["F" + rowIndex].Value = item.YtdBalance;
+                rowIndex++;
+            }
+
+            if (reportData.Any())
+            {
+                // add totals column
+                dataSheet.Cells[$"A{rowIndex}:F{rowIndex}"].Style.Font.Bold = true;
+                dataSheet.Cells["A" + rowIndex].Value = "Total";
+                dataSheet.Cells["B" + rowIndex].Formula = $"=SUM(${dataSheet.Cells["B" + sheetStartingIndex].Address}"
+                            + $":${dataSheet.Cells["B" + ((reportData.Count - 1) + sheetStartingIndex)].Address})";
+                dataSheet.Cells["C" + rowIndex].Formula = $"=SUM(${dataSheet.Cells["C" + sheetStartingIndex].Address}"
+                            + $":${dataSheet.Cells["C" + ((reportData.Count - 1) + sheetStartingIndex)].Address})";
+                dataSheet.Cells["D" + rowIndex].Formula = $"=SUM(${dataSheet.Cells["D" + sheetStartingIndex].Address}"
+                            + $":${dataSheet.Cells["D" + ((reportData.Count - 1) + sheetStartingIndex)].Address})";
+                dataSheet.Cells["E" + rowIndex].Formula = $"=SUM(${dataSheet.Cells["E" + sheetStartingIndex].Address}"
+                            + $":${dataSheet.Cells["E" + ((reportData.Count - 1) + sheetStartingIndex)].Address})";
+                dataSheet.Cells["F" + rowIndex].Formula = $"=SUM(${dataSheet.Cells["F" + sheetStartingIndex].Address}"
+                            + $":${dataSheet.Cells["F" + ((reportData.Count - 1) + sheetStartingIndex)].Address})";
+            }
+
+            dataSheet.Cells.AutoFitColumns();
+        }
+
+        private void GenerateDailyDetailReportExcel(ExcelPackage excelPackage, List<FiscalYearBeginningBalanceViewModel> reportData, string fiscalYearName)
         {
             var dataSheet = excelPackage.Workbook.Worksheets[1];
             dataSheet.Name = fiscalYearName;
@@ -84,6 +134,9 @@ namespace HarneyCounty.Application.Core.Services
             {
                 case ReportType.BeginingBalances:
                     templatePath = System.AppDomain.CurrentDomain.BaseDirectory + "Content\\ExcelTemplates\\BeginingBalancesTemplate.xlsx";
+                    break;
+                case ReportType.DailyDetail:
+                    templatePath = System.AppDomain.CurrentDomain.BaseDirectory + "Content\\ExcelTemplates\\DailyDetailTemplate.xlsx";
                     break;
 
                 default:

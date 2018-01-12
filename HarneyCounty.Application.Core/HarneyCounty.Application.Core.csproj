@@ -80,7 +80,11 @@
     <Compile Include="Services\AuditService.cs" />
     <Compile Include="ViewModel\AccountLegalCommentViewModel.cs" />
     <Compile Include="ViewModel\AccountMasterDetailsViewModel.cs" />
+    <Compile Include="ViewModel\Audit\AuditDailyDetailViewModel.cs" />
     <Compile Include="ViewModel\Audit\AuditFiscalYearViewModel.cs" />
+    <Compile Include="ViewModel\Audit\DailyDetailReportFiltersViewModel.cs" />
+    <Compile Include="ViewModel\Audit\DailyDetailReportGroupedByTaxYearViewModel.cs" />
+    <Compile Include="ViewModel\Audit\DailyDetailReportItemViewModel.cs" />
     <Compile Include="ViewModel\Audit\FiscalYearBeginningBalanceViewModel.cs" />
     <Compile Include="ViewModel\Payroll\DeductionDetailsViewModel.cs" />
     <Compile Include="ViewModel\Payroll\EmployeeMasterCommentViewModel.cs" />

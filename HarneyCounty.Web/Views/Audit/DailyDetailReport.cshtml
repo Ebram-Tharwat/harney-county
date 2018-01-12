@@ -1,0 +1,116 @@
+﻿@using HarneyCounty.Application.Core.ViewModel.Audit
+@model IEnumerable<DailyDetailReportGroupedByTaxYearViewModel>
+
+@{
+    ViewBag.Title = "DailyDetailReport";
+    var filterViewModel = ViewBag.FilterViewModel as DailyDetailReportFiltersViewModel;
+    var displayResults = (bool)ViewBag.DisplayResults;
+}
+
+<h2>Daily Detail Report</h2>
+<p>
+    @using (Html.BeginForm("DailyDetailReport", "Audit", FormMethod.Post))
+    {
+        <div class="form-horizontal">
+            <hr />
+            <div class="form-group">
+                @Html.LabelFor(model => filterViewModel.FiscalYearId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => filterViewModel.FiscalYearId, (IEnumerable<SelectListItem>)ViewBag.FiscalYears, "--Please Select--",
+                            new { @class = "form-control", Name = "fiscalyearid" })
+                    @Html.ValidationMessageFor(model => filterViewModel.FiscalYearId, "", new { @class = "text-danger", data_valmsg_for = "fiscalyearid" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => filterViewModel.TaxYearFrom, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => filterViewModel.TaxYearFrom, null, "taxyearfrom", new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => filterViewModel.TaxYearTo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => filterViewModel.TaxYearTo, null, "taxyearto", new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => filterViewModel.EntryDateFrom, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => filterViewModel.EntryDateFrom, null, "entrydatefrom", new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => filterViewModel.EntryDateTo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => filterViewModel.EntryDateTo, null, "entrydateto", new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="form-group pull-right">
+                        <input type="submit" value="Filter" class="btn btn-success" />
+                        <input type="button" value="Clear" class="btn btn-default" id="btnReset" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</p>
+@if (displayResults)
+{
+    <hr />
+    <h3>
+        Results:
+    </h3>
+
+    if (Model.Any())
+    {
+        @*using (Html.BeginForm("ExportServerSalariesMonthlyReportToExcel", "Reports"))
+            {
+                @Html.HiddenFor(model => filterViewModel.Date, new { Name = "date" })
+                @Html.AntiForgeryToken()
+
+                <button type="submit" class="btn btn-labeled btn-success pull-right">
+                    <span><i class="glyphicon glyphicon-download-alt"></i></span> Export To Excel
+                </button>
+            }*@
+    Html.RenderPartial("_DailyDetailReportListing", Model);
+    }
+    else
+    {
+        <h4>
+            <span class="label label-info">No data match the search criteria!</span>
+        </h4>
+    }
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jQueryPlugins")
+
+    <script type="text/javascript">
+        $(function () {
+            $('.year-datepicker').parent('.input-group.date').datetimepicker({
+                viewMode: 'years',
+                format: 'YYYY',
+                showTodayButton: true,
+                ignoreReadonly: true,
+                showClear: true,
+                useCurrent: false,
+            });
+
+            $('.date-datepicker').parent('.input-group.date').datetimepicker({
+                format: 'MM/DD/YYYY',
+                showTodayButton: true,
+                ignoreReadonly: true,
+                showClear: true,
+                useCurrent: false,
+            });
+        });
+    </script>
+}

@@ -84,6 +84,13 @@ namespace HarneyCounty.Web.App_Start
                 cfg.CreateMap<AuditFiscalYear, AuditFiscalYearViewModel>()
                 .ReverseMap();
 
+                cfg.CreateMap<AuditDailyDetail, AuditDailyDetailViewModel>()
+                ;
+
+                cfg.CreateMap<AuditDailyDetail, DailyDetailReportItemViewModel>()
+                .ForMember(dest => dest.EntryDate, opt => opt.MapFrom(src => src.DailyMaster.EntryDate));
+                ;
+
                 #endregion Audit
             });
         }

@@ -1,4 +1,5 @@
-﻿using HarneyCounty.Domain.Core.Models;
+﻿using HarneyCounty.Application.Core.ViewModel.Audit;
+using HarneyCounty.Domain.Core.Models;
 using System.Collections.Generic;
 
 namespace HarneyCounty.Application.Core.Interfaces
@@ -25,6 +26,8 @@ namespace HarneyCounty.Application.Core.Interfaces
 
         AuditDailyDetail GetDailyDetailById(int id);
 
+        List<AuditDailyDetailViewModel> GetAllDailyDetailByFiscalYearId(int fiscalYearId, int? dailyDetailyear = null);
+
         void SaveAuditTurnOverSequence(AuditTurnoverSequence auditTurnOverSequence);
 
         AuditTurnoverSequence GetAuditTurnOverSequence(int id);
@@ -38,5 +41,7 @@ namespace HarneyCounty.Application.Core.Interfaces
         void SaveDailyMaster(DailyMaster dailyMaster);
 
         void SaveDailyDetail(AuditDailyDetail dailyDetail);
+
+        List<DailyDetailReportGroupedByTaxYearViewModel> GetDailyDetailReport(DailyDetailReportFiltersViewModel filter);
     }
 }

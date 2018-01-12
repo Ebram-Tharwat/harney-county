@@ -28,6 +28,10 @@ textarea {
     text-transform: uppercase;
 }
 
+div.dropdown {
+    display: inline-block;
+}
+
 /*Herlpers*/
 .no-pad-horizontal {
     padding-left: 0;
@@ -40,6 +44,10 @@ textarea {
 
 .bold {
     font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
 }
 
 .gi-2x {

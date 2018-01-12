@@ -1,0 +1,147 @@
+﻿@using HarneyCounty.Application.Core.ViewModel.Audit
+@model IEnumerable<DailyDetailReportGroupedByTaxYearViewModel>
+
+@foreach (var group in Model)
+{
+    <h4 class="italic">Tax Year: <mark>@group.TaxYear</mark></h4>
+
+    <table class="table table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.First().EntryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.First().CurrRcpts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.First().Penalities)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.First().RefundsNsf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.First().NetRcpts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.First().C12PercentageInterest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.First().C16PercentageInterest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.First().Discount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.First().NetTaxCr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.First().BalanceForward)
+            </th>
+        </tr>
+        @foreach (var item in group.Items)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntryDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.CurrRcpts)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Penalities)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.RefundsNsf)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.NetRcpts)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.C12PercentageInterest)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.C16PercentageInterest)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Discount)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.NetTaxCr)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.BalanceForward)
+                </td>
+            </tr>
+        }
+
+        @*Total row*@
+        <tr>
+            <td class="bold">Total</td>
+            <td>
+                @group.Items.Sum(t => t.CurrRcpts)
+            </td>
+            <td>
+                @group.Items.Sum(t => t.Penalities)
+            </td>
+            <td>
+                @group.Items.Sum(t => t.RefundsNsf)
+            </td>
+            <td>
+                @group.Items.Sum(t => t.NetRcpts)
+            </td>
+            <td>
+                @group.Items.Sum(t => t.C12PercentageInterest)
+            </td>
+            <td>
+                @group.Items.Sum(t => t.C16PercentageInterest)
+            </td>
+            <td>
+                @group.Items.Sum(t => t.Discount)
+            </td>
+            <td>
+                @group.Items.Sum(t => t.NetTaxCr)
+            </td>
+            <td>
+                @group.Items.FirstOrDefault().BalanceForward
+            </td>
+        </tr>
+    </table>
+}
+
+@if (Model.Any())
+{
+    <h4 class="italic bold-">Totals</h4>
+
+    <table class="table table-hover">
+        <tr>
+            <td class="bold">Total</td>
+            <td>
+                @Model.Sum(group => group.Items.Sum(item => item.CurrRcpts))
+            </td>
+            <td>
+                @Model.Sum(group => group.Items.Sum(item => item.Penalities))
+            </td>
+            <td>
+                @Model.Sum(group => group.Items.Sum(item => item.RefundsNsf))
+            </td>
+            <td>
+                @Model.Sum(group => group.Items.Sum(item => item.NetRcpts))
+            </td>
+            <td>
+                @Model.Sum(group => group.Items.Sum(item => item.C12PercentageInterest))
+            </td>
+            <td>
+                @Model.Sum(group => group.Items.Sum(item => item.C16PercentageInterest))
+            </td>
+            <td>
+                @Model.Sum(group => group.Items.Sum(item => item.Discount))
+            </td>
+            <td>
+                @Model.Sum(group => group.Items.Sum(item => item.NetTaxCr))
+            </td>
+            <td>
+                @Model.Sum(group => group.Items.Sum(item => item.BalanceForward))
+            </td>
+        </tr>
+    </table>
+}

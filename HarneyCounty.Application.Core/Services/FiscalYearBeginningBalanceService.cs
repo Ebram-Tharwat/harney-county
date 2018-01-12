@@ -12,13 +12,13 @@ namespace HarneyCounty.Application.Core.Services
     public class FiscalYearBeginningBalanceService : IFiscalYearBeginningBalanceService
     {
         private readonly IFiscalYearBeginningBalanceRepository _fiscalYearBeginningBalanceRepository;
-        private readonly IAuditDailyDetailRepository _auditDailyDetailRepository;
+        private readonly IAuditService _auditService;
         private readonly IUnitOfWork _uow;
 
-        public FiscalYearBeginningBalanceService(IFiscalYearBeginningBalanceRepository fiscalYearBeginningBalanceRepository, IAuditDailyDetailRepository auditDailyDetailRepository, IUnitOfWork uow)
+        public FiscalYearBeginningBalanceService(IFiscalYearBeginningBalanceRepository fiscalYearBeginningBalanceRepository, IAuditService auditService, IUnitOfWork uow)
         {
             this._fiscalYearBeginningBalanceRepository = fiscalYearBeginningBalanceRepository;
-            this._auditDailyDetailRepository = auditDailyDetailRepository;
+            this._auditService = auditService;
             this._uow = uow;
         }
 
@@ -35,14 +35,12 @@ namespace HarneyCounty.Application.Core.Services
 
         public FiscalYearBeginningBalanceViewModel GetByFiscalYearIdAndDailyDetailYear(int fiscalYearId, int dailyDetailyear)
         {
-            var dailyDetailData = _auditDailyDetailRepository.GetByFiscalYearIdAndYear(fiscalYearId, dailyDetailyear);
+            var dailyDetailData = _auditService.GetAllDailyDetailByFiscalYearId(fiscalYearId, dailyDetailyear);
             if (dailyDetailData.Any())
             {
                 var result = new FiscalYearBeginningBalanceViewModel();
 
-                // ToDo: move this logic below to central service as it's also used in AuditEditDailyTransactionController
-                decimal netRcpts = dailyDetailData.Sum(t => (t.CurrRcpts ?? 0) - (t.StatePercentage ?? 0) - (t.Penalities ?? 0) - (t.RefundsNsf ?? 0));
-                result.YtdCollections = Math.Abs(netRcpts + dailyDetailData.Sum(t => -(t.C12PercentageInterest ?? 0) - (t.C16PercentageInterest ?? 0) + (t.Discount ?? 0)));
+                result.YtdCollections = Math.Abs(dailyDetailData.Sum(t => t.NetTaxCr));
                 result.YtdGains = dailyDetailData.Sum(t => t.GainsToRoll ?? 0);
                 result.YtdLosses = dailyDetailData.Sum(t => t.LossesToRoll ?? 0);
                 result.Year = dailyDetailyear;

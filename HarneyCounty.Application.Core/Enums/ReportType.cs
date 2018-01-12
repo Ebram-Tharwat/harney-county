@@ -2,6 +2,7 @@
 {
     public enum ReportType
     {
-        BeginingBalances = 1
+        BeginingBalances = 1,
+        DailyDetail = 2
     }
 }

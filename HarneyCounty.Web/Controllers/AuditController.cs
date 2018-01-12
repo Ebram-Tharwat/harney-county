@@ -1,35 +1,42 @@
 ﻿using HarneyCounty.Application.Core.Interfaces;
+using HarneyCounty.Application.Core.ViewModel.Audit;
 using HarneyCounty.Domain.Core.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace HarneyCounty.Web.Controllers
 {
     [Authorize(Roles = "Admin,Audit")]
+    [RoutePrefix("audit")]
     public class AuditController : Controller
     {
         private readonly IAuditService _auditService;
-        public AuditController(IAuditService auditService)
+        private readonly IExportingService _exportingService;
+
+        public AuditController(IAuditService auditService, IExportingService exportingService)
         {
-            _auditService = auditService;
+            this._auditService = auditService;
+            this._exportingService = exportingService;
         }
 
-        // GET: Audit
+        [HttpGet]
+        [Route("")]
         public ActionResult Index()
         {
             var results = _auditService.GetAllAuditFiscalYears();
             return View(results);
         }
 
+        [HttpGet]
+        [Route("edit/{id}")]
         public ActionResult EditFiscalYear(int id)
         {
-          var auditFiscalYear =  _auditService.GetAuditFiscalYear(id);
+            var auditFiscalYear = _auditService.GetAuditFiscalYear(id);
             return View(auditFiscalYear);
         }
+
         [HttpPost]
+        [Route("edit/{id}")]
         public ActionResult EditFiscalYear(AuditFiscalYear auditFiscalYear)
         {
             if (!ModelState.IsValid)
@@ -39,12 +46,17 @@ namespace HarneyCounty.Web.Controllers
             _auditService.EditFiscalYear(auditFiscalYear);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        [Route("delete/{id}")]
         public ActionResult DeleteFiscalYear(int id)
         {
             var auditFiscalYear = _auditService.GetAuditFiscalYear(id);
             return View(auditFiscalYear);
         }
+
         [HttpPost]
+        [Route("delete/{id}")]
         public ActionResult DeleteFiscalYear(AuditFiscalYear auditFiscalYear)
         {
             if (!ModelState.IsValid)
@@ -54,12 +66,15 @@ namespace HarneyCounty.Web.Controllers
             _auditService.DeleteFiscalYear(auditFiscalYear);
             return RedirectToAction("Index");
         }
+
+        [Route("create")]
         public ActionResult CreateFiscalYear()
         {
             return View();
         }
 
         [HttpPost]
+        [Route("create")]
         public ActionResult CreateFiscalYear(AuditFiscalYear auditFiscalYear)
         {
             if (!ModelState.IsValid)
@@ -69,5 +84,71 @@ namespace HarneyCounty.Web.Controllers
             _auditService.SaveFiscalYear(auditFiscalYear);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        [Route("reports/dailydetail/{fiscalYearId:int?}")]
+        public ActionResult DailyDetailReport(int? fiscalYearId)
+        {
+            var filterViewModel = new DailyDetailReportFiltersViewModel();
+            if (fiscalYearId.HasValue && fiscalYearId.Value > 0)
+            {
+                filterViewModel.FiscalYearId = fiscalYearId.Value;
+            }
+
+            ViewBag.FilterViewModel = filterViewModel;
+            ViewBag.FiscalYears = _auditService.GetAllAuditFiscalYears().Select(item => new SelectListItem()
+            {
+                Value = item.Id.ToString(),
+                Text = item.FiscalYear.ToString()
+            });
+            ViewBag.DisplayResults = false;
+
+            return View();
+        }
+
+        [HttpPost]
+        [Route("reports/dailydetail/{fiscalYearId:int?}")]
+        public ActionResult DailyDetailReport(DailyDetailReportFiltersViewModel filter)
+        {
+            var viewmodel = Enumerable.Empty<DailyDetailReportGroupedByTaxYearViewModel>();
+            ViewBag.FilterViewModel = filter;
+            ViewBag.FiscalYears = _auditService.GetAllAuditFiscalYears().Select(item => new SelectListItem()
+            {
+                Value = item.Id.ToString(),
+                Text = item.FiscalYear.ToString()
+            });
+
+            if (TryValidateModel(filter) && filter.FiscalYearId > 0)
+            {
+                viewmodel = _auditService.GetDailyDetailReport(filter);
+                ViewBag.DisplayResults = true;
+            }
+            else
+            {
+                ViewBag.DisplayResults = false;
+            }
+            return View(viewmodel);
+        }
+
+        //[HttpGet]
+        //[Route("export/excel/{fiscalYearId}")]
+        //public ActionResult ExportDailyDetailReportAsExcel(int fiscalYearId)
+        //{
+        //    var fiscalYear = _auditService.GetAuditFiscalYear(fiscalYearId);
+        //    MemoryStream stream = _exportingService.GetBeginingBalancesTemplate(fiscalYearId);
+
+        //    return File(stream, Constants.ExcelFilesMimeType,
+        //        string.Format(Constants.FiscalYearBeginingBalancesTemplateExcelFileName, fiscalYear.FiscalYear));
+        //}
+
+        //[HttpGet]
+        //[Route("export/pdf/{fiscalYearId}")]
+        //public ActionResult ExportDailyDetailReportAsPdf(int fiscalYearId)
+        //{
+        //    var fiscalYear = _auditService.GetAuditFiscalYear(fiscalYearId);
+        //    ViewBag.FiscalYearName = fiscalYear.FiscalYear;
+        //    var entities = _fiscalYearBeginningBalanceService.GetByFiscalYearId(fiscalYearId);
+        //    return new Rotativa.ViewAsPdf(entities) { FileName = $"Beginning Balance of {fiscalYear.FiscalYear}.pdf" };
+        //}
     }
 }

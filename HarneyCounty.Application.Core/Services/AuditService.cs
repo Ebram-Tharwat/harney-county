@@ -1,4 +1,6 @@
-﻿using HarneyCounty.Application.Core.Interfaces;
+﻿using AutoMapper;
+using HarneyCounty.Application.Core.Interfaces;
+using HarneyCounty.Application.Core.ViewModel.Audit;
 using HarneyCounty.Domain.Core.Models;
 using HarneyCounty.Infrastructure.Core.Interfaces;
 using System;
@@ -13,14 +15,18 @@ namespace HarneyCounty.Application.Core.Services
         private readonly IRepository<AuditTurnoverSequence> _auditTurnOverSequenceRepository;
         private readonly IRepository<DailyMaster> _dailyMasterRepository;
         private readonly IAuditDailyDetailRepository _auditDailyDetailRepository;
+        private readonly IFiscalYearBeginningBalanceRepository _fiscalYearBeginningBalanceRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public AuditService(IRepository<AuditFiscalYear> repository, IRepository<AuditTurnoverSequence> auditTurnOverSequenceRepository, IRepository<DailyMaster> dailyMasterRepository, IAuditDailyDetailRepository auditDailyDetailRepository, IUnitOfWork unitOfWork)
+        public AuditService(IRepository<AuditFiscalYear> repository, IRepository<AuditTurnoverSequence> auditTurnOverSequenceRepository
+            , IRepository<DailyMaster> dailyMasterRepository, IAuditDailyDetailRepository auditDailyDetailRepository
+            , IFiscalYearBeginningBalanceRepository fiscalYearBeginningBalanceRepository, IUnitOfWork unitOfWork)
         {
             _auditFiscalYearRepository = repository;
             _auditTurnOverSequenceRepository = auditTurnOverSequenceRepository;
             _dailyMasterRepository = dailyMasterRepository;
             _auditDailyDetailRepository = auditDailyDetailRepository;
+            _fiscalYearBeginningBalanceRepository = fiscalYearBeginningBalanceRepository;
             _unitOfWork = unitOfWork;
         }
 
@@ -51,6 +57,12 @@ namespace HarneyCounty.Application.Core.Services
         public AuditDailyDetail GetDailyDetailById(int id)
         {
             return _auditDailyDetailRepository.OneOrDefault(t => t.Id == id);
+        }
+
+        public List<AuditDailyDetailViewModel> GetAllDailyDetailByFiscalYearId(int fiscalYearId, int? dailyDetailyear = null)
+        {
+            var data = _auditDailyDetailRepository.GetByFiscalYearId(fiscalYearId, dailyDetailyear);
+            return Mapper.Map<List<AuditDailyDetail>, List<AuditDailyDetailViewModel>>(data);
         }
 
         public void SaveAuditTurnOverSequence(AuditTurnoverSequence auditTurnOverSequence)
@@ -150,6 +162,30 @@ namespace HarneyCounty.Application.Core.Services
             return _auditTurnOverSequenceRepository
                    .Get((audit) => audit.AuditFiscalYearId == id)
                    .Where(audit => audit.IsActive.HasValue && audit.IsActive.Value).ToList();
+        }
+
+        public List<DailyDetailReportGroupedByTaxYearViewModel> GetDailyDetailReport(DailyDetailReportFiltersViewModel filter)
+        {
+            var report = new List<DailyDetailReportGroupedByTaxYearViewModel>();
+            var dailyDetailData = _auditDailyDetailRepository.GetByFiscalYearId(filter.FiscalYearId
+                , filter.TaxYearFrom?.Year, filter.TaxYearTo?.Year
+                , filter.EntryDateFrom, filter.EntryDateTo);
+
+            var dailyDetailReportItems = Mapper.Map<List<AuditDailyDetail>, List<DailyDetailReportItemViewModel>>(dailyDetailData);
+
+            var beginningBalances = _fiscalYearBeginningBalanceRepository.GetAll(filter.FiscalYearId, dailyDetailData.Select(t => t.TaxYear).ToList());
+            foreach (var item in dailyDetailReportItems)
+            {
+                if (beginningBalances.Any(t => t.Year == item.TaxYear))
+                    item.BeginningBalance = beginningBalances.FirstOrDefault(t => t.Year == item.TaxYear).BeginningBalance;
+            }
+
+            dailyDetailReportItems.GroupBy(t => t.TaxYear).ToList().ForEach(group =>
+            {
+                report.Add(new DailyDetailReportGroupedByTaxYearViewModel() { TaxYear = group.Key, Items = group.ToList() });
+            });
+
+            return report;
         }
     }
 }

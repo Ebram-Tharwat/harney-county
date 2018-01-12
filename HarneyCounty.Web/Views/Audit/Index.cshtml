@@ -27,14 +27,14 @@
                 @Html.ActionLink("Edit", "EditFiscalYear", new { id = item.Id }) |
                 @*@Html.ActionLink("Details", "Details", new { id=item.Id }) |*@
                 @Html.ActionLink("Delete", "DeleteFiscalYear", new { id = item.Id }) |
-                <span class="dropdown" style="cursor:pointer;">
-                    <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                <div class="dropdown" style="cursor:pointer;">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
                         Details
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                         <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="@Url.Action("Index", "AuditTurnOverSequence",new { id = item.Id })">
+                            <a role="menuitem" tabindex="-1" href="@Url.Action("Index", "AuditTurnOverSequence", new { id = item.Id })">
                                 TurnOver Sequences
                             </a>
                         </li>
@@ -44,7 +44,18 @@
                             </a>
                         </li>
                     </ul>
-                </span>
+                </div> |
+                @Html.ActionLink("Daily Detail Report", "DailyDetailReport", new { fiscalYearId = item.Id })
+                @*<div class="dropdown">
+                    <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="">
+                        <i class="glyphicon glyphicon-download-alt"></i>&nbsp;&nbsp;Export Daily Detail
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="" target="_blank" href="@Url.Action("ExportBeginingBalancesTemplateAsExcel", "FiscalYearBeginningBalance")">Export To Excel</a></li>
+                        <li><a class="" target="_blank" href="@Url.Action("ExportBeginingBalancesTemplateAsPdf", "FiscalYearBeginningBalance")">Export To PDF</a></li>
+                    </ul>
+                </div>*@
             </td>
         </tr>
     }
