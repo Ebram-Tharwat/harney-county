@@ -30,11 +30,13 @@ namespace HarneyCounty.Domain.Core.Models
         [Column(@"TurnOverDateFrom", Order = 2, TypeName = "date")]
         [Required]
         [Display(Name = "Turn over date from")]
+        [DataType(DataType.Date)]
         public System.DateTime TurnOverDateFrom { get; set; }
 
         [Column(@"TurnOverDateTo", Order = 3, TypeName = "date")]
         [Required]
         [Display(Name = "Turn over date to")]
+        [DataType(DataType.Date)]
         public System.DateTime TurnOverDateTo { get; set; }
 
         [Column(@"AuditFiscalYearId", Order = 4, TypeName = "int")]

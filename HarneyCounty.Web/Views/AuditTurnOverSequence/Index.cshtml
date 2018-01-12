@@ -37,13 +37,13 @@
                 @{
                     string parsedTurnOverDateFrom = item.TurnOverDateFrom.ToShortDateString();
                 }
-                @Html.DisplayFor(modelItem => parsedTurnOverDateFrom)
+                @Html.DisplayFor(modelItem => item.TurnOverDateFrom)
             </td>
             <td>
                 @{
                     string parsedTurnOverDateTo = item.TurnOverDateTo.ToShortDateString();
                 }
-                @Html.DisplayFor(modelItem => parsedTurnOverDateTo)
+                @Html.DisplayFor(modelItem => item.TurnOverDateTo)
             </td>
             <td>
                 @Html.ActionLink("Edit", "EditAuditTurnOverSequence", new { id = item.Id }) |
