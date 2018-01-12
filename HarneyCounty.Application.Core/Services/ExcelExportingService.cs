@@ -98,14 +98,15 @@ namespace HarneyCounty.Application.Core.Services
                     taxyearSheet.Cells["A" + rowIndex].Value = item.TaxYear;
                     taxyearSheet.Cells["B" + rowIndex].Value = item.EntryDate;
                     taxyearSheet.Cells["C" + rowIndex].Value = item.CurrRcpts;
-                    taxyearSheet.Cells["D" + rowIndex].Value = item.Penalities;
-                    taxyearSheet.Cells["E" + rowIndex].Value = item.RefundsNsf;
-                    taxyearSheet.Cells["F" + rowIndex].Value = item.NetRcpts;
-                    taxyearSheet.Cells["G" + rowIndex].Value = item.C12PercentageInterest;
-                    taxyearSheet.Cells["H" + rowIndex].Value = item.C16PercentageInterest;
-                    taxyearSheet.Cells["I" + rowIndex].Value = item.Discount;
-                    taxyearSheet.Cells["J" + rowIndex].Value = item.NetTaxCr;
-                    taxyearSheet.Cells["K" + rowIndex].Value = item.BalanceForward;
+                    taxyearSheet.Cells["D" + rowIndex].Value = item.StatePercentage;
+                    taxyearSheet.Cells["E" + rowIndex].Value = item.Penalities;
+                    taxyearSheet.Cells["F" + rowIndex].Value = item.RefundsNsf;
+                    taxyearSheet.Cells["G" + rowIndex].Value = item.NetRcpts;
+                    taxyearSheet.Cells["H" + rowIndex].Value = item.C12PercentageInterest;
+                    taxyearSheet.Cells["I" + rowIndex].Value = item.C16PercentageInterest;
+                    taxyearSheet.Cells["J" + rowIndex].Value = item.Discount;
+                    taxyearSheet.Cells["K" + rowIndex].Value = item.NetTaxCr;
+                    taxyearSheet.Cells["L" + rowIndex].Value = item.BalanceForward;
                     rowIndex++;
                 }
 
@@ -130,7 +131,9 @@ namespace HarneyCounty.Application.Core.Services
                                 + $":${taxyearSheet.Cells["I" + ((group.Items.Count - 1) + sheetStartingIndex)].Address})";
                     taxyearSheet.Cells["J" + rowIndex].Formula = $"=SUM(${taxyearSheet.Cells["J" + sheetStartingIndex].Address}"
                                 + $":${taxyearSheet.Cells["J" + ((group.Items.Count - 1) + sheetStartingIndex)].Address})";
-                    taxyearSheet.Cells["K" + rowIndex].Value = group.Items.FirstOrDefault().BalanceForward;
+                    taxyearSheet.Cells["K" + rowIndex].Formula = $"=SUM(${taxyearSheet.Cells["K" + sheetStartingIndex].Address}"
+                                + $":${taxyearSheet.Cells["K" + ((group.Items.Count - 1) + sheetStartingIndex)].Address})";
+                    taxyearSheet.Cells["L" + rowIndex].Value = group.Items.FirstOrDefault().BalanceForward;
                 }
 
                 taxyearSheet.Cells.AutoFitColumns();
@@ -145,14 +148,15 @@ namespace HarneyCounty.Application.Core.Services
                 totalSheet.Cells[$"A{rowIndex}:J{rowIndex}"].Style.Font.Bold = true;
                 totalSheet.Cells["A" + rowIndex].Value = "Total";
                 totalSheet.Cells["C" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.CurrRcpts));
-                totalSheet.Cells["D" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.Penalities));
-                totalSheet.Cells["E" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.RefundsNsf));
-                totalSheet.Cells["F" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.NetRcpts));
-                totalSheet.Cells["G" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.C12PercentageInterest));
-                totalSheet.Cells["H" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.C16PercentageInterest));
+                totalSheet.Cells["D" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.StatePercentage));
+                totalSheet.Cells["E" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.Penalities));
+                totalSheet.Cells["F" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.RefundsNsf));
+                totalSheet.Cells["G" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.NetRcpts));
+                totalSheet.Cells["H" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.C12PercentageInterest));
+                totalSheet.Cells["I" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.C16PercentageInterest));
                 totalSheet.Cells["J" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.Discount));
-                totalSheet.Cells["J" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.NetTaxCr));
-                totalSheet.Cells["K" + rowIndex].Value = reportData.Sum(group => group.Items.FirstOrDefault().BalanceForward);
+                totalSheet.Cells["K" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.NetTaxCr));
+                totalSheet.Cells["L" + rowIndex].Value = reportData.Sum(group => group.Items.FirstOrDefault().BalanceForward);
 
                 totalSheet.Cells.AutoFitColumns();
                 totalSheet.View.TabSelected = false;

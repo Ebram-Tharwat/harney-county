@@ -14,6 +14,9 @@
                 @Html.DisplayNameFor(model => model.Items.First().CurrRcpts)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Items.First().StatePercentage)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Items.First().Penalities)
             </th>
             <th>
@@ -48,6 +51,9 @@
                     @Html.DisplayFor(model => item.CurrRcpts)
                 </td>
                 <td>
+                    @Html.DisplayFor(model => item.StatePercentage)
+                </td>
+                <td>
                     @Html.DisplayFor(model => item.Penalities)
                 </td>
                 <td>
@@ -79,6 +85,9 @@
             <td class="bold">Total</td>
             <td>
                 @group.Items.Sum(t => t.CurrRcpts)
+            </td>
+            <td>
+                @group.Items.Sum(t => t.StatePercentage)
             </td>
             <td>
                 @group.Items.Sum(t => t.Penalities)
@@ -117,6 +126,9 @@
             <td class="bold">Total</td>
             <td>
                 @Model.Sum(group => group.Items.Sum(item => item.CurrRcpts))
+            </td>
+            <td>
+                @Model.Sum(group => group.Items.Sum(item => item.StatePercentage))
             </td>
             <td>
                 @Model.Sum(group => group.Items.Sum(item => item.Penalities))

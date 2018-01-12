@@ -12,7 +12,7 @@ namespace HarneyCounty.Application.Core.ViewModel.Audit
         [Display(Name = "Curr Rcpts")]
         public decimal? CurrRcpts { get; set; }
 
-        [Display(Name = "State percentage")]
+        [Display(Name = "State %")]
         public decimal? StatePercentage { get; set; }
 
         [Display(Name = "Penalities")]
