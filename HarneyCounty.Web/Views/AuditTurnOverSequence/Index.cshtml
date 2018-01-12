@@ -35,15 +35,15 @@
 
             <td>
                 @{
-                    string parsedTurnOverDateFrom = item.TurnOverDateFrom.ToShortDateString();
+                    string parsedTurnOverDateFrom = item.TurnOverDateFrom.ToString("MM/dd/yyyy");
                 }
-                @Html.DisplayFor(modelItem => item.TurnOverDateFrom)
+                @Html.DisplayFor(modelItem => parsedTurnOverDateFrom)
             </td>
             <td>
                 @{
-                    string parsedTurnOverDateTo = item.TurnOverDateTo.ToShortDateString();
+                    string parsedTurnOverDateTo = item.TurnOverDateTo.ToString("MM/dd/yyyy");
                 }
-                @Html.DisplayFor(modelItem => item.TurnOverDateTo)
+                @Html.DisplayFor(modelItem => parsedTurnOverDateTo)
             </td>
             <td>
                 @Html.ActionLink("Edit", "EditAuditTurnOverSequence", new { id = item.Id }) |
