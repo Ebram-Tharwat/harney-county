@@ -110,7 +110,7 @@
 
 @if (Model.Any())
 {
-    <h4 class="italic bold-">Totals</h4>
+    <h4 class="italic bold-">Grand Total:</h4>
 
     <table class="table table-hover">
         <tr>
@@ -140,7 +140,7 @@
                 @Model.Sum(group => group.Items.Sum(item => item.NetTaxCr))
             </td>
             <td>
-                @Model.Sum(group => group.Items.Sum(item => item.BalanceForward))
+                @Model.Sum(group => group.Items.FirstOrDefault().BalanceForward)
             </td>
         </tr>
     </table>

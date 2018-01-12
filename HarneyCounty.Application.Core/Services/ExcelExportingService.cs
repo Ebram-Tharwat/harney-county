@@ -33,14 +33,13 @@ namespace HarneyCounty.Application.Core.Services
             return stream;
         }
 
-        public MemoryStream GetDailyDetailTemplate(int fiscalYearId)
+        public MemoryStream GetDailyDetailTemplate(DailyDetailReportFiltersViewModel filter)
         {
             string excelTemplate = GetExcelTemplate(ReportType.DailyDetail);
             var templateFile = new FileInfo(excelTemplate);
             ExcelPackage package = new ExcelPackage(templateFile, true);
 
-            var fiscalYear = _auditService.GetAuditFiscalYear(fiscalYearId);
-            //GenerateBeginingBalancesReportExcel(package, _auditService.GetAllDailyDetailByFiscalYearIdAndYear(fiscalYearId), fiscalYear.FiscalYear.ToString());
+            GenerateDailyDetailReportExcel(package, _auditService.GetDailyDetailReport(filter));
 
             var stream = new MemoryStream(package.GetAsByteArray());
             return stream;
@@ -85,41 +84,81 @@ namespace HarneyCounty.Application.Core.Services
             dataSheet.Cells.AutoFitColumns();
         }
 
-        private void GenerateDailyDetailReportExcel(ExcelPackage excelPackage, List<FiscalYearBeginningBalanceViewModel> reportData, string fiscalYearName)
+        private void GenerateDailyDetailReportExcel(ExcelPackage excelPackage, List<DailyDetailReportGroupedByTaxYearViewModel> reportData)
         {
-            var dataSheet = excelPackage.Workbook.Worksheets[1];
-            dataSheet.Name = fiscalYearName;
+            //var dataSheet = excelPackage.Workbook.Worksheets[1];
             var sheetStartingIndex = 2;
             var rowIndex = sheetStartingIndex; // starting index of each sheet.
-            foreach (var item in reportData)
+            foreach (var group in reportData)
             {
-                dataSheet.Cells["A" + rowIndex].Value = item.Year;
-                dataSheet.Cells["B" + rowIndex].Value = item.BeginningBalance;
-                dataSheet.Cells["C" + rowIndex].Value = item.YtdCollections;
-                dataSheet.Cells["D" + rowIndex].Value = item.YtdLosses;
-                dataSheet.Cells["E" + rowIndex].Value = item.YtdGains;
-                dataSheet.Cells["F" + rowIndex].Value = item.YtdBalance;
-                rowIndex++;
+                var taxyearSheet = excelPackage.Workbook.Worksheets.Add(group.TaxYear.ToString(), excelPackage.Workbook.Worksheets[1]);
+                rowIndex = 2;
+                foreach (var item in group.Items)
+                {
+                    taxyearSheet.Cells["A" + rowIndex].Value = item.TaxYear;
+                    taxyearSheet.Cells["B" + rowIndex].Value = item.EntryDate;
+                    taxyearSheet.Cells["C" + rowIndex].Value = item.CurrRcpts;
+                    taxyearSheet.Cells["D" + rowIndex].Value = item.Penalities;
+                    taxyearSheet.Cells["E" + rowIndex].Value = item.RefundsNsf;
+                    taxyearSheet.Cells["F" + rowIndex].Value = item.NetRcpts;
+                    taxyearSheet.Cells["G" + rowIndex].Value = item.C12PercentageInterest;
+                    taxyearSheet.Cells["H" + rowIndex].Value = item.C16PercentageInterest;
+                    taxyearSheet.Cells["I" + rowIndex].Value = item.Discount;
+                    taxyearSheet.Cells["J" + rowIndex].Value = item.NetTaxCr;
+                    taxyearSheet.Cells["K" + rowIndex].Value = item.BalanceForward;
+                    rowIndex++;
+                }
+
+                if (group.Items.Any())
+                {
+                    // add totals column
+                    taxyearSheet.Cells[$"A{rowIndex}:J{rowIndex}"].Style.Font.Bold = true;
+                    taxyearSheet.Cells["A" + rowIndex].Value = "Total";
+                    taxyearSheet.Cells["C" + rowIndex].Formula = $"=SUM(${taxyearSheet.Cells["C" + sheetStartingIndex].Address}"
+                                + $":${taxyearSheet.Cells["C" + ((group.Items.Count - 1) + sheetStartingIndex)].Address})";
+                    taxyearSheet.Cells["D" + rowIndex].Formula = $"=SUM(${taxyearSheet.Cells["D" + sheetStartingIndex].Address}"
+                                + $":${taxyearSheet.Cells["D" + ((group.Items.Count - 1) + sheetStartingIndex)].Address})";
+                    taxyearSheet.Cells["E" + rowIndex].Formula = $"=SUM(${taxyearSheet.Cells["E" + sheetStartingIndex].Address}"
+                                + $":${taxyearSheet.Cells["E" + ((group.Items.Count - 1) + sheetStartingIndex)].Address})";
+                    taxyearSheet.Cells["F" + rowIndex].Formula = $"=SUM(${taxyearSheet.Cells["F" + sheetStartingIndex].Address}"
+                                + $":${taxyearSheet.Cells["F" + ((group.Items.Count - 1) + sheetStartingIndex)].Address})";
+                    taxyearSheet.Cells["G" + rowIndex].Formula = $"=SUM(${taxyearSheet.Cells["G" + sheetStartingIndex].Address}"
+                                + $":${taxyearSheet.Cells["G" + ((group.Items.Count - 1) + sheetStartingIndex)].Address})";
+                    taxyearSheet.Cells["H" + rowIndex].Formula = $"=SUM(${taxyearSheet.Cells["H" + sheetStartingIndex].Address}"
+                                + $":${taxyearSheet.Cells["H" + ((group.Items.Count - 1) + sheetStartingIndex)].Address})";
+                    taxyearSheet.Cells["I" + rowIndex].Formula = $"=SUM(${taxyearSheet.Cells["I" + sheetStartingIndex].Address}"
+                                + $":${taxyearSheet.Cells["I" + ((group.Items.Count - 1) + sheetStartingIndex)].Address})";
+                    taxyearSheet.Cells["J" + rowIndex].Formula = $"=SUM(${taxyearSheet.Cells["J" + sheetStartingIndex].Address}"
+                                + $":${taxyearSheet.Cells["J" + ((group.Items.Count - 1) + sheetStartingIndex)].Address})";
+                    taxyearSheet.Cells["K" + rowIndex].Value = group.Items.FirstOrDefault().BalanceForward;
+                }
+
+                taxyearSheet.Cells.AutoFitColumns();
+                taxyearSheet.View.TabSelected = false;
             }
 
+            // add grand total sheet
             if (reportData.Any())
             {
-                // add totals column
-                dataSheet.Cells[$"A{rowIndex}:F{rowIndex}"].Style.Font.Bold = true;
-                dataSheet.Cells["A" + rowIndex].Value = "Total";
-                dataSheet.Cells["B" + rowIndex].Formula = $"=SUM(${dataSheet.Cells["B" + sheetStartingIndex].Address}"
-                            + $":${dataSheet.Cells["B" + ((reportData.Count - 1) + sheetStartingIndex)].Address})";
-                dataSheet.Cells["C" + rowIndex].Formula = $"=SUM(${dataSheet.Cells["C" + sheetStartingIndex].Address}"
-                            + $":${dataSheet.Cells["C" + ((reportData.Count - 1) + sheetStartingIndex)].Address})";
-                dataSheet.Cells["D" + rowIndex].Formula = $"=SUM(${dataSheet.Cells["D" + sheetStartingIndex].Address}"
-                            + $":${dataSheet.Cells["D" + ((reportData.Count - 1) + sheetStartingIndex)].Address})";
-                dataSheet.Cells["E" + rowIndex].Formula = $"=SUM(${dataSheet.Cells["E" + sheetStartingIndex].Address}"
-                            + $":${dataSheet.Cells["E" + ((reportData.Count - 1) + sheetStartingIndex)].Address})";
-                dataSheet.Cells["F" + rowIndex].Formula = $"=SUM(${dataSheet.Cells["F" + sheetStartingIndex].Address}"
-                            + $":${dataSheet.Cells["F" + ((reportData.Count - 1) + sheetStartingIndex)].Address})";
+                var totalSheet = excelPackage.Workbook.Worksheets.Add("Grand Total", excelPackage.Workbook.Worksheets[1]);
+                rowIndex = 2;
+                totalSheet.Cells[$"A{rowIndex}:J{rowIndex}"].Style.Font.Bold = true;
+                totalSheet.Cells["A" + rowIndex].Value = "Total";
+                totalSheet.Cells["C" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.CurrRcpts));
+                totalSheet.Cells["D" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.Penalities));
+                totalSheet.Cells["E" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.RefundsNsf));
+                totalSheet.Cells["F" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.NetRcpts));
+                totalSheet.Cells["G" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.C12PercentageInterest));
+                totalSheet.Cells["H" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.C16PercentageInterest));
+                totalSheet.Cells["J" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.Discount));
+                totalSheet.Cells["J" + rowIndex].Value = reportData.Sum(group => group.Items.Sum(item => item.NetTaxCr));
+                totalSheet.Cells["K" + rowIndex].Value = reportData.Sum(group => group.Items.FirstOrDefault().BalanceForward);
+
+                totalSheet.Cells.AutoFitColumns();
+                totalSheet.View.TabSelected = false;
             }
 
-            dataSheet.Cells.AutoFitColumns();
+            excelPackage.Workbook.Worksheets.Delete(1);
         }
 
         #endregion Audit
@@ -135,6 +174,7 @@ namespace HarneyCounty.Application.Core.Services
                 case ReportType.BeginingBalances:
                     templatePath = System.AppDomain.CurrentDomain.BaseDirectory + "Content\\ExcelTemplates\\BeginingBalancesTemplate.xlsx";
                     break;
+
                 case ReportType.DailyDetail:
                     templatePath = System.AppDomain.CurrentDomain.BaseDirectory + "Content\\ExcelTemplates\\DailyDetailTemplate.xlsx";
                     break;

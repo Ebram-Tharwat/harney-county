@@ -78,7 +78,7 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li>@*<a class="export" target="_blank" href="@Url.Action("ExportDailyDetailReportAsExcel", "Audit")?@filterViewModel.GetQueryString()">Export To Excel</a>*@</li>
+                    <li><a class="export" target="_blank" href="@Url.Action("ExportDailyDetailReportAsExcel", "Audit")?@filterViewModel.GetQueryString()">Export To Excel</a></li>
                     <li><a class="export" target="_blank" href="@Url.Action("ExportDailyDetailReportAsPdf", "Audit")?@filterViewModel.GetQueryString()">Export To PDF</a></li>
                 </ul>
             </div>
@@ -116,10 +116,10 @@
                 useCurrent: false,
             });
 
-            $('.payhistoryfilterviewmodel').parents('form:first').submit(function () {
-                var query = $.param($(this).serializeArray());
-                window.location.href = window.location.pathname + '?' + query + window.location.hash;
-                return false;
+            $('#btnReset').click(function () {
+                $('input[type="text"]', $(this).parents('form:first')).val('');
+                $('input[type="number"]', $(this).parents('form:first')).val('');
+                $('select', $(this).parents('form:first')).val('');
             });
         });
     </script>

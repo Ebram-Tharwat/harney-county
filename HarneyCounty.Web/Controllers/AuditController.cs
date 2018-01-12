@@ -1,6 +1,8 @@
-﻿using HarneyCounty.Application.Core.Interfaces;
+﻿using HarneyCounty.Application.Core;
+using HarneyCounty.Application.Core.Interfaces;
 using HarneyCounty.Application.Core.ViewModel.Audit;
 using HarneyCounty.Domain.Core.Models;
+using System.IO;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -123,16 +125,16 @@ namespace HarneyCounty.Web.Controllers
             return View(viewmodel);
         }
 
-        //[HttpGet]
-        //[Route("export/excel/{fiscalYearId}")]
-        //public ActionResult ExportDailyDetailReportAsExcel(int fiscalYearId)
-        //{
-        //    var fiscalYear = _auditService.GetAuditFiscalYear(fiscalYearId);
-        //    MemoryStream stream = _exportingService.GetBeginingBalancesTemplate(fiscalYearId);
+        [HttpGet]
+        [Route("reports/dailydetail/export/excel")]
+        public ActionResult ExportDailyDetailReportAsExcel(DailyDetailReportFiltersViewModel filter)
+        {
+            var fiscalYear = _auditService.GetAuditFiscalYear(filter.FiscalYearId);
+            MemoryStream stream = _exportingService.GetDailyDetailTemplate(filter);
 
-        //    return File(stream, Constants.ExcelFilesMimeType,
-        //        string.Format(Constants.FiscalYearBeginingBalancesTemplateExcelFileName, fiscalYear.FiscalYear));
-        //}
+            return File(stream, Constants.ExcelFilesMimeType,
+                string.Format(Constants.FiscalYearDailyDetailTemplateExcelFileName, fiscalYear.FiscalYear));
+        }
 
         [HttpGet]
         [Route("reports/dailydetail/export/pdf")]

@@ -348,6 +348,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\ExcelTemplates\BeginingBalancesTemplate.xlsx" />
     <Content Include="App_Browsers\qt.browser" />
+    <Content Include="Content\ExcelTemplates\DailyDetailTemplate.xlsx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

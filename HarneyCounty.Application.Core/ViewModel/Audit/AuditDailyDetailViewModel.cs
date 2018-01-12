@@ -9,7 +9,7 @@ namespace HarneyCounty.Application.Core.ViewModel.Audit
         [Display(Name = "Tax year")]
         public int TaxYear { get; set; }
 
-        [Display(Name = "Curr rcpts")]
+        [Display(Name = "Curr Rcpts")]
         public decimal? CurrRcpts { get; set; }
 
         [Display(Name = "State percentage")]
@@ -21,10 +21,10 @@ namespace HarneyCounty.Application.Core.ViewModel.Audit
         [Display(Name = "Refunds nsf")]
         public decimal? RefundsNsf { get; set; }
 
-        [Display(Name = "12 Percentage interest")]
+        [Display(Name = "12 %")]
         public decimal? C12PercentageInterest { get; set; }
 
-        [Display(Name = "16 Percentage interest")]
+        [Display(Name = "16 %")]
         public decimal? C16PercentageInterest { get; set; }
 
         [Display(Name = "Discount")]
@@ -42,6 +42,7 @@ namespace HarneyCounty.Application.Core.ViewModel.Audit
 
         #region Computed Properties
 
+        [Display(Name = "Net Rcpts")]
         public decimal NetRcpts
         {
             get
