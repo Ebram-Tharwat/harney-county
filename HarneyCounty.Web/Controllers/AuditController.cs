@@ -134,14 +134,14 @@ namespace HarneyCounty.Web.Controllers
         //        string.Format(Constants.FiscalYearBeginingBalancesTemplateExcelFileName, fiscalYear.FiscalYear));
         //}
 
-        //[HttpGet]
-        //[Route("export/pdf/{fiscalYearId}")]
-        //public ActionResult ExportDailyDetailReportAsPdf(int fiscalYearId)
-        //{
-        //    var fiscalYear = _auditService.GetAuditFiscalYear(fiscalYearId);
-        //    ViewBag.FiscalYearName = fiscalYear.FiscalYear;
-        //    var entities = _fiscalYearBeginningBalanceService.GetByFiscalYearId(fiscalYearId);
-        //    return new Rotativa.ViewAsPdf(entities) { FileName = $"Beginning Balance of {fiscalYear.FiscalYear}.pdf" };
-        //}
+        [HttpGet]
+        [Route("reports/dailydetail/export/pdf")]
+        public ActionResult ExportDailyDetailReportAsPdf(DailyDetailReportFiltersViewModel filter)
+        {
+            var fiscalYear = _auditService.GetAuditFiscalYear(filter.FiscalYearId);
+            ViewBag.FiscalYearName = fiscalYear.FiscalYear;
+            var entities = _auditService.GetDailyDetailReport(filter);
+            return new Rotativa.ViewAsPdf(entities) { FileName = $"Daily Detail report of {fiscalYear.FiscalYear}.pdf" };
+        }
     }
 }

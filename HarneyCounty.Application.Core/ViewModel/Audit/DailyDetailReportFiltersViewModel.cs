@@ -6,6 +6,7 @@ namespace HarneyCounty.Application.Core.ViewModel.Audit
     public class DailyDetailReportFiltersViewModel
     {
         [Display(Name = "Fiscal Year")]
+        [Required]
         public int FiscalYearId { get; set; }
 
         [Display(Name = "Tax year from")]

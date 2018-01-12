@@ -1,4 +1,5 @@
 ﻿@using HarneyCounty.Application.Core.ViewModel.Audit
+@using HarneyCounty.Common.Extensions
 @model IEnumerable<DailyDetailReportGroupedByTaxYearViewModel>
 
 @{
@@ -70,16 +71,19 @@
 
     if (Model.Any())
     {
-        @*using (Html.BeginForm("ExportServerSalariesMonthlyReportToExcel", "Reports"))
-            {
-                @Html.HiddenFor(model => filterViewModel.Date, new { Name = "date" })
-                @Html.AntiForgeryToken()
-
-                <button type="submit" class="btn btn-labeled btn-success pull-right">
-                    <span><i class="glyphicon glyphicon-download-alt"></i></span> Export To Excel
+        <div class="row">
+            <div class="dropdown pull-right">
+                <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
+                    <i class="glyphicon glyphicon-download-alt"></i>&nbsp;&nbsp;Export
+                    <span class="caret"></span>
                 </button>
-            }*@
-    Html.RenderPartial("_DailyDetailReportListing", Model);
+                <ul class="dropdown-menu">
+                    <li>@*<a class="export" target="_blank" href="@Url.Action("ExportDailyDetailReportAsExcel", "Audit")?@filterViewModel.GetQueryString()">Export To Excel</a>*@</li>
+                    <li><a class="export" target="_blank" href="@Url.Action("ExportDailyDetailReportAsPdf", "Audit")?@filterViewModel.GetQueryString()">Export To PDF</a></li>
+                </ul>
+            </div>
+        </div>
+        Html.RenderPartial("_DailyDetailReportListing", Model);
     }
     else
     {
@@ -110,6 +114,12 @@
                 ignoreReadonly: true,
                 showClear: true,
                 useCurrent: false,
+            });
+
+            $('.payhistoryfilterviewmodel').parents('form:first').submit(function () {
+                var query = $.param($(this).serializeArray());
+                window.location.href = window.location.pathname + '?' + query + window.location.hash;
+                return false;
             });
         });
     </script>

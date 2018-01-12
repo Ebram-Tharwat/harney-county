@@ -1,0 +1,8 @@
+﻿@model IEnumerable<HarneyCounty.Application.Core.ViewModel.Audit.DailyDetailReportGroupedByTaxYearViewModel>
+
+@{
+    ViewBag.Title = "Daily Detail Report of " + ViewBag.FiscalYearName;
+}
+<h2>Daily Detail Report</h2>
+
+@Html.Partial("_DailyDetailReportListing", Model)

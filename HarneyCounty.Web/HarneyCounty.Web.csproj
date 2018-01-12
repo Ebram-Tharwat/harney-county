@@ -244,6 +244,7 @@
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Extensions\HtmlHelpers.cs" />
     <Compile Include="Extensions\PagedListExtensions.cs" />
+    <Compile Include="Extensions\UrlExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -449,6 +450,7 @@
     <Content Include="Views\FiscalYearBeginningBalance\ExportBeginingBalancesTemplateAsPdf.cshtml" />
     <Content Include="Views\Audit\DailyDetailReport.cshtml" />
     <Content Include="Views\Audit\_DailyDetailReportListing.cshtml" />
+    <Content Include="Views\Audit\ExportDailyDetailReportAsPdf.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
