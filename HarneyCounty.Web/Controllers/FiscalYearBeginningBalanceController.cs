@@ -128,7 +128,7 @@ namespace HarneyCounty.Web.Controllers
         public FileResult ExportBeginingBalancesTemplateAsExcel(int fiscalYearId)
         {
             var fiscalYear = _auditService.GetAuditFiscalYear(fiscalYearId);
-            MemoryStream stream = _exportingService.GetBeginingBalancesTemplate(fiscalYearId);
+            MemoryStream stream = _exportingService.GetBeginingBalancesReport(fiscalYearId);
 
             return File(stream, Constants.ExcelFilesMimeType,
                 string.Format(Constants.FiscalYearBeginingBalancesTemplateExcelFileName, fiscalYear.FiscalYear));

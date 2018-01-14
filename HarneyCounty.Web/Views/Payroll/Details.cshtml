@@ -69,6 +69,7 @@
             </div>
             <div id="filteredDeductions" class="tab-pane fade in">
                 @Html.Partial("_PayHistoryFilter")
+                @Html.Partial("_PayHistoryExport")
                 @Html.Partial("~/Views/PayHistory/_Deductions.cshtml", Model.Deductions)
             </div>
         </div>
@@ -76,9 +77,7 @@
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jQueryPlugins")
-    @Scripts.Render("~/bundles/bootstrap")
     <script type="text/javascript">
         // see: https://stackoverflow.com/a/21494906/1295905
         // this to keep track of selected tab, even after refresh.

@@ -36,7 +36,7 @@ namespace HarneyCounty.Application.Core.ViewModel.Payroll
         [Display(Name = "Emp Name")]
         public string FullName
         {
-            get { return $"{this.LastName} {this.FirstName} {this.MiddleInitial}"; }
+            get { return $"{this.LastName.Trim()} {this.FirstName.Trim()} {this.MiddleInitial.Trim()}"; }
         }
 
         public List<EmployeeMasterCommentViewModel> Comments { get; set; }

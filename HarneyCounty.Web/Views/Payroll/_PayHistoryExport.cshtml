@@ -1,0 +1,21 @@
+﻿@using HarneyCounty.Application.Core.ViewModel.Payroll
+@using HarneyCounty.Common.Extensions
+
+@model HarneyCounty.Application.Core.ViewModel.Payroll.EmployeeMasterViewModel
+
+@{
+    var filterViewModel = ViewBag.FilterViewModel as PayHistoryFilterViewModel;
+}
+
+<div class="row">
+    <div class="dropdown pull-right">
+        <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-download-alt"></i>&nbsp;&nbsp;Export
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a target="_blank" href="@Url.Action("ExportDeductionsAsExcel", "Payroll", new { id = Model.Id})?@filterViewModel.GetQueryString()">Export To Excel</a></li>
+            <li><a target="_blank" href="@Url.Action("ExportDeductionsAsPdf", "Payroll", new { id = Model.Id})?@filterViewModel.GetQueryString()">Export To PDF</a></li>
+        </ul>
+    </div>
+</div>

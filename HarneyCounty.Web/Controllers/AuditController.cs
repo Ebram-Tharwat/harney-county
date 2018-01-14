@@ -130,7 +130,7 @@ namespace HarneyCounty.Web.Controllers
         public ActionResult ExportDailyDetailReportAsExcel(DailyDetailReportFiltersViewModel filter)
         {
             var fiscalYear = _auditService.GetAuditFiscalYear(filter.FiscalYearId);
-            MemoryStream stream = _exportingService.GetDailyDetailTemplate(filter);
+            MemoryStream stream = _exportingService.GetDailyDetailReport(filter);
 
             return File(stream, Constants.ExcelFilesMimeType,
                 string.Format(Constants.FiscalYearDailyDetailTemplateExcelFileName, fiscalYear.FiscalYear));

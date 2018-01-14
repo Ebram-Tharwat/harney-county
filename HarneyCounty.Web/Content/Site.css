@@ -94,6 +94,19 @@ div.dropdown {
     padding-top: 15px;
 }
 
+/*************export as pdf fix*/
+thead {
+    display: table-header-group
+}
+
+tfoot {
+    display: table-row-group
+}
+
+tr {
+    page-break-inside: avoid
+}
+
 /********************************HOME***********************************/
 #home-cards {
     padding-top: 80px;

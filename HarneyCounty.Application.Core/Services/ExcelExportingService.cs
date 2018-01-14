@@ -1,6 +1,7 @@
 ﻿using HarneyCounty.Application.Core.Enums;
 using HarneyCounty.Application.Core.Interfaces;
 using HarneyCounty.Application.Core.ViewModel.Audit;
+using HarneyCounty.Application.Core.ViewModel.Payroll;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
@@ -13,14 +14,17 @@ namespace HarneyCounty.Application.Core.Services
     {
         private readonly IFiscalYearBeginningBalanceService _fiscalYearBeginningBalanceService;
         private readonly IAuditService _auditService;
+        private readonly IEmployeeMasterService _employeeMasterService;
 
-        public ExcelExportingService(IFiscalYearBeginningBalanceService fiscalYearBeginningBalanceService, IAuditService auditService)
+        public ExcelExportingService(IFiscalYearBeginningBalanceService fiscalYearBeginningBalanceService, IAuditService auditService
+            , IEmployeeMasterService employeeMasterService)
         {
             _fiscalYearBeginningBalanceService = fiscalYearBeginningBalanceService;
             _auditService = auditService;
+            _employeeMasterService = employeeMasterService;
         }
 
-        public MemoryStream GetBeginingBalancesTemplate(int fiscalYearId)
+        public MemoryStream GetBeginingBalancesReport(int fiscalYearId)
         {
             string excelTemplate = GetExcelTemplate(ReportType.BeginingBalances);
             var templateFile = new FileInfo(excelTemplate);
@@ -33,13 +37,25 @@ namespace HarneyCounty.Application.Core.Services
             return stream;
         }
 
-        public MemoryStream GetDailyDetailTemplate(DailyDetailReportFiltersViewModel filter)
+        public MemoryStream GetDailyDetailReport(DailyDetailReportFiltersViewModel filter)
         {
             string excelTemplate = GetExcelTemplate(ReportType.DailyDetail);
             var templateFile = new FileInfo(excelTemplate);
             ExcelPackage package = new ExcelPackage(templateFile, true);
 
             GenerateDailyDetailReportExcel(package, _auditService.GetDailyDetailReport(filter));
+
+            var stream = new MemoryStream(package.GetAsByteArray());
+            return stream;
+        }
+
+        public MemoryStream GetEmployeeDeductionsReport(PayHistoryFilterViewModel filter, int id)
+        {
+            string excelTemplate = GetExcelTemplate(ReportType.EmployeeDeductions);
+            var templateFile = new FileInfo(excelTemplate);
+            ExcelPackage package = new ExcelPackage(templateFile, true);
+
+            GenerateEmployeeDedtionsReportExcel(package, _employeeMasterService.GetById(id, filter));
 
             var stream = new MemoryStream(package.GetAsByteArray());
             return stream;
@@ -167,6 +183,44 @@ namespace HarneyCounty.Application.Core.Services
 
         #endregion Audit
 
+        #region Payroll
+
+        private void GenerateEmployeeDedtionsReportExcel(ExcelPackage excelPackage, EmployeeMasterViewModel reportData)
+        {
+            var dataSheet = excelPackage.Workbook.Worksheets[1];
+            dataSheet.Name = $"Emp # {reportData.EmployeeNumber}";
+            var sheetStartingIndex = 2;
+            var rowIndex = sheetStartingIndex; // starting index of each sheet.
+            foreach (var item in reportData.Deductions)
+            {
+                dataSheet.Cells["A" + rowIndex].Value = item.DeductionCode;
+                dataSheet.Cells["B" + rowIndex].Value = item.DeductionDesc;
+                dataSheet.Cells["C" + rowIndex].Value = item.PayPeriodEndingDate;
+                dataSheet.Cells["D" + rowIndex].Value = item.Check;
+                dataSheet.Cells["E" + rowIndex].Value = item.DirectDepositStatus;
+                dataSheet.Cells["F" + rowIndex].Value = item.EmployeeAmt;
+                dataSheet.Cells["G" + rowIndex].Value = item.EmployerAmt;
+                dataSheet.Cells["H" + rowIndex].Value = item.EmployeeAmtPickedUp;
+                rowIndex++;
+            }
+
+            if (reportData.Deductions.Any())
+            {
+                // add totals column
+                dataSheet.Cells[$"A{rowIndex}:H{rowIndex}"].Style.Font.Bold = true;
+                dataSheet.Cells["F" + rowIndex].Formula = $"=SUM(${dataSheet.Cells["F" + sheetStartingIndex].Address}"
+                            + $":${dataSheet.Cells["F" + ((reportData.Deductions.Count - 1) + sheetStartingIndex)].Address})";
+                dataSheet.Cells["G" + rowIndex].Formula = $"=SUM(${dataSheet.Cells["G" + sheetStartingIndex].Address}"
+                            + $":${dataSheet.Cells["G" + ((reportData.Deductions.Count - 1) + sheetStartingIndex)].Address})";
+                dataSheet.Cells["H" + rowIndex].Formula = $"=SUM(${dataSheet.Cells["H" + sheetStartingIndex].Address}"
+                            + $":${dataSheet.Cells["H" + ((reportData.Deductions.Count - 1) + sheetStartingIndex)].Address})";
+            }
+
+            dataSheet.Cells.AutoFitColumns();
+        }
+
+        #endregion Payroll
+
         #region Private Methods
 
         private string GetExcelTemplate(ReportType type)
@@ -181,6 +235,10 @@ namespace HarneyCounty.Application.Core.Services
 
                 case ReportType.DailyDetail:
                     templatePath = System.AppDomain.CurrentDomain.BaseDirectory + "Content\\ExcelTemplates\\DailyDetailTemplate.xlsx";
+                    break;
+
+                case ReportType.EmployeeDeductions:
+                    templatePath = System.AppDomain.CurrentDomain.BaseDirectory + "Content\\ExcelTemplates\\EmployeeDeductionsTemplate.xlsx";
                     break;
 
                 default:

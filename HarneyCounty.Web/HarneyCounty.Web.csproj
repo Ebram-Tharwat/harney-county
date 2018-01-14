@@ -349,6 +349,7 @@
     <Content Include="Content\ExcelTemplates\BeginingBalancesTemplate.xlsx" />
     <Content Include="App_Browsers\qt.browser" />
     <Content Include="Content\ExcelTemplates\DailyDetailTemplate.xlsx" />
+    <Content Include="Content\ExcelTemplates\EmployeeDeductionsTemplate.xlsx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -453,6 +454,8 @@
     <Content Include="Views\Audit\_DailyDetailReportListing.cshtml" />
     <Content Include="Views\Audit\ExportDailyDetailReportAsPdf.cshtml" />
     <Content Include="Views\Assessment\_Exceptions.cshtml" />
+    <Content Include="Views\Payroll\ExportDeductionsAsPdf.cshtml" />
+    <Content Include="Views\Payroll\_PayHistoryExport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

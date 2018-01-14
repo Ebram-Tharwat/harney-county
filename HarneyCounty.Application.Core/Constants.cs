@@ -5,6 +5,7 @@
         public const string ExcelFilesMimeType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
         public const string FiscalYearBeginingBalancesTemplateExcelFileName = "Beginning Balances of {0}.xlsx";
         public const string FiscalYearDailyDetailTemplateExcelFileName = "Daily Detail of {0}.xlsx";
+        public const string EmployeeDeductionsTemplateExcelFileName = "Deducuins for {0}.xlsx";
         public const string ShortDateFormat = "MM-dd-yyyy";
 
         public const string SpeciallyAssessedAccountFlag = "Y";

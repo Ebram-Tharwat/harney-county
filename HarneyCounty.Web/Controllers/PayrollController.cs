@@ -1,7 +1,9 @@
-﻿using HarneyCounty.Application.Core.Contracts.Paging;
+﻿using HarneyCounty.Application.Core;
+using HarneyCounty.Application.Core.Contracts.Paging;
 using HarneyCounty.Application.Core.Interfaces;
 using HarneyCounty.Application.Core.ViewModel.Payroll;
 using HarneyCounty.Web.Extensions;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -14,11 +16,13 @@ namespace HarneyCounty.Web.Controllers
     {
         private readonly IEmployeeMasterService _employeeMasterService;
         private readonly IDeductionHistoryService _deductionHistoryService;
+        private readonly IExportingService _exportingService;
 
-        public PayrollController(IEmployeeMasterService employeeMasterService, IDeductionHistoryService deductionHistoryService)
+        public PayrollController(IEmployeeMasterService employeeMasterService, IDeductionHistoryService deductionHistoryService, IExportingService exportingService)
         {
             this._employeeMasterService = employeeMasterService;
             this._deductionHistoryService = deductionHistoryService;
+            this._exportingService = exportingService;
         }
 
         [Route("")]
@@ -57,6 +61,35 @@ namespace HarneyCounty.Web.Controllers
             });
 
             return View(entity);
+        }
+
+        [Route("details/{id}/export/excel")]
+        public ActionResult ExportDeductionsAsExcel(PayHistoryFilterViewModel filter, int id)
+        {
+            var entity = _employeeMasterService.GetById(id, filter);
+            if (entity == null)
+            {
+                return HttpNotFound();
+            }
+
+            MemoryStream stream = _exportingService.GetEmployeeDeductionsReport(filter, id);
+
+            return File(stream, Constants.ExcelFilesMimeType,
+                string.Format(Constants.EmployeeDeductionsTemplateExcelFileName, entity.FullName));
+        }
+
+        [Route("details/{id}/export/pdf")]
+        public ActionResult ExportDeductionsAsPdf(PayHistoryFilterViewModel filter, int id)
+        {
+            var entity = _employeeMasterService.GetById(id, filter);
+            if (entity == null)
+            {
+                return HttpNotFound();
+            }
+
+            ViewBag.FileName = $"Deducuins for {entity.FullName}";
+
+            return new Rotativa.ViewAsPdf(entity.Deductions) { FileName = $"{ViewBag.FileName}.pdf" };
         }
     }
 }
