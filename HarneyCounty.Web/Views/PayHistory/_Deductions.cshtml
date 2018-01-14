@@ -45,15 +45,15 @@
                     </td>
                 </tr>
             }
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th>@Model.Sum(t=>t.EmployeeAmt)</th>
-                <th>@Model.Sum(t => t.EmployerAmt)</th>
-                <th>@Model.Sum(t => t.EmployeeAmtPickedUp)</th>
+            <tr class="bold italic">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>@Model.Sum(t => t.EmployeeAmt)</td>
+                <td>@Model.Sum(t => t.EmployerAmt)</td>
+                <td>@Model.Sum(t => t.EmployeeAmtPickedUp)</td>
             </tr>
         </tbody>
     </table>
