@@ -145,6 +145,8 @@ namespace HarneyCounty.Application.Core.ViewModel
 
         public List<SalesDetailsViewModel> Sales { get; set; }
 
+        public List<MasterExceptionViewModel> Exceptions { get; set; }
+
         #endregion Tabs
     }
 }

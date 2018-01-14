@@ -1,0 +1,76 @@
+﻿@model List<HarneyCounty.Application.Core.ViewModel.MasterExceptionViewModel>
+
+@if (Model.Any())
+{
+    <table class="table table-hover table-bordered">
+        <thead class="upper-case">
+            <tr>
+                <th>@Html.LabelFor(model => model[0].TypeException)</th>
+                <th>@Html.LabelFor(model => model[0].TypeExceptionName)</th>
+                <th>@Html.LabelFor(model => model[0].ExceptionYear)</th>
+                <th>@Html.LabelFor(model => model[0].ExceptionEntryDate)</th>
+                <th>@Html.LabelFor(model => model[0].ExceptionAmountRmv)</th>
+                <th>@Html.LabelFor(model => model[0].ExceptionAmountAv)</th>
+                <th>@Html.LabelFor(model => model[0].FlaggingCode)</th>
+                <th>@Html.LabelFor(model => model[0].AccruedStatus)</th>
+                <th>@Html.LabelFor(model => model[0].RolloverStatus)</th>
+                <th>@Html.LabelFor(model => model[0].YearRolledOver)</th>
+                <th>@Html.LabelFor(model => model[0].ResetStatus)</th>
+                <th>@Html.LabelFor(model => model[0].NoTrendFlag)</th>
+                <th>@Html.LabelFor(model => model[0].ExceptionComment30)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TypeException)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TypeExceptionName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExceptionYear)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExceptionEntryDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExceptionAmountRmv)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExceptionAmountAv)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlaggingCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccruedStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RolloverStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.YearRolledOver)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ResetStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NoTrendFlag)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExceptionComment30)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div>
+        <span class="label label-info label-small">No exceptions records found for the specified account at @ViewBag.Year</span>
+    </div>
+}

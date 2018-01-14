@@ -63,6 +63,8 @@ namespace HarneyCounty.Web.App_Start
 
                 cfg.CreateMap<SalesFullDetail, SalesDetailsViewModel>();
 
+                cfg.CreateMap<MasterException, MasterExceptionViewModel>();
+
                 #endregion Tabs
 
                 #region Employee

@@ -64,7 +64,7 @@ namespace HarneyCounty.Utilities.App_Start
             var UserStore = new UserStore<ApplicationUser>(currentDbContext);
             var UserManager = new UserManager<ApplicationUser>(UserStore);
 
-            string[] systemRoles = new string[] { "Admin", "Audit", "Payroll","Assessment" };
+            string[] systemRoles = new string[] { "Admin", "Audit", "Payroll", "Assessment" };
             List<string> names = new List<string>();
             names.Add("Admin");
             names.Add("Audit");
@@ -92,7 +92,6 @@ namespace HarneyCounty.Utilities.App_Start
                     {
                         var roelResult = UserManager.AddToRoles(defaultUsers.Id, sysRole.Name);
                     }
-
                 }
             }
         }
@@ -148,9 +147,9 @@ namespace HarneyCounty.Utilities.App_Start
             kernel.Bind<ILandAssessmentMsavRepository>().To<LandAssessmentMsavRepository>();
             kernel.Bind<IOwnershipHistoryRepository>().To<OwnershipHistoryRepository>();
             kernel.Bind<ISalesFullDetailsRepository>().To<SalesFullDetailsRepository>();
-
             kernel.Bind<IJournalVoucherRepository>().To<JournalVoucherRepository>();
             kernel.Bind<IPersonalPropFullDetailsRepository>().To<PersonalPropFullDetailsRepository>();
+            kernel.Bind<IMasterExceptionRepository>().To<MasterExceptionRepository>();
 
             kernel.Bind<IRepository<DailyMaster>>().To<EFRepository<DailyMaster>>();
 

@@ -35,5 +35,12 @@
             public const string Deleted = "D";
             public const string Terminated = "T";
         }
+
+        public static class ExceptionTypes
+        {
+            public const string AUTO = "A";
+            public const string ACCR = "C";
+            public const string INFO = "I";
+        }
     }
 }

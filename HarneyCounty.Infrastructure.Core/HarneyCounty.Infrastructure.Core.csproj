@@ -69,6 +69,7 @@
     <Compile Include="Interfaces\IEmployeeMasterRepository.cs" />
     <Compile Include="Interfaces\IEmployeePayHrsHistoryRepository.cs" />
     <Compile Include="Interfaces\IFiscalYearBeginningBalanceRepository.cs" />
+    <Compile Include="Interfaces\IMasterExceptionRepository.cs" />
     <Compile Include="Interfaces\IOwnershipHistoryRepository.cs" />
     <Compile Include="Interfaces\IAccountLegalCommentRepository.cs" />
     <Compile Include="Interfaces\IAccountMasterRepository.cs" />
@@ -314,6 +315,7 @@
     <Compile Include="Repositories\EmployeeMasterRepository.cs" />
     <Compile Include="Repositories\EmployeePayHrsHistoryRepository.cs" />
     <Compile Include="Repositories\FiscalYearBeginningBalanceRepository.cs" />
+    <Compile Include="Repositories\MasterExceptionRepository.cs" />
     <Compile Include="Repositories\OwnershipHistoryRepository.cs" />
     <Compile Include="Repositories\AccountLegalCommentRepository.cs" />
     <Compile Include="Repositories\AccountMasterRepository.cs" />

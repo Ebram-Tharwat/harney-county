@@ -27,12 +27,13 @@ namespace HarneyCounty.Application.Core.Services
         private readonly ILandAssessmentMsavRepository _landAssessmentMsavRepository;
         private readonly IOwnershipHistoryRepository _ownershipHistoryRepository;
         private readonly ISalesFullDetailsRepository _salesFullDetailsRepository;
+        private readonly IMasterExceptionRepository _masterExceptionRepository;
 
         public AccountMasterService(IAccountMasterRepository accountMasterRepository, IZipCodeFileRepository zipCodeFileRepository, IPropertyClassRepository propertyClassRepository
             , IJournalVoucherRepository journalVoucherRepository, IUtilityDetailRepository utilityDetailRepository, IPersonalPropFullDetailsRepository personalPropFullDetailsRepository
             , IImprovementRepository improvementRepository, ILandAssessmentRepository landAssessmentRepository, IAccountLegalCommentRepository accountLegalCommentRepository
             , IFlaggingDetailRepository flaggingDetailRepository, ILandAssessmentMsavRepository landAssessmentMsavRepository, IOwnershipHistoryRepository ownershipHistoryRepository
-            , ISalesFullDetailsRepository salesFullDetailsRepository)
+            , ISalesFullDetailsRepository salesFullDetailsRepository, IMasterExceptionRepository masterExceptionRepository)
         {
             this._accountMasterRepository = accountMasterRepository;
             this._zipCodeFileRepository = zipCodeFileRepository;
@@ -47,6 +48,7 @@ namespace HarneyCounty.Application.Core.Services
             this._landAssessmentMsavRepository = landAssessmentMsavRepository;
             this._ownershipHistoryRepository = ownershipHistoryRepository;
             this._salesFullDetailsRepository = salesFullDetailsRepository;
+            this._masterExceptionRepository = masterExceptionRepository;
         }
 
         public List<AccountMasterDetailsViewModel> SearchForAccounts(SearchCriteria searchCriteria, PagingInfo pagingInfo)
@@ -198,6 +200,9 @@ namespace HarneyCounty.Application.Core.Services
 
             var salesData = _salesFullDetailsRepository.GetSalesFullDetailsByAccountNumber(accountNumber);
             result.Sales = AutoMapper.Mapper.Map<List<SalesFullDetail>, List<SalesDetailsViewModel>>(salesData);
+
+            var exceptionsData = _masterExceptionRepository.GetExceptionsByYearAndAccountNumber(year, accountNumber);
+            result.Exceptions = AutoMapper.Mapper.Map<List<MasterException>, List<MasterExceptionViewModel>>(exceptionsData);
         }
     }
 }

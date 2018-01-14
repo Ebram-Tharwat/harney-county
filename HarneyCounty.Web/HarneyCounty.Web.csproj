@@ -452,6 +452,7 @@
     <Content Include="Views\Audit\DailyDetailReport.cshtml" />
     <Content Include="Views\Audit\_DailyDetailReportListing.cshtml" />
     <Content Include="Views\Audit\ExportDailyDetailReportAsPdf.cshtml" />
+    <Content Include="Views\Assessment\_Exceptions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

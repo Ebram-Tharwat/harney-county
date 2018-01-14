@@ -86,6 +86,7 @@
     <Compile Include="ViewModel\Audit\DailyDetailReportGroupedByTaxYearViewModel.cs" />
     <Compile Include="ViewModel\Audit\DailyDetailReportItemViewModel.cs" />
     <Compile Include="ViewModel\Audit\FiscalYearBeginningBalanceViewModel.cs" />
+    <Compile Include="ViewModel\MasterExceptionViewModel.cs" />
     <Compile Include="ViewModel\Payroll\DeductionDetailsViewModel.cs" />
     <Compile Include="ViewModel\Payroll\EmployeeMasterCommentViewModel.cs" />
     <Compile Include="ViewModel\Payroll\EmployeeFilterViewModel.cs" />
