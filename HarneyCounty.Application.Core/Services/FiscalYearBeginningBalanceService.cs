@@ -40,7 +40,7 @@ namespace HarneyCounty.Application.Core.Services
             {
                 var result = new FiscalYearBeginningBalanceViewModel();
 
-                result.YtdCollections = Math.Abs(dailyDetailData.Sum(t => t.NetTaxCr));
+                result.YtdCollections = dailyDetailData.Sum(t => t.NetTaxCr);
                 result.YtdGains = dailyDetailData.Sum(t => t.GainsToRoll ?? 0);
                 result.YtdLosses = dailyDetailData.Sum(t => t.LossesToRoll ?? 0);
                 result.Year = dailyDetailyear;

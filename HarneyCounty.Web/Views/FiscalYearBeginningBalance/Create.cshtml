@@ -104,6 +104,7 @@
                         $('#YtdCollections').val(data.YtdCollections);
                         $('#YtdLosses').val(data.YtdLosses);
                         $('#YtdGains').val(data.YtdGains);
+                        $('input').trigger('change');
                     } else {
                         alert('No records found for year ' + $('#Year').val());
                     }
