@@ -38,13 +38,7 @@ namespace HarneyCounty.Application.Core.Services
             var dailyDetailData = _auditService.GetAllDailyDetailByFiscalYearId(fiscalYearId, dailyDetailyear);
             if (dailyDetailData.Any())
             {
-                var result = new FiscalYearBeginningBalanceViewModel();
-
-                result.YtdCollections = dailyDetailData.Sum(t => t.NetTaxCr);
-                result.YtdGains = dailyDetailData.Sum(t => t.GainsToRoll ?? 0);
-                result.YtdLosses = dailyDetailData.Sum(t => t.LossesToRoll ?? 0);
-                result.Year = dailyDetailyear;
-                result.AuditFiscalYearId = fiscalYearId;
+                var result = ConvertDailyDetailIntoBeginningBalance(dailyDetailData, fiscalYearId);
                 return result;
             }
             else
@@ -59,6 +53,56 @@ namespace HarneyCounty.Application.Core.Services
             _uow.Commit();
 
             return entity;
+        }
+
+        public List<FiscalYearBeginningBalanceViewModel> RepopulateFiscalYearBeginningBalancesByFiscalYearId(int fiscalYearId)
+        {
+            var dailyDetailData = _auditService.GetAllDailyDetailByFiscalYearId(fiscalYearId);
+            if (dailyDetailData.Any())
+            {
+                var existedEntities = this._fiscalYearBeginningBalanceRepository.GetAll(fiscalYearId).ToList();
+                dailyDetailData.GroupBy(t => t.TaxYear).ToList().ForEach(taxYearGroup =>
+                {
+                    var dailyDetailEntity = ConvertDailyDetailIntoBeginningBalance(taxYearGroup.ToList(), fiscalYearId);
+                    var existedEntity = existedEntities.FirstOrDefault(t => t.Year == taxYearGroup.Key);
+                    if (existedEntity == null)
+                    {
+                        var newEntity = Mapper.Map<FiscalYearBeginningBalanceViewModel, FiscalYearBeginningBalance>(dailyDetailEntity);
+                        this._fiscalYearBeginningBalanceRepository.Add(newEntity);
+                    }
+                    else
+                    {
+                        existedEntity.YtdCollections = dailyDetailEntity.YtdCollections;
+                        existedEntity.YtdGains = dailyDetailEntity.YtdGains;
+                        existedEntity.YtdLosses = dailyDetailEntity.YtdLosses;
+                        this._fiscalYearBeginningBalanceRepository.Update(existedEntity);
+                    }
+                });
+
+                _uow.Commit();
+            }
+            return Mapper.Map<List<FiscalYearBeginningBalance>, List<FiscalYearBeginningBalanceViewModel>>(null); ;
+        }
+
+        public FiscalYearBeginningBalanceViewModel RepopulateFiscalYearBeginningBalance(int entityId)
+        {
+            var existedEntity = this.GetById(entityId);
+            if (existedEntity != null)
+            {
+                var dailyDetailEntity = GetByFiscalYearIdAndDailyDetailYear(existedEntity.AuditFiscalYearId, existedEntity.Year.Value);
+                if (dailyDetailEntity != null)
+                {
+                    existedEntity.YtdCollections = dailyDetailEntity.YtdCollections;
+                    existedEntity.YtdGains = dailyDetailEntity.YtdGains;
+                    existedEntity.YtdLosses = dailyDetailEntity.YtdLosses;
+                    this.Update(existedEntity);
+                }
+                return existedEntity;
+            }
+            else
+            {
+                throw new NullReferenceException($"Couldn't find Beginning Balance with id= {entityId}");
+            }
         }
 
         public void Update(FiscalYearBeginningBalanceViewModel viewmodel)
@@ -78,5 +122,22 @@ namespace HarneyCounty.Application.Core.Services
             this._fiscalYearBeginningBalanceRepository.Delete(id);
             _uow.Commit();
         }
+
+        #region Helpers
+
+        private FiscalYearBeginningBalanceViewModel ConvertDailyDetailIntoBeginningBalance(List<AuditDailyDetailViewModel> dailyDetailData, int fiscalYearId)
+        {
+            var entity = new FiscalYearBeginningBalanceViewModel();
+            entity.Year = dailyDetailData.FirstOrDefault().TaxYear;
+            entity.BeginningBalance = 0;
+            entity.YtdCollections = dailyDetailData.Sum(t => t.NetTaxCr);
+            entity.YtdGains = dailyDetailData.Sum(t => t.GainsToRoll ?? 0);
+            entity.YtdLosses = dailyDetailData.Sum(t => t.LossesToRoll ?? 0);
+            entity.AuditFiscalYearId = fiscalYearId;
+
+            return entity;
+        }
+
+        #endregion Helpers
     }
 }

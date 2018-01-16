@@ -31,7 +31,13 @@ namespace HarneyCounty.Application.Core.ViewModel.Audit
 
         [Display(Name = "YTD Balance")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:#.##}")]
-        public decimal? YtdBalance { get; private set; }
+        public decimal? YtdBalance
+        {
+            get
+            {
+                return (this.BeginningBalance) - (this.YtdCollections ?? 0) - (this.YtdLosses ?? 0) + (this.YtdGains ?? 0);
+            }
+        }
 
         [Required]
         [Display(Name = "Audit fiscal year")]

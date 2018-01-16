@@ -22,19 +22,22 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
         public List<FiscalYearBeginningBalance> GetAll(int fiscalYearId)
         {
             return _dbContext.FiscalYearBeginningBalances.Include(t => t.AuditFiscalYear)
-                .Where(t => t.AuditFiscalYearId == fiscalYearId).ToList();
+                .Where(t => t.AuditFiscalYearId == fiscalYearId)
+                .OrderByDescending(t => t.Year).ToList();
         }
 
         public List<FiscalYearBeginningBalance> GetAll(int fiscalYearId, int year)
         {
             return _dbContext.FiscalYearBeginningBalances.Include(t => t.AuditFiscalYear)
-                .Where(t => t.AuditFiscalYearId == fiscalYearId && t.Year == year).ToList();
+                .Where(t => t.AuditFiscalYearId == fiscalYearId && t.Year == year)
+                .OrderByDescending(t => t.Year).ToList();
         }
 
         public List<FiscalYearBeginningBalance> GetAll(int fiscalYearId, List<int> years)
         {
             return _dbContext.FiscalYearBeginningBalances.Include(t => t.AuditFiscalYear)
-                .Where(t => t.AuditFiscalYearId == fiscalYearId && years.Contains((int)t.Year)).ToList();
+                .Where(t => t.AuditFiscalYearId == fiscalYearId && years.Contains((int)t.Year))
+                .OrderByDescending(t => t.Year).ToList();
         }
 
         public List<FiscalYearBeginningBalance> GetAll(int fiscalYearId, int? yearFrom, int? yearTo)
@@ -48,7 +51,7 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
             if (yearTo.HasValue)
                 query = query.Where(t => t.Year <= yearTo);
 
-            return query.ToList();
+            return query.OrderByDescending(t => t.Year).ToList();
         }
     }
 }

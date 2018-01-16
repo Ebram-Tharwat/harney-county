@@ -14,6 +14,10 @@ namespace HarneyCounty.Application.Core.Interfaces
 
         FiscalYearBeginningBalanceViewModel GetByFiscalYearIdAndDailyDetailYear(int fiscalYearId, int dailyDetailyear);
 
+        List<FiscalYearBeginningBalanceViewModel> RepopulateFiscalYearBeginningBalancesByFiscalYearId(int fiscalYearId);
+
+        FiscalYearBeginningBalanceViewModel RepopulateFiscalYearBeginningBalance(int entityId);
+
         void Update(FiscalYearBeginningBalanceViewModel viewmodel);
 
         void Remove(int id);

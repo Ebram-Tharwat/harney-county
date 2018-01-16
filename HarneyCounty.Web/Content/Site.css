@@ -32,6 +32,10 @@ div.dropdown {
     display: inline-block;
 }
 
+.highlight {
+    background-color: #FCFCD8;
+}
+
 /*Herlpers*/
 .no-pad-horizontal {
     padding-left: 0;
@@ -48,6 +52,14 @@ div.dropdown {
 
 .italic {
     font-style: italic;
+}
+
+.inline{
+    display: inline-block;
+}
+
+.pad-bottom-15 {
+    padding-bottom: 15px;
 }
 
 .gi-2x {

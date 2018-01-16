@@ -6,8 +6,13 @@
 
 <h2>Fiscal Year Beginning Balances</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+<div class="row col-md-12 pad-bottom-15">
+    @Html.ActionLink("Create New", "Create") |
+    @using (Html.BeginForm("PopulateAllYearsBeginningBalances", "FiscalYearBeginningBalance", new { fiscalYearId = ViewBag.FiscalYearId }, FormMethod.Post, new { @class = "inline" }))
+    {
+        <button type="submit" class="btn btn-success">Populate all years</button>
+    }
+
     @if (Model.Any())
     {
         <div class="row">
@@ -23,7 +28,7 @@
             </div>
         </div>
     }
-</p>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -49,28 +54,29 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+        <tr data-id="@item.Id">
             <td>
                 @Html.DisplayFor(modelItem => item.Year)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.BeginningBalance)
             </td>
-            <td>
+            <td class="YtdCollections">
                 @Html.DisplayFor(modelItem => item.YtdCollections)
             </td>
-            <td>
+            <td class="YtdLosses">
                 @Html.DisplayFor(modelItem => item.YtdLosses)
             </td>
-            <td>
+            <td class="YtdGains">
                 @Html.DisplayFor(modelItem => item.YtdGains)
             </td>
-            <td>
+            <td class="YtdBalance">
                 @Html.DisplayFor(modelItem => item.YtdBalance)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+                <button type="submit" class="btn btn-success btnRepopulate" data-url="@Url.Action("RepopulateBeginningBalance", "FiscalYearBeginningBalance", new { id = item.Id})">Repopulate</button>
             </td>
         </tr>
     }
@@ -84,3 +90,25 @@
         <td></td>
     </tr>
 </table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jQueryPlugins")
+    <script type="text/javascript">
+        $(function () {
+            $('.btnRepopulate').click(function (event) {
+                event.preventDefault();
+                $.LoadingOverlay("show");
+                var url = $(this).data('url');
+                $.post(url, function (data) {
+                    $tr = $('tr[data-id="' + data.Id + '"]');
+                    $('td.YtdCollections', $tr).text(data.YtdCollections);
+                    $('td.YtdLosses', $tr).text(data.YtdLosses);
+                    $('td.YtdGains', $tr).text(data.YtdGains);
+                    $('td.YtdBalance', $tr).text(data.YtdBalance);
+                    $tr.animate({ backgroundColor: "#ffffcc" }, 1).animate({ backgroundColor: "#ffffff" }, 2000);
+                })
+                    .always(function () { $.LoadingOverlay("hide"); });
+            });
+        });
+    </script>
+}
