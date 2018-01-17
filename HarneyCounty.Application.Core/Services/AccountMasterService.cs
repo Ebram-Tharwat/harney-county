@@ -158,10 +158,12 @@ namespace HarneyCounty.Application.Core.Services
             else
             {
                 ZipCodeFile matchedZipCode = null;
-                if (zipcodeMatches.Count == 1)
-                    matchedZipCode = zipcodeMatches.FirstOrDefault();
-                else
+
+                if (zipcodeMatches.Any(z => z.ZipCode.Trim().Length == 10))
                     matchedZipCode = zipcodeMatches.FirstOrDefault(z => z.ZipCode.Trim().Length == 10);
+                else
+                    matchedZipCode = zipcodeMatches.FirstOrDefault();
+
                 return $"{accountZipCode} {matchedZipCode.City} {matchedZipCode.State}";
             }
         }
