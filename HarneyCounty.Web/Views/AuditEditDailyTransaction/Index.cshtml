@@ -3,16 +3,22 @@
 
 @{
     ViewBag.Title = "Index";
-    var dailyDetailObj = (ViewBag.DailyDetailObj == null) ?
-        new AuditDailyDetail() { DailyMasterId = Model.DailyMaster.Id } : (AuditDailyDetail)ViewBag.DailyDetailObj;
 }
 <h2>Daily Detail</h2>
 
 @{Html.RenderPartial("_InsertDailyMaster", Model.DailyMaster); }
+<div id='myModal' class='modal'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
 
+</div> 
+<a href="javascript:void(0);" class="insertDailyDetail" data-id="@Model.DailyMaster.Id">Insert</a>  
 <form method="post">
-    <input type="submit"
-           value="Insert" formaction="/auditEditDailyTransaction/new/@Model.DailyMaster.Id" />
+    @*<input type="submit"
+           value="Insert" formaction="/auditEditDailyTransaction/new/@Model.DailyMaster.Id" />*@
     <br /><br />
     @{int i = 0; }
     <table class="table table-hover">
@@ -107,7 +113,8 @@
                     @Html.HiddenFor(modelItem => item.DailyMasterId)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { dailyMasterId = item.DailyMasterId, dailyDetailId = item.Id })
+                    <a href="javascript:void(0);" class="editDailyDetail" data-id="@item.DailyMasterId" data-id2="@item.Id">Edit</a>  
+
                 </td>
             </tr>
             i++;
@@ -166,14 +173,68 @@
 </form>
 <br />
 <br />
-@{
-    if (Model.DisplayMode == "WriteOnly")
-    {
-        Html.RenderPartial("_InsertDailyDetail", dailyDetailObj);
-    }
-}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/jQueryPlugins")
+<script>
+
+    var addURL = '/auditEditDailyTransaction/new';
+    var editUrl = '/auditEditDailyTransaction/Edit'
+    $(function () {
+        $(".insertDailyDetail").click(function () {
+            debugger;
+            var $buttonClicked = $(this);
+            var id = $buttonClicked.attr('data-id');
+            var options = { "backdrop": "static", keyboard: true };
+            $.ajax({
+                type: "Post",
+                url: addURL,
+                contentType: "application/json; charset=utf-8",
+                data:JSON.stringify({ "id": id }),
+                datatype: "json",
+                success: function (data) {
+                    debugger;
+                    $('#myModalContent').html(data);
+                    $('#myModal').modal(options);
+                    $('#myModal').modal('show');
+
+                },
+                error: function () {
+                    alert("Dynamic content load failed.");
+                }
+            });
+        });
+        $(".editDailyDetail").click(function () {
+            debugger;
+            var $buttonClicked = $(this);
+            var dailyMasterId = $buttonClicked.attr('data-id');
+            var dailyDetailId = $buttonClicked.attr('data-id2');
+            var options = { "backdrop": "static", keyboard: true };
+            $.ajax({
+                type: "Get",
+                url: editUrl + "?" + "dailyMasterId=" +dailyMasterId+ "&" + "dailyDetailId=" + dailyDetailId,
+                contentType: "application/json; charset=utf-8",
+                datatype: "json",
+                success: function (data) {
+                    debugger;
+                    $('#myModalContent').html(data);
+                    $('#myModal').modal(options);
+                    $('#myModal').modal('show');
+
+                },
+                error: function () {
+                    alert("Dynamic content load failed.");
+                }
+            });
+        });
+        //$("#closebtn").on('click',function(){
+        //    $('#myModal').modal('hide');
+
+        $("#closbtn").click(function () {
+            $('#myModal').modal('hide');
+        });
+    });
+
+</script> 
 }

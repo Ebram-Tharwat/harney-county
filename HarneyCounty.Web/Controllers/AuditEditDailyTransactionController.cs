@@ -103,7 +103,8 @@ namespace HarneyCounty.Web.Controllers
                 netRollChg += item.GainsToRoll.HasValue ? item.GainsToRoll.Value : 0;
                 result.NetRollChg.Add(netRollChg.ToString());
             }
-            return View("Index", result);
+            //return View("Index", result);
+            return PartialView("_InsertDailyDetail", new AuditDailyDetail() { DailyMasterId = result.DailyMaster.Id});
         }
 
         [HttpGet]
@@ -132,8 +133,8 @@ namespace HarneyCounty.Web.Controllers
                 netRollChg += item.GainsToRoll.HasValue ? item.GainsToRoll.Value : 0;
                 result.NetRollChg.Add(netRollChg.ToString());
             }
-            ViewBag.DailyDetailObj = _auditService.GetDailyDetailById(dailyDetailId);
-            return View("Index", result);
+            return PartialView("_InsertDailyDetail", _auditService.GetDailyDetailById(dailyDetailId));
+            //return View("Index", result);
         }
 
         [HttpPost]
