@@ -19,10 +19,10 @@ namespace HarneyCounty.Infrastructure.Core.DAL
             this.Database.CommandTimeout = 600;
         }
 
-        static ApplicationDbContext()
-        {
-            Database.SetInitializer<ApplicationDbContext>(null);
-        }
+        //static ApplicationDbContext()
+        //{
+        //    Database.SetInitializer<ApplicationDbContext>(null);
+        //}
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
