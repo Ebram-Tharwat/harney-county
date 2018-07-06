@@ -180,7 +180,7 @@ namespace HarneyCounty.Application.Core.Services
                     item.BeginningBalance = beginningBalances.FirstOrDefault(t => t.Year == item.TaxYear).BeginningBalance;
             }
 
-            dailyDetailReportItems.GroupBy(t => t.TaxYear).ToList().ForEach(group =>
+            dailyDetailReportItems.OrderBy(t=>t.TaxYear).GroupBy(t => t.TaxYear).ToList().ForEach(group =>
             {
                 report.Add(new DailyDetailReportGroupedByTaxYearViewModel() { TaxYear = group.Key, Items = group.ToList() });
             });
