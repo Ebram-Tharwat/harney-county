@@ -111,7 +111,7 @@
                 @group.Items.Sum(t => t.NetTaxCr)
             </td>
             <td>
-                @group.Items.Sum(t=>t.BalanceForward)
+                @group.Items.LastOrDefault().BalanceForward
             </td>
         </tr>
     </table>
