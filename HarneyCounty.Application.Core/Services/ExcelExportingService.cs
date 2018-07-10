@@ -109,6 +109,7 @@ namespace HarneyCounty.Application.Core.Services
             {
                 var taxyearSheet = excelPackage.Workbook.Worksheets.Add(group.TaxYear.ToString(), excelPackage.Workbook.Worksheets[1]);
                 rowIndex = 2;
+                decimal previousBalance = 0;
                 foreach (var item in group.Items)
                 {
                     taxyearSheet.Cells["A" + rowIndex].Value = item.TaxYear;
@@ -122,7 +123,18 @@ namespace HarneyCounty.Application.Core.Services
                     taxyearSheet.Cells["I" + rowIndex].Value = item.C16PercentageInterest;
                     taxyearSheet.Cells["J" + rowIndex].Value = item.Discount;
                     taxyearSheet.Cells["K" + rowIndex].Value = item.NetTaxCr;
-                    taxyearSheet.Cells["L" + rowIndex].Value = item.BalanceForward;
+                    if (group.Items[0] == item)
+                    {
+                        item.BalanceForward = item.BeginningBalance - (item.LossesToRoll ?? 0) - (item.NetRollChg);
+                        previousBalance = item.BalanceForward;
+                        taxyearSheet.Cells["L" + rowIndex].Value = item.BalanceForward;
+                    }
+                    else
+                    {
+                        item.BalanceForward = previousBalance - (item.LossesToRoll ?? 0) - (item.NetRollChg);
+                        previousBalance = item.BalanceForward;
+                        taxyearSheet.Cells["L" + rowIndex].Value = item.BalanceForward;
+                    }
                     rowIndex++;
                 }
 

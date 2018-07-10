@@ -53,7 +53,6 @@ E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\N
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\Ninject.Web.Common.xml
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\Ninject.Web.Mvc.xml
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Domain.Core.pdb
-E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\obj\Debug\HarneyCounty.Utilities.csprojResolveAssemblyReference.cache
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\obj\Debug\HarneyCounty.Utilities.dll
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\obj\Debug\HarneyCounty.Utilities.pdb
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Infrastructure.Core.dll.config
@@ -72,3 +71,10 @@ E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\H
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\Newtonsoft.Json.xml
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Utilities\bin\Debug\EPPlus.dll
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Utilities\bin\Debug\EPPlus.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\EPPlus.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Domain.Core.dll.config
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\HarneyCounty.Infrastructure.Core.dll.config
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\bin\Debug\EPPlus.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\obj\Debug\HarneyCounty.Utilities.csprojAssemblyReference.cache
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\obj\Debug\HarneyCounty.Utilities.csproj.CoreCompileInputs.cache
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Utilities\obj\Debug\HarneyCounty.Utilities.csproj.CopyComplete
