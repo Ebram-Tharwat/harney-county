@@ -12,14 +12,16 @@ namespace HarneyCounty.Application.Core.ViewModel.Audit
         public decimal BeginningBalance { get; set; }
 
         #region Computed Properties
+        private decimal _balanceForward;
 
         [Display(Name = "Balance Forward")]
         public decimal BalanceForward
         {
             get
             {
-                return this.BeginningBalance - (this.NetRollChg);
+                return _balanceForward;
             }
+            set { _balanceForward = value; }
         }
 
         #endregion Computed Properties

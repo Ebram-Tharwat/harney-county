@@ -47,7 +47,14 @@ namespace HarneyCounty.Application.Core.ViewModel.Audit
         {
             get
             {
-                return (this.CurrRcpts ?? 0) - (this.StatePercentage ?? 0) - (this.Penalities ?? 0) - (this.RefundsNsf ?? 0);
+                if (this.CurrRcpts == 0)
+                {
+                    return (this.CurrRcpts ?? 0) - (this.StatePercentage ?? 0) - (this.Penalities ?? 0) - (this.RefundsNsf ?? 0);
+                }
+                else
+                {
+                    return (this.CurrRcpts ?? 0) - (this.StatePercentage ?? 0) - (this.Penalities ?? 0) + (this.RefundsNsf ?? 0);
+                }
             }
         }
 
@@ -63,7 +70,7 @@ namespace HarneyCounty.Application.Core.ViewModel.Audit
         {
             get
             {
-                return this.NetTaxCr - (this.LossesToRoll ?? 0) + (this.GainsToRoll ?? 0);
+                return this.NetTaxCr  + (this.GainsToRoll ?? 0);
             }
         }
 
