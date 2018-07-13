@@ -92,13 +92,13 @@
 
                     if (group.Items[0] == item)
                     {
-                        item.BalanceForward = item.BeginningBalance - (item.LossesToRoll ?? 0) - (item.NetRollChg);
+                        item.BalanceForward = item.BeginningBalance+(item.GainsToRoll??0) - (item.LossesToRoll ?? 0) - (item.NetRollChg);
                         @Html.DisplayFor(model => item.BalanceForward)
                         previousBalance = item.BalanceForward;
                     }
                     else
                     {
-                        item.BalanceForward = previousBalance - (item.LossesToRoll.HasValue ? item.LossesToRoll.Value : 0) - (item.NetRollChg); 
+                        item.BalanceForward = previousBalance + (item.GainsToRoll??0) - (item.LossesToRoll.HasValue ? item.LossesToRoll.Value : 0) - (item.NetRollChg);
                         @Html.DisplayFor(model => item.BalanceForward)
                         previousBalance = item.BalanceForward;
                     }

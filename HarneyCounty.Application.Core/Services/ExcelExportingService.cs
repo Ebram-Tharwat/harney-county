@@ -125,13 +125,13 @@ namespace HarneyCounty.Application.Core.Services
                     taxyearSheet.Cells["K" + rowIndex].Value = item.NetTaxCr;
                     if (group.Items[0] == item)
                     {
-                        item.BalanceForward = item.BeginningBalance - (item.LossesToRoll ?? 0) - (item.NetRollChg);
+                        item.BalanceForward = item.BeginningBalance + (item.GainsToRoll ?? 0) - (item.LossesToRoll ?? 0) - (item.NetRollChg);
                         previousBalance = item.BalanceForward;
                         taxyearSheet.Cells["L" + rowIndex].Value = item.BalanceForward;
                     }
                     else
                     {
-                        item.BalanceForward = previousBalance - (item.LossesToRoll ?? 0) - (item.NetRollChg);
+                        item.BalanceForward = previousBalance + (item.GainsToRoll ?? 0) -  (item.LossesToRoll ?? 0) - (item.NetRollChg);
                         previousBalance = item.BalanceForward;
                         taxyearSheet.Cells["L" + rowIndex].Value = item.BalanceForward;
                     }

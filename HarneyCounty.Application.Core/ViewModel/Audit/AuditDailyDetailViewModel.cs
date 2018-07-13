@@ -70,7 +70,7 @@ namespace HarneyCounty.Application.Core.ViewModel.Audit
         {
             get
             {
-                return this.NetTaxCr  + (this.GainsToRoll ?? 0);
+                return this.NetTaxCr;
             }
         }
 
