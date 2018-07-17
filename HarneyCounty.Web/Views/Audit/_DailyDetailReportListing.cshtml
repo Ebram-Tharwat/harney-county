@@ -180,7 +180,7 @@
                 @Model.Sum(group => group.Items.Sum(item => item.NetTaxCr))
             </td>
             <td>
-                @Model.Sum(group => group.Items.FirstOrDefault().BalanceForward)
+                @Model.Sum(group => group.Items.LastOrDefault().BalanceForward)
             </td>
         </tr>
     </table>
