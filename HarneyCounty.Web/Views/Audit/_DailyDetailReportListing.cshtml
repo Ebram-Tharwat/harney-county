@@ -5,6 +5,7 @@
 {
     <h4 class="italic">Tax Year: <mark>@group.TaxYear</mark></h4>
     decimal previousBalance = 0;
+    decimal lastBalance = 0;
     <table class="table table-hover">
         <tr>
             <th>
@@ -153,6 +154,7 @@
                                 @{
 
                                     @Html.DisplayFor(model => item.BalanceForward)
+                                    lastBalance = item.BalanceForward;
                                 }
                             </td>
                         </tr>
@@ -242,7 +244,7 @@
                     <td>
                     </td>
                     <td>
-                        @group.Items.LastOrDefault().BalanceForward
+                        @lastBalance
                     </td>
                 </tr>
             }
