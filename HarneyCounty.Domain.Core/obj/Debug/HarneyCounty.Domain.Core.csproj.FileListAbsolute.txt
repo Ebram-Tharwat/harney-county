@@ -17,7 +17,6 @@ E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\bin\Debug
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\bin\Debug\EntityFramework.SqlServer.xml
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\obj\Debug\HarneyCounty.Domain.Core.dll
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\obj\Debug\HarneyCounty.Domain.Core.pdb
-E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\obj\Debug\HarneyCounty.Domain.Core.csprojResolveAssemblyReference.cache
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\bin\Debug\Microsoft.Owin.dll
@@ -36,3 +35,6 @@ D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Domain.Core
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Domain.Core\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Domain.Core\bin\Debug\Microsoft.Owin.xml
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Domain.Core\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\obj\Debug\HarneyCounty.Domain.Core.csprojAssemblyReference.cache
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\obj\Debug\HarneyCounty.Domain.Core.csproj.CoreCompileInputs.cache
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Domain.Core\obj\Debug\HarneyCounty.Domain.Core.csproj.CopyComplete

@@ -8,6 +8,7 @@ namespace HarneyCounty.Infrastructure.Core.Interfaces
     {
         List<AuditDailyDetail> GetByFiscalYearId(int fiscalYearId, int? year = null);
 
+
         List<AuditDailyDetail> GetByFiscalYearId(int fiscalYearId, int? taxYearFrom, int? taxYearTo, DateTime? entryDateFrom, DateTime? entryDateTo);
     }
 }

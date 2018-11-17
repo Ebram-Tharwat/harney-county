@@ -28,7 +28,7 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
 
         public List<AuditDailyDetail> GetByFiscalYearId(int fiscalYearId, int? taxYearFrom, int? taxYearTo, DateTime? entryDateFrom, DateTime? entryDateTo)
         {
-            var query = from detail in _dbContext.AuditDailyDetails.Include(t => t.DailyMaster)
+            var query = from detail in _dbContext.AuditDailyDetails.Include(t => t.DailyMaster).Include(t=>t.DailyMaster.AuditTurnoverSequence.AuditFiscalYear)
                         where detail.DailyMaster.AuditTurnoverSequence.AuditFiscalYearId == fiscalYearId
                         select detail;
 
@@ -38,13 +38,14 @@ namespace HarneyCounty.Infrastructure.Core.Repositories
             if (taxYearTo.HasValue)
                 query = query.Where(t => t.TaxYear <= taxYearTo);
 
-            if (entryDateFrom.HasValue)
-                query = query.Where(t => t.DailyMaster.EntryDate >= entryDateFrom);
+            //if (entryDateFrom.HasValue)
+            //    query = query.Where(t => t.DailyMaster.AuditTurnoverSequence.AuditFiscalYear.FiscalStartDate <= entryDateTo);
 
             if (entryDateTo.HasValue)
-                query = query.Where(t => t.DailyMaster.EntryDate <= entryDateTo);
+                query = query.Where(t => t.DailyMaster.AuditTurnoverSequence.AuditFiscalYear.FiscalStartDate <= entryDateTo);
 
             return query.OrderBy(t => t.TaxYear).ToList();
         }
+
     }
 }

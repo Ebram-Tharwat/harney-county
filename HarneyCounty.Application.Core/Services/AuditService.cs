@@ -177,7 +177,14 @@ namespace HarneyCounty.Application.Core.Services
             foreach (var item in dailyDetailReportItems)
             {
                 if (beginningBalances.Any(t => t.Year == item.TaxYear))
+                {
                     item.BeginningBalance = beginningBalances.FirstOrDefault(t => t.Year == item.TaxYear).BeginningBalance;
+                    if (filter.EntryDateTo.HasValue)
+                    {
+                        item.EntryDateTo = filter.EntryDateTo;
+                        item.EntryDateFrom = filter.EntryDateFrom;
+                    }
+                }
             }
 
             dailyDetailReportItems.OrderBy(t=>t.TaxYear).GroupBy(t => t.TaxYear).ToList().ForEach(group =>

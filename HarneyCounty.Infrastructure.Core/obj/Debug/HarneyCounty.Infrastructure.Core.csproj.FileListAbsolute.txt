@@ -21,7 +21,6 @@ E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\b
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\bin\Debug\HarneyCounty.Domain.Core.pdb
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\bin\Debug\EntityFramework.xml
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\bin\Debug\EntityFramework.SqlServer.xml
-E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\obj\Debug\HarneyCounty.Infrastructure.Core.csprojResolveAssemblyReference.cache
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\obj\Debug\HarneyCounty.Infrastructure.Core.dll
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\obj\Debug\HarneyCounty.Infrastructure.Core.pdb
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\bin\Debug\HarneyCounty.Common.dll
@@ -43,3 +42,9 @@ D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastruct
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Infrastructure.Core\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\bin\Debug\EPPlus.dll
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\bin\Debug\HarneyCounty.Domain.Core.dll.config
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\bin\Debug\EPPlus.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\obj\Debug\HarneyCounty.Infrastructure.Core.csprojAssemblyReference.cache
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\obj\Debug\HarneyCounty.Infrastructure.Core.csproj.CoreCompileInputs.cache
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Infrastructure.Core\obj\Debug\HarneyCounty.Infrastructure.Core.csproj.CopyComplete

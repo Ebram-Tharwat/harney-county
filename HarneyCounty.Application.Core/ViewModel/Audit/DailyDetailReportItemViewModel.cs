@@ -9,6 +9,9 @@ namespace HarneyCounty.Application.Core.ViewModel.Audit
         [DataType(DataType.Date)]
         public DateTime EntryDate { get; set; }
 
+        public DateTime? EntryDateTo { get; set; }
+        public DateTime? EntryDateFrom { get; set; }
+
         public decimal BeginningBalance { get; set; }
 
         #region Computed Properties

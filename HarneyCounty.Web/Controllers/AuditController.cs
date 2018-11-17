@@ -121,6 +121,7 @@ namespace HarneyCounty.Web.Controllers
             });
 
             viewmodel = _auditService.GetDailyDetailReport(filter);
+           
             ViewBag.DisplayResults = true;
             return View(viewmodel);
         }

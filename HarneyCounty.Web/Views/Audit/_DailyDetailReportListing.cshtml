@@ -4,7 +4,7 @@
 @foreach (var group in Model)
 {
     <h4 class="italic">Tax Year: <mark>@group.TaxYear</mark></h4>
-
+    decimal previousBalance = 0;
     <table class="table table-hover">
         <tr>
             <th>
@@ -47,101 +47,206 @@
                 @Html.DisplayNameFor(model => model.Items.First().BalanceForward)
             </th>
         </tr>
-        @{decimal previousBalance = 0;
+        @{
+
             foreach (var item in group.Items)
             {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.EntryDate)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.CurrRcpts)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.StatePercentage)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Penalities)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.RefundsNsf)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.NetRcpts)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.C12PercentageInterest)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.C16PercentageInterest)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Discount)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.NetTaxCr)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.LossesToRoll)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.GainsToRoll)
-            </td>
-            <td>
-                @{
+                if (group.Items[0] == item)
+                {
+                    item.BalanceForward = item.BeginningBalance + (item.GainsToRoll ?? 0) - (item.LossesToRoll ?? 0) - (item.NetRollChg);
+                    previousBalance = item.BalanceForward;
+                }
+                else
+                {
+                    item.BalanceForward = previousBalance + (item.GainsToRoll ?? 0) - (item.LossesToRoll.HasValue ? item.LossesToRoll.Value : 0) - (item.NetRollChg);
+                    previousBalance = item.BalanceForward;
+                }
+                if (!item.EntryDateTo.HasValue)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EntryDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.CurrRcpts)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.StatePercentage)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.Penalities)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.RefundsNsf)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.NetRcpts)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.C12PercentageInterest)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.C16PercentageInterest)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.Discount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.NetTaxCr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.LossesToRoll)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.GainsToRoll)
+                        </td>
+                        <td>
+                            @{
 
-                    if (group.Items[0] == item)
+                                @Html.DisplayFor(model => item.BalanceForward)
+                            }
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    if (item.EntryDate >= item.EntryDateFrom && item.EntryDate <= item.EntryDateTo)
                     {
-                        item.BalanceForward = item.BeginningBalance+(item.GainsToRoll??0) - (item.LossesToRoll ?? 0) - (item.NetRollChg);
-                        @Html.DisplayFor(model => item.BalanceForward)
-                        previousBalance = item.BalanceForward;
-                    }
-                    else
-                    {
-                        item.BalanceForward = previousBalance + (item.GainsToRoll??0) - (item.LossesToRoll.HasValue ? item.LossesToRoll.Value : 0) - (item.NetRollChg);
-                        @Html.DisplayFor(model => item.BalanceForward)
-                        previousBalance = item.BalanceForward;
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EntryDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.CurrRcpts)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.StatePercentage)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.Penalities)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.RefundsNsf)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.NetRcpts)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.C12PercentageInterest)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.C16PercentageInterest)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.Discount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.NetTaxCr)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.LossesToRoll)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.GainsToRoll)
+                            </td>
+                            <td>
+                                @{
+
+                                    @Html.DisplayFor(model => item.BalanceForward)
+                                }
+                            </td>
+                        </tr>
                     }
                 }
-            </td>
-        </tr>
-                            }
-                        }
+            }
+        }
 
         @*Total row*@
-        <tr>
-            <td class="bold">Total</td>
-            <td>
-                @group.Items.Sum(t => t.CurrRcpts)
-            </td>
-            <td>
-                @group.Items.Sum(t => t.StatePercentage)
-            </td>
-            <td>
-                @group.Items.Sum(t => t.Penalities)
-            </td>
-            <td>
-                @group.Items.Sum(t => t.RefundsNsf)
-            </td>
-            <td>
-                @group.Items.Sum(t => t.NetRcpts)
-            </td>
-            <td>
-                @group.Items.Sum(t => t.C12PercentageInterest)
-            </td>
-            <td>
-                @group.Items.Sum(t => t.C16PercentageInterest)
-            </td>
-            <td>
-                @group.Items.Sum(t => t.Discount)
-            </td>
-            <td>
-                @group.Items.Sum(t => t.NetTaxCr)
-            </td>
-            <td>
-                @group.Items.LastOrDefault().BalanceForward
-            </td>
-        </tr>
+        @{
+            if (!group.Items.All(t => t.EntryDateTo.HasValue))
+            {
+                        <tr>
+                            <td class="bold">Total</td>
+                            <td>
+                                @group.Items.Sum(t => t.CurrRcpts)
+                            </td>
+                            <td>
+                                @group.Items.Sum(t => t.StatePercentage)
+                            </td>
+                            <td>
+                                @group.Items.Sum(t => t.Penalities)
+                            </td>
+                            <td>
+                                @group.Items.Sum(t => t.RefundsNsf)
+                            </td>
+                            <td>
+                                @group.Items.Sum(t => t.NetRcpts)
+                            </td>
+                            <td>
+                                @group.Items.Sum(t => t.C12PercentageInterest)
+                            </td>
+                            <td>
+                                @group.Items.Sum(t => t.C16PercentageInterest)
+                            </td>
+                            <td>
+                                @group.Items.Sum(t => t.Discount)
+                            </td>
+                            <td>
+                                @group.Items.Sum(t => t.NetTaxCr)
+                            </td>
+                            <td>
+                                @group.Items.Sum(t=>t.LossesToRoll)
+                            </td>
+                            <td>
+                                @group.Items.Sum(t=>t.GainsToRoll)
+                            </td>
+                            <td>
+                                @previousBalance
+                            </td>
+                        </tr>
+            }
+            else
+            {
+                <tr>
+                    <td class="bold">Total</td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                       
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        @group.Items.LastOrDefault().BalanceForward
+                    </td>
+                </tr>
+            }
+        }
     </table>
 }
 
@@ -178,6 +283,12 @@
             </td>
             <td>
                 @Model.Sum(group => group.Items.Sum(item => item.NetTaxCr))
+            </td>
+            <td>
+                @Model.Sum(group => group.Items.Sum(item => item.LossesToRoll))
+            </td>
+            <td>
+                @Model.Sum(group => group.Items.Sum(item => item.GainsToRoll))
             </td>
             <td>
                 @Model.Sum(group => group.Items.LastOrDefault().BalanceForward)

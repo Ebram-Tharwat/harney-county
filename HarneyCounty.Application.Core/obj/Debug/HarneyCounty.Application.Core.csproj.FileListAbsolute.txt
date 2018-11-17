@@ -29,7 +29,6 @@ E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Application.Core\bin\
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Application.Core\bin\Debug\EntityFramework.xml
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Application.Core\obj\Debug\HarneyCounty.Application.Core.dll
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Application.Core\obj\Debug\HarneyCounty.Application.Core.pdb
-E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Application.Core\obj\Debug\HarneyCounty.Application.Core.csprojResolveAssemblyReference.cache
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Application.Core\bin\Debug\EntityFramework.SqlServer.dll
 E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Application.Core\bin\Debug\EntityFramework.SqlServer.xml
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\EntityFramework.SqlServer.dll
@@ -52,3 +51,8 @@ D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\UpWork\HarneyCounty Project\SourceCode\harney-county\HarneyCounty.Application.Core\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Application.Core\bin\Debug\HarneyCounty.Domain.Core.dll.config
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Application.Core\bin\Debug\HarneyCounty.Infrastructure.Core.dll.config
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Application.Core\obj\Debug\HarneyCounty.Application.Core.csprojAssemblyReference.cache
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Application.Core\obj\Debug\HarneyCounty.Application.Core.csproj.CoreCompileInputs.cache
+E:\Upwork projects\Spud Projects\HarneyCounty\HarneyCounty.Application.Core\obj\Debug\HarneyCounty.Application.Core.csproj.CopyComplete

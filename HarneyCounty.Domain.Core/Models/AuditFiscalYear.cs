@@ -36,6 +36,16 @@ namespace HarneyCounty.Domain.Core.Models
         [Display(Name = "Is active")]
         public bool? IsActive { get; set; }
 
+        [Column(@"FiscalStartDate", Order = 4, TypeName = "date")]
+        [Display(Name = "Fiscal start date")]
+        [UIHint("DatePicker")]
+        public System.DateTime? FiscalStartDate { get; set; }
+
+        [Column(@"FiscalEndDate", Order = 5, TypeName = "date")]
+        [Display(Name = "Fiscal end date")]
+        [UIHint("DatePicker")]
+        public System.DateTime? FiscalEndDate { get; set; }
+
         public virtual System.Collections.Generic.ICollection<AuditTurnoverSequence> AuditTurnoverSequences { get; set; }
         public virtual System.Collections.Generic.ICollection<FiscalYearBeginningBalance> FiscalYearBeginningBalances { get; set; }
 
