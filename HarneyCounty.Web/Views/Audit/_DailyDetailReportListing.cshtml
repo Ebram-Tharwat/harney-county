@@ -1,11 +1,25 @@
 ﻿@using HarneyCounty.Application.Core.ViewModel.Audit
 @model IEnumerable<DailyDetailReportGroupedByTaxYearViewModel>
-
+ @{
+     List<decimal> balanceForward = new List<decimal>();
+     List<decimal?> grantTotalCurrRcpts = new List<decimal?>();
+     List<decimal?> grantTotalStatePercentage = new List<decimal?>();
+     List<decimal?> grantTotalPenalities = new List<decimal?>();
+     List<decimal?> grantTotalRefundsNsf = new List<decimal?>();
+     List<decimal?> grantTotalNetRcpts = new List<decimal?>();
+     List<decimal?> grantTotalC12PercentageInterest = new List<decimal?>();
+     List<decimal?> grantTotalC16PercentageInterest = new List<decimal?>();
+     List<decimal?> grantTotalDiscount = new List<decimal?>();
+     List<decimal?> grantTotalNetTaxCr = new List<decimal?>();
+     List<decimal?> grantTotalLossesToRoll = new List<decimal?>();
+     List<decimal?> grantTotalGainsToRoll = new List<decimal?>();
+     }
 @foreach (var group in Model)
 {
     <h4 class="italic">Tax Year: <mark>@group.TaxYear</mark></h4>
     decimal previousBalance = 0;
     decimal lastBalance = 0;
+    
     <table class="table table-hover">
         <tr>
             <th>
@@ -105,6 +119,7 @@
                             @{
 
                                 @Html.DisplayFor(model => item.BalanceForward)
+                                
                             }
                         </td>
                     </tr>
@@ -155,6 +170,7 @@
 
                                     @Html.DisplayFor(model => item.BalanceForward)
                                     lastBalance = item.BalanceForward;
+                                    
                                 }
                             </td>
                         </tr>
@@ -167,84 +183,117 @@
         @{
             if (!group.Items.All(t => t.EntryDateTo.HasValue))
             {
-                        <tr>
-                            <td class="bold">Total</td>
-                            <td>
-                                @group.Items.Sum(t => t.CurrRcpts)
-                            </td>
-                            <td>
-                                @group.Items.Sum(t => t.StatePercentage)
-                            </td>
-                            <td>
-                                @group.Items.Sum(t => t.Penalities)
-                            </td>
-                            <td>
-                                @group.Items.Sum(t => t.RefundsNsf)
-                            </td>
-                            <td>
-                                @group.Items.Sum(t => t.NetRcpts)
-                            </td>
-                            <td>
-                                @group.Items.Sum(t => t.C12PercentageInterest)
-                            </td>
-                            <td>
-                                @group.Items.Sum(t => t.C16PercentageInterest)
-                            </td>
-                            <td>
-                                @group.Items.Sum(t => t.Discount)
-                            </td>
-                            <td>
-                                @group.Items.Sum(t => t.NetTaxCr)
-                            </td>
-                            <td>
-                                @group.Items.Sum(t=>t.LossesToRoll)
-                            </td>
-                            <td>
-                                @group.Items.Sum(t=>t.GainsToRoll)
-                            </td>
-                            <td>
-                                @previousBalance
-                            </td>
-                        </tr>
+                <tr>
+                    <td class="bold">Total</td>
+                    <td>
+                        @group.Items.Sum(t => t.CurrRcpts)
+                        @{ grantTotalCurrRcpts.Add(group.Items.Sum(t => t.CurrRcpts));}
+                    </td>
+                    <td>
+                        @group.Items.Sum(t => t.StatePercentage)
+                        @{ grantTotalStatePercentage.Add(group.Items.Sum(t => t.StatePercentage));}
+                    </td>
+                    <td>
+                        @group.Items.Sum(t => t.Penalities)
+                        @{ grantTotalPenalities.Add(group.Items.Sum(t => t.Penalities));}
+                    </td>
+                    <td>
+                        @group.Items.Sum(t => t.RefundsNsf)
+                        @{ grantTotalRefundsNsf.Add(group.Items.Sum(t => t.RefundsNsf));}
+                    </td>
+                    <td>
+                        @group.Items.Sum(t => t.NetRcpts)
+                        @{ grantTotalNetRcpts.Add(group.Items.Sum(t => t.NetRcpts));}
+                    </td>
+                    <td>
+                        @group.Items.Sum(t => t.C12PercentageInterest)
+                        @{ grantTotalC12PercentageInterest.Add(group.Items.Sum(t => t.C12PercentageInterest));}
+                    </td>
+                    <td>
+                        @group.Items.Sum(t => t.C16PercentageInterest)
+                        @{ grantTotalC16PercentageInterest.Add(group.Items.Sum(t => t.C16PercentageInterest));}
+                    </td>
+                    <td>
+                        @group.Items.Sum(t => t.Discount)
+                        @{ grantTotalDiscount.Add(group.Items.Sum(t => t.Discount));}
+                    </td>
+                    <td>
+                        @group.Items.Sum(t => t.NetTaxCr)
+                        @{ grantTotalNetTaxCr.Add(group.Items.Sum(t => t.NetTaxCr));}
+                    </td>
+                    <td>
+                        @group.Items.Sum(t => t.LossesToRoll)
+                        @{ grantTotalLossesToRoll.Add(group.Items.Sum(t => t.LossesToRoll));}
+                    </td>
+                    <td>
+                        @group.Items.Sum(t => t.GainsToRoll)
+                        @{ grantTotalGainsToRoll.Add(group.Items.Sum(t => t.GainsToRoll));}
+                    </td>
+                    <td>
+                        @previousBalance
+                        @{ balanceForward.Add(previousBalance);}
+                    </td>
+                </tr>
             }
             else
             {
                 <tr>
                     <td class="bold">Total</td>
                     <td>
-                        
+                        @group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.CurrRcpts)
+                        @{ grantTotalCurrRcpts.Add(group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.CurrRcpts));}
                     </td>
                     <td>
-                        
+                        @group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.StatePercentage)
+                        @{ grantTotalStatePercentage.Add(group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.StatePercentage));}
                     </td>
                     <td>
-                        
+                        @group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.Penalities)
+                        @{ grantTotalPenalities.Add(group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.Penalities));}
                     </td>
                     <td>
-                        
+                        @group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.RefundsNsf)
+                        @{ grantTotalRefundsNsf.Add(group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.RefundsNsf));}
                     </td>
                     <td>
-                        
+                        @group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.NetRcpts)
+                        @{ grantTotalNetRcpts.Add(group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.NetRcpts));}
                     </td>
                     <td>
-                        
+                        @group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.C12PercentageInterest)
+                        @{ grantTotalC12PercentageInterest.Add(group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.C12PercentageInterest));}
                     </td>
                     <td>
-                        
+                        @group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.C16PercentageInterest)
+                        @{ grantTotalC16PercentageInterest.Add(group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.C16PercentageInterest));}
                     </td>
                     <td>
-                        
+                        @group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.Discount)
+                        @{ grantTotalDiscount.Add(group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.Discount));}
                     </td>
                     <td>
-                        
+                        @group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.NetTaxCr)
+                        @{ grantTotalNetTaxCr.Add(group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.NetTaxCr));}
                     </td>
                     <td>
-                       
+                        @group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.LossesToRoll)
+                        @{ grantTotalLossesToRoll.Add(group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.LossesToRoll));}
                     </td>
                     <td>
+                        @group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.GainsToRoll)
+                        @{ grantTotalGainsToRoll.Add(group.Items.Where(t => t.EntryDate >= t.EntryDateFrom && t.EntryDate <= t.EntryDateTo).Sum(t => t.GainsToRoll));}
                     </td>
                     <td>
-                        @lastBalance
+                        @if(lastBalance != 0)
+                        {
+                            @Html.DisplayFor(t => lastBalance)
+                            balanceForward.Add(lastBalance);
+                        }
+                        else
+                        {
+                            @previousBalance
+                            balanceForward.Add(previousBalance);
+                        }
                     </td>
                 </tr>
             }
@@ -260,40 +309,41 @@
         <tr>
             <td class="bold">Total</td>
             <td>
-                @Model.Sum(group => group.Items.Sum(item => item.CurrRcpts))
+                @grantTotalCurrRcpts.Sum(t=>t)
             </td>
             <td>
-                @Model.Sum(group => group.Items.Sum(item => item.StatePercentage))
+                @grantTotalStatePercentage.Sum(t=>t)
             </td>
             <td>
-                @Model.Sum(group => group.Items.Sum(item => item.Penalities))
+                @grantTotalPenalities.Sum(t=>t)
             </td>
             <td>
-                @Model.Sum(group => group.Items.Sum(item => item.RefundsNsf))
+                @grantTotalRefundsNsf.Sum(t=>t)
             </td>
             <td>
-                @Model.Sum(group => group.Items.Sum(item => item.NetRcpts))
+                @grantTotalNetRcpts.Sum(t=>t)
             </td>
             <td>
-                @Model.Sum(group => group.Items.Sum(item => item.C12PercentageInterest))
+                @grantTotalC12PercentageInterest.Sum(t=>t)
             </td>
             <td>
-                @Model.Sum(group => group.Items.Sum(item => item.C16PercentageInterest))
+                @grantTotalC16PercentageInterest.Sum(t=>t)
             </td>
             <td>
-                @Model.Sum(group => group.Items.Sum(item => item.Discount))
+                @grantTotalDiscount.Sum(t=>t)
             </td>
             <td>
-                @Model.Sum(group => group.Items.Sum(item => item.NetTaxCr))
+                @grantTotalNetTaxCr.Sum(t=>t)
             </td>
             <td>
-                @Model.Sum(group => group.Items.Sum(item => item.LossesToRoll))
+                @grantTotalLossesToRoll.Sum(t=>t)
             </td>
             <td>
-                @Model.Sum(group => group.Items.Sum(item => item.GainsToRoll))
+                @grantTotalGainsToRoll.Sum(t => t)
             </td>
             <td>
-                @Model.Sum(group => group.Items.LastOrDefault().BalanceForward)
+                @balanceForward.Sum(t => t)
+                
             </td>
         </tr>
     </table>
