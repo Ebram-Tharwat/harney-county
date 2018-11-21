@@ -172,8 +172,11 @@ namespace HarneyCounty.Application.Core.Services
                 , filter.EntryDateFrom, filter.EntryDateTo).OrderBy(t=>t.DailyMaster.EntryDate).ToList();
 
             var dailyDetailReportItems = Mapper.Map<List<AuditDailyDetail>, List<DailyDetailReportItemViewModel>>(dailyDetailData);
+            
 
-            var beginningBalances = _fiscalYearBeginningBalanceRepository.GetAll(filter.FiscalYearId, dailyDetailData.Select(t => t.TaxYear).ToList());
+            //var beginningBalances = _fiscalYearBeginningBalanceRepository.GetAll(filter.FiscalYearId, dailyDetailData.Select(t => t.TaxYear).ToList());
+            var beginningBalances = _fiscalYearBeginningBalanceRepository.GetAll(filter.FiscalYearId);
+            var yearsWithNoActiveDailyReports = beginningBalances.Where(t => !dailyDetailReportItems.Select(m => m.TaxYear).ToList().Contains((int)t.Year)).Select(t=>new { t.Year ,t.YtdBalance,t.BeginningBalance}).Distinct();
             foreach (var item in dailyDetailReportItems)
             {
                 if (beginningBalances.Any(t => t.Year == item.TaxYear))
@@ -185,6 +188,17 @@ namespace HarneyCounty.Application.Core.Services
                         item.EntryDateFrom = filter.EntryDateFrom;
                     }
                 }
+               
+            }
+            foreach (var item in yearsWithNoActiveDailyReports)
+            {
+                dailyDetailReportItems.Add(new DailyDetailReportItemViewModel
+                {
+                    TaxYear = (int)item.Year,
+                    BalanceForward = item.YtdBalance == null?item.BeginningBalance:item.YtdBalance.GetValueOrDefault(),
+                    BeginningBalance = item.YtdBalance == null ? item.BeginningBalance : item.YtdBalance.GetValueOrDefault(),
+                    EntryDateTo = DateTime.Now.AddYears(-100)
+                });
             }
 
             dailyDetailReportItems.OrderBy(t=>t.TaxYear).GroupBy(t => t.TaxYear).ToList().ForEach(group =>
